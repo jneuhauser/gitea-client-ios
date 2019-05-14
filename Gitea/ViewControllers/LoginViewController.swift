@@ -14,6 +14,15 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var userTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
+    public static func showLoginIfNotAuthenticated(from vc: UIViewController) {
+        if !Authentication.shared.isUserAuthenticated() {
+            // Show login screen modally
+            if let loginViewController = vc.storyboard?.instantiateViewController(withIdentifier: "LoginViewController") as? LoginViewController {
+                vc.present(loginViewController, animated: true)
+            }
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
