@@ -21,6 +21,17 @@ class ReposTableViewController: UITableViewController {
         
         self.navigationController?.navigationBar.topItem?.title = "Repositories"
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        if !Authentication.shared.isUserAuthenticated() {
+            // Show login screen modally
+            if let loginViewController = storyboard?.instantiateViewController(withIdentifier: "LoginViewController") as? LoginViewController {
+                present(loginViewController, animated: true)
+            }
+        }
+    }
 
     // MARK: - Table view data source
 

@@ -49,7 +49,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func loginButtonPressed(_ sender: UIButton) {
-        print("login buton pressed")
+        print("login button pressed")
+        // TODO: Set this here manually to prevent login screen did appear in a loop
+        Authentication.shared.userIsAuthetnicated = true
+        presentingViewController?.dismiss(animated: true)
     }
     
 }

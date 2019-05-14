@@ -17,6 +17,7 @@
 		1E6EB26F228A04E4005BA94E /* ReleasesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E6EB26E228A04E4005BA94E /* ReleasesTableViewController.swift */; };
 		1E6EB272228A886F005BA94E /* CodeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E6EB271228A886F005BA94E /* CodeTableViewController.swift */; };
 		1E6EB274228AE837005BA94E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E6EB273228AE837005BA94E /* LoginViewController.swift */; };
+		1E6EB278228B03B7005BA94E /* Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E6EB277228B03B7005BA94E /* Authentication.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		1E6EB26E228A04E4005BA94E /* ReleasesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReleasesTableViewController.swift; sourceTree = "<group>"; };
 		1E6EB271228A886F005BA94E /* CodeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeTableViewController.swift; sourceTree = "<group>"; };
 		1E6EB273228AE837005BA94E /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		1E6EB277228B03B7005BA94E /* Authentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authentication.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,12 +66,14 @@
 		1E6EB24F2289FDC3005BA94E /* Gitea */ = {
 			isa = PBXGroup;
 			children = (
-				1E6EB270228A04F0005BA94E /* ViewControllers */,
 				1E6EB2502289FDC3005BA94E /* AppDelegate.swift */,
 				1E6EB2592289FDC4005BA94E /* Assets.xcassets */,
 				1E6EB25E2289FDC4005BA94E /* Info.plist */,
 				1E6EB25B2289FDC4005BA94E /* LaunchScreen.storyboard */,
 				1E6EB2562289FDC3005BA94E /* Main.storyboard */,
+				1E6EB276228B038F005BA94E /* Model */,
+				1E6EB275228B0377005BA94E /* Networking */,
+				1E6EB270228A04F0005BA94E /* ViewControllers */,
 			);
 			path = Gitea;
 			sourceTree = "<group>";
@@ -85,6 +89,21 @@
 				1E6EB273228AE837005BA94E /* LoginViewController.swift */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		1E6EB275228B0377005BA94E /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				1E6EB277228B03B7005BA94E /* Authentication.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		1E6EB276228B038F005BA94E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -165,6 +184,7 @@
 				1E6EB2512289FDC3005BA94E /* AppDelegate.swift in Sources */,
 				1E6EB272228A886F005BA94E /* CodeTableViewController.swift in Sources */,
 				1E6EB269228A048F005BA94E /* ReposTableViewController.swift in Sources */,
+				1E6EB278228B03B7005BA94E /* Authentication.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
