@@ -179,7 +179,7 @@
         <scene sceneID="0w3-19-jLv">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="TQe-cz-Fxo" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Repos" id="CYj-wD-DtD"/>
+                    <tabBarItem key="tabBarItem" title="Repos" image="repo" id="CYj-wD-DtD"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="DzY-v3-zwg">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -198,7 +198,7 @@
         <scene sceneID="m6u-wl-Gmm">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="tMO-vO-PbR" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Code" id="kuB-tt-sR4"/>
+                    <tabBarItem key="tabBarItem" title="Code" image="code" id="kuB-tt-sR4"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="otl-5R-XIw">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -217,7 +217,7 @@
         <scene sceneID="09c-7F-Fzn">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="xte-qa-t3o" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Issues" id="IwY-7v-hvt"/>
+                    <tabBarItem key="tabBarItem" title="Issues" image="issue-opened" id="IwY-7v-hvt"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="WM4-sC-d0Y">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -236,7 +236,7 @@
         <scene sceneID="NHe-ma-ZAp">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="LaN-QG-n9v" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Pull Requests" id="9K4-3Q-efI"/>
+                    <tabBarItem key="tabBarItem" title="Pull Requests" image="git-pull-request" id="9K4-3Q-efI"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="yGJ-ao-CoB">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -255,7 +255,7 @@
         <scene sceneID="28v-Jl-10z">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Gge-4Y-tGL" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Releases" id="ara-cL-mCD"/>
+                    <tabBarItem key="tabBarItem" title="Releases" image="tag" id="ara-cL-mCD"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="725-Ze-Jbw">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -271,4 +271,11 @@
             <point key="canvasLocation" x="-133.33333333333334" y="1978.7946428571427"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="code" width="14" height="16"/>
+        <image name="git-pull-request" width="12" height="16"/>
+        <image name="issue-opened" width="14" height="16"/>
+        <image name="repo" width="12" height="16"/>
+        <image name="tag" width="14" height="16"/>
+    </resources>
 </document>

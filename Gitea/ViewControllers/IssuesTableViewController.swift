@@ -18,6 +18,8 @@ class IssuesTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        
+        self.navigationController?.navigationBar.topItem?.title = "Issues"
     }
 
     // MARK: - Table view data source
