@@ -18,6 +18,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         
         serverTextField.delegate = self
+        userTextField.delegate = self
+        passwordTextField.delegate = self
 
         // Do any additional setup after loading the view.
     }
@@ -35,16 +37,45 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         switch textField {
+//        case serverTextField:
+//            // If we have the server text field and the result is nil the regex didn´t match and the input is not allowed
+//            if string.range(of: "^(https:\\/\\/)[a-z0-9]+([\\-\\.]{1}[a-z0-9]+)*\\.[a-z]{2,5}(:[0-9]{1,5})?(\\/.*)?$", options: .regularExpression) == nil {
+//                return false
+//            }
+        default:
+            debugPrint("LoginViewController.textField(): Triggered by unhandled UITextField")
+        }
+        
+        return true
+    }
+    
+    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
+        guard let text = textField.text else {
+            debugPrint("LoginViewController.textFieldShouldEndEditing(): String is nil")
+            debugPrint(textField)
+            // Allow that no text string is set
+            return true
+        }
+        
+        switch textField {
         case serverTextField:
-            // If we have the server text field and the result is nil the regex didn´t match and the input is not allowed
-            if string.range(of: "^(https:\\/\\/)[a-z0-9]+([\\-\\.]{1}[a-z0-9]+)*\\.[a-z]{2,5}(:[0-9]{1,5})?(\\/.*)?$", options: .regularExpression) == nil {
+            if text.range(of: "^(https:\\/\\/)[a-z0-9]+([\\-\\.]{1}[a-z0-9]+)*\\.[a-z]{2,5}(:[0-9]{1,5})?(\\/.*)?$", options: .regularExpression) == nil {
+                // TODO: Raise a notification that input is not sufficient
+                return false
+            }
+        case userTextField:
+            if text.count <= 2 {
+                // TODO: Raise a notification that input is not sufficient
+                return false
+            }
+        case passwordTextField:
+            if text.count <= 6 {
+                // TODO: Raise a notification that input is not sufficient
                 return false
             }
         default:
-            debugPrint("LoginViewController.textField(): Triggered by unhandled UITextField")
-            break
+            debugPrint("LoginViewController.textFieldShouldEndEditing(): Triggered by unhandled UITextField")
         }
-        
         return true
     }
     
