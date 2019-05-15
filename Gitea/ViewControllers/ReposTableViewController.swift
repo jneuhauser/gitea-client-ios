@@ -25,7 +25,10 @@ class ReposTableViewController: UITableViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        LoginViewController.showLoginIfNotAuthenticated(from: self)
+        if let loginViewController = presentingViewController as? LoginViewController {
+            //loginViewController.dismiss(animated: true)
+            debugPrint("My presenting view controller identifier is: \(loginViewController.restorationIdentifier!)")
+        }
     }
 
     // MARK: - Table view data source
