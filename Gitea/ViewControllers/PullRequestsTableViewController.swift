@@ -21,6 +21,16 @@ class PullRequestsTableViewController: UITableViewController {
         
         self.navigationController?.navigationBar.topItem?.title = "Pull Requests"
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        if let loginViewController = presentingViewController as? LoginViewController {
+            // TODO: Setup logout button
+            //loginViewController.dismiss(animated: true)
+            debugPrint("My presenting view controller is: \(loginViewController)")
+        }
+    }
 
     // MARK: - Table view data source
 

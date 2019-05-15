@@ -26,8 +26,9 @@ class ReposTableViewController: UITableViewController {
         super.viewDidAppear(animated)
         
         if let loginViewController = presentingViewController as? LoginViewController {
+            // TODO: Setup logout button
             //loginViewController.dismiss(animated: true)
-            debugPrint("My presenting view controller identifier is: \(loginViewController.restorationIdentifier!)")
+            debugPrint("My presenting view controller is: \(loginViewController)")
         }
     }
 
