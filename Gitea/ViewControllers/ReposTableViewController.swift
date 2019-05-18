@@ -30,6 +30,15 @@ class ReposTableViewController: UITableViewController {
             //loginViewController.dismiss(animated: true)
             debugPrint("My presenting view controller is: \(loginViewController)")
         }
+        
+        // Example usage
+        Networking.shared.getRepositories(
+            onSuccess: { repos in
+                print(repos)
+        },
+            onFailure: { error in
+                print("getRepositories() failed with \(error)")
+        })
     }
 
     // MARK: - Table view data source

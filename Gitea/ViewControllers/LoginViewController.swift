@@ -28,6 +28,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         passwordTextField.delegate = self
 
         // Do any additional setup after loading the view.
+        serverTextField.text = "https://git.it-neuhauser.de"
+        userTextField.text = "devel"
+        passwordTextField.text = "DasIstEinTestUser"
     }
     
 
@@ -87,6 +90,13 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func loginButtonPressed(_ sender: UIButton) {
         print("login button pressed")
+        
+        if let server = serverTextField.text, let user = userTextField.text, let password = passwordTextField.text {
+            let auth = Authentication.shared
+            _ = auth.setServer(fromString: server)
+            auth.setAuthentication(withUser: user, andPassword: password)
+        }
+        
         // TODO: Do this only if login was successful
         showMainViewController()
     }

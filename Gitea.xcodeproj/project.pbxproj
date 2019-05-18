@@ -18,6 +18,12 @@
 		1E6EB272228A886F005BA94E /* CodeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E6EB271228A886F005BA94E /* CodeTableViewController.swift */; };
 		1E6EB274228AE837005BA94E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E6EB273228AE837005BA94E /* LoginViewController.swift */; };
 		1E6EB278228B03B7005BA94E /* Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E6EB277228B03B7005BA94E /* Authentication.swift */; };
+		1ECA4754228DACAB00887A03 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ECA4753228DACAB00887A03 /* Networking.swift */; };
+		1ECA4759228DB10E00887A03 /* Owner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ECA4755228DB10E00887A03 /* Owner.swift */; };
+		1ECA475A228DB10E00887A03 /* Permission.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ECA4756228DB10E00887A03 /* Permission.swift */; };
+		1ECA475B228DB10E00887A03 /* AccessToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ECA4757228DB10E00887A03 /* AccessToken.swift */; };
+		1ECA475C228DB10E00887A03 /* Repo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ECA4758228DB10E00887A03 /* Repo.swift */; };
+		1ECA475E228DF2EC00887A03 /* MyNetworkExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ECA475D228DF2EC00887A03 /* MyNetworkExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +40,12 @@
 		1E6EB271228A886F005BA94E /* CodeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeTableViewController.swift; sourceTree = "<group>"; };
 		1E6EB273228AE837005BA94E /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		1E6EB277228B03B7005BA94E /* Authentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authentication.swift; sourceTree = "<group>"; };
+		1ECA4753228DACAB00887A03 /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
+		1ECA4755228DB10E00887A03 /* Owner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Owner.swift; sourceTree = "<group>"; };
+		1ECA4756228DB10E00887A03 /* Permission.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Permission.swift; sourceTree = "<group>"; };
+		1ECA4757228DB10E00887A03 /* AccessToken.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccessToken.swift; sourceTree = "<group>"; };
+		1ECA4758228DB10E00887A03 /* Repo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Repo.swift; sourceTree = "<group>"; };
+		1ECA475D228DF2EC00887A03 /* MyNetworkExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyNetworkExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,7 +83,6 @@
 				1E6EB25E2289FDC4005BA94E /* Info.plist */,
 				1E6EB25B2289FDC4005BA94E /* LaunchScreen.storyboard */,
 				1E6EB2562289FDC3005BA94E /* Main.storyboard */,
-				1E6EB276228B038F005BA94E /* Model */,
 				1E6EB275228B0377005BA94E /* Networking */,
 				1E6EB270228A04F0005BA94E /* ViewControllers */,
 			);
@@ -94,7 +105,10 @@
 		1E6EB275228B0377005BA94E /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				1E6EB276228B038F005BA94E /* Model */,
 				1E6EB277228B03B7005BA94E /* Authentication.swift */,
+				1ECA4753228DACAB00887A03 /* Networking.swift */,
+				1ECA475D228DF2EC00887A03 /* MyNetworkExtensions.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -102,6 +116,10 @@
 		1E6EB276228B038F005BA94E /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				1ECA4757228DB10E00887A03 /* AccessToken.swift */,
+				1ECA4755228DB10E00887A03 /* Owner.swift */,
+				1ECA4756228DB10E00887A03 /* Permission.swift */,
+				1ECA4758228DB10E00887A03 /* Repo.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -178,13 +196,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				1E6EB274228AE837005BA94E /* LoginViewController.swift in Sources */,
+				1ECA475C228DB10E00887A03 /* Repo.swift in Sources */,
 				1E6EB26D228A04CF005BA94E /* PullRequestsTableViewController.swift in Sources */,
 				1E6EB26F228A04E4005BA94E /* ReleasesTableViewController.swift in Sources */,
+				1ECA4759228DB10E00887A03 /* Owner.swift in Sources */,
+				1ECA4754228DACAB00887A03 /* Networking.swift in Sources */,
 				1E6EB26B228A04B3005BA94E /* IssuesTableViewController.swift in Sources */,
 				1E6EB2512289FDC3005BA94E /* AppDelegate.swift in Sources */,
 				1E6EB272228A886F005BA94E /* CodeTableViewController.swift in Sources */,
 				1E6EB269228A048F005BA94E /* ReposTableViewController.swift in Sources */,
 				1E6EB278228B03B7005BA94E /* Authentication.swift in Sources */,
+				1ECA475A228DB10E00887A03 /* Permission.swift in Sources */,
+				1ECA475E228DF2EC00887A03 /* MyNetworkExtensions.swift in Sources */,
+				1ECA475B228DB10E00887A03 /* AccessToken.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
