@@ -32,6 +32,9 @@ class PullRequestsTableViewController: UITableViewController {
         }
     }
 
+    @IBAction func refreshAction(_ sender: UIRefreshControl) {
+    }
+    
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
