@@ -9,6 +9,8 @@
 import UIKit
 
 class ReposTableViewController: UITableViewController {
+    
+    private var repos = [Repo]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,6 +37,10 @@ class ReposTableViewController: UITableViewController {
         Networking.shared.getRepositories(
             onSuccess: { repos in
                 print(repos)
+                self.repos = repos
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
         },
             onFailure: { error in
                 print("getRepositories() failed with \(error)")
@@ -45,23 +51,31 @@ class ReposTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return repos.count
     }
 
-    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "RepoCell", for: indexPath)
 
-        // Configure the cell...
+        cell.textLabel?.text = repos[indexPath.row].fullName
+        
+        if let mirror = repos[indexPath.row].mirror, mirror {
+            cell.imageView?.image = UIImage(named: "repo-clone")
+        } else if let fork = repos[indexPath.row].fork, fork {
+            cell.imageView?.image = UIImage(named: "repo-forked")
+        } else if let priv = repos[indexPath.row].privateField, priv {
+            cell.imageView?.image = UIImage(named: "lock")
+        } else {
+            cell.imageView?.image = UIImage(named: "repo")
+        }
 
         return cell
     }
-    */
 
     /*
     // Override to support conditional editing of the table view.
