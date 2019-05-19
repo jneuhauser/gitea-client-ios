@@ -10,7 +10,7 @@ import UIKit
 
 class ReposTableViewController: UITableViewController {
     
-    private var repos = [Repo]()
+    private var repos: [Repo]?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,7 +33,13 @@ class ReposTableViewController: UITableViewController {
             debugPrint("My presenting view controller is: \(loginViewController)")
         }
         
-        // Example usage
+        // Load repos data only if not loaded before
+        if repos == nil {
+            loadReposAsync()
+        }
+    }
+    
+    private func loadReposAsync() {
         Networking.shared.getRepositories(
             onSuccess: { repos in
                 print(repos)
@@ -56,19 +62,23 @@ class ReposTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return repos.count
+        return repos?.count ?? 0
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "RepoCell", for: indexPath)
-
-        cell.textLabel?.text = repos[indexPath.row].fullName
         
-        if let mirror = repos[indexPath.row].mirror, mirror {
+        guard let repo = repos?[indexPath.row] else {
+            return cell
+        }
+
+        cell.textLabel?.text = repo.fullName
+        
+        if let mirror = repo.mirror, mirror {
             cell.imageView?.image = UIImage(named: "repo-clone")
-        } else if let fork = repos[indexPath.row].fork, fork {
+        } else if let fork = repo.fork, fork {
             cell.imageView?.image = UIImage(named: "repo-forked")
-        } else if let priv = repos[indexPath.row].privateField, priv {
+        } else if let priv = repo.privateField, priv {
             cell.imageView?.image = UIImage(named: "lock")
         } else {
             cell.imageView?.image = UIImage(named: "repo")
