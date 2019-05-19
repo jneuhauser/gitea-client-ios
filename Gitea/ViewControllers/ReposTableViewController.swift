@@ -46,6 +46,7 @@ class ReposTableViewController: UITableViewController {
                 self.repos = repos
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
+                    self.refreshControl?.endRefreshing()
                 }
         },
             onFailure: { error in
@@ -53,6 +54,10 @@ class ReposTableViewController: UITableViewController {
         })
     }
 
+    @IBAction func refreshAction(_ sender: UIRefreshControl) {
+        loadReposAsync()
+    }
+    
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
