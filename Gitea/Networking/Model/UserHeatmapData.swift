@@ -8,9 +8,9 @@ import Foundation
 public struct UserHeatmapData: Codable {
     
     public var contributions: Int64?
-    public var timestamp: TimeStamp?
+    public var timestamp: Int64?
     
-    public init(contributions: Int64?, timestamp: TimeStamp?) { 
+    public init(contributions: Int64?, timestamp: Int64?) { 
         self.contributions = contributions
         self.timestamp = timestamp
     }

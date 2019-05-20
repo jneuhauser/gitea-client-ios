@@ -1,9 +1,11 @@
 //
-//  Created by Johann Neuhauser on 16.05.19.
+//  Created by Johann Neuhauser on 20.05.19.
 //  Copyright © 2019 Johann Neuhauser. All rights reserved.
 //
 
 import Foundation
 
-public struct StateType: Codable {
+public enum StateType: String, Codable {
+    case open = "open"
+    case closed = "closed"
 }

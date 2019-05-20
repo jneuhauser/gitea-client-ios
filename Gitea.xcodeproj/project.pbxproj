@@ -25,7 +25,6 @@
 		1E3E78EB22930DD000B0FAA7 /* GitTreeResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E3E789D22930DCA00B0FAA7 /* GitTreeResponse.swift */; };
 		1E3E78EC22930DD000B0FAA7 /* CreatePullRequestOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E3E789E22930DCA00B0FAA7 /* CreatePullRequestOption.swift */; };
 		1E3E78ED22930DD000B0FAA7 /* PayloadUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E3E789F22930DCA00B0FAA7 /* PayloadUser.swift */; };
-		1E3E78EE22930DD000B0FAA7 /* TimeStamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E3E78A022930DCA00B0FAA7 /* TimeStamp.swift */; };
 		1E3E78EF22930DD000B0FAA7 /* EditDeadlineOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E3E78A122930DCA00B0FAA7 /* EditDeadlineOption.swift */; };
 		1E3E78F022930DD000B0FAA7 /* CreateForkOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E3E78A222930DCB00B0FAA7 /* CreateForkOption.swift */; };
 		1E3E78F122930DD000B0FAA7 /* CreateIssueCommentOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E3E78A322930DCB00B0FAA7 /* CreateIssueCommentOption.swift */; };
@@ -52,7 +51,6 @@
 		1E3E790622930DD000B0FAA7 /* SearchResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E3E78B822930DCC00B0FAA7 /* SearchResults.swift */; };
 		1E3E790722930DD000B0FAA7 /* CommitMeta.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E3E78B922930DCC00B0FAA7 /* CommitMeta.swift */; };
 		1E3E790822930DD000B0FAA7 /* PayloadCommit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E3E78BA22930DCC00B0FAA7 /* PayloadCommit.swift */; };
-		1E3E790922930DD000B0FAA7 /* StatusState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E3E78BB22930DCC00B0FAA7 /* StatusState.swift */; };
 		1E3E790A22930DD000B0FAA7 /* Hook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E3E78BC22930DCC00B0FAA7 /* Hook.swift */; };
 		1E3E790B22930DD000B0FAA7 /* Milestone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E3E78BD22930DCC00B0FAA7 /* Milestone.swift */; };
 		1E3E790C22930DD000B0FAA7 /* EditHookOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E3E78BE22930DCD00B0FAA7 /* EditHookOption.swift */; };
@@ -65,7 +63,6 @@
 		1E3E791322930DD000B0FAA7 /* MarkdownOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E3E78C522930DCD00B0FAA7 /* MarkdownOption.swift */; };
 		1E3E791422930DD000B0FAA7 /* MigrateRepoForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E3E78C622930DCD00B0FAA7 /* MigrateRepoForm.swift */; };
 		1E3E791522930DD000B0FAA7 /* CreateOrgOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E3E78C722930DCD00B0FAA7 /* CreateOrgOption.swift */; };
-		1E3E791622930DD000B0FAA7 /* StateType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E3E78C822930DCE00B0FAA7 /* StateType.swift */; };
 		1E3E791722930DD000B0FAA7 /* Attachment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E3E78C922930DCE00B0FAA7 /* Attachment.swift */; };
 		1E3E791822930DD000B0FAA7 /* DeployKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E3E78CA22930DCE00B0FAA7 /* DeployKey.swift */; };
 		1E3E791922930DD000B0FAA7 /* CreateUserOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E3E78CB22930DCE00B0FAA7 /* CreateUserOption.swift */; };
@@ -85,6 +82,8 @@
 		1E3E792722930DD000B0FAA7 /* EditAttachmentOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E3E78D922930DD000B0FAA7 /* EditAttachmentOptions.swift */; };
 		1E3E792822930DD000B0FAA7 /* CreateHookOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E3E78DA22930DD000B0FAA7 /* CreateHookOption.swift */; };
 		1E3E792922930DD000B0FAA7 /* TrackedTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E3E78DB22930DD000B0FAA7 /* TrackedTime.swift */; };
+		1E3E792D229327BC00B0FAA7 /* StatusState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E3E792C229327BC00B0FAA7 /* StatusState.swift */; };
+		1E3E792F2293288700B0FAA7 /* StateType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E3E792E2293288700B0FAA7 /* StateType.swift */; };
 		1E6EB2512289FDC3005BA94E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E6EB2502289FDC3005BA94E /* AppDelegate.swift */; };
 		1E6EB2582289FDC3005BA94E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1E6EB2562289FDC3005BA94E /* Main.storyboard */; };
 		1E6EB25A2289FDC4005BA94E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1E6EB2592289FDC4005BA94E /* Assets.xcassets */; };
@@ -119,7 +118,6 @@
 		1E3E789D22930DCA00B0FAA7 /* GitTreeResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GitTreeResponse.swift; sourceTree = "<group>"; };
 		1E3E789E22930DCA00B0FAA7 /* CreatePullRequestOption.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreatePullRequestOption.swift; sourceTree = "<group>"; };
 		1E3E789F22930DCA00B0FAA7 /* PayloadUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PayloadUser.swift; sourceTree = "<group>"; };
-		1E3E78A022930DCA00B0FAA7 /* TimeStamp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeStamp.swift; sourceTree = "<group>"; };
 		1E3E78A122930DCA00B0FAA7 /* EditDeadlineOption.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditDeadlineOption.swift; sourceTree = "<group>"; };
 		1E3E78A222930DCB00B0FAA7 /* CreateForkOption.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateForkOption.swift; sourceTree = "<group>"; };
 		1E3E78A322930DCB00B0FAA7 /* CreateIssueCommentOption.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateIssueCommentOption.swift; sourceTree = "<group>"; };
@@ -146,7 +144,6 @@
 		1E3E78B822930DCC00B0FAA7 /* SearchResults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResults.swift; sourceTree = "<group>"; };
 		1E3E78B922930DCC00B0FAA7 /* CommitMeta.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommitMeta.swift; sourceTree = "<group>"; };
 		1E3E78BA22930DCC00B0FAA7 /* PayloadCommit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PayloadCommit.swift; sourceTree = "<group>"; };
-		1E3E78BB22930DCC00B0FAA7 /* StatusState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusState.swift; sourceTree = "<group>"; };
 		1E3E78BC22930DCC00B0FAA7 /* Hook.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Hook.swift; sourceTree = "<group>"; };
 		1E3E78BD22930DCC00B0FAA7 /* Milestone.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Milestone.swift; sourceTree = "<group>"; };
 		1E3E78BE22930DCD00B0FAA7 /* EditHookOption.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditHookOption.swift; sourceTree = "<group>"; };
@@ -159,7 +156,6 @@
 		1E3E78C522930DCD00B0FAA7 /* MarkdownOption.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkdownOption.swift; sourceTree = "<group>"; };
 		1E3E78C622930DCD00B0FAA7 /* MigrateRepoForm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MigrateRepoForm.swift; sourceTree = "<group>"; };
 		1E3E78C722930DCD00B0FAA7 /* CreateOrgOption.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateOrgOption.swift; sourceTree = "<group>"; };
-		1E3E78C822930DCE00B0FAA7 /* StateType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StateType.swift; sourceTree = "<group>"; };
 		1E3E78C922930DCE00B0FAA7 /* Attachment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Attachment.swift; sourceTree = "<group>"; };
 		1E3E78CA22930DCE00B0FAA7 /* DeployKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeployKey.swift; sourceTree = "<group>"; };
 		1E3E78CB22930DCE00B0FAA7 /* CreateUserOption.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateUserOption.swift; sourceTree = "<group>"; };
@@ -179,6 +175,8 @@
 		1E3E78D922930DD000B0FAA7 /* EditAttachmentOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditAttachmentOptions.swift; sourceTree = "<group>"; };
 		1E3E78DA22930DD000B0FAA7 /* CreateHookOption.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateHookOption.swift; sourceTree = "<group>"; };
 		1E3E78DB22930DD000B0FAA7 /* TrackedTime.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackedTime.swift; sourceTree = "<group>"; };
+		1E3E792C229327BC00B0FAA7 /* StatusState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusState.swift; sourceTree = "<group>"; };
+		1E3E792E2293288700B0FAA7 /* StateType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateType.swift; sourceTree = "<group>"; };
 		1E6EB24D2289FDC3005BA94E /* Gitea.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gitea.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1E6EB2502289FDC3005BA94E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1E6EB2572289FDC3005BA94E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -332,12 +330,11 @@
 				1E3E78AD22930DCB00B0FAA7 /* Repository.swift */,
 				1E3E78B822930DCC00B0FAA7 /* SearchResults.swift */,
 				1E3E78A522930DCB00B0FAA7 /* ServerVersion.swift */,
-				1E3E78C822930DCE00B0FAA7 /* StateType.swift */,
+				1E3E792E2293288700B0FAA7 /* StateType.swift */,
 				1E3E78B522930DCC00B0FAA7 /* Status.swift */,
-				1E3E78BB22930DCC00B0FAA7 /* StatusState.swift */,
+				1E3E792C229327BC00B0FAA7 /* StatusState.swift */,
 				1E3E78D022930DCF00B0FAA7 /* Tag.swift */,
 				1E3E789022930DCA00B0FAA7 /* Team.swift */,
-				1E3E78A022930DCA00B0FAA7 /* TimeStamp.swift */,
 				1E3E78DB22930DD000B0FAA7 /* TrackedTime.swift */,
 				1E3E78CE22930DCF00B0FAA7 /* User.swift */,
 				1E3E78AE22930DCB00B0FAA7 /* UserHeatmapData.swift */,
@@ -436,6 +433,7 @@
 				1E6EB26D228A04CF005BA94E /* PullRequestsTableViewController.swift in Sources */,
 				1E3E790F22930DD000B0FAA7 /* AddTimeOption.swift in Sources */,
 				1E3E791E22930DD000B0FAA7 /* Tag.swift in Sources */,
+				1E3E792D229327BC00B0FAA7 /* StatusState.swift in Sources */,
 				1E3E78DF22930DD000B0FAA7 /* Commit.swift in Sources */,
 				1E3E790422930DD000B0FAA7 /* CreateTeamOption.swift in Sources */,
 				1E3E78DE22930DD000B0FAA7 /* Team.swift in Sources */,
@@ -455,6 +453,7 @@
 				1E3E78F522930DD000B0FAA7 /* IssueLabelsOption.swift in Sources */,
 				1E3E791A22930DD000B0FAA7 /* RepoCommit.swift in Sources */,
 				1E3E78F322930DD000B0FAA7 /* ServerVersion.swift in Sources */,
+				1E3E792F2293288700B0FAA7 /* StateType.swift in Sources */,
 				1E3E78E122930DD000B0FAA7 /* CreateGPGKeyOption.swift in Sources */,
 				1E3E792522930DD000B0FAA7 /* EditReleaseOption.swift in Sources */,
 				1E3E78FA22930DD000B0FAA7 /* MergePullRequestOption.swift in Sources */,
@@ -465,7 +464,6 @@
 				1E6EB26B228A04B3005BA94E /* IssuesTableViewController.swift in Sources */,
 				1E3E792122930DD000B0FAA7 /* AddCollaboratorOption.swift in Sources */,
 				1E3E790A22930DD000B0FAA7 /* Hook.swift in Sources */,
-				1E3E791622930DD000B0FAA7 /* StateType.swift in Sources */,
 				1E3E792922930DD000B0FAA7 /* TrackedTime.swift in Sources */,
 				1E3E78ED22930DD000B0FAA7 /* PayloadUser.swift in Sources */,
 				1E3E78FD22930DD000B0FAA7 /* PublicKey.swift in Sources */,
@@ -487,13 +485,11 @@
 				1E3E790522930DD000B0FAA7 /* CreateKeyOption.swift in Sources */,
 				1E3E78F822930DD000B0FAA7 /* Issue.swift in Sources */,
 				1E6EB272228A886F005BA94E /* CodeTableViewController.swift in Sources */,
-				1E3E78EE22930DD000B0FAA7 /* TimeStamp.swift in Sources */,
 				1E3E78E222930DD000B0FAA7 /* Email.swift in Sources */,
 				1E3E78FB22930DD000B0FAA7 /* Repository.swift in Sources */,
 				1E3E78F222930DD000B0FAA7 /* EditLabelOption.swift in Sources */,
 				1E3E78DC22930DD000B0FAA7 /* CreateRepoOption.swift in Sources */,
 				1E6EB269228A048F005BA94E /* ReposTableViewController.swift in Sources */,
-				1E3E790922930DD000B0FAA7 /* StatusState.swift in Sources */,
 				1E3E792722930DD000B0FAA7 /* EditAttachmentOptions.swift in Sources */,
 				1E3E790122930DD000B0FAA7 /* Comment.swift in Sources */,
 				1E3E791722930DD000B0FAA7 /* Attachment.swift in Sources */,

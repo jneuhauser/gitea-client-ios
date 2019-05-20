@@ -15,14 +15,24 @@ public struct Team: Codable {
         case owner = "owner"
     }
     
+    public enum Units: String, Codable {
+        case repoCode = "repo.code"
+        case repoIssues = "repo.issues"
+        case repoExtIssues = "repo.ext_issues"
+        case repoWiki = "repo.wiki"
+        case repoPulls = "repo.pulls"
+        case repoReleases = "repo.releases"
+        case repoExtWiki = "repo.ext_wiki"
+    }
+    
     public var _description: String?
     public var _id: Int64?
     public var name: String?
     public var organization: Organization?
     public var permission: Permission?
-    public var units: [String]?
+    public var units: [Units]?
     
-    public init(_description: String?, _id: Int64?, name: String?, organization: Organization?, permission: Permission?, units: [String]?) { 
+    public init(_description: String?, _id: Int64?, name: String?, organization: Organization?, permission: Permission?, units: [Units]?) { 
         self._description = _description
         self._id = _id
         self.name = name
