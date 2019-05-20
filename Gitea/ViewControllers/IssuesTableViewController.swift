@@ -9,6 +9,8 @@
 import UIKit
 
 class IssuesTableViewController: UITableViewController {
+    
+    private var issues: [Issue]?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,9 +32,32 @@ class IssuesTableViewController: UITableViewController {
             //loginViewController.dismiss(animated: true)
             debugPrint("My presenting view controller is: \(loginViewController)")
         }
+        
+        // Load issues data only if not loaded before
+        if issues == nil {
+            loadIssuesAsync()
+        }
+    }
+    
+    private func loadIssuesAsync() {
+        // TODO: Load the isses of the selected repo
+        Networking.shared.getIssues(fromOwner: "devel", andRepo: "test1-cpp", withState: nil, withLabels: nil, pageNumber: nil, searchString: nil) { result in
+            switch result {
+            case .success(let issues):
+                debugPrint(issues)
+                self.issues = issues
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                    self.refreshControl?.endRefreshing()
+                }
+            case .failure(let error):
+                debugPrint("getIssues() failed with \(error)")
+            }
+        }
     }
 
     @IBAction func refreshAction(_ sender: UIRefreshControl) {
+        loadIssuesAsync()
     }
     
     // MARK: - Table view data source

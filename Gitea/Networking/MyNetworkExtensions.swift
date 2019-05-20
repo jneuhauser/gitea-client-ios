@@ -24,7 +24,7 @@ extension URLSession {
     }
     
     static func jsonRequest<Request: Encodable, Response: Decodable>(
-        _ type: Response.Type,
+        forResponseType type: Response.Type,
         withRequest request: URLRequest,
         withMethod method: HTTPMethod,
         withBody body: Request,
@@ -42,11 +42,11 @@ extension URLSession {
             request.httpBody = jsonData
         }
         
-        return jsonRequest(type, withRequest: request, withMethod: method, completionHandler: handler)
+        return jsonRequest(forResponseType: type, withRequest: request, withMethod: method, completionHandler: handler)
     }
     
     static func jsonRequest<Response: Decodable>(
-        _ type: Response.Type,
+        forResponseType type: Response.Type,
         withRequest request: URLRequest,
         withMethod method: HTTPMethod,
         completionHandler handler: @escaping (Result<Response, Error>) -> Void

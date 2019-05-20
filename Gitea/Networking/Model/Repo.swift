@@ -6,7 +6,6 @@
 //  Copyright © 2019 Johann Neuhauser. All rights reserved.
 //
 // Example:
-// [
 //    {
 //        "archived": true,
 //        "clone_url": "string",
@@ -44,7 +43,6 @@
 //        "watchers_count": 0,
 //        "website": "string"
 //    }
-// ]
 
 import Foundation
 
@@ -64,7 +62,7 @@ struct Repo : Codable {
         let mirror : Bool?
         let name : String?
         let openIssuesCount : Int?
-        let owner : Owner?
+        let owner : User?
         let permissions : Permission?
         let privateField : Bool?
         let size : Int?
@@ -116,7 +114,7 @@ struct Repo : Codable {
                 mirror = try values.decodeIfPresent(Bool.self, forKey: .mirror)
                 name = try values.decodeIfPresent(String.self, forKey: .name)
                 openIssuesCount = try values.decodeIfPresent(Int.self, forKey: .openIssuesCount)
-                owner = try Owner(from: decoder)
+                owner = try User(from: decoder)
                 permissions = try Permission(from: decoder)
                 privateField = try values.decodeIfPresent(Bool.self, forKey: .privateField)
                 size = try values.decodeIfPresent(Int.self, forKey: .size)

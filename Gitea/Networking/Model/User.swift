@@ -1,5 +1,5 @@
 //
-//  Owner.swift
+//  User.swift
 //  Gitea Client
 //
 //  Created by Johann Neuhauser on 13.05.19.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Owner : Codable {
+struct User : Codable {
 
         let avatarUrl : String?
         let email : String?
