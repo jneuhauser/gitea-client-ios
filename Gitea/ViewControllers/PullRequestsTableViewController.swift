@@ -81,17 +81,10 @@ class PullRequestsTableViewController: UITableViewController {
         
         cell.textLabel?.text = pullRequest.title
         
-        if let state = pullRequest.state {
-            switch state {
-            case .open:
-                cell.imageView?.image = UIImage(named: "git-pull-request")
-            case .closed:
-                if let merged = pullRequest.merged, merged {
-                    cell.imageView?.image = UIImage(named: "git-merged")
-                } else {
-                    cell.imageView?.image = UIImage(named: "git-pull-request")
-                }
-            }
+        if let state = pullRequest.state, state == .closed,
+            let merged = pullRequest.merged, merged
+        {
+            cell.imageView?.image = UIImage(named: "git-merge")
         } else {
             cell.imageView?.image = UIImage(named: "git-pull-request")
         }
