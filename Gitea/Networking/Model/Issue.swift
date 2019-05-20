@@ -1,72 +1,67 @@
 //
-//  Issue.swift
-//  Gitea Client
-//
-//  Created by Johann Neuhauser on 13.05.19.
+//  Created by Johann Neuhauser on 16.05.19.
 //  Copyright © 2019 Johann Neuhauser. All rights reserved.
 //
 
 import Foundation
 
-struct Issue : Codable {
-
-        let assignee : User?
-        let assignees : [User]?
-        let body : String?
-        let closedAt : String?
-        let comments : Int?
-        let createdAt : String?
-        let dueDate : String?
-        let id : Int?
-        let labels : [Label]?
-        let milestone : Milestone?
-        let number : Int?
-        let pullRequest : PullRequestMeta?
-        let state : String?
-        let title : String?
-        let updatedAt : String?
-        let url : String?
-        let user : User?
-
-        enum CodingKeys: String, CodingKey {
-                case assignee = "assignee"
-                case assignees = "assignees"
-                case body = "body"
-                case closedAt = "closed_at"
-                case comments = "comments"
-                case createdAt = "created_at"
-                case dueDate = "due_date"
-                case id = "id"
-                case labels = "labels"
-                case milestone = "milestone"
-                case number = "number"
-                case pullRequest = "pull_request"
-                case state = "state"
-                case title = "title"
-                case updatedAt = "updated_at"
-                case url = "url"
-                case user = "user"
-        }
+public struct Issue: Codable {
     
-        init(from decoder: Decoder) throws {
-                let values = try decoder.container(keyedBy: CodingKeys.self)
-                assignee = try User(from: decoder)
-                assignees = try values.decodeIfPresent([User].self, forKey: .assignees)
-                body = try values.decodeIfPresent(String.self, forKey: .body)
-                closedAt = try values.decodeIfPresent(String.self, forKey: .closedAt)
-                comments = try values.decodeIfPresent(Int.self, forKey: .comments)
-                createdAt = try values.decodeIfPresent(String.self, forKey: .createdAt)
-                dueDate = try values.decodeIfPresent(String.self, forKey: .dueDate)
-                id = try values.decodeIfPresent(Int.self, forKey: .id)
-                labels = try values.decodeIfPresent([Label].self, forKey: .labels)
-                milestone = try Milestone(from: decoder)
-                number = try values.decodeIfPresent(Int.self, forKey: .number)
-                pullRequest = try PullRequestMeta(from: decoder)
-                state = try values.decodeIfPresent(String.self, forKey: .state)
-                title = try values.decodeIfPresent(String.self, forKey: .title)
-                updatedAt = try values.decodeIfPresent(String.self, forKey: .updatedAt)
-                url = try values.decodeIfPresent(String.self, forKey: .url)
-                user = try User(from: decoder)
-        }
-
+    public var assignee: User?
+    public var assignees: [User]?
+    public var body: String?
+    public var closedAt: Date?
+    public var comments: Int64?
+    public var createdAt: Date?
+    public var dueDate: Date?
+    public var _id: Int64?
+    public var labels: [Label]?
+    public var milestone: Milestone?
+    public var number: Int64?
+    public var pullRequest: PullRequestMeta?
+    public var state: StateType?
+    public var title: String?
+    public var updatedAt: Date?
+    public var url: String?
+    public var user: User?
+    
+    public init(assignee: User?, assignees: [User]?, body: String?, closedAt: Date?, comments: Int64?, createdAt: Date?, dueDate: Date?, _id: Int64?, labels: [Label]?, milestone: Milestone?, number: Int64?, pullRequest: PullRequestMeta?, state: StateType?, title: String?, updatedAt: Date?, url: String?, user: User?) { 
+        self.assignee = assignee
+        self.assignees = assignees
+        self.body = body
+        self.closedAt = closedAt
+        self.comments = comments
+        self.createdAt = createdAt
+        self.dueDate = dueDate
+        self._id = _id
+        self.labels = labels
+        self.milestone = milestone
+        self.number = number
+        self.pullRequest = pullRequest
+        self.state = state
+        self.title = title
+        self.updatedAt = updatedAt
+        self.url = url
+        self.user = user
+    }
+    
+    public enum CodingKeys: String, CodingKey { 
+        case assignee
+        case assignees
+        case body
+        case closedAt = "closed_at"
+        case comments
+        case createdAt = "created_at"
+        case dueDate = "due_date"
+        case _id = "id"
+        case labels
+        case milestone
+        case number
+        case pullRequest = "pull_request"
+        case state
+        case title
+        case updatedAt = "updated_at"
+        case url
+        case user
+    }
 }

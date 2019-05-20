@@ -29,7 +29,7 @@ class Networking {
         return string
     }
     
-    public func getRepositories(completionHandler: @escaping (Result<[Repo],Error>) -> Void) {
+    public func getRepositories(completionHandler: @escaping (Result<[Repository],Error>) -> Void) {
         let apiPath = "/api/v1/user/repos"
         
         guard let request = Authentication.shared.constructURLRequest(withPath: apiPath) else {
@@ -37,7 +37,7 @@ class Networking {
             return
         }
         
-        let task = URLSession.jsonRequest(forResponseType: [Repo].self, withRequest: request, withMethod: .get, completionHandler: completionHandler)
+        let task = URLSession.jsonRequest(forResponseType: [Repository].self, withRequest: request, withMethod: .get, completionHandler: completionHandler)
         task.resume()
     }
     

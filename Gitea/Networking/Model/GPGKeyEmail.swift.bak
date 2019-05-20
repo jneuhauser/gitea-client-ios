@@ -1,0 +1,9 @@
+import Foundation
+public struct GPGKeyEmail: Codable {
+    public var email: String?
+    public var verified: Bool?
+    public init(email: String?, verified: Bool?) { 
+        self.email = email
+        self.verified = verified
+    }
+}

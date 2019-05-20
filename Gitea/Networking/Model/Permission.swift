@@ -1,30 +1,19 @@
 //
-//  Permission.swift
-//  Gitea Client
-//
-//  Created by Johann Neuhauser on 13.05.19.
+//  Created by Johann Neuhauser on 16.05.19.
 //  Copyright © 2019 Johann Neuhauser. All rights reserved.
 //
 
 import Foundation
 
-struct Permission : Codable {
-
-        let admin : Bool?
-        let pull : Bool?
-        let push : Bool?
-
-        enum CodingKeys: String, CodingKey {
-                case admin = "admin"
-                case pull = "pull"
-                case push = "push"
-        }
+public struct Permission: Codable {
     
-        init(from decoder: Decoder) throws {
-                let values = try decoder.container(keyedBy: CodingKeys.self)
-                admin = try values.decodeIfPresent(Bool.self, forKey: .admin)
-                pull = try values.decodeIfPresent(Bool.self, forKey: .pull)
-                push = try values.decodeIfPresent(Bool.self, forKey: .push)
-        }
-
+    public var admin: Bool?
+    public var pull: Bool?
+    public var push: Bool?
+    
+    public init(admin: Bool?, pull: Bool?, push: Bool?) { 
+        self.admin = admin
+        self.pull = pull
+        self.push = push
+    }
 }

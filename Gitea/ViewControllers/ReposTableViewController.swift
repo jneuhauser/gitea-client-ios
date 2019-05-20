@@ -10,7 +10,7 @@ import UIKit
 
 class ReposTableViewController: UITableViewController {
     
-    private var repos: [Repo]?
+    private var repos: [Repository]?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -84,7 +84,7 @@ class ReposTableViewController: UITableViewController {
             cell.imageView?.image = UIImage(named: "repo-clone")
         } else if let fork = repo.fork, fork {
             cell.imageView?.image = UIImage(named: "repo-forked")
-        } else if let priv = repo.privateField, priv {
+        } else if let _private = repo._private, _private {
             cell.imageView?.image = UIImage(named: "lock")
         } else {
             cell.imageView?.image = UIImage(named: "repo")

@@ -1,45 +1,40 @@
 //
-//  Milestone.swift
-//  Gitea Client
-//
-//  Created by Johann Neuhauser on 13.05.19.
+//  Created by Johann Neuhauser on 16.05.19.
 //  Copyright © 2019 Johann Neuhauser. All rights reserved.
 //
 
 import Foundation
 
-struct Milestone : Codable {
-
-        let closedAt : String?
-        let closedIssues : Int?
-        let descriptionField : String?
-        let dueOn : String?
-        let id : Int?
-        let openIssues : Int?
-        let state : String?
-        let title : String?
-
-        enum CodingKeys: String, CodingKey {
-                case closedAt = "closed_at"
-                case closedIssues = "closed_issues"
-                case descriptionField = "description"
-                case dueOn = "due_on"
-                case id = "id"
-                case openIssues = "open_issues"
-                case state = "state"
-                case title = "title"
-        }
+public struct Milestone: Codable {
     
-        init(from decoder: Decoder) throws {
-                let values = try decoder.container(keyedBy: CodingKeys.self)
-                closedAt = try values.decodeIfPresent(String.self, forKey: .closedAt)
-                closedIssues = try values.decodeIfPresent(Int.self, forKey: .closedIssues)
-                descriptionField = try values.decodeIfPresent(String.self, forKey: .descriptionField)
-                dueOn = try values.decodeIfPresent(String.self, forKey: .dueOn)
-                id = try values.decodeIfPresent(Int.self, forKey: .id)
-                openIssues = try values.decodeIfPresent(Int.self, forKey: .openIssues)
-                state = try values.decodeIfPresent(String.self, forKey: .state)
-                title = try values.decodeIfPresent(String.self, forKey: .title)
-        }
-
+    public var closedAt: Date?
+    public var closedIssues: Int64?
+    public var _description: String?
+    public var dueOn: Date?
+    public var _id: Int64?
+    public var openIssues: Int64?
+    public var state: StateType?
+    public var title: String?
+    
+    public init(closedAt: Date?, closedIssues: Int64?, _description: String?, dueOn: Date?, _id: Int64?, openIssues: Int64?, state: StateType?, title: String?) { 
+        self.closedAt = closedAt
+        self.closedIssues = closedIssues
+        self._description = _description
+        self.dueOn = dueOn
+        self._id = _id
+        self.openIssues = openIssues
+        self.state = state
+        self.title = title
+    }
+    
+    public enum CodingKeys: String, CodingKey { 
+        case closedAt = "closed_at"
+        case closedIssues = "closed_issues"
+        case _description = "description"
+        case dueOn = "due_on"
+        case _id = "id"
+        case openIssues = "open_issues"
+        case state
+        case title
+    }
 }
