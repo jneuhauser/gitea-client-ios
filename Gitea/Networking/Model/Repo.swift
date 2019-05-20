@@ -5,44 +5,6 @@
 //  Created by Johann Neuhauser on 13.05.19.
 //  Copyright © 2019 Johann Neuhauser. All rights reserved.
 //
-// Example:
-//    {
-//        "archived": true,
-//        "clone_url": "string",
-//        "created_at": "2019-05-13T08:10:18.934Z",
-//        "default_branch": "string",
-//        "description": "string",
-//        "empty": true,
-//        "fork": true,
-//        "forks_count": 0,
-//        "full_name": "string",
-//        "html_url": "string",
-//        "id": 0,
-//        "mirror": true,
-//        "name": "string",
-//        "open_issues_count": 0,
-//        "owner": {
-//            "avatar_url": "string",
-//            "email": "user@example.com",
-//            "full_name": "string",
-//            "id": 0,
-//            "is_admin": true,
-//            "language": "string",
-//            "login": "string"
-//        },
-//        "permissions": {
-//            "admin": true,
-//            "pull": true,
-//            "push": true
-//        },
-//        "private": true,
-//        "size": 0,
-//        "ssh_url": "string",
-//        "stars_count": 0,
-//        "updated_at": "2019-05-13T08:10:18.934Z",
-//        "watchers_count": 0,
-//        "website": "string"
-//    }
 
 import Foundation
 
