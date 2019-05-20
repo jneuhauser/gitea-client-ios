@@ -9,6 +9,8 @@
 import UIKit
 
 class ReleasesTableViewController: UITableViewController {
+    
+    private var releases: [Release]?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,32 +32,58 @@ class ReleasesTableViewController: UITableViewController {
             //loginViewController.dismiss(animated: true)
             debugPrint("My presenting view controller is: \(loginViewController)")
         }
+        
+        // Load releases data only if not loaded before
+        if releases == nil {
+            loadReleasesAsync()
+        }
+    }
+    
+    private func loadReleasesAsync() {
+        // TODO: Load the pull requests of the selected repo
+        Networking.shared.getReleases(fromOwner: "devel", andRepo: "test1-cpp", pageNumber: nil, itemsPerPage: nil) { result in
+            switch result {
+            case .success(let releases):
+                debugPrint(releases)
+                self.releases = releases
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                    self.refreshControl?.endRefreshing()
+                }
+            case .failure(let error):
+                debugPrint("getReleases() failed with \(error)")
+            }
+        }
     }
 
     @IBAction func refreshAction(_ sender: UIRefreshControl) {
+        loadReleasesAsync()
     }
     
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return releases?.count ?? 0
     }
 
-    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ReleaseCell", for: indexPath)
+        
+        guard let release = releases?[indexPath.row] else {
+            return cell
+        }
+        
+        cell.textLabel?.text = "\(release.tagName ?? "") - \(release.name ?? "")"
+        cell.imageView?.image = UIImage(named: "tag")
+        
         return cell
     }
-    */
 
     /*
     // Override to support conditional editing of the table view.

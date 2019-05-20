@@ -114,4 +114,30 @@ class Networking {
         let task = URLSession.jsonRequest(forResponseType: [PullRequest].self, withRequest: request, withMethod: .get, completionHandler: completionHandler)
         task.resume()
     }
+    
+    public func getReleases(
+        fromOwner owner: String,
+        andRepo repo: String,
+        pageNumber page: Int?,
+        itemsPerPage perPage: Int?,
+        completionHandler: @escaping (Result<[Release],Error>) -> Void)
+    {
+        var queryParams = [String]()
+        if let page = page {
+            queryParams.append("page=\(page)")
+        }
+        if let perPage = perPage {
+            queryParams.append("per_page=\(perPage)")
+        }
+        let queryParamsString = constructQueryParamString(fromParams: queryParams)
+        
+        let apiPath = "/api/v1/repos/\(owner)/\(repo)/releases\(queryParamsString)"
+        guard let request = Authentication.shared.constructURLRequest(withPath: apiPath) else {
+            completionHandler(Result.failure(NetworkingError.requestConstructError(apiPath)))
+            return
+        }
+        
+        let task = URLSession.jsonRequest(forResponseType: [Release].self, withRequest: request, withMethod: .get, completionHandler: completionHandler)
+        task.resume()
+    }
 }
