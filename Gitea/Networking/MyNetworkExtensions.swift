@@ -40,6 +40,12 @@ extension URLSession {
         if let jsonData = body.toJsonData() {
             request.addValue("application/json", forHTTPHeaderField: "Content-Type")
             request.httpBody = jsonData
+            
+            // TODO: Disable pretty debug output of received json object
+            if let json = try? JSONSerialization.jsonObject(with: jsonData, options: []) {
+                debugPrint("jsonRequest(...) Request: ->")
+                debugPrint(json)
+            }
         }
         
         return jsonRequest(forResponseType: type, withRequest: request, withMethod: method, completionHandler: handler)
@@ -52,6 +58,11 @@ extension URLSession {
         completionHandler handler: @escaping (Result<Response, Error>) -> Void
         ) -> URLSessionDataTask
     {
+        // TODO: Remove debug output of used URL
+        if let url = request.url {
+            debugPrint("jsonRequest() with URL: \(url)")
+        }
+        
         // Make non mutable function param mutable
         var request = request
         
@@ -74,6 +85,7 @@ extension URLSession {
             
             // TODO: Disable pretty debug output of received json object
             if let json = try? JSONSerialization.jsonObject(with: data!, options: []) {
+                debugPrint("jsonRequest(...) Response: ->")
                 debugPrint(json)
             }
             
