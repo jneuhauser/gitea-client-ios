@@ -86,7 +86,7 @@ struct Issue : Codable {
         let labels : [Label]?
         let milestone : Milestone?
         let number : Int?
-        let pullRequest : PullRequest?
+        let pullRequest : PullRequestInIssue?
         let state : String?
         let title : String?
         let updatedAt : String?
@@ -126,7 +126,7 @@ struct Issue : Codable {
                 labels = try values.decodeIfPresent([Label].self, forKey: .labels)
                 milestone = try Milestone(from: decoder)
                 number = try values.decodeIfPresent(Int.self, forKey: .number)
-                pullRequest = try PullRequest(from: decoder)
+                pullRequest = try PullRequestInIssue(from: decoder)
                 state = try values.decodeIfPresent(String.self, forKey: .state)
                 title = try values.decodeIfPresent(String.self, forKey: .title)
                 updatedAt = try values.decodeIfPresent(String.self, forKey: .updatedAt)

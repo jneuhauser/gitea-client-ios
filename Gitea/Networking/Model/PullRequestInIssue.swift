@@ -1,5 +1,5 @@
 //
-//  PullRequest.swift
+//  PullRequestInIssue.swift
 //  Gitea Client
 //
 //  Created by Johann Neuhauser on 13.05.19.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct PullRequest : Codable {
+struct PullRequestInIssue : Codable {
 
         let merged : Bool?
         let mergedAt : String?

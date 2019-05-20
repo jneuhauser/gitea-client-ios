@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		1E1FF0D522929E37004065FB /* Issue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E1FF0CF22929E36004065FB /* Issue.swift */; };
 		1E1FF0D622929E37004065FB /* Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E1FF0D022929E36004065FB /* Label.swift */; };
-		1E1FF0D722929E37004065FB /* PullRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E1FF0D122929E36004065FB /* PullRequest.swift */; };
+		1E1FF0D722929E37004065FB /* PullRequestInIssue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E1FF0D122929E36004065FB /* PullRequestInIssue.swift */; };
 		1E1FF0D822929E37004065FB /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E1FF0D222929E36004065FB /* User.swift */; };
 		1E1FF0D922929E37004065FB /* Milestone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E1FF0D322929E37004065FB /* Milestone.swift */; };
 		1E6EB2512289FDC3005BA94E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E6EB2502289FDC3005BA94E /* AppDelegate.swift */; };
@@ -33,7 +33,7 @@
 /* Begin PBXFileReference section */
 		1E1FF0CF22929E36004065FB /* Issue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Issue.swift; sourceTree = "<group>"; };
 		1E1FF0D022929E36004065FB /* Label.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Label.swift; sourceTree = "<group>"; };
-		1E1FF0D122929E36004065FB /* PullRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PullRequest.swift; sourceTree = "<group>"; };
+		1E1FF0D122929E36004065FB /* PullRequestInIssue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PullRequestInIssue.swift; sourceTree = "<group>"; };
 		1E1FF0D222929E36004065FB /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		1E1FF0D322929E37004065FB /* Milestone.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Milestone.swift; sourceTree = "<group>"; };
 		1E6EB24D2289FDC3005BA94E /* Gitea.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gitea.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -129,7 +129,7 @@
 				1E1FF0D022929E36004065FB /* Label.swift */,
 				1E1FF0D322929E37004065FB /* Milestone.swift */,
 				1ECA4756228DB10E00887A03 /* Permission.swift */,
-				1E1FF0D122929E36004065FB /* PullRequest.swift */,
+				1E1FF0D122929E36004065FB /* PullRequestInIssue.swift */,
 				1ECA4758228DB10E00887A03 /* Repo.swift */,
 				1E1FF0D222929E36004065FB /* User.swift */,
 			);
@@ -212,7 +212,7 @@
 				1E6EB26D228A04CF005BA94E /* PullRequestsTableViewController.swift in Sources */,
 				1E6EB26F228A04E4005BA94E /* ReleasesTableViewController.swift in Sources */,
 				1ECA4754228DACAB00887A03 /* Networking.swift in Sources */,
-				1E1FF0D722929E37004065FB /* PullRequest.swift in Sources */,
+				1E1FF0D722929E37004065FB /* PullRequestInIssue.swift in Sources */,
 				1E6EB26B228A04B3005BA94E /* IssuesTableViewController.swift in Sources */,
 				1E6EB2512289FDC3005BA94E /* AppDelegate.swift in Sources */,
 				1E6EB272228A886F005BA94E /* CodeTableViewController.swift in Sources */,
