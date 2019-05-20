@@ -1,0 +1,8 @@
+import Foundation
+public struct DeleteEmailOption: Codable {
+    /** email addresses to delete */
+    public var emails: [String]?
+    public init(emails: [String]?) { 
+        self.emails = emails
+    }
+}
