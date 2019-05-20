@@ -64,23 +64,38 @@ class IssuesTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return issues?.count ?? 0
     }
 
-    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
+        let cell = tableView.dequeueReusableCell(withIdentifier: "IssueCell", for: indexPath)
+        
+        guard let issue = issues?[indexPath.row] else {
+            return cell
+        }
+        
+        cell.textLabel?.text = issue.title
+        
+        if let state = issue.state {
+            switch state {
+            case .open:
+                cell.imageView?.image = UIImage(named: "issue-opened")
+            case .closed:
+                cell.imageView?.image = UIImage(named: "issue-closed")
+            case .reopened:
+                cell.imageView?.image = UIImage(named: "issue-reopened")
+            }
+        } else {
+            cell.imageView?.image = UIImage(named: "issue-opened")
+        }
+        
         return cell
     }
-    */
 
     /*
     // Override to support conditional editing of the table view.
