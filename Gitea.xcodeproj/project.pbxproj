@@ -95,6 +95,8 @@
 		1E6EB272228A886F005BA94E /* CodeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E6EB271228A886F005BA94E /* CodeTableViewController.swift */; };
 		1E6EB274228AE837005BA94E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E6EB273228AE837005BA94E /* LoginViewController.swift */; };
 		1E6EB278228B03B7005BA94E /* Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E6EB277228B03B7005BA94E /* Authentication.swift */; };
+		1E816D3B22933157000F4CD8 /* SortTypeOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E816D3A22933157000F4CD8 /* SortTypeOption.swift */; };
+		1E816D3D22933216000F4CD8 /* StateTypeOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E816D3C22933216000F4CD8 /* StateTypeOption.swift */; };
 		1ECA4754228DACAB00887A03 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ECA4753228DACAB00887A03 /* Networking.swift */; };
 		1ECA475E228DF2EC00887A03 /* MyNetworkExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ECA475D228DF2EC00887A03 /* MyNetworkExtensions.swift */; };
 /* End PBXBuildFile section */
@@ -190,6 +192,8 @@
 		1E6EB271228A886F005BA94E /* CodeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeTableViewController.swift; sourceTree = "<group>"; };
 		1E6EB273228AE837005BA94E /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		1E6EB277228B03B7005BA94E /* Authentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authentication.swift; sourceTree = "<group>"; };
+		1E816D3A22933157000F4CD8 /* SortTypeOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortTypeOption.swift; sourceTree = "<group>"; };
+		1E816D3C22933216000F4CD8 /* StateTypeOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateTypeOption.swift; sourceTree = "<group>"; };
 		1ECA4753228DACAB00887A03 /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
 		1ECA475D228DF2EC00887A03 /* MyNetworkExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyNetworkExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -330,7 +334,9 @@
 				1E3E78AD22930DCB00B0FAA7 /* Repository.swift */,
 				1E3E78B822930DCC00B0FAA7 /* SearchResults.swift */,
 				1E3E78A522930DCB00B0FAA7 /* ServerVersion.swift */,
+				1E816D3A22933157000F4CD8 /* SortTypeOption.swift */,
 				1E3E792E2293288700B0FAA7 /* StateType.swift */,
+				1E816D3C22933216000F4CD8 /* StateTypeOption.swift */,
 				1E3E78B522930DCC00B0FAA7 /* Status.swift */,
 				1E3E792C229327BC00B0FAA7 /* StatusState.swift */,
 				1E3E78D022930DCF00B0FAA7 /* Tag.swift */,
@@ -441,6 +447,7 @@
 				1E3E791222930DD000B0FAA7 /* Permission.swift in Sources */,
 				1E3E78EA22930DD000B0FAA7 /* GitEntry.swift in Sources */,
 				1E3E78E822930DD000B0FAA7 /* PullRequestMeta.swift in Sources */,
+				1E816D3B22933157000F4CD8 /* SortTypeOption.swift in Sources */,
 				1E3E791F22930DD000B0FAA7 /* GitObject.swift in Sources */,
 				1E3E78FC22930DD000B0FAA7 /* UserHeatmapData.swift in Sources */,
 				1E3E791D22930DD000B0FAA7 /* EditTeamOption.swift in Sources */,
@@ -481,6 +488,7 @@
 				1E3E791C22930DD000B0FAA7 /* User.swift in Sources */,
 				1E3E78FF22930DD000B0FAA7 /* IssueDeadline.swift in Sources */,
 				1E3E791122930DD000B0FAA7 /* GPGKey.swift in Sources */,
+				1E816D3D22933216000F4CD8 /* StateTypeOption.swift in Sources */,
 				1E3E78E622930DD000B0FAA7 /* Branch.swift in Sources */,
 				1E3E790522930DD000B0FAA7 /* CreateKeyOption.swift in Sources */,
 				1E3E78F822930DD000B0FAA7 /* Issue.swift in Sources */,

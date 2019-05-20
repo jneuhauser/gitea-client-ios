@@ -74,4 +74,44 @@ class Networking {
         let task = URLSession.jsonRequest(forResponseType: [Issue].self, withRequest: request, withMethod: .get, completionHandler: completionHandler)
         task.resume()
     }
+    
+    public func getPullRequests(
+        fromOwner owner: String,
+        andRepo repo: String,
+        pageNumber page: Int?,
+        withState state: StateTypeOption?,
+        sortedBy sort: SortTypeOption?,
+        withMilestone milestone: Int?,
+        withLabels labels: [Int]?,
+        completionHandler: @escaping (Result<[PullRequest],Error>) -> Void)
+    {
+        var queryParams = [String]()
+        if let page = page {
+            queryParams.append("page=\(page)")
+        }
+        if let state = state {
+            queryParams.append("state=\(state)")
+        }
+        if let sort = sort {
+            queryParams.append("sort=\(sort)")
+        }
+        if let milestone = milestone {
+            queryParams.append("milestone=\(milestone)")
+        }
+        if let labels = labels {
+            for label in labels {
+                queryParams.append("labels=\(label)")
+            }
+        }
+        let queryParamsString = constructQueryParamString(fromParams: queryParams)
+        
+        let apiPath = "/api/v1/repos/\(owner)/\(repo)/pulls\(queryParamsString)"
+        guard let request = Authentication.shared.constructURLRequest(withPath: apiPath) else {
+            completionHandler(Result.failure(NetworkingError.requestConstructError(apiPath)))
+            return
+        }
+        
+        let task = URLSession.jsonRequest(forResponseType: [PullRequest].self, withRequest: request, withMethod: .get, completionHandler: completionHandler)
+        task.resume()
+    }
 }

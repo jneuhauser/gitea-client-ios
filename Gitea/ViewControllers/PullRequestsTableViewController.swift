@@ -10,6 +10,8 @@ import UIKit
 
 class PullRequestsTableViewController: UITableViewController {
 
+    private var pullRequests: [PullRequest]?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -30,9 +32,32 @@ class PullRequestsTableViewController: UITableViewController {
             //loginViewController.dismiss(animated: true)
             debugPrint("My presenting view controller is: \(loginViewController)")
         }
+        
+        // Load pull requests data only if not loaded before
+        if pullRequests == nil {
+            loadPullRequestsAsync()
+        }
+    }
+    
+    private func loadPullRequestsAsync() {
+        // TODO: Load the pull requests of the selected repo
+        Networking.shared.getPullRequests(fromOwner: "devel", andRepo: "test1-cpp", pageNumber: nil, withState: nil, sortedBy: nil, withMilestone: nil, withLabels: nil) { result in
+            switch result {
+            case .success(let pullRequests):
+                debugPrint(pullRequests)
+                self.pullRequests = pullRequests
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                    self.refreshControl?.endRefreshing()
+                }
+            case .failure(let error):
+                debugPrint("getPullRequests() failed with \(error)")
+            }
+        }
     }
 
     @IBAction func refreshAction(_ sender: UIRefreshControl) {
+        loadPullRequestsAsync()
     }
     
     // MARK: - Table view data source
