@@ -64,23 +64,40 @@ class PullRequestsTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return pullRequests?.count ?? 0
     }
 
-    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
+        let cell = tableView.dequeueReusableCell(withIdentifier: "PullRequestCell", for: indexPath)
+        
+        guard let pullRequest = pullRequests?[indexPath.row] else {
+            return cell
+        }
+        
+        cell.textLabel?.text = pullRequest.title
+        
+        if let state = pullRequest.state {
+            switch state {
+            case .open:
+                cell.imageView?.image = UIImage(named: "git-pull-request")
+            case .closed:
+                if let merged = pullRequest.merged, merged {
+                    cell.imageView?.image = UIImage(named: "git-merged")
+                } else {
+                    cell.imageView?.image = UIImage(named: "git-pull-request")
+                }
+            }
+        } else {
+            cell.imageView?.image = UIImage(named: "git-pull-request")
+        }
+        
         return cell
     }
-    */
 
     /*
     // Override to support conditional editing of the table view.

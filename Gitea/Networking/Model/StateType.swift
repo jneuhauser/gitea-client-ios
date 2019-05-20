@@ -8,5 +8,4 @@ import Foundation
 public enum StateType: String, Codable {
     case open = "open"
     case closed = "closed"
-    case reopened = "reopened"
 }

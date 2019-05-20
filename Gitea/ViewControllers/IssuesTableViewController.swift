@@ -87,8 +87,6 @@ class IssuesTableViewController: UITableViewController {
                 cell.imageView?.image = UIImage(named: "issue-opened")
             case .closed:
                 cell.imageView?.image = UIImage(named: "issue-closed")
-            case .reopened:
-                cell.imageView?.image = UIImage(named: "issue-reopened")
             }
         } else {
             cell.imageView?.image = UIImage(named: "issue-opened")
