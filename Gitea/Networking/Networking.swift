@@ -17,23 +17,13 @@ class Networking {
         case requestConstructError(String)
     }
     
-    public func getRepositories(onSuccess: @escaping ([Repo]) -> Void, onFailure: @escaping (Error) -> Void) {
+    public func getRepositories(completionHandler: @escaping (Result<[Repo],Error>) -> Void) {
         let apiPath = "/api/v1/user/repos"
         guard let request = Authentication.shared.constructURLRequest(withPath: apiPath) else {
-            onFailure(NetworkingError.requestConstructError(apiPath))
+            completionHandler(Result.failure(NetworkingError.requestConstructError(apiPath)))
             return
         }
-        
-        let task = URLSession.jsonRequest([Repo].self, withRequest: request, withMethod: .get) { result in
-            switch result {
-            case .success(let success):
-                debugPrint(success)
-                onSuccess(success)
-            case .failure(let failure):
-                debugPrint(failure)
-                onFailure(failure)
-            }
-        }
+        let task = URLSession.jsonRequest([Repo].self, withRequest: request, withMethod: .get, completionHandler: completionHandler)
         task.resume()
     }
 }
