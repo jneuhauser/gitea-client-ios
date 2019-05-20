@@ -72,6 +72,11 @@ extension URLSession {
                 return
             }
             
+            // TODO: Disable pretty debug output of received json object
+            if let json = try? JSONSerialization.jsonObject(with: data!, options: []) {
+                debugPrint(json)
+            }
+            
             //guard let decodedResponse = try? JSONDecoder().decode(Response.self, from: data!) else {
             guard let decodedResponse = Response.fromJson(withData: data!) else {
                 handler(Result.failure(HTTPError.jsonDecodeError("\(Response.self)")))
