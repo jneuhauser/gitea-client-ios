@@ -79,17 +79,49 @@ class IssuesTableViewController: UITableViewController {
             return cell
         }
         
-        cell.textLabel?.text = issue.title
-        
-        if let state = issue.state {
-            switch state {
-            case .open:
-                cell.imageView?.image = UIImage(named: "issue-opened")
-            case .closed:
-                cell.imageView?.image = UIImage(named: "issue-closed")
+        if let issueTVC = cell as? IssuesTableViewCell {
+            if let state = issue.state, state == .closed {
+                issueTVC.typeImage?.image = UIImage(named: "issue-closed")
+            } else {
+                issueTVC.typeImage?.image = UIImage(named: "issue-opened")
             }
+            
+            issueTVC.titleLabel?.text = issue.title
+            
+            if let number = issue.number,
+                let state = issue.state,
+                let user = issue.user?.login,
+                let createdSince = issue.createdAt?.getDifferenceToNow(withUnitCount: 1) {
+                let state = state == .closed ? "closed" : "opened"
+                debugPrint(createdSince)
+                issueTVC.detailLabel?.text = "#\(number) \(state) \(createdSince) ago by \(user)"
+            } else {
+                issueTVC.detailLabel?.text = nil
+            }
+            
+            if let comments = issue.comments, comments > 0 {
+                issueTVC.info1Image?.image = UIImage(named: "comment")
+                issueTVC.info1Label?.text = "\(comments)"
+            } else {
+                issueTVC.info1Image?.image = nil
+                issueTVC.info1Label?.text = nil
+            }
+            
+            issueTVC.info2Image?.image = nil
+            issueTVC.info2Label?.text = nil
         } else {
-            cell.imageView?.image = UIImage(named: "issue-opened")
+            cell.textLabel?.text = issue.title
+            
+            if let state = issue.state {
+                switch state {
+                case .open:
+                    cell.imageView?.image = UIImage(named: "issue-opened")
+                case .closed:
+                    cell.imageView?.image = UIImage(named: "issue-closed")
+                }
+            } else {
+                cell.imageView?.image = UIImage(named: "issue-opened")
+            }
         }
         
         return cell

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1E3B45D9229711250051A448 /* IssuesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E3B45D8229711250051A448 /* IssuesTableViewCell.swift */; };
+		1E3B45DD229738E60051A448 /* DateTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E3B45DC229738E60051A448 /* DateTools.swift */; };
 		1E3E78DC22930DD000B0FAA7 /* CreateRepoOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E3E788E22930DCA00B0FAA7 /* CreateRepoOption.swift */; };
 		1E3E78DD22930DD000B0FAA7 /* CreateStatusOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E3E788F22930DCA00B0FAA7 /* CreateStatusOption.swift */; };
 		1E3E78DE22930DD000B0FAA7 /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E3E789022930DCA00B0FAA7 /* Team.swift */; };
@@ -102,6 +104,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1E3B45D8229711250051A448 /* IssuesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssuesTableViewCell.swift; sourceTree = "<group>"; };
+		1E3B45DC229738E60051A448 /* DateTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateTools.swift; sourceTree = "<group>"; };
 		1E3E788E22930DCA00B0FAA7 /* CreateRepoOption.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateRepoOption.swift; sourceTree = "<group>"; };
 		1E3E788F22930DCA00B0FAA7 /* CreateStatusOption.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateStatusOption.swift; sourceTree = "<group>"; };
 		1E3E789022930DCA00B0FAA7 /* Team.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
@@ -209,6 +213,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1E3B45DA2297112B0051A448 /* TableViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				1E3B45D8229711250051A448 /* IssuesTableViewCell.swift */,
+			);
+			path = TableViewCells;
+			sourceTree = "<group>";
+		};
+		1E3B45DB229738C40051A448 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				1E3B45DC229738E60051A448 /* DateTools.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		1E6EB2442289FDC3005BA94E = {
 			isa = PBXGroup;
 			children = (
@@ -234,6 +254,8 @@
 				1E6EB25B2289FDC4005BA94E /* LaunchScreen.storyboard */,
 				1E6EB2562289FDC3005BA94E /* Main.storyboard */,
 				1E6EB275228B0377005BA94E /* Networking */,
+				1E3B45DA2297112B0051A448 /* TableViewCells */,
+				1E3B45DB229738C40051A448 /* Utils */,
 				1E6EB270228A04F0005BA94E /* ViewControllers */,
 			);
 			path = Gitea;
@@ -465,6 +487,7 @@
 				1E3E792522930DD000B0FAA7 /* EditReleaseOption.swift in Sources */,
 				1E3E78FA22930DD000B0FAA7 /* MergePullRequestOption.swift in Sources */,
 				1E3E78EB22930DD000B0FAA7 /* GitTreeResponse.swift in Sources */,
+				1E3B45D9229711250051A448 /* IssuesTableViewCell.swift in Sources */,
 				1E3E78DD22930DD000B0FAA7 /* CreateStatusOption.swift in Sources */,
 				1E3E791922930DD000B0FAA7 /* CreateUserOption.swift in Sources */,
 				1E3E78F022930DD000B0FAA7 /* CreateForkOption.swift in Sources */,
@@ -481,6 +504,7 @@
 				1E3E78FE22930DD000B0FAA7 /* DeleteEmailOption.swift in Sources */,
 				1E3E792222930DD000B0FAA7 /* EditMilestoneOption.swift in Sources */,
 				1E3E790822930DD000B0FAA7 /* PayloadCommit.swift in Sources */,
+				1E3B45DD229738E60051A448 /* DateTools.swift in Sources */,
 				1E3E78F722930DD000B0FAA7 /* PullRequest.swift in Sources */,
 				1E3E790222930DD000B0FAA7 /* WatchInfo.swift in Sources */,
 				1E6EB2512289FDC3005BA94E /* AppDelegate.swift in Sources */,
