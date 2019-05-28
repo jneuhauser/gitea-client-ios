@@ -22,6 +22,8 @@ class PullRequestsTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
         
         self.navigationController?.navigationBar.topItem?.title = "Pull Requests"
+        
+        tableView.register(UINib(nibName: "IssueTableViewCell", bundle: nil), forCellReuseIdentifier: "IssueCellFromNib")
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -73,20 +75,51 @@ class PullRequestsTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "PullRequestCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "IssueCellFromNib", for: indexPath)
         
         guard let pullRequest = pullRequests?[indexPath.row] else {
             return cell
         }
         
-        cell.textLabel?.text = pullRequest.title
-        
-        if let state = pullRequest.state, state == .closed,
-            let merged = pullRequest.merged, merged
-        {
-            cell.imageView?.image = UIImage(named: "git-merge")
+        if let issueTVC = cell as? IssueTableViewCell {
+            if let state = pullRequest.state, state == .closed,
+                let merged = pullRequest.merged, merged
+            {
+                issueTVC.imageView?.image = UIImage(named: "git-merge")
+            } else {
+                issueTVC.imageView?.image = UIImage(named: "git-pull-request")
+            }
+            
+            issueTVC.titleLabel?.text = pullRequest.title
+            
+            if let number = pullRequest.number,
+                let state = pullRequest.state,
+                let user = pullRequest.user?.login,
+                let createdSince = pullRequest.createdAt?.getDifferenceToNow(withUnitCount: 1) {
+                let state = state == .closed ? "closed" : "opened"
+                debugPrint(createdSince)
+                issueTVC.footerLabel?.text = "#\(number) \(state) \(createdSince) ago by \(user)"
+            } else {
+                issueTVC.footerLabel?.text = nil
+            }
+            
+            if let comments = pullRequest.comments, comments > 0 {
+                issueTVC.commentsImage?.image = UIImage(named: "comment")
+                issueTVC.commentsLabel?.text = "\(comments)"
+            } else {
+                issueTVC.commentsImage?.image = nil
+                issueTVC.commentsLabel?.text = nil
+            }
         } else {
-            cell.imageView?.image = UIImage(named: "git-pull-request")
+            cell.textLabel?.text = pullRequest.title
+            
+            if let state = pullRequest.state, state == .closed,
+                let merged = pullRequest.merged, merged
+            {
+                cell.imageView?.image = UIImage(named: "git-merge")
+            } else {
+                cell.imageView?.image = UIImage(named: "git-pull-request")
+            }
         }
         
         return cell
