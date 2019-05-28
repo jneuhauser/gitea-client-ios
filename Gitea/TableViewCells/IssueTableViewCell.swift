@@ -13,7 +13,6 @@ class IssueTableViewCell: UITableViewCell {
     @IBOutlet weak var typeImage: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var footerLabel: UILabel!
-    @IBOutlet weak var commentsImage: UIImageView!
     @IBOutlet weak var commentsLabel: UILabel!
     
     

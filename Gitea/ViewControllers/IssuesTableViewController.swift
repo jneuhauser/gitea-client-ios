@@ -102,10 +102,8 @@ class IssuesTableViewController: UITableViewController {
             }
             
             if let comments = issue.comments, comments > 0 {
-                issueTVC.commentsImage?.image = UIImage(named: "comment")
-                issueTVC.commentsLabel?.text = "\(comments)"
+                issueTVC.commentsLabel?.text = "💬 \(comments)"
             } else {
-                issueTVC.commentsImage?.image = nil
                 issueTVC.commentsLabel?.text = nil
             }
         } else {
