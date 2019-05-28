@@ -22,6 +22,8 @@ class IssuesTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
         
         self.navigationController?.navigationBar.topItem?.title = "Issues"
+        
+        tableView.register(UINib(nibName: "IssueTableViewCell", bundle: nil), forCellReuseIdentifier: "IssueCellFromNib")
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -73,13 +75,13 @@ class IssuesTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "IssueCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "IssueCellFromNib", for: indexPath)
         
         guard let issue = issues?[indexPath.row] else {
             return cell
         }
         
-        if let issueTVC = cell as? IssuesTableViewCell {
+        if let issueTVC = cell as? IssueTableViewCell {
             if let state = issue.state, state == .closed {
                 issueTVC.typeImage?.image = UIImage(named: "issue-closed")
             } else {
@@ -94,9 +96,9 @@ class IssuesTableViewController: UITableViewController {
                 let createdSince = issue.createdAt?.getDifferenceToNow(withUnitCount: 1) {
                 let state = state == .closed ? "closed" : "opened"
                 debugPrint(createdSince)
-                issueTVC.detailLabel?.text = "#\(number) \(state) \(createdSince) ago by \(user)"
+                issueTVC.footerLabel?.text = "#\(number) \(state) \(createdSince) ago by \(user)"
             } else {
-                issueTVC.detailLabel?.text = nil
+                issueTVC.footerLabel?.text = nil
             }
             
             if let comments = issue.comments, comments > 0 {

@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1E3B45D9229711250051A448 /* IssuesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E3B45D8229711250051A448 /* IssuesTableViewCell.swift */; };
+		1E0C0A33229D72A0001453B5 /* IssueTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1E0C0A32229D72A0001453B5 /* IssueTableViewCell.xib */; };
+		1E3B45D9229711250051A448 /* IssueTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E3B45D8229711250051A448 /* IssueTableViewCell.swift */; };
 		1E3B45DD229738E60051A448 /* DateTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E3B45DC229738E60051A448 /* DateTools.swift */; };
 		1E3E78DC22930DD000B0FAA7 /* CreateRepoOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E3E788E22930DCA00B0FAA7 /* CreateRepoOption.swift */; };
 		1E3E78DD22930DD000B0FAA7 /* CreateStatusOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E3E788F22930DCA00B0FAA7 /* CreateStatusOption.swift */; };
@@ -104,7 +105,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		1E3B45D8229711250051A448 /* IssuesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssuesTableViewCell.swift; sourceTree = "<group>"; };
+		1E0C0A32229D72A0001453B5 /* IssueTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IssueTableViewCell.xib; sourceTree = "<group>"; };
+		1E3B45D8229711250051A448 /* IssueTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueTableViewCell.swift; sourceTree = "<group>"; };
 		1E3B45DC229738E60051A448 /* DateTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateTools.swift; sourceTree = "<group>"; };
 		1E3E788E22930DCA00B0FAA7 /* CreateRepoOption.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateRepoOption.swift; sourceTree = "<group>"; };
 		1E3E788F22930DCA00B0FAA7 /* CreateStatusOption.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateStatusOption.swift; sourceTree = "<group>"; };
@@ -216,7 +218,8 @@
 		1E3B45DA2297112B0051A448 /* TableViewCells */ = {
 			isa = PBXGroup;
 			children = (
-				1E3B45D8229711250051A448 /* IssuesTableViewCell.swift */,
+				1E3B45D8229711250051A448 /* IssueTableViewCell.swift */,
+				1E0C0A32229D72A0001453B5 /* IssueTableViewCell.xib */,
 			);
 			path = TableViewCells;
 			sourceTree = "<group>";
@@ -432,6 +435,7 @@
 				1E6EB25D2289FDC4005BA94E /* LaunchScreen.storyboard in Resources */,
 				1E6EB25A2289FDC4005BA94E /* Assets.xcassets in Resources */,
 				1E6EB2582289FDC3005BA94E /* Main.storyboard in Resources */,
+				1E0C0A33229D72A0001453B5 /* IssueTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -487,7 +491,7 @@
 				1E3E792522930DD000B0FAA7 /* EditReleaseOption.swift in Sources */,
 				1E3E78FA22930DD000B0FAA7 /* MergePullRequestOption.swift in Sources */,
 				1E3E78EB22930DD000B0FAA7 /* GitTreeResponse.swift in Sources */,
-				1E3B45D9229711250051A448 /* IssuesTableViewCell.swift in Sources */,
+				1E3B45D9229711250051A448 /* IssueTableViewCell.swift in Sources */,
 				1E3E78DD22930DD000B0FAA7 /* CreateStatusOption.swift in Sources */,
 				1E3E791922930DD000B0FAA7 /* CreateUserOption.swift in Sources */,
 				1E3E78F022930DD000B0FAA7 /* CreateForkOption.swift in Sources */,
