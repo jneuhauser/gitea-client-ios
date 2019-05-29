@@ -135,10 +135,32 @@
                             <action selector="refreshAction:" destination="y6o-ps-v6J" eventType="valueChanged" id="WHN-xn-gxS"/>
                         </connections>
                     </refreshControl>
+                    <connections>
+                        <segue destination="Gpx-e5-ahY" kind="show" identifier="ShowIssueDetail" id="mzp-3b-ovJ"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1bm-fL-nIn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="776.81159420289862" y="568.52678571428567"/>
+        </scene>
+        <!--Issue Detail Table View Controller-->
+        <scene sceneID="JOL-yh-aEg">
+            <objects>
+                <tableViewController id="Gpx-e5-ahY" customClass="IssueDetailTableViewController" customModule="Gitea" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Evb-cc-DV1">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <connections>
+                            <outlet property="dataSource" destination="Gpx-e5-ahY" id="3zZ-Rh-4fl"/>
+                            <outlet property="delegate" destination="Gpx-e5-ahY" id="zhH-OQ-wPs"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="9eF-hu-uh1"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NhK-73-JCW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1770" y="569"/>
         </scene>
         <!--Pull Requests Table View Controller-->
         <scene sceneID="sXQ-UF-cP7">

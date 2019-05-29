@@ -62,6 +62,12 @@ class IssuesTableViewController: UITableViewController {
         loadIssuesAsync()
     }
     
+    // MARK: - Table view delegates
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.performSegue(withIdentifier: "ShowIssueDetail", sender: self)
+    }
+    
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -159,14 +165,42 @@ class IssuesTableViewController: UITableViewController {
     }
     */
 
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
+        
+        debugPrint(segue)
+        
+        guard let identifier = segue.identifier else {
+            return
+        }
+        
+        switch identifier {
+        case "ShowIssueDetail":
+            debugPrint("Segue: ShowIssueDetail")
+            guard let row = tableView.indexPathForSelectedRow?.row else {
+                print("Error getting selected row")
+                return
+            }
+            
+            guard let issue = issues?[row] else {
+                print("Error getting selected issue")
+                return
+            }
+            
+            guard let destination = segue.destination as? IssueDetailTableViewController else {
+                print("Error getting destination view controller")
+                return
+            }
+            
+            //calcVC.rate = vatRates[row]
+        default:
+            debugPrint("Received unhandled segue: " + identifier)
+            break
+        }
     }
-    */
 
 }

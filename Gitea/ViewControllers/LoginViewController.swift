@@ -28,7 +28,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         passwordTextField.delegate = self
 
         // Do any additional setup after loading the view.
-        serverTextField.text = "https://git.it-neuhauser.de"
+        //serverTextField.text = "https://git.it-neuhauser.de"
+        serverTextField.text = "https://try.gitea.io"
         userTextField.text = "devel"
         passwordTextField.text = "DasIstEinTestUser"
     }

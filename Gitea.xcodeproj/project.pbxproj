@@ -102,6 +102,7 @@
 		1E816D3D22933216000F4CD8 /* StateTypeOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E816D3C22933216000F4CD8 /* StateTypeOption.swift */; };
 		1EA21003229DD2DA00BF666F /* IssueDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA21001229DD2DA00BF666F /* IssueDetailTableViewCell.swift */; };
 		1EA21004229DD2DA00BF666F /* IssueDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1EA21002229DD2DA00BF666F /* IssueDetailTableViewCell.xib */; };
+		1EA21006229DDB4400BF666F /* IssueDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA21005229DDB4400BF666F /* IssueDetailTableViewController.swift */; };
 		1ECA4754228DACAB00887A03 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ECA4753228DACAB00887A03 /* Networking.swift */; };
 		1ECA475E228DF2EC00887A03 /* MyNetworkExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ECA475D228DF2EC00887A03 /* MyNetworkExtensions.swift */; };
 /* End PBXBuildFile section */
@@ -204,6 +205,7 @@
 		1E816D3C22933216000F4CD8 /* StateTypeOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateTypeOption.swift; sourceTree = "<group>"; };
 		1EA21001229DD2DA00BF666F /* IssueDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueDetailTableViewCell.swift; sourceTree = "<group>"; };
 		1EA21002229DD2DA00BF666F /* IssueDetailTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IssueDetailTableViewCell.xib; sourceTree = "<group>"; };
+		1EA21005229DDB4400BF666F /* IssueDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueDetailTableViewController.swift; sourceTree = "<group>"; };
 		1ECA4753228DACAB00887A03 /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
 		1ECA475D228DF2EC00887A03 /* MyNetworkExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyNetworkExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -274,11 +276,12 @@
 			isa = PBXGroup;
 			children = (
 				1E6EB271228A886F005BA94E /* CodeTableViewController.swift */,
+				1EA21005229DDB4400BF666F /* IssueDetailTableViewController.swift */,
 				1E6EB26A228A04B3005BA94E /* IssuesTableViewController.swift */,
+				1E6EB273228AE837005BA94E /* LoginViewController.swift */,
 				1E6EB26C228A04CF005BA94E /* PullRequestsTableViewController.swift */,
 				1E6EB26E228A04E4005BA94E /* ReleasesTableViewController.swift */,
 				1E6EB268228A048F005BA94E /* ReposTableViewController.swift */,
-				1E6EB273228AE837005BA94E /* LoginViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -534,6 +537,7 @@
 				1E3E78F222930DD000B0FAA7 /* EditLabelOption.swift in Sources */,
 				1E3E78DC22930DD000B0FAA7 /* CreateRepoOption.swift in Sources */,
 				1E6EB269228A048F005BA94E /* ReposTableViewController.swift in Sources */,
+				1EA21006229DDB4400BF666F /* IssueDetailTableViewController.swift in Sources */,
 				1E3E792722930DD000B0FAA7 /* EditAttachmentOptions.swift in Sources */,
 				1E3E790122930DD000B0FAA7 /* Comment.swift in Sources */,
 				1E3E791722930DD000B0FAA7 /* Attachment.swift in Sources */,
