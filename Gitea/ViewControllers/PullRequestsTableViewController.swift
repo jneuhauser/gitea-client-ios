@@ -62,6 +62,12 @@ class PullRequestsTableViewController: UITableViewController {
         loadPullRequestsAsync()
     }
     
+    // MARK: - Table view delegates
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.performSegue(withIdentifier: "ShowPullRequestDetail", sender: self)
+    }
+    
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -158,14 +164,43 @@ class PullRequestsTableViewController: UITableViewController {
     }
     */
 
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
+        
+        debugPrint(segue)
+        
+        guard let identifier = segue.identifier else {
+            return
+        }
+        
+        switch identifier {
+        case "ShowPullRequestDetail":
+            debugPrint("Segue: ShowPullRequestDetail")
+            guard let row = tableView.indexPathForSelectedRow?.row else {
+                print("Error getting selected row")
+                return
+            }
+            
+            guard let pullRequest = pullRequests?[row] else {
+                print("Error getting selected issue")
+                return
+            }
+            
+            guard let destination = segue.destination as? PullRequestDetailTableViewController else {
+                print("Error getting destination view controller")
+                return
+            }
+            
+            //calcVC.rate = vatRates[row]
+        default:
+            debugPrint("Received unhandled segue: " + identifier)
+            break
+        }
     }
-    */
+
 
 }

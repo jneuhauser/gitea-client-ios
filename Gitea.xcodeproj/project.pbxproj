@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1E099C7F229E7E9600732CC6 /* PullRequestDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E099C7E229E7E9600732CC6 /* PullRequestDetailTableViewController.swift */; };
 		1E0C0A33229D72A0001453B5 /* IssueTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1E0C0A32229D72A0001453B5 /* IssueTableViewCell.xib */; };
 		1E3B45D9229711250051A448 /* IssueTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E3B45D8229711250051A448 /* IssueTableViewCell.swift */; };
 		1E3B45DD229738E60051A448 /* DateTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E3B45DC229738E60051A448 /* DateTools.swift */; };
@@ -108,6 +109,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1E099C7E229E7E9600732CC6 /* PullRequestDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullRequestDetailTableViewController.swift; sourceTree = "<group>"; };
 		1E0C0A32229D72A0001453B5 /* IssueTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IssueTableViewCell.xib; sourceTree = "<group>"; };
 		1E3B45D8229711250051A448 /* IssueTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueTableViewCell.swift; sourceTree = "<group>"; };
 		1E3B45DC229738E60051A448 /* DateTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateTools.swift; sourceTree = "<group>"; };
@@ -279,6 +281,7 @@
 				1EA21005229DDB4400BF666F /* IssueDetailTableViewController.swift */,
 				1E6EB26A228A04B3005BA94E /* IssuesTableViewController.swift */,
 				1E6EB273228AE837005BA94E /* LoginViewController.swift */,
+				1E099C7E229E7E9600732CC6 /* PullRequestDetailTableViewController.swift */,
 				1E6EB26C228A04CF005BA94E /* PullRequestsTableViewController.swift */,
 				1E6EB26E228A04E4005BA94E /* ReleasesTableViewController.swift */,
 				1E6EB268228A048F005BA94E /* ReposTableViewController.swift */,
@@ -541,6 +544,7 @@
 				1E3E792722930DD000B0FAA7 /* EditAttachmentOptions.swift in Sources */,
 				1E3E790122930DD000B0FAA7 /* Comment.swift in Sources */,
 				1E3E791722930DD000B0FAA7 /* Attachment.swift in Sources */,
+				1E099C7F229E7E9600732CC6 /* PullRequestDetailTableViewController.swift in Sources */,
 				1E3E792322930DD000B0FAA7 /* EditIssueCommentOption.swift in Sources */,
 				1E6EB278228B03B7005BA94E /* Authentication.swift in Sources */,
 				1ECA475E228DF2EC00887A03 /* MyNetworkExtensions.swift in Sources */,
