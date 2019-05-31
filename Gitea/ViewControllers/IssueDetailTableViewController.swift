@@ -26,7 +26,12 @@ class IssueDetailTableViewController: UITableViewController {
         //tableView.register(UINib(nibName: "IssueDetailTableViewCell", bundle: nil), forCellReuseIdentifier: "IssueDetailCellFromNib")
         tableView.register(UINib(nibName: "WebViewTableViewCell", bundle: nil), forCellReuseIdentifier: "WebViewCellFromNib")
     }
-
+    
+    @IBAction func refreshAction(_ sender: UIRefreshControl) {
+        tableView.reloadData()
+        refreshControl?.endRefreshing()
+    }
+    
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -82,6 +87,7 @@ class IssueDetailTableViewController: UITableViewController {
             if let webViewHeight = rowHeights[indexPath.row] {
                 // use already calculated height
                 webViewCell.webViewHeightConstraint.constant = webViewHeight
+                webViewCell.webViewResizeCallback = nil
             } else {
                 // update cell layouts without cell reload
                 webViewCell.webViewResizeCallback = { tag, height in
