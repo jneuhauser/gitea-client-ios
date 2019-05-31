@@ -196,7 +196,7 @@ class IssuesTableViewController: UITableViewController {
                 return
             }
             
-            //calcVC.rate = vatRates[row]
+            destination.issue = issue
         default:
             debugPrint("Received unhandled segue: " + identifier)
             break
