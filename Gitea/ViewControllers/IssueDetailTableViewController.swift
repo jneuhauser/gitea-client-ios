@@ -84,14 +84,18 @@ class IssueDetailTableViewController: UITableViewController {
             
             webViewCell.webView.tag = indexPath.row
             webViewCell.webView.load(request)
+            
+            // use already calculated height
             if let webViewHeight = rowHeights[indexPath.row] {
-                // use already calculated height
                 webViewCell.webViewHeightConstraint.constant = webViewHeight
-                webViewCell.webViewResizeCallback = nil
-            } else {
-                // update cell layouts without cell reload
+            }
+            
+            // we have a generic callback, so set it only if it´s not set
+            if webViewCell.webViewResizeCallback == nil {
                 webViewCell.webViewResizeCallback = { tag, height in
                     debugPrint("webViewResizeCallback(tag = \(tag), height: \(height)): called")
+                    // update cell layouts without cell reload
+                    // TODO: do this only once for all cells???
                     tableView.beginUpdates()
                     tableView.endUpdates()
                     // save hight for later use

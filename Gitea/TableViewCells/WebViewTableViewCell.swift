@@ -28,13 +28,30 @@ class WebViewTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        if keyPath == "contentSize" {
+            debugPrint("contentSize obseverd")
+            if let scrollView = object as? UIScrollView {
+                scrollView.removeObserver(self, forKeyPath: "contentSize")
+                debugPrint(scrollView)
+                if webViewHeightConstraint.constant != scrollView.contentSize.height {
+                    webViewHeightConstraint.constant = scrollView.contentSize.height
+                    webViewResizeCallback?(webView.tag, webViewHeightConstraint.constant)
+                }
+            }
+        }
+    }
+    
 }
 
 extension WebViewTableViewCell: WKNavigationDelegate {
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
-        DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(100)) {
-            self.webViewHeightConstraint.constant = webView.scrollView.contentSize.height
-            self.webViewResizeCallback?(webView.tag, self.webViewHeightConstraint.constant)
-        }
+        webView.scrollView.addObserver(self, forKeyPath: "contentSize", options: .new, context: nil)
+
+        // This was only a workaround because of call to webView(didFinish) before it´s really finished
+//        DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(100)) {
+//            self.webViewHeightConstraint.constant = webView.scrollView.contentSize.height
+//            self.webViewResizeCallback?(webView.tag, self.webViewHeightConstraint.constant)
+//        }
     }
 }
