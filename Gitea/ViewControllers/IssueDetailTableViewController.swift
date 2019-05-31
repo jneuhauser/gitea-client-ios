@@ -9,6 +9,10 @@
 import UIKit
 
 class IssueDetailTableViewController: UITableViewController {
+    
+    public var issue: Issue?
+    private var issueComments: [Comment]?
+    private var rowHeights = [Int : CGFloat]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,30 +23,79 @@ class IssueDetailTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
         
-        tableView.register(UINib(nibName: "IssueDetailTableViewCell", bundle: nil), forCellReuseIdentifier: "IssueDetailCellFromNib")
+        //tableView.register(UINib(nibName: "IssueDetailTableViewCell", bundle: nil), forCellReuseIdentifier: "IssueDetailCellFromNib")
+        tableView.register(UINib(nibName: "WebViewTableViewCell", bundle: nil), forCellReuseIdentifier: "WebViewCellFromNib")
     }
 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        // issue and the number of comments
+        return (issue == nil ? 0 : 1) + (issueComments?.count ?? 0)
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        // Check if we have a calculated row height value, else return the default one
+        return rowHeights[indexPath.row] ?? tableView.rowHeight
     }
 
-    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
+        let cell = tableView.dequeueReusableCell(withIdentifier: "WebViewCellFromNib", for: indexPath)
+        
+        guard let webViewCell = cell as? WebViewTableViewCell else {
+            debugPrint("tableView(cellForRowAt: ...): failed to dequeue a WebViewTableViewCell")
+            return cell
+        }
+        
+        var loginO: String?
+        var createdSinceO: String?
+        var bodyO: String?
+        
+        if indexPath.row == 0 {
+            loginO = issue?.user?.login
+            createdSinceO = issue?.createdAt?.getDifferenceToNow(withUnitCount: 1)
+            bodyO = issue?.body
+        } else {
+            loginO = issueComments?[indexPath.row - 1].user?.login
+            createdSinceO = issueComments?[indexPath.row - 1].createdAt?.getDifferenceToNow(withUnitCount: 1)
+            bodyO = issueComments?[indexPath.row - 1].body
+        }
+        
+        guard let login = loginO, let createdSince = createdSinceO, let body = bodyO else {
+            debugPrint("tableView(cellForRowAt: ...): failed to get all data values")
+            return cell
+        }
+        
+        let header = "\(login) commented \(createdSince) ago"
+        debugPrint(header)
+        
+        if var request = Authentication.shared.constructURLRequest(withPath: "/api/v1/markdown/raw") {
+            request.httpMethod = "POST"
+            request.httpBody = body.data(using: .utf8)
+            
+            webViewCell.webView.tag = indexPath.row
+            webViewCell.webView.load(request)
+            if let webViewHeight = rowHeights[indexPath.row] {
+                // use already calculated height
+                webViewCell.webViewHeightConstraint.constant = webViewHeight
+            } else {
+                // update cell layouts without cell reload
+                webViewCell.webViewResizeCallback = { tag, height in
+                    debugPrint("webViewResizeCallback(tag = \(tag), height: \(height)): called")
+                    tableView.beginUpdates()
+                    tableView.endUpdates()
+                    // save hight for later use
+                    self.rowHeights[tag] = height
+                }
+            }
+        }
 
         return cell
     }
-    */
 
     /*
     // Override to support conditional editing of the table view.

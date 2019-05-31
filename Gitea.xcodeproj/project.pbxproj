@@ -88,6 +88,11 @@
 		1E3E792922930DD000B0FAA7 /* TrackedTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E3E78DB22930DD000B0FAA7 /* TrackedTime.swift */; };
 		1E3E792D229327BC00B0FAA7 /* StatusState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E3E792C229327BC00B0FAA7 /* StatusState.swift */; };
 		1E3E792F2293288700B0FAA7 /* StateType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E3E792E2293288700B0FAA7 /* StateType.swift */; };
+		1E4643B322A06EE200A399A8 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E4643B222A06EE200A399A8 /* WebKit.framework */; };
+		1E4643B622A0EEA000A399A8 /* IssueDetailSimpleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4643B422A0EEA000A399A8 /* IssueDetailSimpleTableViewCell.swift */; };
+		1E4643B722A0EEA000A399A8 /* IssueDetailSimpleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1E4643B522A0EEA000A399A8 /* IssueDetailSimpleTableViewCell.xib */; };
+		1E4643BA22A0F60A00A399A8 /* WebViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4643B822A0F60A00A399A8 /* WebViewTableViewCell.swift */; };
+		1E4643BB22A0F60A00A399A8 /* WebViewTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1E4643B922A0F60A00A399A8 /* WebViewTableViewCell.xib */; };
 		1E6EB2512289FDC3005BA94E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E6EB2502289FDC3005BA94E /* AppDelegate.swift */; };
 		1E6EB2582289FDC3005BA94E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1E6EB2562289FDC3005BA94E /* Main.storyboard */; };
 		1E6EB25A2289FDC4005BA94E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1E6EB2592289FDC4005BA94E /* Assets.xcassets */; };
@@ -190,6 +195,11 @@
 		1E3E78DB22930DD000B0FAA7 /* TrackedTime.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackedTime.swift; sourceTree = "<group>"; };
 		1E3E792C229327BC00B0FAA7 /* StatusState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusState.swift; sourceTree = "<group>"; };
 		1E3E792E2293288700B0FAA7 /* StateType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateType.swift; sourceTree = "<group>"; };
+		1E4643B222A06EE200A399A8 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		1E4643B422A0EEA000A399A8 /* IssueDetailSimpleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueDetailSimpleTableViewCell.swift; sourceTree = "<group>"; };
+		1E4643B522A0EEA000A399A8 /* IssueDetailSimpleTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IssueDetailSimpleTableViewCell.xib; sourceTree = "<group>"; };
+		1E4643B822A0F60A00A399A8 /* WebViewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewTableViewCell.swift; sourceTree = "<group>"; };
+		1E4643B922A0F60A00A399A8 /* WebViewTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WebViewTableViewCell.xib; sourceTree = "<group>"; };
 		1E6EB24D2289FDC3005BA94E /* Gitea.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gitea.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1E6EB2502289FDC3005BA94E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1E6EB2572289FDC3005BA94E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -217,6 +227,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1E4643B322A06EE200A399A8 /* WebKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -230,6 +241,10 @@
 				1E0C0A32229D72A0001453B5 /* IssueTableViewCell.xib */,
 				1EA21001229DD2DA00BF666F /* IssueDetailTableViewCell.swift */,
 				1EA21002229DD2DA00BF666F /* IssueDetailTableViewCell.xib */,
+				1E4643B422A0EEA000A399A8 /* IssueDetailSimpleTableViewCell.swift */,
+				1E4643B522A0EEA000A399A8 /* IssueDetailSimpleTableViewCell.xib */,
+				1E4643B822A0F60A00A399A8 /* WebViewTableViewCell.swift */,
+				1E4643B922A0F60A00A399A8 /* WebViewTableViewCell.xib */,
 			);
 			path = TableViewCells;
 			sourceTree = "<group>";
@@ -242,11 +257,20 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
+		1E4643B122A06EE200A399A8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1E4643B222A06EE200A399A8 /* WebKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		1E6EB2442289FDC3005BA94E = {
 			isa = PBXGroup;
 			children = (
 				1E6EB24F2289FDC3005BA94E /* Gitea */,
 				1E6EB24E2289FDC3005BA94E /* Products */,
+				1E4643B122A06EE200A399A8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -446,8 +470,10 @@
 			files = (
 				1E6EB25D2289FDC4005BA94E /* LaunchScreen.storyboard in Resources */,
 				1E6EB25A2289FDC4005BA94E /* Assets.xcassets in Resources */,
+				1E4643B722A0EEA000A399A8 /* IssueDetailSimpleTableViewCell.xib in Resources */,
 				1E6EB2582289FDC3005BA94E /* Main.storyboard in Resources */,
 				1E0C0A33229D72A0001453B5 /* IssueTableViewCell.xib in Resources */,
+				1E4643BB22A0F60A00A399A8 /* WebViewTableViewCell.xib in Resources */,
 				1EA21004229DD2DA00BF666F /* IssueDetailTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -505,8 +531,10 @@
 				1E3E792522930DD000B0FAA7 /* EditReleaseOption.swift in Sources */,
 				1E3E78FA22930DD000B0FAA7 /* MergePullRequestOption.swift in Sources */,
 				1E3E78EB22930DD000B0FAA7 /* GitTreeResponse.swift in Sources */,
+				1E4643B622A0EEA000A399A8 /* IssueDetailSimpleTableViewCell.swift in Sources */,
 				1E3B45D9229711250051A448 /* IssueTableViewCell.swift in Sources */,
 				1E3E78DD22930DD000B0FAA7 /* CreateStatusOption.swift in Sources */,
+				1E4643BA22A0F60A00A399A8 /* WebViewTableViewCell.swift in Sources */,
 				1E3E791922930DD000B0FAA7 /* CreateUserOption.swift in Sources */,
 				1E3E78F022930DD000B0FAA7 /* CreateForkOption.swift in Sources */,
 				1E6EB26B228A04B3005BA94E /* IssuesTableViewController.swift in Sources */,
