@@ -23,7 +23,8 @@ class IssueDetailTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
         
-        //tableView.register(UINib(nibName: "IssueDetailTableViewCell", bundle: nil), forCellReuseIdentifier: "IssueDetailCellFromNib")
+        tableView.register(UINib(nibName: "IssueDetailTableViewCell", bundle: nil), forCellReuseIdentifier: "IssueDetailCellFromNib")
+        tableView.register(UINib(nibName: "IssueDetailSimpleTableViewCell", bundle: nil), forCellReuseIdentifier: "IssueDetailSimpleCellFromNib")
         tableView.register(UINib(nibName: "WebViewTableViewCell", bundle: nil), forCellReuseIdentifier: "WebViewCellFromNib")
     }
     
@@ -51,11 +52,6 @@ class IssueDetailTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "WebViewCellFromNib", for: indexPath)
         
-        guard let webViewCell = cell as? WebViewTableViewCell else {
-            debugPrint("tableView(cellForRowAt: ...): failed to dequeue a WebViewTableViewCell")
-            return cell
-        }
-        
         var loginO: String?
         var createdSinceO: String?
         var bodyO: String?
@@ -78,30 +74,47 @@ class IssueDetailTableViewController: UITableViewController {
         let header = "\(login) commented \(createdSince) ago"
         debugPrint(header)
         
-        if var request = Authentication.shared.constructURLRequest(withPath: "/api/v1/markdown/raw") {
-            request.httpMethod = "POST"
-            request.httpBody = body.data(using: .utf8)
-            
-            webViewCell.webView.tag = indexPath.row
-            webViewCell.webView.load(request)
-            
-            // use already calculated height
-            if let webViewHeight = rowHeights[indexPath.row] {
-                webViewCell.webViewHeightConstraint.constant = webViewHeight
-            }
-            
-            // we have a generic callback, so set it only if it´s not set
-            if webViewCell.webViewResizeCallback == nil {
-                webViewCell.webViewResizeCallback = { tag, height in
-                    debugPrint("webViewResizeCallback(tag = \(tag), height: \(height)): called")
-                    // update cell layouts without cell reload
-                    // TODO: do this only once for all cells???
-                    tableView.beginUpdates()
-                    tableView.endUpdates()
-                    // save hight for later use
-                    self.rowHeights[tag] = height
+        // Fill the cell
+        switch cell {
+        case is IssueDetailTableViewCell:
+            let tvc = cell as! IssueDetailTableViewCell
+            tvc.headerLabel.text = header
+            // TODO: Fill web view
+        case is IssueDetailSimpleTableViewCell:
+            let tvc = cell as! IssueDetailSimpleTableViewCell
+            tvc.headerLabel.text = header
+            tvc.contentAttributedLabel.text = body
+        case is WebViewTableViewCell:
+            let tvc = cell as! WebViewTableViewCell
+            if var request = Authentication.shared.constructURLRequest(withPath: "/api/v1/markdown/raw") {
+                request.httpMethod = "POST"
+                request.httpBody = body.data(using: .utf8)
+                
+                tvc.webView.tag = indexPath.row
+                tvc.webView.load(request)
+                
+                // use already calculated height
+                if let webViewHeight = rowHeights[indexPath.row] {
+                    tvc.webViewHeightConstraint.constant = webViewHeight
+                }
+                
+                // we have a generic callback, so set it only if it´s not set
+                if tvc.webViewResizeCallback == nil {
+                    tvc.webViewResizeCallback = { tag, height in
+                        debugPrint("webViewResizeCallback(tag = \(tag), height: \(height)): called")
+                        // update cell layouts without cell reload
+                        // TODO: do this only once for all cells???
+                        tableView.beginUpdates()
+                        tableView.endUpdates()
+                        // save hight for later use
+                        self.rowHeights[tag] = height
+                    }
                 }
             }
+        default:
+            // This properties does have all table view cells
+            cell.textLabel?.text = header
+            cell.detailTextLabel?.text = body
         }
 
         return cell
