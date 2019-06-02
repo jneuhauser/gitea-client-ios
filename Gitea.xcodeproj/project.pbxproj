@@ -237,12 +237,12 @@
 		1E3B45DA2297112B0051A448 /* TableViewCells */ = {
 			isa = PBXGroup;
 			children = (
-				1E3B45D8229711250051A448 /* IssueTableViewCell.swift */,
-				1E0C0A32229D72A0001453B5 /* IssueTableViewCell.xib */,
-				1EA21001229DD2DA00BF666F /* IssueDetailTableViewCell.swift */,
-				1EA21002229DD2DA00BF666F /* IssueDetailTableViewCell.xib */,
 				1E4643B422A0EEA000A399A8 /* IssueDetailSimpleTableViewCell.swift */,
 				1E4643B522A0EEA000A399A8 /* IssueDetailSimpleTableViewCell.xib */,
+				1EA21001229DD2DA00BF666F /* IssueDetailTableViewCell.swift */,
+				1EA21002229DD2DA00BF666F /* IssueDetailTableViewCell.xib */,
+				1E3B45D8229711250051A448 /* IssueTableViewCell.swift */,
+				1E0C0A32229D72A0001453B5 /* IssueTableViewCell.xib */,
 				1E4643B822A0F60A00A399A8 /* WebViewTableViewCell.swift */,
 				1E4643B922A0F60A00A399A8 /* WebViewTableViewCell.xib */,
 			);
@@ -318,8 +318,8 @@
 			children = (
 				1E6EB276228B038F005BA94E /* Model */,
 				1E6EB277228B03B7005BA94E /* Authentication.swift */,
-				1ECA4753228DACAB00887A03 /* Networking.swift */,
 				1ECA475D228DF2EC00887A03 /* MyNetworkExtensions.swift */,
+				1ECA4753228DACAB00887A03 /* Networking.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
