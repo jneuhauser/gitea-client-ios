@@ -1,0 +1,16 @@
+PODS:
+  - MarkdownView (1.5.0)
+
+DEPENDENCIES:
+  - MarkdownView
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - MarkdownView
+
+SPEC CHECKSUMS:
+  MarkdownView: 5bbee438c823db1cd189002d44c84fa909b3a896
+
+PODFILE CHECKSUM: af8cfdc94510eddae68ae6c90d264f56bdb475e6
+
+COCOAPODS: 1.6.1

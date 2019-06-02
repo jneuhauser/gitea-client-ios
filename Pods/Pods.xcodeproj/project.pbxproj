@@ -1,0 +1,721 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		699D88C8AD87229435F7C3E475A246CD /* MarkdownView-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A39447CF9997E41989A64CE7ADA8908 /* MarkdownView-dummy.m */; };
+		744B6A4FD0E70B582B3F1D3E2497ED2B /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = 82038BA49EAA3D33319422BEDFD85E61 /* index.html */; };
+		814F80B85BC81162727DEF1E7F5F3A7B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB4607EFCA7C5F75397649E792E2AFCB /* Foundation.framework */; };
+		9340E22D1E27F5594CD8F3DB7A4E3E73 /* main.js in Resources */ = {isa = PBXBuildFile; fileRef = C9BD06198D6DD45BD216B9EF97C291F3 /* main.js */; };
+		BF1ABFE98ADB7378875981D608BF411D /* Pods-Gitea-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 775BE2E716A35188138502157A4BF136 /* Pods-Gitea-dummy.m */; };
+		D350846D727D773726E2A9842D285AF0 /* main.css in Resources */ = {isa = PBXBuildFile; fileRef = 43C49F9F7CCA5A6EDEC616E1DE50BFF0 /* main.css */; };
+		D53E98B49E5A24702F20890707E9EF55 /* MarkdownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06F3B9BCA98BE15BF9E26482E6A54CCB /* MarkdownView.swift */; };
+		D8CDA1EAC659A3170B989363659BC106 /* MarkdownView-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = F6067FDBFDD2786D90E1E122AB349EAA /* MarkdownView-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DFC49C2A06DB1427687419244F4CD62F /* MarkdownView.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2CC082B985E7E1C0AFB8A07F6932D56C /* MarkdownView.bundle */; };
+		E3E17612D998471BCBD8CBE4E96A2BCD /* Pods-Gitea-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 7AF50CFBD2468785BA69931104C7C7FC /* Pods-Gitea-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E4148B73A97CF15BFB1DD214FF241D0D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB4607EFCA7C5F75397649E792E2AFCB /* Foundation.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		1EFAC89556E220C4E0EFE9EB17A38749 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BEB29B20E00E6E580E3A78C9C944752F;
+			remoteInfo = MarkdownView;
+		};
+		4095149DD63B19F7FFAA4F204FC7D362 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4B6ED79656070B5089BC752E55B0C5FC;
+			remoteInfo = "MarkdownView-MarkdownView";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		06F3B9BCA98BE15BF9E26482E6A54CCB /* MarkdownView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MarkdownView.swift; path = MarkdownView/MarkdownView.swift; sourceTree = "<group>"; };
+		0D9950A56D6ACE8FC9DA4071804B9180 /* Pods-Gitea-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Gitea-acknowledgements.plist"; sourceTree = "<group>"; };
+		1CFA2F9926E574713BEBC1CF10A7E930 /* Pods-Gitea.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Gitea.modulemap"; sourceTree = "<group>"; };
+		2CC082B985E7E1C0AFB8A07F6932D56C /* MarkdownView.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = MarkdownView.bundle; path = "MarkdownView-MarkdownView.bundle"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3D0A9423D8247C6F8A39C7ADAC156881 /* Pods-Gitea-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Gitea-acknowledgements.markdown"; sourceTree = "<group>"; };
+		3DB367E1115DB4E1ABE2F2917F55A455 /* Pods-Gitea-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Gitea-Info.plist"; sourceTree = "<group>"; };
+		43C49F9F7CCA5A6EDEC616E1DE50BFF0 /* main.css */ = {isa = PBXFileReference; includeInIndex = 1; name = main.css; path = webassets/dist/main.css; sourceTree = "<group>"; };
+		46BDBE7973EB3097D6A7337B59CD9265 /* Pods_Gitea.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Gitea.framework; path = "Pods-Gitea.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5836DA17C68E7BD6FA94D18532EC483A /* Pods-Gitea-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Gitea-frameworks.sh"; sourceTree = "<group>"; };
+		7470C89F999E994247BCDA40A8B75913 /* ResourceBundle-MarkdownView-MarkdownView-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ResourceBundle-MarkdownView-MarkdownView-Info.plist"; sourceTree = "<group>"; };
+		775BE2E716A35188138502157A4BF136 /* Pods-Gitea-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Gitea-dummy.m"; sourceTree = "<group>"; };
+		7A39447CF9997E41989A64CE7ADA8908 /* MarkdownView-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "MarkdownView-dummy.m"; sourceTree = "<group>"; };
+		7AF50CFBD2468785BA69931104C7C7FC /* Pods-Gitea-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Gitea-umbrella.h"; sourceTree = "<group>"; };
+		82038BA49EAA3D33319422BEDFD85E61 /* index.html */ = {isa = PBXFileReference; includeInIndex = 1; name = index.html; path = webassets/dist/index.html; sourceTree = "<group>"; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		C9BD06198D6DD45BD216B9EF97C291F3 /* main.js */ = {isa = PBXFileReference; includeInIndex = 1; name = main.js; path = webassets/dist/main.js; sourceTree = "<group>"; };
+		CB4607EFCA7C5F75397649E792E2AFCB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		D5F610BE8A724964507F9A03BCBB3D18 /* Pods-Gitea.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Gitea.release.xcconfig"; sourceTree = "<group>"; };
+		D9C7E510E29E453C2D8628A9659AA9A9 /* Pods-Gitea.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Gitea.debug.xcconfig"; sourceTree = "<group>"; };
+		DD0A7FF09111EDD12A5FC2B337BAE50D /* MarkdownView-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "MarkdownView-Info.plist"; sourceTree = "<group>"; };
+		DFE4F8E7CFE14F2CF98C0E0356BB8702 /* MarkdownView-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MarkdownView-prefix.pch"; sourceTree = "<group>"; };
+		F0A869FD3D2826CB777EF19057F5B44D /* MarkdownView.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = MarkdownView.modulemap; sourceTree = "<group>"; };
+		F6067FDBFDD2786D90E1E122AB349EAA /* MarkdownView-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MarkdownView-umbrella.h"; sourceTree = "<group>"; };
+		FCA9E6C4EC1AE4F9BB011118B6D04EAB /* MarkdownView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = MarkdownView.framework; path = MarkdownView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FD0F1730B95288F3D40F353E7A341231 /* MarkdownView.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MarkdownView.xcconfig; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		6008AF66D201024B8184DA098D75A0FD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6C91D30F79661542452DB42E532ED04D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				814F80B85BC81162727DEF1E7F5F3A7B /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		99A863C0D97C57BAD9DC4299E7311335 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E4148B73A97CF15BFB1DD214FF241D0D /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		095942089C95DA77CB6D73ED0A4917BF /* Pods-Gitea */ = {
+			isa = PBXGroup;
+			children = (
+				1CFA2F9926E574713BEBC1CF10A7E930 /* Pods-Gitea.modulemap */,
+				3D0A9423D8247C6F8A39C7ADAC156881 /* Pods-Gitea-acknowledgements.markdown */,
+				0D9950A56D6ACE8FC9DA4071804B9180 /* Pods-Gitea-acknowledgements.plist */,
+				775BE2E716A35188138502157A4BF136 /* Pods-Gitea-dummy.m */,
+				5836DA17C68E7BD6FA94D18532EC483A /* Pods-Gitea-frameworks.sh */,
+				3DB367E1115DB4E1ABE2F2917F55A455 /* Pods-Gitea-Info.plist */,
+				7AF50CFBD2468785BA69931104C7C7FC /* Pods-Gitea-umbrella.h */,
+				D9C7E510E29E453C2D8628A9659AA9A9 /* Pods-Gitea.debug.xcconfig */,
+				D5F610BE8A724964507F9A03BCBB3D18 /* Pods-Gitea.release.xcconfig */,
+			);
+			name = "Pods-Gitea";
+			path = "Target Support Files/Pods-Gitea";
+			sourceTree = "<group>";
+		};
+		5FF5A45ABA679A614AE641CF34B9163B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				72AB400EA59296679AC3775B8D2AAB61 /* MarkdownView */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		72AB400EA59296679AC3775B8D2AAB61 /* MarkdownView */ = {
+			isa = PBXGroup;
+			children = (
+				06F3B9BCA98BE15BF9E26482E6A54CCB /* MarkdownView.swift */,
+				B1FA9042F18F16041934392724CB62F8 /* Resources */,
+				B4A0A48868213BEA964C19756AA8C90E /* Support Files */,
+			);
+			name = MarkdownView;
+			path = MarkdownView;
+			sourceTree = "<group>";
+		};
+		7B45B3FC3BA14900754F64C19F698819 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				095942089C95DA77CB6D73ED0A4917BF /* Pods-Gitea */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		9B055D0CFEA43187E72B03DED11F5662 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				CB4607EFCA7C5F75397649E792E2AFCB /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		B1FA9042F18F16041934392724CB62F8 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				82038BA49EAA3D33319422BEDFD85E61 /* index.html */,
+				43C49F9F7CCA5A6EDEC616E1DE50BFF0 /* main.css */,
+				C9BD06198D6DD45BD216B9EF97C291F3 /* main.js */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		B4A0A48868213BEA964C19756AA8C90E /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				F0A869FD3D2826CB777EF19057F5B44D /* MarkdownView.modulemap */,
+				FD0F1730B95288F3D40F353E7A341231 /* MarkdownView.xcconfig */,
+				7A39447CF9997E41989A64CE7ADA8908 /* MarkdownView-dummy.m */,
+				DD0A7FF09111EDD12A5FC2B337BAE50D /* MarkdownView-Info.plist */,
+				DFE4F8E7CFE14F2CF98C0E0356BB8702 /* MarkdownView-prefix.pch */,
+				F6067FDBFDD2786D90E1E122AB349EAA /* MarkdownView-umbrella.h */,
+				7470C89F999E994247BCDA40A8B75913 /* ResourceBundle-MarkdownView-MarkdownView-Info.plist */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/MarkdownView";
+			sourceTree = "<group>";
+		};
+		CF1408CF629C7361332E53B88F7BD30C = {
+			isa = PBXGroup;
+			children = (
+				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
+				D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */,
+				5FF5A45ABA679A614AE641CF34B9163B /* Pods */,
+				DE41B90C37D9EFF6F9204BD52CB2634F /* Products */,
+				7B45B3FC3BA14900754F64C19F698819 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9B055D0CFEA43187E72B03DED11F5662 /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DE41B90C37D9EFF6F9204BD52CB2634F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2CC082B985E7E1C0AFB8A07F6932D56C /* MarkdownView.bundle */,
+				FCA9E6C4EC1AE4F9BB011118B6D04EAB /* MarkdownView.framework */,
+				46BDBE7973EB3097D6A7337B59CD9265 /* Pods_Gitea.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		175B73F181A1002C81BD89C4F8ADA73C /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D8CDA1EAC659A3170B989363659BC106 /* MarkdownView-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8E1376E9C450A3FA628B59FB35EFD436 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E3E17612D998471BCBD8CBE4E96A2BCD /* Pods-Gitea-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		4B6ED79656070B5089BC752E55B0C5FC /* MarkdownView-MarkdownView */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 78DBA1F7E5973369575FDFF94AF1479A /* Build configuration list for PBXNativeTarget "MarkdownView-MarkdownView" */;
+			buildPhases = (
+				864980C4DBDE7EE3C5C0BC705F393378 /* Sources */,
+				6008AF66D201024B8184DA098D75A0FD /* Frameworks */,
+				7B635EC6EE35E074C0C085077D2E4C4D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "MarkdownView-MarkdownView";
+			productName = "MarkdownView-MarkdownView";
+			productReference = 2CC082B985E7E1C0AFB8A07F6932D56C /* MarkdownView.bundle */;
+			productType = "com.apple.product-type.bundle";
+		};
+		53F3BFBBEA35A5480BA0CF76C501D0DE /* Pods-Gitea */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 11EB76813D6E5CCC4AC165237C917397 /* Build configuration list for PBXNativeTarget "Pods-Gitea" */;
+			buildPhases = (
+				8E1376E9C450A3FA628B59FB35EFD436 /* Headers */,
+				460A9812117A7583E6D03914215D0643 /* Sources */,
+				99A863C0D97C57BAD9DC4299E7311335 /* Frameworks */,
+				0B36F9490CD22C15307A6690C109E8C5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				11B035D534980D104033E4E1EB8CC0B1 /* PBXTargetDependency */,
+			);
+			name = "Pods-Gitea";
+			productName = "Pods-Gitea";
+			productReference = 46BDBE7973EB3097D6A7337B59CD9265 /* Pods_Gitea.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		BEB29B20E00E6E580E3A78C9C944752F /* MarkdownView */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2FDC57DD5116C3430AAB5C1CE8AEE23A /* Build configuration list for PBXNativeTarget "MarkdownView" */;
+			buildPhases = (
+				175B73F181A1002C81BD89C4F8ADA73C /* Headers */,
+				EEB1465EE4772F40E6F9443CDB2F103D /* Sources */,
+				6C91D30F79661542452DB42E532ED04D /* Frameworks */,
+				F1A5D464D1A382C5C9DF0A28932541F9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				57404D77D7BF250B85116C39FDD8048E /* PBXTargetDependency */,
+			);
+			name = MarkdownView;
+			productName = MarkdownView;
+			productReference = FCA9E6C4EC1AE4F9BB011118B6D04EAB /* MarkdownView.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BFDFE7DC352907FC980B868725387E98 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0930;
+				LastUpgradeCheck = 0930;
+			};
+			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
+			productRefGroup = DE41B90C37D9EFF6F9204BD52CB2634F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BEB29B20E00E6E580E3A78C9C944752F /* MarkdownView */,
+				4B6ED79656070B5089BC752E55B0C5FC /* MarkdownView-MarkdownView */,
+				53F3BFBBEA35A5480BA0CF76C501D0DE /* Pods-Gitea */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		0B36F9490CD22C15307A6690C109E8C5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7B635EC6EE35E074C0C085077D2E4C4D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				744B6A4FD0E70B582B3F1D3E2497ED2B /* index.html in Resources */,
+				D350846D727D773726E2A9842D285AF0 /* main.css in Resources */,
+				9340E22D1E27F5594CD8F3DB7A4E3E73 /* main.js in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F1A5D464D1A382C5C9DF0A28932541F9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DFC49C2A06DB1427687419244F4CD62F /* MarkdownView.bundle in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		460A9812117A7583E6D03914215D0643 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BF1ABFE98ADB7378875981D608BF411D /* Pods-Gitea-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		864980C4DBDE7EE3C5C0BC705F393378 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EEB1465EE4772F40E6F9443CDB2F103D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				699D88C8AD87229435F7C3E475A246CD /* MarkdownView-dummy.m in Sources */,
+				D53E98B49E5A24702F20890707E9EF55 /* MarkdownView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		11B035D534980D104033E4E1EB8CC0B1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = MarkdownView;
+			target = BEB29B20E00E6E580E3A78C9C944752F /* MarkdownView */;
+			targetProxy = 1EFAC89556E220C4E0EFE9EB17A38749 /* PBXContainerItemProxy */;
+		};
+		57404D77D7BF250B85116C39FDD8048E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "MarkdownView-MarkdownView";
+			target = 4B6ED79656070B5089BC752E55B0C5FC /* MarkdownView-MarkdownView */;
+			targetProxy = 4095149DD63B19F7FFAA4F204FC7D362 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		07488D4657FB0A78086563621D425F8A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.2;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		147B313E594C0D3227720AD0FD4D3757 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FD0F1730B95288F3D40F353E7A341231 /* MarkdownView.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/MarkdownView/MarkdownView-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/MarkdownView/MarkdownView-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/MarkdownView/MarkdownView.modulemap";
+				PRODUCT_MODULE_NAME = MarkdownView;
+				PRODUCT_NAME = MarkdownView;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		4B47F31C457AC1D668F3679665A9C956 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D9C7E510E29E453C2D8628A9659AA9A9 /* Pods-Gitea.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-Gitea/Pods-Gitea-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Gitea/Pods-Gitea.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		7B0237D114AA0E15C93C26B24EFB883C /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FD0F1730B95288F3D40F353E7A341231 /* MarkdownView.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/MarkdownView/MarkdownView-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/MarkdownView/MarkdownView-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/MarkdownView/MarkdownView.modulemap";
+				PRODUCT_MODULE_NAME = MarkdownView;
+				PRODUCT_NAME = MarkdownView;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		A1962E6FF39BBAC201A2E5DDF99557DF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 4.2;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+		BCAF6CB89E0012B03BF04F669057289B /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FD0F1730B95288F3D40F353E7A341231 /* MarkdownView.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/MarkdownView";
+				INFOPLIST_FILE = "Target Support Files/MarkdownView/ResourceBundle-MarkdownView-MarkdownView-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				PRODUCT_NAME = MarkdownView;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Release;
+		};
+		CA086D520FE6FD7220E33A55292CA68E /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D5F610BE8A724964507F9A03BCBB3D18 /* Pods-Gitea.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-Gitea/Pods-Gitea-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Gitea/Pods-Gitea.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		D19C42E99879F7504C1A02BBBB6523BF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FD0F1730B95288F3D40F353E7A341231 /* MarkdownView.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/MarkdownView";
+				INFOPLIST_FILE = "Target Support Files/MarkdownView/ResourceBundle-MarkdownView-MarkdownView-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				PRODUCT_NAME = MarkdownView;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		11EB76813D6E5CCC4AC165237C917397 /* Build configuration list for PBXNativeTarget "Pods-Gitea" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4B47F31C457AC1D668F3679665A9C956 /* Debug */,
+				CA086D520FE6FD7220E33A55292CA68E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2FDC57DD5116C3430AAB5C1CE8AEE23A /* Build configuration list for PBXNativeTarget "MarkdownView" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				147B313E594C0D3227720AD0FD4D3757 /* Debug */,
+				7B0237D114AA0E15C93C26B24EFB883C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				07488D4657FB0A78086563621D425F8A /* Debug */,
+				A1962E6FF39BBAC201A2E5DDF99557DF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		78DBA1F7E5973369575FDFF94AF1479A /* Build configuration list for PBXNativeTarget "MarkdownView-MarkdownView" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D19C42E99879F7504C1A02BBBB6523BF /* Debug */,
+				BCAF6CB89E0012B03BF04F669057289B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+}
