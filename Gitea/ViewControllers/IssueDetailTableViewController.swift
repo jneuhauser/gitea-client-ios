@@ -80,10 +80,18 @@ class IssueDetailTableViewController: UITableViewController {
         case is MarkdownWithHeaderTableViewCell:
             let tvc = cell as! MarkdownWithHeaderTableViewCell
             tvc.headerLabel.text = header
-            tvc.markdownView.onRendered = { height in
-                tvc.markdownViewHeightConstraint.constant = height
-                tableView.beginUpdates()
-                tableView.endUpdates()
+//            if let rowHeight = rowHeights[indexPath.row] {
+//                debugPrint("Set height to: \(rowHeight)")
+//                tvc.markdownViewHeightConstraint.constant = rowHeight
+//                tvc.markdownView.onRendered = nil
+//            } else {
+                tvc.markdownView.onRendered = { height in
+                    debugPrint("markdownView.onRendered(height = \(height)")
+                    tvc.markdownViewHeightConstraint.constant = height
+                    tableView.beginUpdates()
+                    tableView.endUpdates()
+//                    self.rowHeights[indexPath.row] = height
+//                }
             }
             tvc.markdownView.load(markdown: body)
         case is IssueDetailTableViewCell:
