@@ -26,6 +26,7 @@ class IssueDetailTableViewController: UITableViewController {
         tableView.register(UINib(nibName: "IssueDetailTableViewCell", bundle: nil), forCellReuseIdentifier: "IssueDetailCellFromNib")
         tableView.register(UINib(nibName: "IssueDetailSimpleTableViewCell", bundle: nil), forCellReuseIdentifier: "IssueDetailSimpleCellFromNib")
         tableView.register(UINib(nibName: "WebViewTableViewCell", bundle: nil), forCellReuseIdentifier: "WebViewCellFromNib")
+        tableView.register(UINib(nibName: "MarkdownWithHeaderTableViewCell", bundle: nil), forCellReuseIdentifier: "MarkdownWithHeaderCellFromNib")
     }
     
     @IBAction func refreshAction(_ sender: UIRefreshControl) {
@@ -50,7 +51,7 @@ class IssueDetailTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "WebViewCellFromNib", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MarkdownWithHeaderCellFromNib", for: indexPath)
         
         var loginO: String?
         var createdSinceO: String?
@@ -76,6 +77,15 @@ class IssueDetailTableViewController: UITableViewController {
         
         // Fill the cell
         switch cell {
+        case is MarkdownWithHeaderTableViewCell:
+            let tvc = cell as! MarkdownWithHeaderTableViewCell
+            tvc.headerLabel.text = header
+            tvc.markdownView.onRendered = { height in
+                tvc.markdownViewHeightConstraint.constant = height
+                tableView.beginUpdates()
+                tableView.endUpdates()
+            }
+            tvc.markdownView.load(markdown: body)
         case is IssueDetailTableViewCell:
             let tvc = cell as! IssueDetailTableViewCell
             tvc.headerLabel.text = header

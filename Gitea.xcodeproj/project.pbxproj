@@ -111,6 +111,9 @@
 		1EA21006229DDB4400BF666F /* IssueDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA21005229DDB4400BF666F /* IssueDetailTableViewController.swift */; };
 		1ECA4754228DACAB00887A03 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ECA4753228DACAB00887A03 /* Networking.swift */; };
 		1ECA475E228DF2EC00887A03 /* MyNetworkExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ECA475D228DF2EC00887A03 /* MyNetworkExtensions.swift */; };
+		1ECB26EB22A45EF600A22B49 /* MarkdownWithHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ECB26E922A45EF600A22B49 /* MarkdownWithHeaderTableViewCell.swift */; };
+		1ECB26EC22A45EF600A22B49 /* MarkdownWithHeaderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1ECB26EA22A45EF600A22B49 /* MarkdownWithHeaderTableViewCell.xib */; };
+		E6698667931D88729D5E8646 /* Pods_Gitea.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 774D38FAE53E2F66041F7EFD /* Pods_Gitea.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -220,6 +223,11 @@
 		1EA21005229DDB4400BF666F /* IssueDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueDetailTableViewController.swift; sourceTree = "<group>"; };
 		1ECA4753228DACAB00887A03 /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
 		1ECA475D228DF2EC00887A03 /* MyNetworkExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyNetworkExtensions.swift; sourceTree = "<group>"; };
+		1ECB26E922A45EF600A22B49 /* MarkdownWithHeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkdownWithHeaderTableViewCell.swift; sourceTree = "<group>"; };
+		1ECB26EA22A45EF600A22B49 /* MarkdownWithHeaderTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MarkdownWithHeaderTableViewCell.xib; sourceTree = "<group>"; };
+		774D38FAE53E2F66041F7EFD /* Pods_Gitea.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Gitea.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B71BCF681EAB6515ECF83C1F /* Pods-Gitea.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gitea.debug.xcconfig"; path = "Target Support Files/Pods-Gitea/Pods-Gitea.debug.xcconfig"; sourceTree = "<group>"; };
+		E7F97512690AF29048A3B3BF /* Pods-Gitea.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gitea.release.xcconfig"; path = "Target Support Files/Pods-Gitea/Pods-Gitea.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -228,6 +236,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1E4643B322A06EE200A399A8 /* WebKit.framework in Frameworks */,
+				E6698667931D88729D5E8646 /* Pods_Gitea.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -243,6 +252,8 @@
 				1EA21002229DD2DA00BF666F /* IssueDetailTableViewCell.xib */,
 				1E3B45D8229711250051A448 /* IssueTableViewCell.swift */,
 				1E0C0A32229D72A0001453B5 /* IssueTableViewCell.xib */,
+				1ECB26E922A45EF600A22B49 /* MarkdownWithHeaderTableViewCell.swift */,
+				1ECB26EA22A45EF600A22B49 /* MarkdownWithHeaderTableViewCell.xib */,
 				1E4643B822A0F60A00A399A8 /* WebViewTableViewCell.swift */,
 				1E4643B922A0F60A00A399A8 /* WebViewTableViewCell.xib */,
 			);
@@ -261,6 +272,7 @@
 			isa = PBXGroup;
 			children = (
 				1E4643B222A06EE200A399A8 /* WebKit.framework */,
+				774D38FAE53E2F66041F7EFD /* Pods_Gitea.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -271,6 +283,7 @@
 				1E6EB24F2289FDC3005BA94E /* Gitea */,
 				1E6EB24E2289FDC3005BA94E /* Products */,
 				1E4643B122A06EE200A399A8 /* Frameworks */,
+				CC6CD36C5EEDCA53059D1D25 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -410,6 +423,15 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		CC6CD36C5EEDCA53059D1D25 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B71BCF681EAB6515ECF83C1F /* Pods-Gitea.debug.xcconfig */,
+				E7F97512690AF29048A3B3BF /* Pods-Gitea.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -417,9 +439,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1E6EB2612289FDC4005BA94E /* Build configuration list for PBXNativeTarget "Gitea" */;
 			buildPhases = (
+				BAE25163002EBA0D12FF11FE /* [CP] Check Pods Manifest.lock */,
 				1E6EB2492289FDC3005BA94E /* Sources */,
 				1E6EB24A2289FDC3005BA94E /* Frameworks */,
 				1E6EB24B2289FDC3005BA94E /* Resources */,
+				601C80273CC876FCC44E1232 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -474,11 +498,59 @@
 				1E6EB2582289FDC3005BA94E /* Main.storyboard in Resources */,
 				1E0C0A33229D72A0001453B5 /* IssueTableViewCell.xib in Resources */,
 				1E4643BB22A0F60A00A399A8 /* WebViewTableViewCell.xib in Resources */,
+				1ECB26EC22A45EF600A22B49 /* MarkdownWithHeaderTableViewCell.xib in Resources */,
 				1EA21004229DD2DA00BF666F /* IssueDetailTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		601C80273CC876FCC44E1232 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Gitea/Pods-Gitea-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/MarkdownView/MarkdownView.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MarkdownView.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Gitea/Pods-Gitea-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BAE25163002EBA0D12FF11FE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Gitea-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		1E6EB2492289FDC3005BA94E /* Sources */ = {
@@ -525,6 +597,7 @@
 				1E3E790622930DD000B0FAA7 /* SearchResults.swift in Sources */,
 				1E3E78F522930DD000B0FAA7 /* IssueLabelsOption.swift in Sources */,
 				1E3E791A22930DD000B0FAA7 /* RepoCommit.swift in Sources */,
+				1ECB26EB22A45EF600A22B49 /* MarkdownWithHeaderTableViewCell.swift in Sources */,
 				1E3E78F322930DD000B0FAA7 /* ServerVersion.swift in Sources */,
 				1E3E792F2293288700B0FAA7 /* StateType.swift in Sources */,
 				1E3E78E122930DD000B0FAA7 /* CreateGPGKeyOption.swift in Sources */,
@@ -724,6 +797,7 @@
 		};
 		1E6EB2622289FDC4005BA94E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B71BCF681EAB6515ECF83C1F /* Pods-Gitea.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -741,6 +815,7 @@
 		};
 		1E6EB2632289FDC4005BA94E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E7F97512690AF29048A3B3BF /* Pods-Gitea.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
