@@ -23,7 +23,6 @@ class IssueDetailTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
         
-        tableView.register(UINib(nibName: "IssueDetailTableViewCell", bundle: nil), forCellReuseIdentifier: "IssueDetailCellFromNib")
         tableView.register(UINib(nibName: "IssueDetailSimpleTableViewCell", bundle: nil), forCellReuseIdentifier: "IssueDetailSimpleCellFromNib")
         tableView.register(UINib(nibName: "WebViewTableViewCell", bundle: nil), forCellReuseIdentifier: "WebViewCellFromNib")
         tableView.register(UINib(nibName: "MarkdownWithHeaderTableViewCell", bundle: nil), forCellReuseIdentifier: "MarkdownWithHeaderCellFromNib")
@@ -94,10 +93,6 @@ class IssueDetailTableViewController: UITableViewController {
 //                }
             }
             tvc.markdownView.load(markdown: body)
-        case is IssueDetailTableViewCell:
-            let tvc = cell as! IssueDetailTableViewCell
-            tvc.headerLabel.text = header
-            // TODO: Fill web view
         case is IssueDetailSimpleTableViewCell:
             let tvc = cell as! IssueDetailSimpleTableViewCell
             tvc.headerLabel.text = header

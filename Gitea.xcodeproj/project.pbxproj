@@ -106,8 +106,6 @@
 		1E6EB278228B03B7005BA94E /* Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E6EB277228B03B7005BA94E /* Authentication.swift */; };
 		1E816D3B22933157000F4CD8 /* SortTypeOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E816D3A22933157000F4CD8 /* SortTypeOption.swift */; };
 		1E816D3D22933216000F4CD8 /* StateTypeOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E816D3C22933216000F4CD8 /* StateTypeOption.swift */; };
-		1EA21003229DD2DA00BF666F /* IssueDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA21001229DD2DA00BF666F /* IssueDetailTableViewCell.swift */; };
-		1EA21004229DD2DA00BF666F /* IssueDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1EA21002229DD2DA00BF666F /* IssueDetailTableViewCell.xib */; };
 		1EA21006229DDB4400BF666F /* IssueDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA21005229DDB4400BF666F /* IssueDetailTableViewController.swift */; };
 		1ECA4754228DACAB00887A03 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ECA4753228DACAB00887A03 /* Networking.swift */; };
 		1ECA475E228DF2EC00887A03 /* MyNetworkExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ECA475D228DF2EC00887A03 /* MyNetworkExtensions.swift */; };
@@ -218,8 +216,6 @@
 		1E6EB277228B03B7005BA94E /* Authentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authentication.swift; sourceTree = "<group>"; };
 		1E816D3A22933157000F4CD8 /* SortTypeOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortTypeOption.swift; sourceTree = "<group>"; };
 		1E816D3C22933216000F4CD8 /* StateTypeOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateTypeOption.swift; sourceTree = "<group>"; };
-		1EA21001229DD2DA00BF666F /* IssueDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueDetailTableViewCell.swift; sourceTree = "<group>"; };
-		1EA21002229DD2DA00BF666F /* IssueDetailTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IssueDetailTableViewCell.xib; sourceTree = "<group>"; };
 		1EA21005229DDB4400BF666F /* IssueDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueDetailTableViewController.swift; sourceTree = "<group>"; };
 		1ECA4753228DACAB00887A03 /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
 		1ECA475D228DF2EC00887A03 /* MyNetworkExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyNetworkExtensions.swift; sourceTree = "<group>"; };
@@ -248,8 +244,6 @@
 			children = (
 				1E4643B422A0EEA000A399A8 /* IssueDetailSimpleTableViewCell.swift */,
 				1E4643B522A0EEA000A399A8 /* IssueDetailSimpleTableViewCell.xib */,
-				1EA21001229DD2DA00BF666F /* IssueDetailTableViewCell.swift */,
-				1EA21002229DD2DA00BF666F /* IssueDetailTableViewCell.xib */,
 				1E3B45D8229711250051A448 /* IssueTableViewCell.swift */,
 				1E0C0A32229D72A0001453B5 /* IssueTableViewCell.xib */,
 				1ECB26E922A45EF600A22B49 /* MarkdownWithHeaderTableViewCell.swift */,
@@ -499,7 +493,6 @@
 				1E0C0A33229D72A0001453B5 /* IssueTableViewCell.xib in Resources */,
 				1E4643BB22A0F60A00A399A8 /* WebViewTableViewCell.xib in Resources */,
 				1ECB26EC22A45EF600A22B49 /* MarkdownWithHeaderTableViewCell.xib in Resources */,
-				1EA21004229DD2DA00BF666F /* IssueDetailTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -573,7 +566,6 @@
 				1E3E78E022930DD000B0FAA7 /* Release.swift in Sources */,
 				1E3E78EF22930DD000B0FAA7 /* EditDeadlineOption.swift in Sources */,
 				1E3E790E22930DD000B0FAA7 /* Organization.swift in Sources */,
-				1EA21003229DD2DA00BF666F /* IssueDetailTableViewCell.swift in Sources */,
 				1E6EB26D228A04CF005BA94E /* PullRequestsTableViewController.swift in Sources */,
 				1E3E790F22930DD000B0FAA7 /* AddTimeOption.swift in Sources */,
 				1E3E791E22930DD000B0FAA7 /* Tag.swift in Sources */,
