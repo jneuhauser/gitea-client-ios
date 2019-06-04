@@ -101,14 +101,6 @@ extension URLSession {
     }
 }
 
-// Accepts: "2019-05-13T10:08:07+02:00", "1996-12-19T16:39:57-08:00"
-private let rfc3339DateFormatter: DateFormatter = {
-    let fmt = DateFormatter()
-    fmt.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZZZZZ"
-    fmt.locale = Locale(identifier: "en_US_POSIX")
-    return fmt
-}()
-
 extension Encodable {
     func toJsonData() -> Data? {
         let encoder = JSONEncoder()
