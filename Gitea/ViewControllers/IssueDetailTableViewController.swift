@@ -28,9 +28,39 @@ class IssueDetailTableViewController: UITableViewController {
         tableView.register(UINib(nibName: "MarkdownWithHeaderTableViewCell", bundle: nil), forCellReuseIdentifier: "MarkdownWithHeaderCellFromNib")
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        // Load comments only if not loaded before
+        if issueComments == nil {
+            loadCommentsAsync()
+        }
+    }
+    
+    private func loadCommentsAsync() {
+        // Do nothing if there are no comments
+        // TODO: How should we update the current issue? Or should we always try to load the issue comments?
+        if let comments = issue?.comments, comments > 0,
+            let issueIndex = issue?.number {
+            // TODO: Load the comments of the selected repo
+            Networking.shared.getIssueComments(fromOwner: "devel", andRepo: "test1-cpp", withIndex: issueIndex, sinceTime: nil) { result in
+                switch result {
+                case .success(let comments):
+                    debugPrint(comments)
+                    self.issueComments = comments
+                    DispatchQueue.main.async {
+                        self.tableView.reloadData()
+                        self.refreshControl?.endRefreshing()
+                    }
+                case .failure(let error):
+                    debugPrint("getIssueComments() failed with \(error)")
+                }
+            }
+        }
+    }
+    
     @IBAction func refreshAction(_ sender: UIRefreshControl) {
-        tableView.reloadData()
-        refreshControl?.endRefreshing()
+        loadCommentsAsync()
     }
     
     // MARK: - Table view data source
@@ -114,7 +144,7 @@ class IssueDetailTableViewController: UITableViewController {
                 // we have a generic callback, so set it only if it´s not set
                 if tvc.webViewResizeCallback == nil {
                     tvc.webViewResizeCallback = { tag, height in
-                        debugPrint("webViewResizeCallback(tag = \(tag), height: \(height)): called")
+                        debugPrint("webViewResizeCallback(tag = \(tag), height): \(height)): called")
                         // update cell layouts without cell reload
                         // TODO: do this only once for all cells???
                         tableView.beginUpdates()

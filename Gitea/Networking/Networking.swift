@@ -140,4 +140,28 @@ class Networking {
         let task = URLSession.jsonRequest(forResponseType: [Release].self, withRequest: request, withMethod: .get, completionHandler: completionHandler)
         task.resume()
     }
+    
+    public func getIssueComments(
+        fromOwner owner: String,
+        andRepo repo: String,
+        withIndex index: Int64,
+        sinceTime since: Date?,
+        completionHandler: @escaping (Result<[Comment],Error>) -> Void)
+    {
+        var queryParams = [String]()
+        if let since = since {
+            let sinceString = rfc3339DateFormatter.string(from: since)
+            queryParams.append("since=\(sinceString)")
+        }
+        let queryParamsString = constructQueryParamString(fromParams: queryParams)
+        
+        let apiPath = "/api/v1/repos/\(owner)/\(repo)/issues/\(index)/comments\(queryParamsString)"
+        guard let request = Authentication.shared.constructURLRequest(withPath: apiPath) else {
+            completionHandler(Result.failure(NetworkingError.requestConstructError(apiPath)))
+            return
+        }
+        
+        let task = URLSession.jsonRequest(forResponseType: [Comment].self, withRequest: request, withMethod: .get, completionHandler: completionHandler)
+        task.resume()
+    }
 }
