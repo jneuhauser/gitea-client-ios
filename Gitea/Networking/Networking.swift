@@ -44,10 +44,10 @@ class Networking {
     public func getIssues(
         fromOwner owner: String,
         andRepo repo: String,
-        withState state: String?,
-        withLabels labels: String?,
-        pageNumber page: Int?,
-        searchString q: String?,
+        withState state: String? = nil,
+        withLabels labels: String? = nil,
+        pageNumber page: Int? = nil,
+        searchString q: String? = nil,
         completionHandler: @escaping (Result<[Issue],Error>) -> Void)
     {
         var queryParams = [String]()
@@ -78,11 +78,11 @@ class Networking {
     public func getPullRequests(
         fromOwner owner: String,
         andRepo repo: String,
-        pageNumber page: Int?,
-        withState state: StateTypeOption?,
-        sortedBy sort: SortTypeOption?,
-        withMilestone milestone: Int?,
-        withLabels labels: [Int]?,
+        pageNumber page: Int? = nil,
+        withState state: StateTypeOption? = nil,
+        sortedBy sort: SortTypeOption? = nil,
+        withMilestone milestone: Int? = nil,
+        withLabels labels: [Int]? = nil,
         completionHandler: @escaping (Result<[PullRequest],Error>) -> Void)
     {
         var queryParams = [String]()
@@ -118,8 +118,8 @@ class Networking {
     public func getReleases(
         fromOwner owner: String,
         andRepo repo: String,
-        pageNumber page: Int?,
-        itemsPerPage perPage: Int?,
+        pageNumber page: Int? = nil,
+        itemsPerPage perPage: Int? = nil,
         completionHandler: @escaping (Result<[Release],Error>) -> Void)
     {
         var queryParams = [String]()
@@ -145,7 +145,7 @@ class Networking {
         fromOwner owner: String,
         andRepo repo: String,
         withIndex index: Int64,
-        sinceTime since: Date?,
+        sinceTime since: Date? = nil,
         completionHandler: @escaping (Result<[Comment],Error>) -> Void)
     {
         var queryParams = [String]()

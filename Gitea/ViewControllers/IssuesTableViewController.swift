@@ -43,7 +43,7 @@ class IssuesTableViewController: UITableViewController {
     
     private func loadIssuesAsync() {
         // TODO: Load the isses of the selected repo
-        Networking.shared.getIssues(fromOwner: "devel", andRepo: "test1-cpp", withState: nil, withLabels: nil, pageNumber: nil, searchString: nil) { result in
+        Networking.shared.getIssues(fromOwner: "devel", andRepo: "test1-cpp") { result in
             switch result {
             case .success(let issues):
                 debugPrint(issues)

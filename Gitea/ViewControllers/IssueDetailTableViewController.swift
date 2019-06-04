@@ -43,7 +43,7 @@ class IssueDetailTableViewController: UITableViewController {
         if let comments = issue?.comments, comments > 0,
             let issueIndex = issue?.number {
             // TODO: Load the comments of the selected repo
-            Networking.shared.getIssueComments(fromOwner: "devel", andRepo: "test1-cpp", withIndex: issueIndex, sinceTime: nil) { result in
+            Networking.shared.getIssueComments(fromOwner: "devel", andRepo: "test1-cpp", withIndex: issueIndex) { result in
                 switch result {
                 case .success(let comments):
                     debugPrint(comments)

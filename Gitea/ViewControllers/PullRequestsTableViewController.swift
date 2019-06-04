@@ -43,7 +43,7 @@ class PullRequestsTableViewController: UITableViewController {
     
     private func loadPullRequestsAsync() {
         // TODO: Load the pull requests of the selected repo
-        Networking.shared.getPullRequests(fromOwner: "devel", andRepo: "test1-cpp", pageNumber: nil, withState: nil, sortedBy: nil, withMilestone: nil, withLabels: nil) { result in
+        Networking.shared.getPullRequests(fromOwner: "devel", andRepo: "test1-cpp") { result in
             switch result {
             case .success(let pullRequests):
                 debugPrint(pullRequests)

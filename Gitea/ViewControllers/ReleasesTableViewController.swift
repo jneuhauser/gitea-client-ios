@@ -41,7 +41,7 @@ class ReleasesTableViewController: UITableViewController {
     
     private func loadReleasesAsync() {
         // TODO: Load the pull requests of the selected repo
-        Networking.shared.getReleases(fromOwner: "devel", andRepo: "test1-cpp", pageNumber: nil, itemsPerPage: nil) { result in
+        Networking.shared.getReleases(fromOwner: "devel", andRepo: "test1-cpp") { result in
             switch result {
             case .success(let releases):
                 debugPrint(releases)
