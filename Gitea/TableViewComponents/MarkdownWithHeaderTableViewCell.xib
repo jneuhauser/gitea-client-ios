@@ -19,35 +19,37 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tpp-xc-GU4">
-                        <rect key="frame" x="8" y="4" width="304" height="20.5"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6oT-p4-1yS" customClass="MarkdownView" customModule="MarkdownView">
-                        <rect key="frame" x="8" y="24.5" width="304" height="19"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="sse-G4-OeN">
+                        <rect key="frame" x="8" y="4" width="304" height="35.5"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tpp-xc-GU4">
+                                <rect key="frame" x="0.0" y="0.0" width="304" height="0.0"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6oT-p4-1yS" customClass="MarkdownView" customModule="MarkdownView">
+                                <rect key="frame" x="0.0" y="0.0" width="304" height="35.5"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                        </subviews>
                         <constraints>
-                            <constraint firstAttribute="height" priority="750" constant="19" id="2zH-Fk-TiS"/>
+                            <constraint firstAttribute="height" priority="750" constant="36" id="Chh-WP-lQc"/>
                         </constraints>
-                    </view>
+                    </stackView>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="trailing" secondItem="6oT-p4-1yS" secondAttribute="trailing" constant="8" id="DDu-aF-Awv"/>
-                    <constraint firstAttribute="trailing" secondItem="Tpp-xc-GU4" secondAttribute="trailing" constant="8" id="T4q-ji-eOJ"/>
-                    <constraint firstItem="Tpp-xc-GU4" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="4" id="TnV-TU-gIW"/>
-                    <constraint firstItem="Tpp-xc-GU4" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="UV7-1k-VFb"/>
-                    <constraint firstItem="6oT-p4-1yS" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="ZIG-ye-9dV"/>
-                    <constraint firstAttribute="bottom" secondItem="6oT-p4-1yS" secondAttribute="bottom" id="jVB-oJ-a0U"/>
-                    <constraint firstItem="6oT-p4-1yS" firstAttribute="top" secondItem="Tpp-xc-GU4" secondAttribute="bottom" id="rKc-03-D3C"/>
+                    <constraint firstItem="sse-G4-OeN" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="4" id="3uF-Rq-JMc"/>
+                    <constraint firstAttribute="bottom" secondItem="sse-G4-OeN" secondAttribute="bottom" constant="4" id="DGg-Vl-bnw"/>
+                    <constraint firstItem="sse-G4-OeN" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="hFh-pp-wDq"/>
+                    <constraint firstAttribute="trailing" secondItem="sse-G4-OeN" secondAttribute="trailing" constant="8" id="rv4-Zd-qq5"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="hStackViewHeight" destination="Chh-WP-lQc" id="n8y-ie-Gb0"/>
                 <outlet property="headerLabel" destination="Tpp-xc-GU4" id="Y3r-lI-kUA"/>
                 <outlet property="markdownView" destination="6oT-p4-1yS" id="XhI-ju-uoR"/>
-                <outlet property="markdownViewHeightConstraint" destination="2zH-Fk-TiS" id="IiL-g7-9TH"/>
             </connections>
             <point key="canvasLocation" x="131.8840579710145" y="81.696428571428569"/>
         </tableViewCell>

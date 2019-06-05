@@ -14,7 +14,7 @@ class MarkdownWithHeaderTableViewCell: UITableViewCell {
     
     @IBOutlet weak var headerLabel: UILabel!
     @IBOutlet weak var markdownView: MarkdownView!
-    @IBOutlet weak var markdownViewHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var hStackViewHeight: NSLayoutConstraint!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -22,7 +22,7 @@ class MarkdownWithHeaderTableViewCell: UITableViewCell {
         markdownView.isScrollEnabled = false
 
         markdownView.onRendered = { height in
-            self.markdownViewHeightConstraint.constant = height
+            self.hStackViewHeight.constant = height + self.headerLabel.frame.height
         }
         
 //        markdownView.onTouchLink = { [weak self] request in

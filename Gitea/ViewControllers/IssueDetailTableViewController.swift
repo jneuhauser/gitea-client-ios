@@ -109,18 +109,18 @@ class IssueDetailTableViewController: UITableViewController {
         case is MarkdownWithHeaderTableViewCell:
             let tvc = cell as! MarkdownWithHeaderTableViewCell
             tvc.headerLabel.text = header
-//            if let rowHeight = rowHeights[indexPath.row] {
-//                debugPrint("Set height to: \(rowHeight)")
-//                tvc.markdownViewHeightConstraint.constant = rowHeight
-//                tvc.markdownView.onRendered = nil
-//            } else {
+            if let rowHeight = rowHeights[indexPath.row] {
+                debugPrint("Set height to: \(rowHeight)")
+                tvc.hStackViewHeight.constant = rowHeight
+                tvc.markdownView.onRendered = nil
+            } else {
                 tvc.markdownView.onRendered = { height in
                     debugPrint("markdownView.onRendered(height = \(height)")
-                    tvc.markdownViewHeightConstraint.constant = height
+                    tvc.hStackViewHeight.constant = height + tvc.headerLabel.frame.height
                     tableView.beginUpdates()
                     tableView.endUpdates()
-//                    self.rowHeights[indexPath.row] = height
-//                }
+                    self.rowHeights[indexPath.row] = height + tvc.headerLabel.frame.height
+                }
             }
             tvc.markdownView.load(markdown: body)
         case is IssueDetailSimpleTableViewCell:
