@@ -190,12 +190,12 @@ class PullRequestsTableViewController: UITableViewController {
                 return
             }
             
-            guard let destination = segue.destination as? PullRequestDetailTableViewController else {
+            guard let destination = segue.destination as? IssueDetailTableViewController else {
                 print("Error getting destination view controller")
                 return
             }
             
-            //calcVC.rate = vatRates[row]
+            destination.pullRequest = pullRequest
         default:
             debugPrint("Received unhandled segue: " + identifier)
             break

@@ -11,7 +11,8 @@ import UIKit
 class IssueDetailTableViewController: UITableViewController {
     
     public var issue: Issue?
-    private var issueComments: [Comment]?
+    public var pullRequest: PullRequest?
+    private var comments: [Comment]?
     private var rowHeights = [Int : CGFloat]()
 
     override func viewDidLoad() {
@@ -32,7 +33,7 @@ class IssueDetailTableViewController: UITableViewController {
         super.viewDidAppear(animated)
         
         // Load comments only if not loaded before
-        if issueComments == nil {
+        if comments == nil {
             loadCommentsAsync()
         }
     }
@@ -40,14 +41,14 @@ class IssueDetailTableViewController: UITableViewController {
     private func loadCommentsAsync() {
         // Do nothing if there are no comments
         // TODO: How should we update the current issue? Or should we always try to load the issue comments?
-        if let comments = issue?.comments, comments > 0,
-            let issueIndex = issue?.number {
+        if let comments = issue?.comments ?? pullRequest?.comments, comments > 0,
+            let issueIndex = issue?.number ?? pullRequest?.number {
             // TODO: Load the comments of the selected repo
             Networking.shared.getIssueComments(fromOwner: "devel", andRepo: "test1-cpp", withIndex: issueIndex) { result in
                 switch result {
                 case .success(let comments):
                     debugPrint(comments)
-                    self.issueComments = comments
+                    self.comments = comments
                     DispatchQueue.main.async {
                         self.tableView.reloadData()
                         self.refreshControl?.endRefreshing()
@@ -70,8 +71,8 @@ class IssueDetailTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // issue and the number of comments
-        return (issue == nil ? 0 : 1) + (issueComments?.count ?? 0)
+        // issue/pr and the number of comments
+        return (issue == nil && pullRequest == nil ? 0 : 1) + (comments?.count ?? 0)
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -87,13 +88,13 @@ class IssueDetailTableViewController: UITableViewController {
         var bodyO: String?
         
         if indexPath.row == 0 {
-            loginO = issue?.user?.login
-            createdSinceO = issue?.createdAt?.getDifferenceToNow(withUnitCount: 1)
-            bodyO = issue?.body
+            loginO = issue?.user?.login ?? pullRequest?.user?.login
+            createdSinceO = issue?.createdAt?.getDifferenceToNow(withUnitCount: 1) ?? pullRequest?.createdAt?.getDifferenceToNow(withUnitCount: 1)
+            bodyO = issue?.body ?? pullRequest?.body
         } else {
-            loginO = issueComments?[indexPath.row - 1].user?.login
-            createdSinceO = issueComments?[indexPath.row - 1].createdAt?.getDifferenceToNow(withUnitCount: 1)
-            bodyO = issueComments?[indexPath.row - 1].body
+            loginO = comments?[indexPath.row - 1].user?.login
+            createdSinceO = comments?[indexPath.row - 1].createdAt?.getDifferenceToNow(withUnitCount: 1)
+            bodyO = comments?[indexPath.row - 1].body
         }
         
         guard let login = loginO, let createdSince = createdSinceO, let body = bodyO else {
