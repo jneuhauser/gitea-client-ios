@@ -47,7 +47,10 @@ class IssuesTableViewController: UITableViewController {
             switch result {
             case .success(let issues):
                 debugPrint(issues)
-                self.issues = issues
+                self.issues = issues.filter() { issue in
+                    // Filter out all pull requests
+                    return issue.pullRequest == nil
+                }
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
                     self.refreshControl?.endRefreshing()
