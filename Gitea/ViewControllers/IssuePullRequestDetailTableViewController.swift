@@ -8,10 +8,9 @@
 
 import UIKit
 
-class IssueDetailTableViewController: UITableViewController {
+class IssuePullRequestDetailTableViewController: UITableViewController {
     
-    public var issue: Issue?
-    public var pullRequest: PullRequest?
+    public var mainEntry: IssuePullRequestDelegate?
     private var comments: [Comment]?
     private var rowHeights = [Int : CGFloat]()
 
@@ -42,8 +41,8 @@ class IssueDetailTableViewController: UITableViewController {
     private func loadCommentsAsync() {
         // Do nothing if there are no comments
         // TODO: How should we update the current issue? Or should we always try to load the issue comments?
-        if let comments = issue?.comments ?? pullRequest?.comments, comments > 0,
-            let issueIndex = issue?.number ?? pullRequest?.number {
+        if let comments = mainEntry?.comments, comments > 0,
+            let issueIndex = mainEntry?.number {
             // TODO: Load the comments of the selected repo
             Networking.shared.getIssueComments(fromOwner: "devel", andRepo: "test1-cpp", withIndex: issueIndex) { result in
                 switch result {
@@ -75,8 +74,8 @@ class IssueDetailTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // issue/pr and the number of comments
-        return (issue == nil && pullRequest == nil ? 0 : 1) + (comments?.count ?? 0)
+        // main entry and the number of comments
+        return (mainEntry == nil ? 0 : 1) + (comments?.count ?? 0)
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -92,9 +91,9 @@ class IssueDetailTableViewController: UITableViewController {
         var bodyO: String?
         
         if indexPath.row == 0 {
-            loginO = issue?.user?.login ?? pullRequest?.user?.login
-            createdSinceO = issue?.createdAt?.getDifferenceToNow(withUnitCount: 1) ?? pullRequest?.createdAt?.getDifferenceToNow(withUnitCount: 1)
-            bodyO = issue?.body ?? pullRequest?.body
+            loginO = mainEntry?.user?.login
+            createdSinceO = mainEntry?.createdAt?.getDifferenceToNow(withUnitCount: 1)
+            bodyO = mainEntry?.body
         } else {
             loginO = comments?[indexPath.row - 1].user?.login
             createdSinceO = comments?[indexPath.row - 1].createdAt?.getDifferenceToNow(withUnitCount: 1)
@@ -170,8 +169,8 @@ class IssueDetailTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        if let title = issue?.title ?? pullRequest?.title,
-            let number = issue?.number ?? pullRequest?.number {
+        if let title = mainEntry?.title,
+            let number = mainEntry?.number {
             return "#\(number) - \(title)"
         }
         return nil

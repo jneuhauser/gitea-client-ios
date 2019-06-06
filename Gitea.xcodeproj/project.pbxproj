@@ -105,8 +105,9 @@
 		1E6EB278228B03B7005BA94E /* Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E6EB277228B03B7005BA94E /* Authentication.swift */; };
 		1E816D3B22933157000F4CD8 /* SortTypeOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E816D3A22933157000F4CD8 /* SortTypeOption.swift */; };
 		1E816D3D22933216000F4CD8 /* StateTypeOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E816D3C22933216000F4CD8 /* StateTypeOption.swift */; };
-		1EA21006229DDB4400BF666F /* IssueDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA21005229DDB4400BF666F /* IssueDetailTableViewController.swift */; };
+		1EA21006229DDB4400BF666F /* IssuePullRequestDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA21005229DDB4400BF666F /* IssuePullRequestDetailTableViewController.swift */; };
 		1EC24B0D22A8E8D5000209B2 /* WriteCommentTableViewFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC24B0C22A8E8D5000209B2 /* WriteCommentTableViewFooter.swift */; };
+		1EC24B1822A9779F000209B2 /* IssuePullRequestDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC24B1722A9779F000209B2 /* IssuePullRequestDelegate.swift */; };
 		1ECA4754228DACAB00887A03 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ECA4753228DACAB00887A03 /* Networking.swift */; };
 		1ECA475E228DF2EC00887A03 /* MyNetworkExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ECA475D228DF2EC00887A03 /* MyNetworkExtensions.swift */; };
 		1ECB26EB22A45EF600A22B49 /* MarkdownWithHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ECB26E922A45EF600A22B49 /* MarkdownWithHeaderTableViewCell.swift */; };
@@ -215,8 +216,9 @@
 		1E6EB277228B03B7005BA94E /* Authentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authentication.swift; sourceTree = "<group>"; };
 		1E816D3A22933157000F4CD8 /* SortTypeOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortTypeOption.swift; sourceTree = "<group>"; };
 		1E816D3C22933216000F4CD8 /* StateTypeOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateTypeOption.swift; sourceTree = "<group>"; };
-		1EA21005229DDB4400BF666F /* IssueDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueDetailTableViewController.swift; sourceTree = "<group>"; };
+		1EA21005229DDB4400BF666F /* IssuePullRequestDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssuePullRequestDetailTableViewController.swift; sourceTree = "<group>"; };
 		1EC24B0C22A8E8D5000209B2 /* WriteCommentTableViewFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteCommentTableViewFooter.swift; sourceTree = "<group>"; };
+		1EC24B1722A9779F000209B2 /* IssuePullRequestDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssuePullRequestDelegate.swift; sourceTree = "<group>"; };
 		1ECA4753228DACAB00887A03 /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
 		1ECA475D228DF2EC00887A03 /* MyNetworkExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyNetworkExtensions.swift; sourceTree = "<group>"; };
 		1ECB26E922A45EF600A22B49 /* MarkdownWithHeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkdownWithHeaderTableViewCell.swift; sourceTree = "<group>"; };
@@ -310,7 +312,7 @@
 			isa = PBXGroup;
 			children = (
 				1E6EB271228A886F005BA94E /* CodeTableViewController.swift */,
-				1EA21005229DDB4400BF666F /* IssueDetailTableViewController.swift */,
+				1EA21005229DDB4400BF666F /* IssuePullRequestDetailTableViewController.swift */,
 				1E6EB26A228A04B3005BA94E /* IssuesTableViewController.swift */,
 				1E6EB273228AE837005BA94E /* LoginViewController.swift */,
 				1E6EB26C228A04CF005BA94E /* PullRequestsTableViewController.swift */,
@@ -334,6 +336,7 @@
 		1E6EB276228B038F005BA94E /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				1EC24B1622A97774000209B2 /* Delegate */,
 				1E3E78D322930DCF00B0FAA7 /* AddCollaboratorOption.swift */,
 				1E3E78C122930DCD00B0FAA7 /* AddTimeOption.swift */,
 				1E3E78C922930DCE00B0FAA7 /* Attachment.swift */,
@@ -415,6 +418,14 @@
 				1E3E78B422930DCC00B0FAA7 /* WatchInfo.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		1EC24B1622A97774000209B2 /* Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				1EC24B1722A9779F000209B2 /* IssuePullRequestDelegate.swift */,
+			);
+			path = Delegate;
 			sourceTree = "<group>";
 		};
 		CC6CD36C5EEDCA53059D1D25 /* Pods */ = {
@@ -558,6 +569,7 @@
 				1E3E792822930DD000B0FAA7 /* CreateHookOption.swift in Sources */,
 				1E3E790C22930DD000B0FAA7 /* EditHookOption.swift in Sources */,
 				1E3E78EC22930DD000B0FAA7 /* CreatePullRequestOption.swift in Sources */,
+				1EC24B1822A9779F000209B2 /* IssuePullRequestDelegate.swift in Sources */,
 				1E3E78F922930DD000B0FAA7 /* CreateReleaseOption.swift in Sources */,
 				1E3E790D22930DD000B0FAA7 /* EditUserOption.swift in Sources */,
 				1E3E78F122930DD000B0FAA7 /* CreateIssueCommentOption.swift in Sources */,
@@ -634,7 +646,7 @@
 				1E3E78F222930DD000B0FAA7 /* EditLabelOption.swift in Sources */,
 				1E3E78DC22930DD000B0FAA7 /* CreateRepoOption.swift in Sources */,
 				1E6EB269228A048F005BA94E /* ReposTableViewController.swift in Sources */,
-				1EA21006229DDB4400BF666F /* IssueDetailTableViewController.swift in Sources */,
+				1EA21006229DDB4400BF666F /* IssuePullRequestDetailTableViewController.swift in Sources */,
 				1E3E792722930DD000B0FAA7 /* EditAttachmentOptions.swift in Sources */,
 				1E3E790122930DD000B0FAA7 /* Comment.swift in Sources */,
 				1E3E791722930DD000B0FAA7 /* Attachment.swift in Sources */,

@@ -143,10 +143,10 @@
             </objects>
             <point key="canvasLocation" x="776.81159420289862" y="568.52678571428567"/>
         </scene>
-        <!--Issue Detail Table View Controller-->
+        <!--Issue Pull Request Detail Table View Controller-->
         <scene sceneID="JOL-yh-aEg">
             <objects>
-                <tableViewController id="Gpx-e5-ahY" customClass="IssueDetailTableViewController" customModule="Gitea" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="Gpx-e5-ahY" customClass="IssuePullRequestDetailTableViewController" customModule="Gitea" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Evb-cc-DV1">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

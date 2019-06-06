@@ -194,12 +194,12 @@ class IssuesTableViewController: UITableViewController {
                 return
             }
             
-            guard let destination = segue.destination as? IssueDetailTableViewController else {
+            guard let destination = segue.destination as? IssuePullRequestDetailTableViewController else {
                 print("Error getting destination view controller")
                 return
             }
             
-            destination.issue = issue
+            destination.mainEntry = issue
         default:
             debugPrint("Received unhandled segue: " + identifier)
             break
