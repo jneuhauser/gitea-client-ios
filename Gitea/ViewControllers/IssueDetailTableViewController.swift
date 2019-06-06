@@ -183,7 +183,8 @@ class IssueDetailTableViewController: UITableViewController {
             return nil
         }
         
-        view.title.text = "Hello from Footer"
+        view.image.image = UIImage(named: "comment")
+        view.title.text = "Write a comment"
         
         debugPrint(view)
         

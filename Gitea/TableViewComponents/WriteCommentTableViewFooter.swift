@@ -37,14 +37,14 @@ class WriteCommentTableViewFooter: UITableViewHeaderFooterView {
             image.widthAnchor.constraint(equalToConstant: 50),
             image.heightAnchor.constraint(equalToConstant: 50),
             image.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+            image.heightAnchor.constraint(equalToConstant: 24),
+            image.widthAnchor.constraint(equalToConstant: 24),
             
             // Center the label vertically, and use it to fill the remaining
             // space in the header view.
             title.heightAnchor.constraint(equalToConstant: 30),
-            title.leadingAnchor.constraint(equalTo: image.trailingAnchor,
-                                           constant: 8),
-            title.trailingAnchor.constraint(equalTo:
-                contentView.layoutMarginsGuide.trailingAnchor),
+            title.leadingAnchor.constraint(equalTo: image.trailingAnchor, constant: 8),
+            title.trailingAnchor.constraint(equalTo: contentView.layoutMarginsGuide.trailingAnchor),
             title.centerYAnchor.constraint(equalTo: contentView.centerYAnchor)
             ])
     }
