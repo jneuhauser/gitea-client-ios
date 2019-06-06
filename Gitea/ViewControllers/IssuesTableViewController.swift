@@ -10,7 +10,7 @@ import UIKit
 
 class IssuesTableViewController: UITableViewController {
     
-    private var issues: [Issue]?
+    private var issues: [IssuePullRequestDelegate]?
 
     override func viewDidLoad() {
         super.viewDidLoad()

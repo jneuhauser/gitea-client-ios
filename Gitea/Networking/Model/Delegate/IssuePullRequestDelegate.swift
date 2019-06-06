@@ -13,6 +13,7 @@ protocol IssuePullRequestDelegate {
     var comments: Int64? { get }
     var createdAt: Date? { get }
     var number: Int64? { get }
+    var state: StateType? { get }
     var title: String? { get }
     var user: User? { get }
 }

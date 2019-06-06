@@ -10,7 +10,7 @@ import UIKit
 
 class PullRequestsTableViewController: UITableViewController {
 
-    private var pullRequests: [PullRequest]?
+    private var pullRequests: [IssuePullRequestDelegate]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -89,7 +89,8 @@ class PullRequestsTableViewController: UITableViewController {
         
         if let issueTVC = cell as? IssueTableViewCell {
             if let state = pullRequest.state, state == .closed,
-                let merged = pullRequest.merged, merged
+                let pr = pullRequest as? PullRequest,
+                let merged = pr.merged, merged
             {
                 issueTVC.imageView?.image = UIImage(named: "git-merge")
             } else {
@@ -118,7 +119,8 @@ class PullRequestsTableViewController: UITableViewController {
             cell.textLabel?.text = pullRequest.title
             
             if let state = pullRequest.state, state == .closed,
-                let merged = pullRequest.merged, merged
+                let pr = pullRequest as? PullRequest,
+                let merged = pr.merged, merged
             {
                 cell.imageView?.image = UIImage(named: "git-merge")
             } else {
