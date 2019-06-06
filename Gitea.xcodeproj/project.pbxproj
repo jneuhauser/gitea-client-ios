@@ -97,8 +97,7 @@
 		1E6EB25A2289FDC4005BA94E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1E6EB2592289FDC4005BA94E /* Assets.xcassets */; };
 		1E6EB25D2289FDC4005BA94E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1E6EB25B2289FDC4005BA94E /* LaunchScreen.storyboard */; };
 		1E6EB269228A048F005BA94E /* ReposTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E6EB268228A048F005BA94E /* ReposTableViewController.swift */; };
-		1E6EB26B228A04B3005BA94E /* IssuesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E6EB26A228A04B3005BA94E /* IssuesTableViewController.swift */; };
-		1E6EB26D228A04CF005BA94E /* PullRequestsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E6EB26C228A04CF005BA94E /* PullRequestsTableViewController.swift */; };
+		1E6EB26B228A04B3005BA94E /* IssuesPullRequestsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E6EB26A228A04B3005BA94E /* IssuesPullRequestsTableViewController.swift */; };
 		1E6EB26F228A04E4005BA94E /* ReleasesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E6EB26E228A04E4005BA94E /* ReleasesTableViewController.swift */; };
 		1E6EB272228A886F005BA94E /* CodeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E6EB271228A886F005BA94E /* CodeTableViewController.swift */; };
 		1E6EB274228AE837005BA94E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E6EB273228AE837005BA94E /* LoginViewController.swift */; };
@@ -208,8 +207,7 @@
 		1E6EB25C2289FDC4005BA94E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1E6EB25E2289FDC4005BA94E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1E6EB268228A048F005BA94E /* ReposTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReposTableViewController.swift; sourceTree = "<group>"; };
-		1E6EB26A228A04B3005BA94E /* IssuesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssuesTableViewController.swift; sourceTree = "<group>"; };
-		1E6EB26C228A04CF005BA94E /* PullRequestsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullRequestsTableViewController.swift; sourceTree = "<group>"; };
+		1E6EB26A228A04B3005BA94E /* IssuesPullRequestsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssuesPullRequestsTableViewController.swift; sourceTree = "<group>"; };
 		1E6EB26E228A04E4005BA94E /* ReleasesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReleasesTableViewController.swift; sourceTree = "<group>"; };
 		1E6EB271228A886F005BA94E /* CodeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeTableViewController.swift; sourceTree = "<group>"; };
 		1E6EB273228AE837005BA94E /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -313,9 +311,8 @@
 			children = (
 				1E6EB271228A886F005BA94E /* CodeTableViewController.swift */,
 				1EA21005229DDB4400BF666F /* IssuePullRequestDetailTableViewController.swift */,
-				1E6EB26A228A04B3005BA94E /* IssuesTableViewController.swift */,
+				1E6EB26A228A04B3005BA94E /* IssuesPullRequestsTableViewController.swift */,
 				1E6EB273228AE837005BA94E /* LoginViewController.swift */,
-				1E6EB26C228A04CF005BA94E /* PullRequestsTableViewController.swift */,
 				1E6EB26E228A04E4005BA94E /* ReleasesTableViewController.swift */,
 				1E6EB268228A048F005BA94E /* ReposTableViewController.swift */,
 			);
@@ -578,7 +575,6 @@
 				1E3E78E022930DD000B0FAA7 /* Release.swift in Sources */,
 				1E3E78EF22930DD000B0FAA7 /* EditDeadlineOption.swift in Sources */,
 				1E3E790E22930DD000B0FAA7 /* Organization.swift in Sources */,
-				1E6EB26D228A04CF005BA94E /* PullRequestsTableViewController.swift in Sources */,
 				1E3E790F22930DD000B0FAA7 /* AddTimeOption.swift in Sources */,
 				1E3E791E22930DD000B0FAA7 /* Tag.swift in Sources */,
 				1E3E792D229327BC00B0FAA7 /* StatusState.swift in Sources */,
@@ -615,7 +611,7 @@
 				1E4643BA22A0F60A00A399A8 /* WebViewTableViewCell.swift in Sources */,
 				1E3E791922930DD000B0FAA7 /* CreateUserOption.swift in Sources */,
 				1E3E78F022930DD000B0FAA7 /* CreateForkOption.swift in Sources */,
-				1E6EB26B228A04B3005BA94E /* IssuesTableViewController.swift in Sources */,
+				1E6EB26B228A04B3005BA94E /* IssuesPullRequestsTableViewController.swift in Sources */,
 				1E3E792122930DD000B0FAA7 /* AddCollaboratorOption.swift in Sources */,
 				1E3E790A22930DD000B0FAA7 /* Hook.swift in Sources */,
 				1E3E792922930DD000B0FAA7 /* TrackedTime.swift in Sources */,

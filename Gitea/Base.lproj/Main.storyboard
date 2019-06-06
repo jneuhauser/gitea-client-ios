@@ -114,10 +114,10 @@
             </objects>
             <point key="canvasLocation" x="776.81159420289862" y="-123.21428571428571"/>
         </scene>
-        <!--Issues Table View Controller-->
+        <!--Issues Pull Requests Table View Controller-->
         <scene sceneID="e5g-W2-TeD">
             <objects>
-                <tableViewController id="y6o-ps-v6J" customClass="IssuesTableViewController" customModule="Gitea" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="y6o-ps-v6J" customClass="IssuesPullRequestsTableViewController" customModule="Gitea" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="vfX-af-N8G">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -136,7 +136,7 @@
                         </connections>
                     </refreshControl>
                     <connections>
-                        <segue destination="Gpx-e5-ahY" kind="show" identifier="ShowIssueDetail" id="mzp-3b-ovJ"/>
+                        <segue destination="Gpx-e5-ahY" kind="show" identifier="ShowIssuePullRequestDetail" id="mzp-3b-ovJ"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1bm-fL-nIn" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -169,10 +169,10 @@
             </objects>
             <point key="canvasLocation" x="1861" y="890"/>
         </scene>
-        <!--Pull Requests Table View Controller-->
+        <!--Issues Pull Requests Table View Controller-->
         <scene sceneID="sXQ-UF-cP7">
             <objects>
-                <tableViewController id="uEu-xx-OTi" customClass="PullRequestsTableViewController" customModule="Gitea" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="uEu-xx-OTi" customClass="IssuesPullRequestsTableViewController" customModule="Gitea" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Nge-Tj-3C3">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -191,7 +191,7 @@
                         </connections>
                     </refreshControl>
                     <connections>
-                        <segue destination="Gpx-e5-ahY" kind="show" identifier="ShowPullRequestDetail" id="tB8-og-f1V"/>
+                        <segue destination="Gpx-e5-ahY" kind="show" identifier="ShowIssuePullRequestDetail" id="tB8-og-f1V"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IIJ-Bj-hNV" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -1,5 +1,5 @@
 //
-//  PullRequestsTableViewController.swift
+//  IssuesPullRequestsTableViewController.swift
 //  Gitea
 //
 //  Created by Johann Neuhauser on 13.05.19.
@@ -8,10 +8,12 @@
 
 import UIKit
 
-class PullRequestsTableViewController: UITableViewController {
-
-    private var pullRequests: [IssuePullRequestDelegate]?
+class IssuesPullRequestsTableViewController: UITableViewController {
     
+    private var issues: [IssuePullRequestDelegate]?
+    
+    private var loadDataAsync: (() -> Void)?
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -21,7 +23,17 @@ class PullRequestsTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
         
-        self.navigationController?.navigationBar.topItem?.title = "Pull Requests"
+        // TODO: We should not check this by ints
+        switch tabBarController?.selectedIndex {
+        case 2:
+            title = "Issues"
+            loadDataAsync = loadIssuesAsync
+        case 3:
+            title = "Pull Requests"
+            loadDataAsync = loadPullRequestsAsync
+        default:
+            break
+        }
         
         tableView.register(UINib(nibName: "IssueTableViewCell", bundle: nil), forCellReuseIdentifier: "IssueCellFromNib")
     }
@@ -35,9 +47,29 @@ class PullRequestsTableViewController: UITableViewController {
             debugPrint("My presenting view controller is: \(loginViewController)")
         }
         
-        // Load pull requests data only if not loaded before
-        if pullRequests == nil {
-            loadPullRequestsAsync()
+        // Load data only if not loaded before
+        if issues == nil {
+            loadDataAsync?()
+        }
+    }
+    
+    private func loadIssuesAsync() {
+        // TODO: Load the isses of the selected repo
+        Networking.shared.getIssues(fromOwner: "devel", andRepo: "test1-cpp") { result in
+            switch result {
+            case .success(let issues):
+                debugPrint(issues)
+                self.issues = issues.filter() { issue in
+                    // Filter out all pull requests
+                    return issue.pullRequest == nil
+                }
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                    self.refreshControl?.endRefreshing()
+                }
+            case .failure(let error):
+                debugPrint("getIssues() failed with \(error)")
+            }
         }
     }
     
@@ -47,7 +79,7 @@ class PullRequestsTableViewController: UITableViewController {
             switch result {
             case .success(let pullRequests):
                 debugPrint(pullRequests)
-                self.pullRequests = pullRequests
+                self.issues = pullRequests
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
                     self.refreshControl?.endRefreshing()
@@ -59,13 +91,13 @@ class PullRequestsTableViewController: UITableViewController {
     }
 
     @IBAction func refreshAction(_ sender: UIRefreshControl) {
-        loadPullRequestsAsync()
+        loadDataAsync?()
     }
     
     // MARK: - Table view delegates
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.performSegue(withIdentifier: "ShowPullRequestDetail", sender: self)
+        self.performSegue(withIdentifier: "ShowIssuePullRequestDetail", sender: self)
     }
     
     // MARK: - Table view data source
@@ -77,32 +109,43 @@ class PullRequestsTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return pullRequests?.count ?? 0
+        return issues?.count ?? 0
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "IssueCellFromNib", for: indexPath)
         
-        guard let pullRequest = pullRequests?[indexPath.row] else {
+        guard let issue = issues?[indexPath.row] else {
             return cell
         }
         
         if let issueTVC = cell as? IssueTableViewCell {
-            if let state = pullRequest.state, state == .closed,
-                let pr = pullRequest as? PullRequest,
-                let merged = pr.merged, merged
-            {
-                issueTVC.imageView?.image = UIImage(named: "git-merge")
-            } else {
-                issueTVC.imageView?.image = UIImage(named: "git-pull-request")
+            switch issue {
+            case is PullRequest:
+                if let state = issue.state, state == .closed,
+                    let pr = issue as? PullRequest,
+                    let merged = pr.merged, merged
+                {
+                    issueTVC.imageView?.image = UIImage(named: "git-merge")
+                } else {
+                    issueTVC.imageView?.image = UIImage(named: "git-pull-request")
+                }
+            case is Issue:
+                if let state = issue.state, state == .closed {
+                    issueTVC.typeImage?.image = UIImage(named: "issue-closed")
+                } else {
+                    issueTVC.typeImage?.image = UIImage(named: "issue-opened")
+                }
+            default:
+                break
             }
             
-            issueTVC.titleLabel?.text = pullRequest.title
+            issueTVC.titleLabel?.text = issue.title
             
-            if let number = pullRequest.number,
-                let state = pullRequest.state,
-                let user = pullRequest.user?.login,
-                let createdSince = pullRequest.createdAt?.getDifferenceToNow(withUnitCount: 1) {
+            if let number = issue.number,
+                let state = issue.state,
+                let user = issue.user?.login,
+                let createdSince = issue.createdAt?.getDifferenceToNow(withUnitCount: 1) {
                 let state = state == .closed ? "closed" : "opened"
                 debugPrint(createdSince)
                 issueTVC.footerLabel?.text = "#\(number) \(state) \(createdSince) ago by \(user)"
@@ -110,21 +153,23 @@ class PullRequestsTableViewController: UITableViewController {
                 issueTVC.footerLabel?.text = nil
             }
             
-            if let comments = pullRequest.comments, comments > 0 {
+            if let comments = issue.comments, comments > 0 {
                 issueTVC.commentsLabel?.text = "💬 \(comments)"
             } else {
                 issueTVC.commentsLabel?.text = nil
             }
         } else {
-            cell.textLabel?.text = pullRequest.title
+            cell.textLabel?.text = issue.title
             
-            if let state = pullRequest.state, state == .closed,
-                let pr = pullRequest as? PullRequest,
-                let merged = pr.merged, merged
-            {
-                cell.imageView?.image = UIImage(named: "git-merge")
+            if let state = issue.state {
+                switch state {
+                case .open:
+                    cell.imageView?.image = UIImage(named: "issue-opened")
+                case .closed:
+                    cell.imageView?.image = UIImage(named: "issue-closed")
+                }
             } else {
-                cell.imageView?.image = UIImage(named: "git-pull-request")
+                cell.imageView?.image = UIImage(named: "issue-opened")
             }
         }
         
@@ -180,14 +225,14 @@ class PullRequestsTableViewController: UITableViewController {
         }
         
         switch identifier {
-        case "ShowPullRequestDetail":
-            debugPrint("Segue: ShowPullRequestDetail")
+        case "ShowIssuePullRequestDetail":
+            debugPrint("Segue: ShowIssuePullRequestDetail")
             guard let row = tableView.indexPathForSelectedRow?.row else {
                 print("Error getting selected row")
                 return
             }
             
-            guard let pullRequest = pullRequests?[row] else {
+            guard let issue = issues?[row] else {
                 print("Error getting selected issue")
                 return
             }
@@ -197,12 +242,11 @@ class PullRequestsTableViewController: UITableViewController {
                 return
             }
             
-            destination.mainEntry = pullRequest
+            destination.mainEntry = issue
         default:
             debugPrint("Received unhandled segue: " + identifier)
             break
         }
     }
-
 
 }
