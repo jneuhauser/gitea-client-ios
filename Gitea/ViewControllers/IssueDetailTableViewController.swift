@@ -27,6 +27,7 @@ class IssueDetailTableViewController: UITableViewController {
         tableView.register(UINib(nibName: "IssueDetailSimpleTableViewCell", bundle: nil), forCellReuseIdentifier: "IssueDetailSimpleCellFromNib")
         tableView.register(UINib(nibName: "WebViewTableViewCell", bundle: nil), forCellReuseIdentifier: "WebViewCellFromNib")
         tableView.register(UINib(nibName: "MarkdownWithHeaderTableViewCell", bundle: nil), forCellReuseIdentifier: "MarkdownWithHeaderCellFromNib")
+        tableView.register(WriteCommentTableViewFooter.self, forHeaderFooterViewReuseIdentifier: WriteCommentTableViewFooter.reuseIdentifier)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -166,6 +167,27 @@ class IssueDetailTableViewController: UITableViewController {
         }
 
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if let title = issue?.title ?? pullRequest?.title,
+            let number = issue?.number ?? pullRequest?.number {
+            return "#\(number) - \(title)"
+        }
+        return nil
+    }
+    
+    override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        guard let view = tableView.dequeueReusableHeaderFooterView(withIdentifier: WriteCommentTableViewFooter.reuseIdentifier) as? WriteCommentTableViewFooter else {
+            debugPrint("tableView(viewForFooterInSection): error dequeueing view")
+            return nil
+        }
+        
+        view.title.text = "Hello from Footer"
+        
+        debugPrint(view)
+        
+        return view
     }
 
     /*

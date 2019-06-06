@@ -106,6 +106,7 @@
 		1E816D3B22933157000F4CD8 /* SortTypeOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E816D3A22933157000F4CD8 /* SortTypeOption.swift */; };
 		1E816D3D22933216000F4CD8 /* StateTypeOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E816D3C22933216000F4CD8 /* StateTypeOption.swift */; };
 		1EA21006229DDB4400BF666F /* IssueDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA21005229DDB4400BF666F /* IssueDetailTableViewController.swift */; };
+		1EC24B0D22A8E8D5000209B2 /* WriteCommentTableViewFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC24B0C22A8E8D5000209B2 /* WriteCommentTableViewFooter.swift */; };
 		1ECA4754228DACAB00887A03 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ECA4753228DACAB00887A03 /* Networking.swift */; };
 		1ECA475E228DF2EC00887A03 /* MyNetworkExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ECA475D228DF2EC00887A03 /* MyNetworkExtensions.swift */; };
 		1ECB26EB22A45EF600A22B49 /* MarkdownWithHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ECB26E922A45EF600A22B49 /* MarkdownWithHeaderTableViewCell.swift */; };
@@ -215,6 +216,7 @@
 		1E816D3A22933157000F4CD8 /* SortTypeOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortTypeOption.swift; sourceTree = "<group>"; };
 		1E816D3C22933216000F4CD8 /* StateTypeOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateTypeOption.swift; sourceTree = "<group>"; };
 		1EA21005229DDB4400BF666F /* IssueDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueDetailTableViewController.swift; sourceTree = "<group>"; };
+		1EC24B0C22A8E8D5000209B2 /* WriteCommentTableViewFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteCommentTableViewFooter.swift; sourceTree = "<group>"; };
 		1ECA4753228DACAB00887A03 /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
 		1ECA475D228DF2EC00887A03 /* MyNetworkExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyNetworkExtensions.swift; sourceTree = "<group>"; };
 		1ECB26E922A45EF600A22B49 /* MarkdownWithHeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkdownWithHeaderTableViewCell.swift; sourceTree = "<group>"; };
@@ -248,6 +250,7 @@
 				1ECB26EA22A45EF600A22B49 /* MarkdownWithHeaderTableViewCell.xib */,
 				1E4643B822A0F60A00A399A8 /* WebViewTableViewCell.swift */,
 				1E4643B922A0F60A00A399A8 /* WebViewTableViewCell.xib */,
+				1EC24B0C22A8E8D5000209B2 /* WriteCommentTableViewFooter.swift */,
 			);
 			path = TableViewComponents;
 			sourceTree = "<group>";
@@ -567,6 +570,7 @@
 				1E3E790F22930DD000B0FAA7 /* AddTimeOption.swift in Sources */,
 				1E3E791E22930DD000B0FAA7 /* Tag.swift in Sources */,
 				1E3E792D229327BC00B0FAA7 /* StatusState.swift in Sources */,
+				1EC24B0D22A8E8D5000209B2 /* WriteCommentTableViewFooter.swift in Sources */,
 				1E3E78DF22930DD000B0FAA7 /* Commit.swift in Sources */,
 				1E3E790422930DD000B0FAA7 /* CreateTeamOption.swift in Sources */,
 				1E3E78DE22930DD000B0FAA7 /* Team.swift in Sources */,
