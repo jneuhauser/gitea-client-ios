@@ -62,6 +62,9 @@ class IssueDetailTableViewController: UITableViewController {
     
     @IBAction func refreshAction(_ sender: UIRefreshControl) {
         loadCommentsAsync()
+        // force also a recalc of the cell heights
+        // TODO: it should be better to check for changed size instead of recal of all cell heights
+        //rowHeights.removeAll(keepingCapacity: true)
     }
     
     // MARK: - Table view data source
@@ -113,6 +116,7 @@ class IssueDetailTableViewController: UITableViewController {
             if let rowHeight = rowHeights[indexPath.row] {
                 debugPrint("Set height to: \(rowHeight)")
                 tvc.hStackViewHeight.constant = rowHeight
+                // TODO: it should be better to check for changed size
                 tvc.markdownView.onRendered = nil
             } else {
                 tvc.markdownView.onRendered = { height in
