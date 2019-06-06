@@ -1,5 +1,5 @@
 //
-//  IssueDetailTableViewController.swift
+//  IssuePullRequestDetailTableViewController.swift
 //  Gitea
 //
 //  Created by Johann Neuhauser on 28.05.19.

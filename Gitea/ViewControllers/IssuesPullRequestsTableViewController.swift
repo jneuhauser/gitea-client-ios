@@ -35,7 +35,7 @@ class IssuesPullRequestsTableViewController: UITableViewController {
             break
         }
         
-        tableView.register(UINib(nibName: "IssueTableViewCell", bundle: nil), forCellReuseIdentifier: "IssueCellFromNib")
+        tableView.register(UINib(nibName: "IssuePullRequestTableViewCell", bundle: nil), forCellReuseIdentifier: "IssuePullRequestCellFromNib")
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -113,13 +113,13 @@ class IssuesPullRequestsTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "IssueCellFromNib", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "IssuePullRequestCellFromNib", for: indexPath)
         
         guard let issue = issues?[indexPath.row] else {
             return cell
         }
         
-        if let issueTVC = cell as? IssueTableViewCell {
+        if let issueTVC = cell as? IssuePullRequestTableViewCell {
             switch issue {
             case is PullRequest:
                 if let state = issue.state, state == .closed,

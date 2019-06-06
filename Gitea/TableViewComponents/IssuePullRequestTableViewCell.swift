@@ -1,5 +1,5 @@
 //
-//  IssueTableViewCell.swift
+//  IssuePullRequestTableViewCell.swift
 //  Gitea
 //
 //  Created by Johann Neuhauser on 23.05.19.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class IssueTableViewCell: UITableViewCell {
+class IssuePullRequestTableViewCell: UITableViewCell {
     
     @IBOutlet weak var typeImage: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!

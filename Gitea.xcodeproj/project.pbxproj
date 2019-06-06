@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1E0C0A33229D72A0001453B5 /* IssueTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1E0C0A32229D72A0001453B5 /* IssueTableViewCell.xib */; };
-		1E3B45D9229711250051A448 /* IssueTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E3B45D8229711250051A448 /* IssueTableViewCell.swift */; };
+		1E0C0A33229D72A0001453B5 /* IssuePullRequestTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1E0C0A32229D72A0001453B5 /* IssuePullRequestTableViewCell.xib */; };
+		1E3B45D9229711250051A448 /* IssuePullRequestTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E3B45D8229711250051A448 /* IssuePullRequestTableViewCell.swift */; };
 		1E3B45DD229738E60051A448 /* DateTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E3B45DC229738E60051A448 /* DateTools.swift */; };
 		1E3E78DC22930DD000B0FAA7 /* CreateRepoOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E3E788E22930DCA00B0FAA7 /* CreateRepoOption.swift */; };
 		1E3E78DD22930DD000B0FAA7 /* CreateStatusOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E3E788F22930DCA00B0FAA7 /* CreateStatusOption.swift */; };
@@ -115,8 +115,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		1E0C0A32229D72A0001453B5 /* IssueTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IssueTableViewCell.xib; sourceTree = "<group>"; };
-		1E3B45D8229711250051A448 /* IssueTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueTableViewCell.swift; sourceTree = "<group>"; };
+		1E0C0A32229D72A0001453B5 /* IssuePullRequestTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IssuePullRequestTableViewCell.xib; sourceTree = "<group>"; };
+		1E3B45D8229711250051A448 /* IssuePullRequestTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssuePullRequestTableViewCell.swift; sourceTree = "<group>"; };
 		1E3B45DC229738E60051A448 /* DateTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateTools.swift; sourceTree = "<group>"; };
 		1E3E788E22930DCA00B0FAA7 /* CreateRepoOption.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateRepoOption.swift; sourceTree = "<group>"; };
 		1E3E788F22930DCA00B0FAA7 /* CreateStatusOption.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateStatusOption.swift; sourceTree = "<group>"; };
@@ -244,8 +244,8 @@
 			children = (
 				1E4643B422A0EEA000A399A8 /* IssueDetailSimpleTableViewCell.swift */,
 				1E4643B522A0EEA000A399A8 /* IssueDetailSimpleTableViewCell.xib */,
-				1E3B45D8229711250051A448 /* IssueTableViewCell.swift */,
-				1E0C0A32229D72A0001453B5 /* IssueTableViewCell.xib */,
+				1E3B45D8229711250051A448 /* IssuePullRequestTableViewCell.swift */,
+				1E0C0A32229D72A0001453B5 /* IssuePullRequestTableViewCell.xib */,
 				1ECB26E922A45EF600A22B49 /* MarkdownWithHeaderTableViewCell.swift */,
 				1ECB26EA22A45EF600A22B49 /* MarkdownWithHeaderTableViewCell.xib */,
 				1E4643B822A0F60A00A399A8 /* WebViewTableViewCell.swift */,
@@ -498,7 +498,7 @@
 				1E6EB25A2289FDC4005BA94E /* Assets.xcassets in Resources */,
 				1E4643B722A0EEA000A399A8 /* IssueDetailSimpleTableViewCell.xib in Resources */,
 				1E6EB2582289FDC3005BA94E /* Main.storyboard in Resources */,
-				1E0C0A33229D72A0001453B5 /* IssueTableViewCell.xib in Resources */,
+				1E0C0A33229D72A0001453B5 /* IssuePullRequestTableViewCell.xib in Resources */,
 				1E4643BB22A0F60A00A399A8 /* WebViewTableViewCell.xib in Resources */,
 				1ECB26EC22A45EF600A22B49 /* MarkdownWithHeaderTableViewCell.xib in Resources */,
 			);
@@ -606,7 +606,7 @@
 				1E3E78FA22930DD000B0FAA7 /* MergePullRequestOption.swift in Sources */,
 				1E3E78EB22930DD000B0FAA7 /* GitTreeResponse.swift in Sources */,
 				1E4643B622A0EEA000A399A8 /* IssueDetailSimpleTableViewCell.swift in Sources */,
-				1E3B45D9229711250051A448 /* IssueTableViewCell.swift in Sources */,
+				1E3B45D9229711250051A448 /* IssuePullRequestTableViewCell.swift in Sources */,
 				1E3E78DD22930DD000B0FAA7 /* CreateStatusOption.swift in Sources */,
 				1E4643BA22A0F60A00A399A8 /* WebViewTableViewCell.swift in Sources */,
 				1E3E791922930DD000B0FAA7 /* CreateUserOption.swift in Sources */,
