@@ -16,12 +16,16 @@ class ReposTableViewController: UITableViewController {
         super.viewDidLoad()
 
         // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
+        self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
         
         self.navigationController?.navigationBar.topItem?.title = "Repositories"
+        
+        if AppState.selectedRepo == nil {
+            AppState.disableOtherTabBarItems(ofTabBarController: tabBarController)
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -57,6 +61,17 @@ class ReposTableViewController: UITableViewController {
 
     @IBAction func refreshAction(_ sender: UIRefreshControl) {
         loadReposAsync()
+    }
+    
+    // MARK: - Table view delegates
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let repo = repos?[indexPath.row],
+            let login = repo.owner?.login,
+            let repoName = repo.name {
+            AppState.selectedRepo = AppState.SelectedRepo(owner: login, name: repoName)
+            AppState.enableAllTabBarItems(ofTabBarController: tabBarController)
+        }
     }
     
     // MARK: - Table view data source

@@ -12,6 +12,8 @@ class IssuesPullRequestsTableViewController: UITableViewController {
     
     private var issues: [IssuePullRequestDelegate]?
     
+    private var selectedRepo = AppState.selectedRepo
+    
     private var loadDataAsync: (() -> Void)?
 
     override func viewDidLoad() {
@@ -23,12 +25,11 @@ class IssuesPullRequestsTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
         
-        // TODO: We should not check this by ints
-        switch tabBarController?.selectedIndex {
-        case 2:
+        switch AppState.getSelectedTabBarItem(fromIndex: tabBarController?.selectedIndex) {
+        case .Issues:
             title = "Issues"
             loadDataAsync = loadIssuesAsync
-        case 3:
+        case .PullRequests:
             title = "Pull Requests"
             loadDataAsync = loadPullRequestsAsync
         default:
@@ -47,45 +48,47 @@ class IssuesPullRequestsTableViewController: UITableViewController {
             debugPrint("My presenting view controller is: \(loginViewController)")
         }
         
-        // Load data only if not loaded before
-        if issues == nil {
+        if selectedRepo != AppState.selectedRepo {
+            selectedRepo = AppState.selectedRepo
             loadDataAsync?()
         }
     }
     
     private func loadIssuesAsync() {
-        // TODO: Load the isses of the selected repo
-        Networking.shared.getIssues(fromOwner: "devel", andRepo: "test1-cpp") { result in
-            switch result {
-            case .success(let issues):
-                debugPrint(issues)
-                self.issues = issues.filter() { issue in
-                    // Filter out all pull requests
-                    return issue.pullRequest == nil
+        if let repo = selectedRepo {
+            Networking.shared.getIssues(fromOwner: repo.owner, andRepo: repo.name) { result in
+                switch result {
+                case .success(let issues):
+                    debugPrint(issues)
+                    self.issues = issues.filter() { issue in
+                        // Filter out all pull requests
+                        return issue.pullRequest == nil
+                    }
+                    DispatchQueue.main.async {
+                        self.tableView.reloadData()
+                        self.refreshControl?.endRefreshing()
+                    }
+                case .failure(let error):
+                    debugPrint("getIssues() failed with \(error)")
                 }
-                DispatchQueue.main.async {
-                    self.tableView.reloadData()
-                    self.refreshControl?.endRefreshing()
-                }
-            case .failure(let error):
-                debugPrint("getIssues() failed with \(error)")
             }
         }
     }
     
     private func loadPullRequestsAsync() {
-        // TODO: Load the pull requests of the selected repo
-        Networking.shared.getPullRequests(fromOwner: "devel", andRepo: "test1-cpp") { result in
-            switch result {
-            case .success(let pullRequests):
-                debugPrint(pullRequests)
-                self.issues = pullRequests
-                DispatchQueue.main.async {
-                    self.tableView.reloadData()
-                    self.refreshControl?.endRefreshing()
+        if let repo = selectedRepo {
+            Networking.shared.getPullRequests(fromOwner: repo.owner, andRepo: repo.name) { result in
+                switch result {
+                case .success(let pullRequests):
+                    debugPrint(pullRequests)
+                    self.issues = pullRequests
+                    DispatchQueue.main.async {
+                        self.tableView.reloadData()
+                        self.refreshControl?.endRefreshing()
+                    }
+                case .failure(let error):
+                    debugPrint("getPullRequests() failed with \(error)")
                 }
-            case .failure(let error):
-                debugPrint("getPullRequests() failed with \(error)")
             }
         }
     }
