@@ -11,6 +11,8 @@ import UIKit
 class ReleasesTableViewController: UITableViewController {
     
     private var releases: [Release]?
+    
+    private var selectedRepo = AppState.selectedRepo
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,25 +35,26 @@ class ReleasesTableViewController: UITableViewController {
             debugPrint("My presenting view controller is: \(loginViewController)")
         }
         
-        // Load releases data only if not loaded before
-        if releases == nil {
+        if selectedRepo != AppState.selectedRepo {
+            selectedRepo = AppState.selectedRepo
             loadReleasesAsync()
         }
     }
     
     private func loadReleasesAsync() {
-        // TODO: Load the pull requests of the selected repo
-        Networking.shared.getReleases(fromOwner: "devel", andRepo: "test1-cpp") { result in
-            switch result {
-            case .success(let releases):
-                debugPrint(releases)
-                self.releases = releases
-                DispatchQueue.main.async {
-                    self.tableView.reloadData()
-                    self.refreshControl?.endRefreshing()
+        if let repo = selectedRepo {
+            Networking.shared.getReleases(fromOwner: repo.owner, andRepo: repo.name) { result in
+                switch result {
+                case .success(let releases):
+                    debugPrint(releases)
+                    self.releases = releases
+                    DispatchQueue.main.async {
+                        self.tableView.reloadData()
+                        self.refreshControl?.endRefreshing()
+                    }
+                case .failure(let error):
+                    debugPrint("getReleases() failed with \(error)")
                 }
-            case .failure(let error):
-                debugPrint("getReleases() failed with \(error)")
             }
         }
     }

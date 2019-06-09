@@ -107,6 +107,7 @@
 		1EA21006229DDB4400BF666F /* IssuePullRequestDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA21005229DDB4400BF666F /* IssuePullRequestDetailTableViewController.swift */; };
 		1EC24B0D22A8E8D5000209B2 /* WriteCommentTableViewFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC24B0C22A8E8D5000209B2 /* WriteCommentTableViewFooter.swift */; };
 		1EC24B1822A9779F000209B2 /* IssuePullRequestDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC24B1722A9779F000209B2 /* IssuePullRequestDelegate.swift */; };
+		1EC24B1B22A99CE5000209B2 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC24B1A22A99CE5000209B2 /* AppState.swift */; };
 		1ECA4754228DACAB00887A03 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ECA4753228DACAB00887A03 /* Networking.swift */; };
 		1ECA475E228DF2EC00887A03 /* MyNetworkExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ECA475D228DF2EC00887A03 /* MyNetworkExtensions.swift */; };
 		1ECB26EB22A45EF600A22B49 /* MarkdownWithHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ECB26E922A45EF600A22B49 /* MarkdownWithHeaderTableViewCell.swift */; };
@@ -217,6 +218,7 @@
 		1EA21005229DDB4400BF666F /* IssuePullRequestDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssuePullRequestDetailTableViewController.swift; sourceTree = "<group>"; };
 		1EC24B0C22A8E8D5000209B2 /* WriteCommentTableViewFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteCommentTableViewFooter.swift; sourceTree = "<group>"; };
 		1EC24B1722A9779F000209B2 /* IssuePullRequestDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssuePullRequestDelegate.swift; sourceTree = "<group>"; };
+		1EC24B1A22A99CE5000209B2 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		1ECA4753228DACAB00887A03 /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
 		1ECA475D228DF2EC00887A03 /* MyNetworkExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyNetworkExtensions.swift; sourceTree = "<group>"; };
 		1ECB26E922A45EF600A22B49 /* MarkdownWithHeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkdownWithHeaderTableViewCell.swift; sourceTree = "<group>"; };
@@ -294,6 +296,7 @@
 			isa = PBXGroup;
 			children = (
 				1E6EB2502289FDC3005BA94E /* AppDelegate.swift */,
+				1EC24B1A22A99CE5000209B2 /* AppState.swift */,
 				1E6EB2592289FDC4005BA94E /* Assets.xcassets */,
 				1E6EB25E2289FDC4005BA94E /* Info.plist */,
 				1E6EB25B2289FDC4005BA94E /* LaunchScreen.storyboard */,
@@ -643,6 +646,7 @@
 				1E3E78DC22930DD000B0FAA7 /* CreateRepoOption.swift in Sources */,
 				1E6EB269228A048F005BA94E /* ReposTableViewController.swift in Sources */,
 				1EA21006229DDB4400BF666F /* IssuePullRequestDetailTableViewController.swift in Sources */,
+				1EC24B1B22A99CE5000209B2 /* AppState.swift in Sources */,
 				1E3E792722930DD000B0FAA7 /* EditAttachmentOptions.swift in Sources */,
 				1E3E790122930DD000B0FAA7 /* Comment.swift in Sources */,
 				1E3E791722930DD000B0FAA7 /* Attachment.swift in Sources */,
