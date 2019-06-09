@@ -1,5 +1,5 @@
 //
-//  IssuesTableViewController.swift
+//  IssuesPullRequestsTableViewController.swift
 //  Gitea
 //
 //  Created by Johann Neuhauser on 13.05.19.
@@ -8,9 +8,11 @@
 
 import UIKit
 
-class IssuesTableViewController: UITableViewController {
+class IssuesPullRequestsTableViewController: UITableViewController {
     
-    private var issues: [Issue]?
+    private var issues: [IssuePullRequestDelegate]?
+    
+    private var loadDataAsync: (() -> Void)?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,9 +23,19 @@ class IssuesTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
         
-        self.navigationController?.navigationBar.topItem?.title = "Issues"
+        // TODO: We should not check this by ints
+        switch tabBarController?.selectedIndex {
+        case 2:
+            title = "Issues"
+            loadDataAsync = loadIssuesAsync
+        case 3:
+            title = "Pull Requests"
+            loadDataAsync = loadPullRequestsAsync
+        default:
+            break
+        }
         
-        tableView.register(UINib(nibName: "IssueTableViewCell", bundle: nil), forCellReuseIdentifier: "IssueCellFromNib")
+        tableView.register(UINib(nibName: "IssuePullRequestTableViewCell", bundle: nil), forCellReuseIdentifier: "IssuePullRequestCellFromNib")
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -35,9 +47,9 @@ class IssuesTableViewController: UITableViewController {
             debugPrint("My presenting view controller is: \(loginViewController)")
         }
         
-        // Load issues data only if not loaded before
+        // Load data only if not loaded before
         if issues == nil {
-            loadIssuesAsync()
+            loadDataAsync?()
         }
     }
     
@@ -60,15 +72,32 @@ class IssuesTableViewController: UITableViewController {
             }
         }
     }
+    
+    private func loadPullRequestsAsync() {
+        // TODO: Load the pull requests of the selected repo
+        Networking.shared.getPullRequests(fromOwner: "devel", andRepo: "test1-cpp") { result in
+            switch result {
+            case .success(let pullRequests):
+                debugPrint(pullRequests)
+                self.issues = pullRequests
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                    self.refreshControl?.endRefreshing()
+                }
+            case .failure(let error):
+                debugPrint("getPullRequests() failed with \(error)")
+            }
+        }
+    }
 
     @IBAction func refreshAction(_ sender: UIRefreshControl) {
-        loadIssuesAsync()
+        loadDataAsync?()
     }
     
     // MARK: - Table view delegates
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.performSegue(withIdentifier: "ShowIssueDetail", sender: self)
+        self.performSegue(withIdentifier: "ShowIssuePullRequestDetail", sender: self)
     }
     
     // MARK: - Table view data source
@@ -84,17 +113,31 @@ class IssuesTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "IssueCellFromNib", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "IssuePullRequestCellFromNib", for: indexPath)
         
         guard let issue = issues?[indexPath.row] else {
             return cell
         }
         
-        if let issueTVC = cell as? IssueTableViewCell {
-            if let state = issue.state, state == .closed {
-                issueTVC.typeImage?.image = UIImage(named: "issue-closed")
-            } else {
-                issueTVC.typeImage?.image = UIImage(named: "issue-opened")
+        if let issueTVC = cell as? IssuePullRequestTableViewCell {
+            switch issue {
+            case is PullRequest:
+                if let state = issue.state, state == .closed,
+                    let pr = issue as? PullRequest,
+                    let merged = pr.merged, merged
+                {
+                    issueTVC.imageView?.image = UIImage(named: "git-merge")
+                } else {
+                    issueTVC.imageView?.image = UIImage(named: "git-pull-request")
+                }
+            case is Issue:
+                if let state = issue.state, state == .closed {
+                    issueTVC.typeImage?.image = UIImage(named: "issue-closed")
+                } else {
+                    issueTVC.typeImage?.image = UIImage(named: "issue-opened")
+                }
+            default:
+                break
             }
             
             issueTVC.titleLabel?.text = issue.title
@@ -182,8 +225,8 @@ class IssuesTableViewController: UITableViewController {
         }
         
         switch identifier {
-        case "ShowIssueDetail":
-            debugPrint("Segue: ShowIssueDetail")
+        case "ShowIssuePullRequestDetail":
+            debugPrint("Segue: ShowIssuePullRequestDetail")
             guard let row = tableView.indexPathForSelectedRow?.row else {
                 print("Error getting selected row")
                 return
