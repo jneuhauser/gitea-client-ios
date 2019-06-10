@@ -149,11 +149,10 @@ class CodeTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CodeCell", for: indexPath)
         
-        guard let tree = gitTree?.tree else {
+        guard let element = gitTree?.tree?[indexPath.row] else {
             return cell
         }
         
-        let element = tree[indexPath.row]
         if let path = element.path, let type = element.type, let sha = element.sha {
             switch type {
             case "blob":
