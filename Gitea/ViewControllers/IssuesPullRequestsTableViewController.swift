@@ -12,7 +12,7 @@ class IssuesPullRequestsTableViewController: UITableViewController {
     
     private var issues: [IssuePullRequestDelegate]?
     
-    private var selectedRepo = AppState.selectedRepo
+    private var selectedRepoHash = AppState.selectedRepo.hashValue
     
     private var loadDataAsync: (() -> Void)?
 
@@ -48,15 +48,15 @@ class IssuesPullRequestsTableViewController: UITableViewController {
             debugPrint("My presenting view controller is: \(loginViewController)")
         }
         
-        if selectedRepo != AppState.selectedRepo {
-            selectedRepo = AppState.selectedRepo
+        if selectedRepoHash != AppState.selectedRepo.hashValue {
+            selectedRepoHash = AppState.selectedRepo.hashValue
             loadDataAsync?()
         }
     }
     
     private func loadIssuesAsync() {
-        if let owner = selectedRepo?.owner?.login,
-            let name = selectedRepo?.name {
+        if let owner = AppState.selectedRepo?.owner?.login,
+            let name = AppState.selectedRepo?.name {
             Networking.shared.getIssues(fromOwner: owner, andRepo: name) { result in
                 switch result {
                 case .success(let issues):
@@ -77,8 +77,8 @@ class IssuesPullRequestsTableViewController: UITableViewController {
     }
     
     private func loadPullRequestsAsync() {
-        if let owner = selectedRepo?.owner?.login,
-            let name = selectedRepo?.name {
+        if let owner = AppState.selectedRepo?.owner?.login,
+            let name = AppState.selectedRepo?.name {
             Networking.shared.getPullRequests(fromOwner: owner, andRepo: name) { result in
                 switch result {
                 case .success(let pullRequests):

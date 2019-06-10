@@ -12,7 +12,7 @@ class ReleasesTableViewController: UITableViewController {
     
     private var releases: [Release]?
     
-    private var selectedRepo = AppState.selectedRepo
+    private var selectedRepoHash = AppState.selectedRepo.hashValue
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,15 +35,15 @@ class ReleasesTableViewController: UITableViewController {
             debugPrint("My presenting view controller is: \(loginViewController)")
         }
         
-        if selectedRepo != AppState.selectedRepo {
-            selectedRepo = AppState.selectedRepo
+        if selectedRepoHash != AppState.selectedRepo.hashValue {
+            selectedRepoHash = AppState.selectedRepo.hashValue
             loadReleasesAsync()
         }
     }
     
     private func loadReleasesAsync() {
-        if let owner = selectedRepo?.owner?.login,
-            let name = selectedRepo?.name {
+        if let owner = AppState.selectedRepo?.owner?.login,
+            let name = AppState.selectedRepo?.name {
             Networking.shared.getReleases(fromOwner: owner, andRepo: name) { result in
                 switch result {
                 case .success(let releases):

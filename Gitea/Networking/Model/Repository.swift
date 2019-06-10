@@ -5,7 +5,7 @@
 
 import Foundation
 
-public struct Repository: Codable, Equatable {
+public struct Repository: Codable, Equatable, Hashable {
     
     public var archived: Bool?
     public var cloneUrl: String?

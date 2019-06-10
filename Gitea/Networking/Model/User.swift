@@ -5,7 +5,7 @@
 
 import Foundation
 
-public struct User: Codable, Equatable {
+public struct User: Codable, Equatable, Hashable {
     
     public var avatarUrl: String?
     public var email: String?
