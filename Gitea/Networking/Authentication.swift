@@ -43,9 +43,3 @@ class Authentication {
         return request
     }
 }
-
-extension String {
-    func getBase64() -> String {
-        return self.data(using: .utf8)!.base64EncodedString()
-    }
-}
