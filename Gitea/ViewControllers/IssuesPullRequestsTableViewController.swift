@@ -55,8 +55,9 @@ class IssuesPullRequestsTableViewController: UITableViewController {
     }
     
     private func loadIssuesAsync() {
-        if let repo = selectedRepo {
-            Networking.shared.getIssues(fromOwner: repo.owner, andRepo: repo.name) { result in
+        if let owner = selectedRepo?.owner?.login,
+            let name = selectedRepo?.name {
+            Networking.shared.getIssues(fromOwner: owner, andRepo: name) { result in
                 switch result {
                 case .success(let issues):
                     debugPrint(issues)
@@ -76,8 +77,9 @@ class IssuesPullRequestsTableViewController: UITableViewController {
     }
     
     private func loadPullRequestsAsync() {
-        if let repo = selectedRepo {
-            Networking.shared.getPullRequests(fromOwner: repo.owner, andRepo: repo.name) { result in
+        if let owner = selectedRepo?.owner?.login,
+            let name = selectedRepo?.name {
+            Networking.shared.getPullRequests(fromOwner: owner, andRepo: name) { result in
                 switch result {
                 case .success(let pullRequests):
                     debugPrint(pullRequests)

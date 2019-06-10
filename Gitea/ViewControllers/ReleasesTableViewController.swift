@@ -42,8 +42,9 @@ class ReleasesTableViewController: UITableViewController {
     }
     
     private func loadReleasesAsync() {
-        if let repo = selectedRepo {
-            Networking.shared.getReleases(fromOwner: repo.owner, andRepo: repo.name) { result in
+        if let owner = selectedRepo?.owner?.login,
+            let name = selectedRepo?.name {
+            Networking.shared.getReleases(fromOwner: owner, andRepo: name) { result in
                 switch result {
                 case .success(let releases):
                     debugPrint(releases)

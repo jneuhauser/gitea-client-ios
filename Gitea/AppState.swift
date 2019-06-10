@@ -51,10 +51,5 @@ class AppState {
     
     // MARK: Selected Repo
     
-    struct SelectedRepo: Equatable {
-        var owner: String
-        var name: String
-    }
-    
-    public static var selectedRepo: SelectedRepo?
+    public static var selectedRepo: Repository?
 }

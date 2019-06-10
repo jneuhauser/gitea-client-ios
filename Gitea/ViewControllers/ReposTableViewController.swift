@@ -66,10 +66,8 @@ class ReposTableViewController: UITableViewController {
     // MARK: - Table view delegates
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let repo = repos?[indexPath.row],
-            let login = repo.owner?.login,
-            let repoName = repo.name {
-            AppState.selectedRepo = AppState.SelectedRepo(owner: login, name: repoName)
+        if let repo = repos?[indexPath.row] {
+            AppState.selectedRepo = repo
             AppState.enableAllTabBarItems(ofTabBarController: tabBarController)
         }
     }

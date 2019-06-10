@@ -5,7 +5,7 @@
 
 import Foundation
 
-public struct Permission: Codable {
+public struct Permission: Codable, Equatable {
     
     public var admin: Bool?
     public var pull: Bool?
