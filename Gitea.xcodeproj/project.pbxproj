@@ -105,6 +105,7 @@
 		1E816D3B22933157000F4CD8 /* SortTypeOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E816D3A22933157000F4CD8 /* SortTypeOption.swift */; };
 		1E816D3D22933216000F4CD8 /* StateTypeOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E816D3C22933216000F4CD8 /* StateTypeOption.swift */; };
 		1EA21006229DDB4400BF666F /* IssuePullRequestDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA21005229DDB4400BF666F /* IssuePullRequestDetailTableViewController.swift */; };
+		1EB31AFF22AE9BAC00056111 /* GitBlobResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EB31AFE22AE9BAC00056111 /* GitBlobResponse.swift */; };
 		1EC24B0D22A8E8D5000209B2 /* WriteCommentTableViewFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC24B0C22A8E8D5000209B2 /* WriteCommentTableViewFooter.swift */; };
 		1EC24B1822A9779F000209B2 /* IssuePullRequestDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC24B1722A9779F000209B2 /* IssuePullRequestDelegate.swift */; };
 		1EC24B1B22A99CE5000209B2 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC24B1A22A99CE5000209B2 /* AppState.swift */; };
@@ -216,6 +217,7 @@
 		1E816D3A22933157000F4CD8 /* SortTypeOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortTypeOption.swift; sourceTree = "<group>"; };
 		1E816D3C22933216000F4CD8 /* StateTypeOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateTypeOption.swift; sourceTree = "<group>"; };
 		1EA21005229DDB4400BF666F /* IssuePullRequestDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssuePullRequestDetailTableViewController.swift; sourceTree = "<group>"; };
+		1EB31AFE22AE9BAC00056111 /* GitBlobResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitBlobResponse.swift; sourceTree = "<group>"; };
 		1EC24B0C22A8E8D5000209B2 /* WriteCommentTableViewFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteCommentTableViewFooter.swift; sourceTree = "<group>"; };
 		1EC24B1722A9779F000209B2 /* IssuePullRequestDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssuePullRequestDelegate.swift; sourceTree = "<group>"; };
 		1EC24B1A22A99CE5000209B2 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
@@ -379,6 +381,7 @@
 				1E3E789C22930DCA00B0FAA7 /* GitEntry.swift */,
 				1E3E78D122930DCF00B0FAA7 /* GitObject.swift */,
 				1E3E789D22930DCA00B0FAA7 /* GitTreeResponse.swift */,
+				1EB31AFE22AE9BAC00056111 /* GitBlobResponse.swift */,
 				1E3E78C322930DCD00B0FAA7 /* GPGKey.swift */,
 				1E3E78D622930DCF00B0FAA7 /* GPGKeyEmail.swift */,
 				1E3E78BC22930DCC00B0FAA7 /* Hook.swift */,
@@ -591,6 +594,7 @@
 				1E3E78E822930DD000B0FAA7 /* PullRequestMeta.swift in Sources */,
 				1E816D3B22933157000F4CD8 /* SortTypeOption.swift in Sources */,
 				1E3E791F22930DD000B0FAA7 /* GitObject.swift in Sources */,
+				1EB31AFF22AE9BAC00056111 /* GitBlobResponse.swift in Sources */,
 				1E3E78FC22930DD000B0FAA7 /* UserHeatmapData.swift in Sources */,
 				1E3E791D22930DD000B0FAA7 /* EditTeamOption.swift in Sources */,
 				1E6EB26F228A04E4005BA94E /* ReleasesTableViewController.swift in Sources */,

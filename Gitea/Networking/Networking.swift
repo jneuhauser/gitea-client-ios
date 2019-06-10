@@ -213,4 +213,36 @@ class Networking {
         let task = URLSession.jsonRequest(forResponseType: GitTreeResponse.self, withRequest: request, withMethod: .get, completionHandler: completionHandler)
         task.resume()
     }
+    
+    public func getRepositoryGitBlob(
+        fromOwner owner: String,
+        andRepo repo: String,
+        forSha sha: String,
+        completionHandler: @escaping (Result<GitBlobResponse,Error>) -> Void)
+    {
+        let apiPath = "/api/v1/repos/\(owner)/\(repo)/git/blobs/\(sha)"
+        guard let request = Authentication.shared.constructURLRequest(withPath: apiPath) else {
+            completionHandler(Result.failure(NetworkingError.requestConstructError(apiPath)))
+            return
+        }
+        
+        let task = URLSession.jsonRequest(forResponseType: GitBlobResponse.self, withRequest: request, withMethod: .get, completionHandler: completionHandler)
+        task.resume()
+    }
+    
+    public func getRepositoryFile(
+        fromOwner owner: String,
+        andRepo repo: String,
+        forFilePath filePath: String,
+        completionHandler: @escaping (Result<Data,Error>) -> Void)
+    {
+        let apiPath = "/api/v1/repos/\(owner)/\(repo)/raw/\(filePath)"
+        guard let request = Authentication.shared.constructURLRequest(withPath: apiPath) else {
+            completionHandler(Result.failure(NetworkingError.requestConstructError(apiPath)))
+            return
+        }
+        
+        let task = URLSession.jsonRequest(forResponseType: Data.self, withRequest: request, withMethod: .get, completionHandler: completionHandler)
+        task.resume()
+    }
 }
