@@ -69,6 +69,7 @@ class ReposTableViewController: UITableViewController {
         if let repo = repos?[indexPath.row] {
             AppState.selectedRepo = repo
             AppState.enableAllTabBarItems(ofTabBarController: tabBarController)
+            AppState.popToRootOtherNavigationControllers(ofTabBarController: tabBarController)
         }
     }
     

@@ -49,6 +49,20 @@ class AppState {
         }
     }
     
+    public static func popToRootOtherNavigationControllers(ofTabBarController controller: UITabBarController?) {
+        guard let controller = controller else {
+            return
+        }
+        let currentItem = controller.viewControllers?[controller.selectedIndex]
+        var it = controller.viewControllers?.makeIterator()
+        while let item = it?.next() {
+            if item != currentItem,
+                let item = item as? UINavigationController {
+                item.popToRootViewController(animated: false)
+            }
+        }
+    }
+    
     // MARK: Selected Repo
     
     public static var selectedRepo: Repository?
