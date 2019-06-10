@@ -20,6 +20,9 @@ class CodeTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
         
         title = "Code"
+        
+        tableView.sectionHeaderHeight = UITableView.automaticDimension
+        tableView.estimatedSectionHeaderHeight = 100
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -33,6 +36,49 @@ class CodeTableViewController: UITableViewController {
     }
 
     @IBAction func refreshAction(_ sender: UIRefreshControl) {
+    }
+    
+    @objc func selectBranchAction(_ sender: Any?) {
+        debugPrint("selectBranchAction(...): called")
+    }
+    
+    // MARK: - Table view delegates
+    
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerView = UIView()
+        
+        if section == 0 {
+            let descriptionLabel = UILabel()
+            descriptionLabel.text = AppState.selectedRepo?._description
+            descriptionLabel.numberOfLines = 0
+            descriptionLabel.textColor = UIColor.black
+            descriptionLabel.sizeToFit()
+            // property translatesAutoresizingMaskIntoConstraints should be false to use auto layout for dynamic size
+            descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
+            headerView.addSubview(descriptionLabel)
+            
+            let branchSelection = UIButton()
+            branchSelection.setTitle("Branch: \(AppState.selectedRepo!.defaultBranch!)", for: .normal)
+            branchSelection.setTitleColor(UIColor.black, for: .normal)
+            branchSelection.layer.borderColor = UIColor.darkGray.cgColor
+            branchSelection.addTarget(self, action: #selector(selectBranchAction(_:)), for: .touchUpInside)
+            // property translatesAutoresizingMaskIntoConstraints should be false to use auto layout for dynamic size
+            branchSelection.translatesAutoresizingMaskIntoConstraints = false
+            headerView.addSubview(branchSelection)
+            
+            var constraints = [NSLayoutConstraint]()
+            constraints.append(NSLayoutConstraint(item: descriptionLabel, attribute: .leading, relatedBy: .equal, toItem: headerView, attribute: .leading, multiplier: 1.0, constant: 8.0))
+            constraints.append(NSLayoutConstraint(item: descriptionLabel, attribute: .trailing, relatedBy: .equal, toItem: headerView, attribute: .trailing, multiplier: 1.0, constant: 8.0))
+            constraints.append(NSLayoutConstraint(item: descriptionLabel, attribute: .top, relatedBy: .equal, toItem: headerView, attribute: .top, multiplier: 1.0, constant: 4.0))
+            constraints.append(NSLayoutConstraint(item: branchSelection, attribute: .top, relatedBy: .equal, toItem: descriptionLabel, attribute: .bottom, multiplier: 1.0, constant: 4.0))
+            constraints.append(NSLayoutConstraint(item: branchSelection, attribute: .leading, relatedBy: .equal, toItem: headerView, attribute: .leading, multiplier: 1.0, constant: 0))
+            constraints.append(NSLayoutConstraint(item: branchSelection, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 38))
+            constraints.append(NSLayoutConstraint(item: branchSelection, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 200))
+            constraints.append(NSLayoutConstraint(item: branchSelection, attribute: .bottom, relatedBy: .equal, toItem: headerView, attribute: .bottom, multiplier: 1.0, constant: 4.0))
+            headerView.addConstraints(constraints)
+        }
+        
+        return headerView
     }
     
     // MARK: - Table view data source
