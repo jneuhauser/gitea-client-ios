@@ -5,7 +5,7 @@
 
 import Foundation
 
-public struct Reference: Codable {
+public struct Reference: Codable, Equatable, Hashable {
     
     public var object: GitObject?
     public var ref: String?

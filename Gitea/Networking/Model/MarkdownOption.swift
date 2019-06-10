@@ -5,7 +5,7 @@
 
 import Foundation
 
-public struct MarkdownOption: Codable {
+public struct MarkdownOption: Codable, Equatable, Hashable {
     
     public var context: String?
     public var mode: String?

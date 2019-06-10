@@ -5,7 +5,7 @@
 
 import Foundation
 
-public struct CreateGPGKeyOption: Codable {
+public struct CreateGPGKeyOption: Codable, Equatable, Hashable {
     
     public var armoredPublicKey: String
     

@@ -5,7 +5,7 @@
 
 import Foundation
 
-public struct CreateIssueCommentOption: Codable {
+public struct CreateIssueCommentOption: Codable, Equatable, Hashable {
     
     public var body: String
     

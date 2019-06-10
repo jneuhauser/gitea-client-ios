@@ -5,7 +5,7 @@
 
 import Foundation
 
-public struct CreateLabelOption: Codable {
+public struct CreateLabelOption: Codable, Equatable, Hashable {
     
     public var color: String
     public var name: String

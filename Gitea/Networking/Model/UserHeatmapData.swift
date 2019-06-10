@@ -5,7 +5,7 @@
 
 import Foundation
 
-public struct UserHeatmapData: Codable {
+public struct UserHeatmapData: Codable, Equatable, Hashable {
     
     public var contributions: Int64?
     public var timestamp: Int64?

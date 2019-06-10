@@ -5,7 +5,7 @@
 
 import Foundation
 
-public struct PayloadCommit: Codable {
+public struct PayloadCommit: Codable, Equatable, Hashable {
     
     public var added: [String]?
     public var author: PayloadUser?

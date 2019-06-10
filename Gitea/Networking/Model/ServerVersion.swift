@@ -5,7 +5,7 @@
 
 import Foundation
 
-public struct ServerVersion: Codable {
+public struct ServerVersion: Codable, Equatable, Hashable {
     
     public var version: String?
     

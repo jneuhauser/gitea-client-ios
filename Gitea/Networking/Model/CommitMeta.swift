@@ -5,7 +5,7 @@
 
 import Foundation
 
-public struct CommitMeta: Codable {
+public struct CommitMeta: Codable, Equatable, Hashable {
     
     public var sha: String?
     public var url: String?

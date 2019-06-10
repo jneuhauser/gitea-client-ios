@@ -5,7 +5,7 @@
 
 import Foundation
 
-public struct AddCollaboratorOption: Codable {
+public struct AddCollaboratorOption: Codable, Equatable, Hashable {
     
     public var permission: String?
     

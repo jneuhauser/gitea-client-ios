@@ -5,7 +5,7 @@
 
 import Foundation
 
-public struct PayloadCommitVerification: Codable {
+public struct PayloadCommitVerification: Codable, Equatable, Hashable {
     
     public var payload: String?
     public var reason: String?

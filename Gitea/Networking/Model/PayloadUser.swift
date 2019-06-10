@@ -5,7 +5,7 @@
 
 import Foundation
 
-public struct PayloadUser: Codable {
+public struct PayloadUser: Codable, Equatable, Hashable {
     
     public var email: String?
     public var name: String?

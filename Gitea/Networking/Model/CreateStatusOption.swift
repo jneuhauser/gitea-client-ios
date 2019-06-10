@@ -5,7 +5,7 @@
 
 import Foundation
 
-public struct CreateStatusOption: Codable {
+public struct CreateStatusOption: Codable, Equatable, Hashable {
     
     public var context: String?
     public var _description: String?

@@ -5,7 +5,7 @@
 
 import Foundation
 
-public struct MigrateRepoForm: Codable {
+public struct MigrateRepoForm: Codable, Equatable, Hashable {
     
     public var authPassword: String?
     public var authUsername: String?

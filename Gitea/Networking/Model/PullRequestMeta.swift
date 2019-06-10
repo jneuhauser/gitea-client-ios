@@ -5,7 +5,7 @@
 
 import Foundation
 
-public struct PullRequestMeta: Codable {
+public struct PullRequestMeta: Codable, Equatable, Hashable {
     
     public var merged: Bool?
     public var mergedAt: Date?

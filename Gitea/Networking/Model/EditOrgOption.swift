@@ -5,7 +5,7 @@
 
 import Foundation
 
-public struct EditOrgOption: Codable {
+public struct EditOrgOption: Codable, Equatable, Hashable {
     
     public var _description: String?
     public var fullName: String?

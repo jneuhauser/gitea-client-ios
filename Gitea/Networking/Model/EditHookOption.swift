@@ -5,7 +5,7 @@
 
 import Foundation
 
-public struct EditHookOption: Codable {
+public struct EditHookOption: Codable, Equatable, Hashable {
     
     public var active: Bool?
     public var config: [String:String]?

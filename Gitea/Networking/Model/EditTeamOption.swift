@@ -5,7 +5,7 @@
 
 import Foundation
 
-public struct EditTeamOption: Codable {
+public struct EditTeamOption: Codable, Equatable, Hashable {
     
     public enum Permission: String, Codable { 
         case read = "read"

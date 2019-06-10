@@ -5,7 +5,7 @@
 
 import Foundation
 
-public struct MergePullRequestOption: Codable {
+public struct MergePullRequestOption: Codable, Equatable, Hashable {
     
     public enum Do: String, Codable { 
         case merge = "merge"

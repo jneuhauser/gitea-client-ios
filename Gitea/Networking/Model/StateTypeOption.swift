@@ -5,7 +5,7 @@
 
 import Foundation
 
-public enum StateTypeOption: String, Codable {
+public enum StateTypeOption: String, Codable, Equatable, Hashable {
     case open = "open"
     case closed = "closed"
     case all = "all"

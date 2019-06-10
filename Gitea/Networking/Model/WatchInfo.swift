@@ -5,7 +5,7 @@
 
 import Foundation
 
-public struct WatchInfo: Codable {
+public struct WatchInfo: Codable, Equatable, Hashable {
     
     public var createdAt: Date?
     public var ignored: Bool?

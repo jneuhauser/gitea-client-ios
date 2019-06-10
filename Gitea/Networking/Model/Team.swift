@@ -5,7 +5,7 @@
 
 import Foundation
 
-public struct Team: Codable {
+public struct Team: Codable, Equatable, Hashable {
     
     public enum Permission: String, Codable { 
         case _none = "none"

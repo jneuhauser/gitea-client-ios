@@ -5,7 +5,7 @@
 
 import Foundation
 
-public struct CreateOrgOption: Codable{
+public struct CreateOrgOption: Codable, Equatable, Hashable {
     
     public var _description: String?
     public var fullName: String?

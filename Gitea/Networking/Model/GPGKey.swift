@@ -5,7 +5,7 @@
 
 import Foundation
 
-public struct GPGKey: Codable {
+public struct GPGKey: Codable, Equatable, Hashable {
     
     public var canCertify: Bool?
     public var canEncryptComms: Bool?

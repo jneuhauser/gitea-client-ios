@@ -5,7 +5,7 @@
 
 import Foundation
 
-public struct Branch: Codable {
+public struct Branch: Codable, Equatable, Hashable {
     
     public var commit: PayloadCommit?
     public var name: String?

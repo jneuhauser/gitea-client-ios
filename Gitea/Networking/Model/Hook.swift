@@ -5,7 +5,7 @@
 
 import Foundation
 
-public struct Hook: Codable {
+public struct Hook: Codable, Equatable, Hashable {
     
     public var active: Bool?
     public var config: [String:String]?

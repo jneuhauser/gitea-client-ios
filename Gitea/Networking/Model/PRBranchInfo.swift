@@ -5,7 +5,7 @@
 
 import Foundation
 
-public struct PRBranchInfo: Codable {
+public struct PRBranchInfo: Codable, Equatable, Hashable {
     
     public var label: String?
     public var ref: String?

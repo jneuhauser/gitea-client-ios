@@ -5,7 +5,7 @@
 
 import Foundation
 
-public struct Status: Codable {
+public struct Status: Codable, Equatable, Hashable {
     
     public var context: String?
     public var createdAt: Date?

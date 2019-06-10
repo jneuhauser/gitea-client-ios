@@ -5,7 +5,7 @@
 
 import Foundation
 
-public struct IssueDeadline: Codable {
+public struct IssueDeadline: Codable, Equatable, Hashable {
     
     public var dueDate: Date?
     

@@ -5,7 +5,7 @@
 
 import Foundation
 
-public struct Attachment: Codable {
+public struct Attachment: Codable, Equatable, Hashable {
     
     public var browserDownloadUrl: String?
     public var createdAt: Date?

@@ -5,7 +5,7 @@
 
 import Foundation
 
-public struct Organization: Codable {
+public struct Organization: Codable, Equatable, Hashable {
     
     public var avatarUrl: String?
     public var _description: String?

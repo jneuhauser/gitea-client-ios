@@ -5,7 +5,7 @@
 
 import Foundation
 
-public enum StatusState: String, Codable {
+public enum StatusState: String, Codable, Equatable, Hashable {
     case pending = "pending"
     case success = "success"
     case error = "error"

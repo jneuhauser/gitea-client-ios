@@ -5,7 +5,7 @@
 
 import Foundation
 
-public struct TrackedTime: Codable {
+public struct TrackedTime: Codable, Equatable, Hashable {
     
     public var created: Date?
     public var _id: Int64?

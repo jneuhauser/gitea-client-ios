@@ -5,7 +5,7 @@
 
 import Foundation
 
-public struct SearchResults: Codable {
+public struct SearchResults: Codable, Equatable, Hashable {
     
     public var data: [Repository]?
     public var ok: Bool?

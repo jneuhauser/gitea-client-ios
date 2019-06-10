@@ -5,7 +5,7 @@
 
 import Foundation
 
-public struct Comment: Codable {
+public struct Comment: Codable, Equatable, Hashable {
     
     public var body: String?
     public var createdAt: Date?

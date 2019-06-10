@@ -5,7 +5,7 @@
 
 import Foundation
 
-public struct CreateForkOption: Codable {
+public struct CreateForkOption: Codable, Equatable, Hashable {
     
     public var organization: String?
     

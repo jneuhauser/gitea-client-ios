@@ -5,7 +5,7 @@
 
 import Foundation
 
-public struct CommitUser: Codable {
+public struct CommitUser: Codable, Equatable, Hashable {
     
     public var date: String?
     public var email: String?

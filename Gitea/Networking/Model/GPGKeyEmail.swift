@@ -5,7 +5,7 @@
 
 import Foundation
 
-public struct GPGKeyEmail: Codable {
+public struct GPGKeyEmail: Codable, Equatable, Hashable {
     
     public var email: String?
     public var verified: Bool?

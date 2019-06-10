@@ -5,7 +5,7 @@
 
 import Foundation
 
-public struct EditReleaseOption: Codable {
+public struct EditReleaseOption: Codable, Equatable, Hashable {
     
     public var body: String?
     public var draft: Bool?

@@ -5,7 +5,7 @@
 
 import Foundation
 
-public struct CreateMilestoneOption: Codable {
+public struct CreateMilestoneOption: Codable, Equatable, Hashable {
     
     public var _description: String?
     public var dueOn: Date?

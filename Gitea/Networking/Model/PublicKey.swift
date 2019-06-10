@@ -5,7 +5,7 @@
 
 import Foundation
 
-public struct PublicKey: Codable {
+public struct PublicKey: Codable, Equatable, Hashable {
     
     public var createdAt: Date?
     public var fingerprint: String?

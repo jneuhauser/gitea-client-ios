@@ -5,7 +5,7 @@
 
 import Foundation
 
-public struct DeployKey: Codable {
+public struct DeployKey: Codable, Equatable, Hashable {
     
     public var createdAt: Date?
     public var fingerprint: String?

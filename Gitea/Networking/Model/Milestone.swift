@@ -5,7 +5,7 @@
 
 import Foundation
 
-public struct Milestone: Codable {
+public struct Milestone: Codable, Equatable, Hashable {
     
     public var closedAt: Date?
     public var closedIssues: Int64?

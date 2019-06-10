@@ -5,7 +5,7 @@
 
 import Foundation
 
-public struct CreateKeyOption: Codable {
+public struct CreateKeyOption: Codable, Equatable, Hashable {
     
     public var key: String
     public var readOnly: Bool?

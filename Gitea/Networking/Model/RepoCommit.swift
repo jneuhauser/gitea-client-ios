@@ -5,7 +5,7 @@
 
 import Foundation
 
-public struct RepoCommit: Codable {
+public struct RepoCommit: Codable, Equatable, Hashable {
     
     public var author: CommitUser?
     public var committer: CommitUser?

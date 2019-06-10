@@ -5,7 +5,7 @@
 
 import Foundation
 
-public struct EditDeadlineOption: Codable {
+public struct EditDeadlineOption: Codable, Equatable, Hashable {
     
     public var dueDate: Date
     

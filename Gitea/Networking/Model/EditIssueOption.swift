@@ -5,7 +5,7 @@
 
 import Foundation
 
-public struct EditIssueOption: Codable {
+public struct EditIssueOption: Codable, Equatable, Hashable {
     
     public var assignee: String?
     public var assignees: [String]?

@@ -5,7 +5,7 @@
 
 import Foundation
 
-public struct CreateHookOption: Codable {
+public struct CreateHookOption: Codable, Equatable, Hashable {
     
     public enum ModelType: String, Codable { 
         case gitea = "gitea"

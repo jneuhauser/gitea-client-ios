@@ -5,7 +5,7 @@
 
 import Foundation
 
-public struct EditUserOption: Codable {
+public struct EditUserOption: Codable, Equatable, Hashable {
     
     public var active: Bool?
     public var admin: Bool?

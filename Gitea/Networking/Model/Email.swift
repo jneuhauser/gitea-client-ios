@@ -5,7 +5,7 @@
 
 import Foundation
 
-public struct Email: Codable {
+public struct Email: Codable, Equatable, Hashable {
     
     public var email: String?
     public var primary: Bool?

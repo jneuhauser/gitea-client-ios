@@ -5,7 +5,7 @@
 
 import Foundation
 
-public struct PullRequest: Codable, IssuePullRequestDelegate {
+public struct PullRequest: Codable, Equatable, Hashable, IssuePullRequestDelegate {
     
     public var assignee: User?
     public var assignees: [User]?

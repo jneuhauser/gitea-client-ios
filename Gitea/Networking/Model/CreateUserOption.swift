@@ -5,7 +5,7 @@
 
 import Foundation
 
-public struct CreateUserOption: Codable {
+public struct CreateUserOption: Codable, Equatable, Hashable {
     
     public var email: String
     public var fullName: String?

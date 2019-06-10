@@ -5,7 +5,7 @@
 
 import Foundation
 
-public struct CreatePullRequestOption: Codable {
+public struct CreatePullRequestOption: Codable, Equatable, Hashable {
     
     public var assignee: String?
     public var assignees: [String]?

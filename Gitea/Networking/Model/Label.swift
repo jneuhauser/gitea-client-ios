@@ -5,7 +5,7 @@
 
 import Foundation
 
-public struct Label: Codable {
+public struct Label: Codable, Equatable, Hashable {
     
     public var color: String?
     public var _id: Int64?

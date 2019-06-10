@@ -5,7 +5,7 @@
 
 import Foundation
 
-public enum SortTypeOption: String, Codable {
+public enum SortTypeOption: String, Codable, Equatable, Hashable {
     case oldest = "oldest"
     case recentupdate = "recentupdate"
     case leastupdate = "leastupdate"

@@ -5,7 +5,7 @@
 
 import Foundation
 
-public struct EditAttachmentOptions: Codable {
+public struct EditAttachmentOptions: Codable, Equatable, Hashable {
     
     public var name: String?
     

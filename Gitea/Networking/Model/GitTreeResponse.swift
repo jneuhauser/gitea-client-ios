@@ -5,7 +5,7 @@
 
 import Foundation
 
-public struct GitTreeResponse: Codable {
+public struct GitTreeResponse: Codable, Equatable, Hashable {
     
     public var page: Int64?
     public var sha: String?

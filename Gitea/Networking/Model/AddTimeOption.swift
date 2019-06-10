@@ -5,7 +5,7 @@
 
 import Foundation
 
-public struct AddTimeOption: Codable {
+public struct AddTimeOption: Codable, Equatable, Hashable {
     
     public var time: Int64
     

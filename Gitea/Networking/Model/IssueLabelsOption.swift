@@ -5,7 +5,7 @@
 
 import Foundation
 
-public struct IssueLabelsOption: Codable {
+public struct IssueLabelsOption: Codable, Equatable, Hashable {
     
     public var labels: [Int64]?
     

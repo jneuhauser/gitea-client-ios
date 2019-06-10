@@ -5,7 +5,7 @@
 
 import Foundation
 
-public struct CreateRepoOption: Codable {
+public struct CreateRepoOption: Codable, Equatable, Hashable {
     
     public var autoInit: Bool?
     public var _description: String?

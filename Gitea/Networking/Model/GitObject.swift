@@ -5,7 +5,7 @@
 
 import Foundation
 
-public struct GitObject: Codable {
+public struct GitObject: Codable, Equatable, Hashable {
     
     public var sha: String?
     public var type: String?

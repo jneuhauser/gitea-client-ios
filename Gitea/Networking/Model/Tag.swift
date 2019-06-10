@@ -5,7 +5,7 @@
 
 import Foundation
 
-public struct Tag: Codable {
+public struct Tag: Codable, Equatable, Hashable {
     
     public var commit: Commit?
     public var name: String?

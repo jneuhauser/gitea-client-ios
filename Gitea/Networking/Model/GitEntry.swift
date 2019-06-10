@@ -5,7 +5,7 @@
 
 import Foundation
 
-public struct GitEntry: Codable {
+public struct GitEntry: Codable, Equatable, Hashable {
     
     public var mode: String?
     public var path: String?

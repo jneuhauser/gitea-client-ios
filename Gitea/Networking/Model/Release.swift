@@ -5,7 +5,7 @@
 
 import Foundation
 
-public struct Release: Codable {
+public struct Release: Codable, Equatable, Hashable {
     
     public var assets: [Attachment]?
     public var author: User?
