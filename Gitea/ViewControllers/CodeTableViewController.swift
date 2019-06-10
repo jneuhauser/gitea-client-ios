@@ -10,6 +10,9 @@ import UIKit
 
 class CodeTableViewController: UITableViewController {
     
+    // Set this var to load this specific tree
+    public var gitTreeShaToLoad: String?
+    
     private var references: [Reference]?
     private var gitTree: GitTreeResponse?
     
@@ -25,10 +28,12 @@ class CodeTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
         
-        title = "Code"
+        if title == nil {
+            title = "Code"
+        }
         
         tableView.sectionHeaderHeight = UITableView.automaticDimension
-        tableView.estimatedSectionHeaderHeight = 100
+        tableView.estimatedSectionHeaderHeight = 2
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -40,6 +45,10 @@ class CodeTableViewController: UITableViewController {
             debugPrint("My presenting view controller is: \(loginViewController)")
         }
         
+        if gitTreeShaToLoad != nil {
+            loadGitTreeAsync()
+        } else
+            
         if selectedRepoHash != AppState.selectedRepo.hashValue {
             selectedRepoHash = AppState.selectedRepo.hashValue
             selectedBranch = AppState.selectedRepo?.defaultBranch
@@ -69,7 +78,8 @@ class CodeTableViewController: UITableViewController {
                 return ref.ref == "refs/heads/\(selectedBranch)"
             }
             if let owner = AppState.selectedRepo?.owner?.login,
-                let name = AppState.selectedRepo?.name, let sha = selectedBranchRef?.first?.object?.sha {
+                let name = AppState.selectedRepo?.name,
+                let sha = gitTreeShaToLoad ?? selectedBranchRef?.first?.object?.sha {
                 Networking.shared.getRepositoryGitTree(fromOwner: owner, andRepo: name, forSha: sha) { result in
                     switch result {
                     case .success(let gitTree):
@@ -88,7 +98,11 @@ class CodeTableViewController: UITableViewController {
     }
 
     @IBAction func refreshAction(_ sender: UIRefreshControl) {
-        loadReferencesAsync()
+        if gitTreeShaToLoad == nil {
+            loadReferencesAsync()
+        } else {
+            loadGitTreeAsync()
+        }
     }
     
     @objc func selectBranchAction(_ sender: Any?) {
@@ -100,7 +114,7 @@ class CodeTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let headerView = UIView()
         
-        if section == 0 {
+        if gitTreeShaToLoad == nil {
             let descriptionLabel = UILabel()
             descriptionLabel.text = AppState.selectedRepo?._description
             descriptionLabel.numberOfLines = 0
@@ -132,6 +146,31 @@ class CodeTableViewController: UITableViewController {
         }
         
         return headerView
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let selectedElement = gitTree?.tree?[indexPath.row] else {
+            return
+        }
+        
+        switch selectedElement.type {
+        case "blob":
+            debugPrint("tableView(didSelectRowAt): blob type selected")
+        case "tree":
+            debugPrint("tableView(didSelectRowAt): tree type selected")
+            if let codeTableViewController = storyboard?.instantiateViewController(withIdentifier: "CodeTableViewController") as? CodeTableViewController {
+                codeTableViewController.gitTreeShaToLoad = selectedElement.sha
+                
+                if let path = selectedElement.path {
+                    let filePathEndIndex = path.lastIndex(of: "/") ?? path.endIndex
+                    codeTableViewController.title = String(path[..<filePathEndIndex])
+                }
+                
+                navigationController?.pushViewController(codeTableViewController, animated: true)
+            }
+        default:
+            debugPrint("tableView(didSelectRowAt): unhandled element type: \(selectedElement.type ?? "nil")")
+        }
     }
     
     // MARK: - Table view data source
