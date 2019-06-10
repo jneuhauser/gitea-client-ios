@@ -164,4 +164,53 @@ class Networking {
         let task = URLSession.jsonRequest(forResponseType: [Comment].self, withRequest: request, withMethod: .get, completionHandler: completionHandler)
         task.resume()
     }
+    
+    public func getRepositoryReferences(
+        fromOwner owner: String,
+        andRepo repo: String,
+        filteredBy ref: String? = nil,
+        completionHandler: @escaping (Result<[Reference],Error>) -> Void)
+    {
+        let refPathParam = ref == nil ? "" : "/\(ref!)"
+        let apiPath = "/api/v1/repos/\(owner)/\(repo)/git/refs\(refPathParam)"
+        guard let request = Authentication.shared.constructURLRequest(withPath: apiPath) else {
+            completionHandler(Result.failure(NetworkingError.requestConstructError(apiPath)))
+            return
+        }
+        
+        let task = URLSession.jsonRequest(forResponseType: [Reference].self, withRequest: request, withMethod: .get, completionHandler: completionHandler)
+        task.resume()
+    }
+    
+    public func getRepositoryGitTree(
+        fromOwner owner: String,
+        andRepo repo: String,
+        forSha sha: String,
+        asRecursive recursive: Bool? = nil,
+        pageNumber page: Int? = nil,
+        itemsPerPage perPage: Int? = nil,
+        completionHandler: @escaping (Result<GitTreeResponse,Error>) -> Void)
+    {
+        var queryParams = [String]()
+        if let recursive = recursive {
+            let recursiveString = String(recursive)
+            queryParams.append("recursive=\(recursiveString)")
+        }
+        if let page = page {
+            queryParams.append("page=\(page)")
+        }
+        if let perPage = perPage {
+            queryParams.append("per_page=\(perPage)")
+        }
+        let queryParamsString = constructQueryParamString(fromParams: queryParams)
+        
+        let apiPath = "/api/v1/repos/\(owner)/\(repo)/git/trees/\(sha)\(queryParamsString)"
+        guard let request = Authentication.shared.constructURLRequest(withPath: apiPath) else {
+            completionHandler(Result.failure(NetworkingError.requestConstructError(apiPath)))
+            return
+        }
+        
+        let task = URLSession.jsonRequest(forResponseType: GitTreeResponse.self, withRequest: request, withMethod: .get, completionHandler: completionHandler)
+        task.resume()
+    }
 }

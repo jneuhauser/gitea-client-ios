@@ -9,6 +9,12 @@
 import UIKit
 
 class CodeTableViewController: UITableViewController {
+    
+    private var references: [Reference]?
+    private var gitTree: GitTreeResponse?
+    
+    private var selectedRepoHash = AppState.selectedRepo.hashValue
+    private var selectedBranch = AppState.selectedRepo?.defaultBranch
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,9 +39,56 @@ class CodeTableViewController: UITableViewController {
             //loginViewController.dismiss(animated: true)
             debugPrint("My presenting view controller is: \(loginViewController)")
         }
+        
+        if selectedRepoHash != AppState.selectedRepo.hashValue {
+            selectedRepoHash = AppState.selectedRepo.hashValue
+            selectedBranch = AppState.selectedRepo?.defaultBranch
+            loadReferencesAsync()
+        }
+    }
+    
+    private func loadReferencesAsync() {
+        if let owner = AppState.selectedRepo?.owner?.login,
+            let name = AppState.selectedRepo?.name {
+            Networking.shared.getRepositoryReferences(fromOwner: owner, andRepo: name, filteredBy: "heads") { result in
+                switch result {
+                case .success(let references):
+                    debugPrint(references)
+                    self.references = references
+                    self.loadGitTreeAsync()
+                case .failure(let error):
+                    debugPrint("getRepositoryReferences() failed with \(error)")
+                }
+            }
+        }
+    }
+    
+    private func loadGitTreeAsync() {
+        if let selectedBranch = selectedBranch {
+            let selectedBranchRef = references?.filter() { ref in
+                return ref.ref == "refs/heads/\(selectedBranch)"
+            }
+            if let owner = AppState.selectedRepo?.owner?.login,
+                let name = AppState.selectedRepo?.name, let sha = selectedBranchRef?.first?.object?.sha {
+                Networking.shared.getRepositoryGitTree(fromOwner: owner, andRepo: name, forSha: sha) { result in
+                    switch result {
+                    case .success(let gitTree):
+                        debugPrint(gitTree)
+                        self.gitTree = gitTree
+                        DispatchQueue.main.async {
+                            self.tableView.reloadData()
+                            self.refreshControl?.endRefreshing()
+                        }
+                    case .failure(let error):
+                        debugPrint("getRepositoryGitTree() failed with \(error)")
+                    }
+                }
+            }
+        }
     }
 
     @IBAction func refreshAction(_ sender: UIRefreshControl) {
+        loadReferencesAsync()
     }
     
     @objc func selectBranchAction(_ sender: Any?) {
@@ -90,15 +143,34 @@ class CodeTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 10
+        return gitTree?.tree?.count ?? 0
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CodeCell", for: indexPath)
-
-        cell.textLabel?.text = "Text Label"
-        cell.detailTextLabel?.text = "Detail Label"
-        cell.imageView?.image = UIImage(named: "file")
+        
+        guard let tree = gitTree?.tree else {
+            return cell
+        }
+        
+        let element = tree[indexPath.row]
+        if let path = element.path, let type = element.type, let sha = element.sha {
+            switch type {
+            case "blob":
+                cell.imageView?.image = UIImage(named: "file")
+            case "tree":
+                cell.imageView?.image = UIImage(named: "file-directory")
+            default:
+                cell.imageView?.image = UIImage(named: "file-binary")
+            }
+            
+            let filePathEndIndex = path.lastIndex(of: "/") ?? path.startIndex
+            // Cut of "/" for the file name if there was a file path
+            let fileNameStartIndex = filePathEndIndex == path.startIndex ? filePathEndIndex : path.index(after: filePathEndIndex)
+            cell.textLabel?.text = String(path[fileNameStartIndex...])
+            
+            cell.detailTextLabel?.text = sha
+        }
 
         return cell
     }
