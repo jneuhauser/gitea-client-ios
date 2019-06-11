@@ -57,6 +57,9 @@ class IssuePullRequestDetailTableViewController: UITableViewController {
                     debugPrint("getIssueComments() failed with \(error)")
                 }
             }
+        } else {
+            // TODO: refresh the main entry
+            self.refreshControl?.endRefreshing()
         }
     }
     
