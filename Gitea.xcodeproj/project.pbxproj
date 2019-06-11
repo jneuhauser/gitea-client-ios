@@ -108,6 +108,7 @@
 		1EB31AFF22AE9BAC00056111 /* GitBlobResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EB31AFE22AE9BAC00056111 /* GitBlobResponse.swift */; };
 		1EB31B0322AEA8EF00056111 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EB31B0222AEA8EF00056111 /* StringExtensions.swift */; };
 		1EB31B0422AEC66200056111 /* QuickLook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EB31B0022AEA0F600056111 /* QuickLook.framework */; };
+		1EB31B0622AEC8E800056111 /* FileQLPreviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EB31B0522AEC8E800056111 /* FileQLPreviewController.swift */; };
 		1EC24B0D22A8E8D5000209B2 /* WriteCommentTableViewFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC24B0C22A8E8D5000209B2 /* WriteCommentTableViewFooter.swift */; };
 		1EC24B1822A9779F000209B2 /* IssuePullRequestDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC24B1722A9779F000209B2 /* IssuePullRequestDelegate.swift */; };
 		1EC24B1B22A99CE5000209B2 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC24B1A22A99CE5000209B2 /* AppState.swift */; };
@@ -222,6 +223,7 @@
 		1EB31AFE22AE9BAC00056111 /* GitBlobResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitBlobResponse.swift; sourceTree = "<group>"; };
 		1EB31B0022AEA0F600056111 /* QuickLook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuickLook.framework; path = System/Library/Frameworks/QuickLook.framework; sourceTree = SDKROOT; };
 		1EB31B0222AEA8EF00056111 /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
+		1EB31B0522AEC8E800056111 /* FileQLPreviewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileQLPreviewController.swift; sourceTree = "<group>"; };
 		1EC24B0C22A8E8D5000209B2 /* WriteCommentTableViewFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteCommentTableViewFooter.swift; sourceTree = "<group>"; };
 		1EC24B1722A9779F000209B2 /* IssuePullRequestDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssuePullRequestDelegate.swift; sourceTree = "<group>"; };
 		1EC24B1A22A99CE5000209B2 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
@@ -322,6 +324,7 @@
 			isa = PBXGroup;
 			children = (
 				1E6EB271228A886F005BA94E /* CodeTableViewController.swift */,
+				1EB31B0522AEC8E800056111 /* FileQLPreviewController.swift */,
 				1EA21005229DDB4400BF666F /* IssuePullRequestDetailTableViewController.swift */,
 				1E6EB26A228A04B3005BA94E /* IssuesPullRequestsTableViewController.swift */,
 				1E6EB273228AE837005BA94E /* LoginViewController.swift */,
@@ -650,6 +653,7 @@
 				1E816D3D22933216000F4CD8 /* StateTypeOption.swift in Sources */,
 				1E3E78E622930DD000B0FAA7 /* Branch.swift in Sources */,
 				1E3E790522930DD000B0FAA7 /* CreateKeyOption.swift in Sources */,
+				1EB31B0622AEC8E800056111 /* FileQLPreviewController.swift in Sources */,
 				1E3E78F822930DD000B0FAA7 /* Issue.swift in Sources */,
 				1E6EB272228A886F005BA94E /* CodeTableViewController.swift in Sources */,
 				1E3E78E222930DD000B0FAA7 /* Email.swift in Sources */,
