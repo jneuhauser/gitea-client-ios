@@ -156,6 +156,9 @@ class CodeTableViewController: UITableViewController {
         switch selectedElement.type {
         case "blob":
             debugPrint("tableView(didSelectRowAt): blob type selected")
+            let fileQLPreviewController = FileQLPreviewController()
+            fileQLPreviewController.gitEntry = selectedElement
+            navigationController?.pushViewController(fileQLPreviewController, animated: true)
         case "tree":
             debugPrint("tableView(didSelectRowAt): tree type selected")
             if let codeTableViewController = storyboard?.instantiateViewController(withIdentifier: "CodeTableViewController") as? CodeTableViewController {
@@ -202,10 +205,11 @@ class CodeTableViewController: UITableViewController {
                 cell.imageView?.image = UIImage(named: "file-binary")
             }
             
-            let filePathEndIndex = path.lastIndex(of: "/") ?? path.startIndex
-            // Cut of "/" for the file name if there was a file path
-            let fileNameStartIndex = filePathEndIndex == path.startIndex ? filePathEndIndex : path.index(after: filePathEndIndex)
-            cell.textLabel?.text = String(path[fileNameStartIndex...])
+//            let filePathEndIndex = path.lastIndex(of: "/") ?? path.startIndex
+//            // Cut of "/" for the file name if there was a file path
+//            let fileNameStartIndex = filePathEndIndex == path.startIndex ? filePathEndIndex : path.index(after: filePathEndIndex)
+//            cell.textLabel?.text = String(path[fileNameStartIndex...])
+            cell.textLabel?.text = path
             
             cell.detailTextLabel?.text = sha
         }
