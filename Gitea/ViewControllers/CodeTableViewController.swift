@@ -85,6 +85,10 @@ class CodeTableViewController: UITableViewController {
                     case .success(let gitTree):
                         debugPrint(gitTree)
                         self.gitTree = gitTree
+                        // Sort by name
+                        self.gitTree?.tree?.sort(by: { return $0.path! < $1.path! })
+                        // Sort by type (tree = folder above blob = file)
+                        self.gitTree?.tree?.sort(by: { return $0.type! > $1.type! })
                         DispatchQueue.main.async {
                             self.tableView.reloadData()
                             self.refreshControl?.endRefreshing()
@@ -195,7 +199,7 @@ class CodeTableViewController: UITableViewController {
             return cell
         }
         
-        if let path = element.path, let type = element.type, let sha = element.sha {
+        if let path = element.path, let type = element.type, let size = element.size {
             switch type {
             case "blob":
                 cell.imageView?.image = UIImage(named: "file")
@@ -211,7 +215,7 @@ class CodeTableViewController: UITableViewController {
 //            cell.textLabel?.text = String(path[fileNameStartIndex...])
             cell.textLabel?.text = path
             
-            cell.detailTextLabel?.text = sha
+            cell.detailTextLabel?.text = type == "tree" ? "" : size.getByteRepresentaion()
         }
 
         return cell

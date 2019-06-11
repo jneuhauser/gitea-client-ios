@@ -109,6 +109,7 @@
 		1EB31B0322AEA8EF00056111 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EB31B0222AEA8EF00056111 /* StringExtensions.swift */; };
 		1EB31B0422AEC66200056111 /* QuickLook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EB31B0022AEA0F600056111 /* QuickLook.framework */; };
 		1EB31B0622AEC8E800056111 /* FileQLPreviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EB31B0522AEC8E800056111 /* FileQLPreviewController.swift */; };
+		1EB31B0822AFA84900056111 /* IntExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EB31B0722AFA84900056111 /* IntExtensions.swift */; };
 		1EC24B0D22A8E8D5000209B2 /* WriteCommentTableViewFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC24B0C22A8E8D5000209B2 /* WriteCommentTableViewFooter.swift */; };
 		1EC24B1822A9779F000209B2 /* IssuePullRequestDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC24B1722A9779F000209B2 /* IssuePullRequestDelegate.swift */; };
 		1EC24B1B22A99CE5000209B2 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC24B1A22A99CE5000209B2 /* AppState.swift */; };
@@ -224,6 +225,7 @@
 		1EB31B0022AEA0F600056111 /* QuickLook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuickLook.framework; path = System/Library/Frameworks/QuickLook.framework; sourceTree = SDKROOT; };
 		1EB31B0222AEA8EF00056111 /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
 		1EB31B0522AEC8E800056111 /* FileQLPreviewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileQLPreviewController.swift; sourceTree = "<group>"; };
+		1EB31B0722AFA84900056111 /* IntExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntExtensions.swift; sourceTree = "<group>"; };
 		1EC24B0C22A8E8D5000209B2 /* WriteCommentTableViewFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteCommentTableViewFooter.swift; sourceTree = "<group>"; };
 		1EC24B1722A9779F000209B2 /* IssuePullRequestDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssuePullRequestDelegate.swift; sourceTree = "<group>"; };
 		1EC24B1A22A99CE5000209B2 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
@@ -271,6 +273,7 @@
 			children = (
 				1E3B45DC229738E60051A448 /* DateTools.swift */,
 				1EB31B0222AEA8EF00056111 /* StringExtensions.swift */,
+				1EB31B0722AFA84900056111 /* IntExtensions.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -605,6 +608,7 @@
 				1E816D3B22933157000F4CD8 /* SortTypeOption.swift in Sources */,
 				1E3E791F22930DD000B0FAA7 /* GitObject.swift in Sources */,
 				1EB31AFF22AE9BAC00056111 /* GitBlobResponse.swift in Sources */,
+				1EB31B0822AFA84900056111 /* IntExtensions.swift in Sources */,
 				1E3E78FC22930DD000B0FAA7 /* UserHeatmapData.swift in Sources */,
 				1E3E791D22930DD000B0FAA7 /* EditTeamOption.swift in Sources */,
 				1E6EB26F228A04E4005BA94E /* ReleasesTableViewController.swift in Sources */,
