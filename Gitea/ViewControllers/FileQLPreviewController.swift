@@ -52,7 +52,7 @@ class FileQLPreviewController: QLPreviewController, QLPreviewControllerDataSourc
                         }
                     } else {
                         // TODO: Popup message of failure
-                        self.presentingViewController?.dismiss(animated: true)
+                        self.navigationController?.popViewController(animated: true)
                     }
                 case .failure(let error):
                     debugPrint("getRepositoryGitBlob() failed with \(error)")
@@ -66,6 +66,15 @@ class FileQLPreviewController: QLPreviewController, QLPreviewControllerDataSourc
             let fileUrl = NSURL(fileURLWithPath: NSTemporaryDirectory() + path)
             try data.write(to: fileUrl as URL)
             internalFileUrl = fileUrl
+            
+            // Handle file always as text file if not previeable by known extension
+            if !QLPreviewController.canPreview(fileUrl),
+                let fakeUrl = fileUrl.appendingPathExtension("txt") {
+                try? FileManager.default.removeItem(at: fakeUrl)
+                try FileManager.default.moveItem(at: fileUrl as URL, to: fakeUrl)
+                internalFileUrl = fakeUrl as NSURL
+            }
+            
             return true
         } catch {
             debugPrint(error)
