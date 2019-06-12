@@ -16,6 +16,9 @@ class FileQLPreviewController: QLPreviewController, QLPreviewControllerDataSourc
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // fix possibly hidden content under tab bar
+        tabBarController?.tabBar.isTranslucent = false
 
         self.dataSource = self
         loadFileAsync()
