@@ -162,6 +162,7 @@ class CodeTableViewController: UITableViewController {
             debugPrint("tableView(didSelectRowAt): blob type selected")
             let fileQLPreviewController = FileQLPreviewController()
             fileQLPreviewController.gitEntry = selectedElement
+            // TODO: setup vc to not overlap with tabbar ???
             navigationController?.pushViewController(fileQLPreviewController, animated: true)
         case "tree":
             debugPrint("tableView(didSelectRowAt): tree type selected")
