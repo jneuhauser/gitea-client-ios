@@ -128,10 +128,10 @@ class CodeTableViewController: UITableViewController {
             descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
             headerView.addSubview(descriptionLabel)
             
-            let branchSelection = UIButton()
-            branchSelection.setTitle("Branch: \(AppState.selectedRepo!.defaultBranch!)", for: .normal)
+            let branchSelection = UIButton(type: .custom)
+            branchSelection.setImage(UIImage(named: "git-branch"), for: .normal)
+            branchSelection.setTitle(" Branch: \(AppState.selectedRepo!.defaultBranch!)", for: .normal)
             branchSelection.setTitleColor(UIColor.black, for: .normal)
-            branchSelection.layer.borderColor = UIColor.darkGray.cgColor
             branchSelection.addTarget(self, action: #selector(selectBranchAction(_:)), for: .touchUpInside)
             // property translatesAutoresizingMaskIntoConstraints should be false to use auto layout for dynamic size
             branchSelection.translatesAutoresizingMaskIntoConstraints = false
