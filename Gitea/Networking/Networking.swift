@@ -182,6 +182,21 @@ class Networking {
         task.resume()
     }
     
+    public func getRepositoryBranches(
+        fromOwner owner: String,
+        andRepo repo: String,
+        completionHandler: @escaping (Result<[Branch],Error>) -> Void)
+    {
+        let apiPath = "/api/v1/repos/\(owner)/\(repo)/branches"
+        guard let request = Authentication.shared.constructURLRequest(withPath: apiPath) else {
+            completionHandler(Result.failure(NetworkingError.requestConstructError(apiPath)))
+            return
+        }
+        
+        let task = URLSession.jsonRequest(forResponseType: [Branch].self, withRequest: request, withMethod: .get, completionHandler: completionHandler)
+        task.resume()
+    }
+    
     public func getRepositoryGitTree(
         fromOwner owner: String,
         andRepo repo: String,

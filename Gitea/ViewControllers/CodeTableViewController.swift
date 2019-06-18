@@ -8,16 +8,26 @@
 
 import UIKit
 
-class CodeTableViewController: UITableViewController {
+class CodeTableViewController: UITableViewController, UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate {
     
     // Set this var to load this specific tree
     public var gitTreeShaToLoad: String?
     
     private var references: [Reference]?
     private var gitTree: GitTreeResponse?
+    private var branches: [Branch]?
     
     private var selectedRepoHash = AppState.selectedRepo.hashValue
-    private var selectedBranch = AppState.selectedRepo?.defaultBranch
+    private var selectedBranch = AppState.selectedRepo?.defaultBranch {
+        didSet {
+            if let selectedBranch = selectedBranch {
+                selectedBranchTextField?.text = "Branch: \(selectedBranch)"
+            }
+        }
+    }
+    
+    private var selectedBranchTextField: UITextField?
+    private var branchSelectionPicker: UIPickerView?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,6 +63,7 @@ class CodeTableViewController: UITableViewController {
             selectedRepoHash = AppState.selectedRepo.hashValue
             selectedBranch = AppState.selectedRepo?.defaultBranch
             loadReferencesAsync()
+            loadBranchesAsync()
         }
     }
     
@@ -100,17 +111,72 @@ class CodeTableViewController: UITableViewController {
             }
         }
     }
-
-    @IBAction func refreshAction(_ sender: UIRefreshControl) {
+    
+    private func loadBranchesAsync() {
+        if let owner = AppState.selectedRepo?.owner?.login,
+            let name = AppState.selectedRepo?.name {
+            Networking.shared.getRepositoryBranches(fromOwner: owner, andRepo: name) { result in
+                switch result {
+                case .success(let branches):
+                    debugPrint(branches)
+                    self.branches = branches
+                    // Sort to have current selected branch as first element
+                    self.branches?.sort(by: { first, _ in return first.name == self.selectedBranch })
+                case .failure(let error):
+                    debugPrint("getRepositoryReferences() failed with \(error)")
+                }
+            }
+        }
+    }
+    
+    private func loadDataModel() {
+        // Load refs to determine tree sha of branch
         if gitTreeShaToLoad == nil {
             loadReferencesAsync()
+            loadBranchesAsync()
         } else {
             loadGitTreeAsync()
         }
     }
+
+    @IBAction func refreshAction(_ sender: UIRefreshControl) {
+        loadDataModel()
+    }
     
     @objc func selectBranchAction(_ sender: Any?) {
         debugPrint("selectBranchAction(...): called")
+    }
+    
+    // MARK: - Picker view delegates
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return branches?.count ?? 0
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return branches?[row].name
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        if selectedBranch != branches?[row].name {
+            selectedBranch = branches?[row].name
+        }
+    }
+    
+    // MARK: - Text field delegates
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(pickerDone))
+    }
+    
+    @objc func pickerDone() {
+        self.view.endEditing(true)
+        self.navigationItem.rightBarButtonItem = nil
+        loadDataModel()
     }
     
     // MARK: - Table view delegates
@@ -128,24 +194,31 @@ class CodeTableViewController: UITableViewController {
             descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
             headerView.addSubview(descriptionLabel)
             
-            let branchSelection = UIButton(type: .custom)
-            branchSelection.setImage(UIImage(named: "git-branch"), for: .normal)
-            branchSelection.setTitle(" Branch: \(AppState.selectedRepo!.defaultBranch!)", for: .normal)
-            branchSelection.setTitleColor(UIColor.black, for: .normal)
-            branchSelection.addTarget(self, action: #selector(selectBranchAction(_:)), for: .touchUpInside)
-            // property translatesAutoresizingMaskIntoConstraints should be false to use auto layout for dynamic size
+            let branchPicker = UIPickerView()
+            branchSelectionPicker = branchPicker
+            branchPicker.dataSource = self
+            branchPicker.delegate = self
+            
+            let branchSelection = UITextField()
+            selectedBranchTextField = branchSelection
+            branchSelection.delegate = self
+            // Update text field with didSet method of property
+            if let selectedBranch = selectedBranch {
+                self.selectedBranch = selectedBranch
+            }
+            branchSelection.inputView = branchSelectionPicker
+            branchSelection.textColor = .blue
             branchSelection.translatesAutoresizingMaskIntoConstraints = false
             headerView.addSubview(branchSelection)
             
             var constraints = [NSLayoutConstraint]()
             constraints.append(NSLayoutConstraint(item: descriptionLabel, attribute: .leading, relatedBy: .equal, toItem: headerView, attribute: .leading, multiplier: 1.0, constant: 8.0))
-            constraints.append(NSLayoutConstraint(item: descriptionLabel, attribute: .trailing, relatedBy: .equal, toItem: headerView, attribute: .trailing, multiplier: 1.0, constant: 8.0))
-            constraints.append(NSLayoutConstraint(item: descriptionLabel, attribute: .top, relatedBy: .equal, toItem: headerView, attribute: .top, multiplier: 1.0, constant: 4.0))
-            constraints.append(NSLayoutConstraint(item: branchSelection, attribute: .top, relatedBy: .equal, toItem: descriptionLabel, attribute: .bottom, multiplier: 1.0, constant: 4.0))
-            constraints.append(NSLayoutConstraint(item: branchSelection, attribute: .leading, relatedBy: .equal, toItem: headerView, attribute: .leading, multiplier: 1.0, constant: 0))
-            constraints.append(NSLayoutConstraint(item: branchSelection, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 38))
-            constraints.append(NSLayoutConstraint(item: branchSelection, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 200))
-            constraints.append(NSLayoutConstraint(item: branchSelection, attribute: .bottom, relatedBy: .equal, toItem: headerView, attribute: .bottom, multiplier: 1.0, constant: 4.0))
+            constraints.append(NSLayoutConstraint(item: descriptionLabel, attribute: .trailing, relatedBy: .equal, toItem: headerView, attribute: .trailing, multiplier: 1.0, constant: -8.0))
+            constraints.append(NSLayoutConstraint(item: descriptionLabel, attribute: .top, relatedBy: .equal, toItem: headerView, attribute: .top, multiplier: 1.0, constant: 8.0))
+            constraints.append(NSLayoutConstraint(item: descriptionLabel, attribute: .bottom, relatedBy: .equal, toItem: branchSelection, attribute: .top, multiplier: 1.0, constant: -8.0))
+            constraints.append(NSLayoutConstraint(item: branchSelection, attribute: .bottom, relatedBy: .equal, toItem: headerView, attribute: .bottom, multiplier: 1.0, constant: -8.0))
+            constraints.append(NSLayoutConstraint(item: branchSelection, attribute: .leading, relatedBy: .equal, toItem: headerView, attribute: .leading, multiplier: 1.0, constant: 8.0))
+            constraints.append(NSLayoutConstraint(item: branchSelection, attribute: .trailing, relatedBy: .equal, toItem: headerView, attribute: .trailing, multiplier: 1.0, constant: -8.0))
             headerView.addConstraints(constraints)
         }
         
