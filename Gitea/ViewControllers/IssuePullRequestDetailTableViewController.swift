@@ -45,10 +45,12 @@ class IssuePullRequestDetailTableViewController: UITableViewController {
     private func loadCommentsAsync() {
         // Do nothing if there are no comments
         // TODO: How should we update the current issue? Or should we always try to load the issue comments?
-        if let comments = mainEntry?.comments, comments > 0,
+        if let commentCount = mainEntry?.comments, commentCount > 0,
+            let repoOwner = AppState.selectedRepo?.owner?.login,
+            let repoName = AppState.selectedRepo?.name,
             let issueIndex = mainEntry?.number {
             // TODO: Load the comments of the selected repo
-            Networking.shared.getIssueComments(fromOwner: "devel", andRepo: "test1-cpp", withIndex: issueIndex) { result in
+            Networking.shared.getIssueComments(fromOwner: repoOwner, andRepo: repoName, withIndex: issueIndex) { result in
                 switch result {
                 case .success(let comments):
                     debugPrint(comments)

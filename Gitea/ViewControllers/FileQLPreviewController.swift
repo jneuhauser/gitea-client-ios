@@ -27,10 +27,10 @@ class FileQLPreviewController: QLPreviewController, QLPreviewControllerDataSourc
     // MARK: Data handling
     
     private func loadFileAsync() {
-        if let owner = AppState.selectedRepo?.owner?.login,
-            let repo = AppState.selectedRepo?.name,
+        if let repoOwner = AppState.selectedRepo?.owner?.login,
+            let repoName = AppState.selectedRepo?.name,
             let fileSha = gitEntry?.sha {
-            Networking.shared.getRepositoryGitBlob(fromOwner: owner, andRepo: repo, forSha: fileSha) { result in
+            Networking.shared.getRepositoryGitBlob(fromOwner: repoOwner, andRepo: repoName, forSha: fileSha) { result in
                 switch result {
                 case .success(let blob):
                     debugPrint(blob)

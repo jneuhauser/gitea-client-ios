@@ -68,9 +68,9 @@ class CodeTableViewController: UITableViewController, UIPickerViewDataSource, UI
     }
     
     private func loadReferencesAsync() {
-        if let owner = AppState.selectedRepo?.owner?.login,
-            let name = AppState.selectedRepo?.name {
-            Networking.shared.getRepositoryReferences(fromOwner: owner, andRepo: name, filteredBy: "heads") { result in
+        if let repoOwner = AppState.selectedRepo?.owner?.login,
+            let repoName = AppState.selectedRepo?.name {
+            Networking.shared.getRepositoryReferences(fromOwner: repoOwner, andRepo: repoName, filteredBy: "heads") { result in
                 switch result {
                 case .success(let references):
                     debugPrint(references)
@@ -88,10 +88,10 @@ class CodeTableViewController: UITableViewController, UIPickerViewDataSource, UI
             let selectedBranchRef = references?.filter() { ref in
                 return ref.ref == "refs/heads/\(selectedBranch)"
             }
-            if let owner = AppState.selectedRepo?.owner?.login,
-                let name = AppState.selectedRepo?.name,
-                let sha = gitTreeShaToLoad ?? selectedBranchRef?.first?.object?.sha {
-                Networking.shared.getRepositoryGitTree(fromOwner: owner, andRepo: name, forSha: sha) { result in
+            if let repoOwner = AppState.selectedRepo?.owner?.login,
+                let repoName = AppState.selectedRepo?.name,
+                let treeSha = gitTreeShaToLoad ?? selectedBranchRef?.first?.object?.sha {
+                Networking.shared.getRepositoryGitTree(fromOwner: repoOwner, andRepo: repoName, forSha: treeSha) { result in
                     switch result {
                     case .success(let gitTree):
                         debugPrint(gitTree)
@@ -113,9 +113,9 @@ class CodeTableViewController: UITableViewController, UIPickerViewDataSource, UI
     }
     
     private func loadBranchesAsync() {
-        if let owner = AppState.selectedRepo?.owner?.login,
-            let name = AppState.selectedRepo?.name {
-            Networking.shared.getRepositoryBranches(fromOwner: owner, andRepo: name) { result in
+        if let repoOwner = AppState.selectedRepo?.owner?.login,
+            let repoName = AppState.selectedRepo?.name {
+            Networking.shared.getRepositoryBranches(fromOwner: repoOwner, andRepo: repoName) { result in
                 switch result {
                 case .success(let branches):
                     debugPrint(branches)
