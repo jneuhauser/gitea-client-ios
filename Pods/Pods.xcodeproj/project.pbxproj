@@ -7,21 +7,36 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		699D88C8AD87229435F7C3E475A246CD /* MarkdownView-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A39447CF9997E41989A64CE7ADA8908 /* MarkdownView-dummy.m */; };
-		744B6A4FD0E70B582B3F1D3E2497ED2B /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = 82038BA49EAA3D33319422BEDFD85E61 /* index.html */; };
+		27B5EF20E0F1CFA2E06BCF45C8D76327 /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA4FFBB1E91D6075004165650AB24AF /* MessageViewController.swift */; };
+		29F4EC0196D4D9C80E12E442DCE45E87 /* MessageViewController-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 929F79D86088F0011FB2E906D8896088 /* MessageViewController-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		30814FBA6A53D600AF32ACDB3ACC88B9 /* String+WordAtRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE65B60F4E9D6C488F3BE8B4838F21E /* String+WordAtRange.swift */; };
+		31AAF5ECE038FB911597ED47B5A18FF9 /* MessageAutocompleteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C082F3592977850D20FD80C548EEBA2B /* MessageAutocompleteController.swift */; };
+		397682EEACA70DF61A9E7EB6D28ACAC7 /* UIView+iOS11.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE016A3640F4C98FB1698A2C03322F07 /* UIView+iOS11.swift */; };
+		3BDCDDF940E2E6FFE84AB8F6CEDABFBE /* Pods-Gitea-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 7AF50CFBD2468785BA69931104C7C7FC /* Pods-Gitea-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		450BDA1D7776AE01C27B28D45498ECFB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB4607EFCA7C5F75397649E792E2AFCB /* Foundation.framework */; };
+		65715CA90F4EBBCC7D76EE97EE4869F9 /* NSAttributedString+ReplaceRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C220940EBB22034459D90928A71BF9 /* NSAttributedString+ReplaceRange.swift */; };
+		699D88C8AD87229435F7C3E475A246CD /* MarkdownView-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C03C64B5D1CAD13558ECB68DE2534BE /* MarkdownView-dummy.m */; };
+		744B6A4FD0E70B582B3F1D3E2497ED2B /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = 3B209DCF1BC0BAD13033386172AEB340 /* index.html */; };
 		814F80B85BC81162727DEF1E7F5F3A7B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB4607EFCA7C5F75397649E792E2AFCB /* Foundation.framework */; };
-		9340E22D1E27F5594CD8F3DB7A4E3E73 /* main.js in Resources */ = {isa = PBXBuildFile; fileRef = C9BD06198D6DD45BD216B9EF97C291F3 /* main.js */; };
-		BF1ABFE98ADB7378875981D608BF411D /* Pods-Gitea-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 775BE2E716A35188138502157A4BF136 /* Pods-Gitea-dummy.m */; };
-		D350846D727D773726E2A9842D285AF0 /* main.css in Resources */ = {isa = PBXBuildFile; fileRef = 43C49F9F7CCA5A6EDEC616E1DE50BFF0 /* main.css */; };
-		D53E98B49E5A24702F20890707E9EF55 /* MarkdownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06F3B9BCA98BE15BF9E26482E6A54CCB /* MarkdownView.swift */; };
-		D8CDA1EAC659A3170B989363659BC106 /* MarkdownView-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = F6067FDBFDD2786D90E1E122AB349EAA /* MarkdownView-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		DFC49C2A06DB1427687419244F4CD62F /* MarkdownView.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2CC082B985E7E1C0AFB8A07F6932D56C /* MarkdownView.bundle */; };
-		E3E17612D998471BCBD8CBE4E96A2BCD /* Pods-Gitea-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 7AF50CFBD2468785BA69931104C7C7FC /* Pods-Gitea-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E4148B73A97CF15BFB1DD214FF241D0D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB4607EFCA7C5F75397649E792E2AFCB /* Foundation.framework */; };
+		884EC21A8AE5DB16556A46CE2961BBBA /* UIScrollView+StopScrolling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456F1CAC613433DD9FD22196D5E1B1AA /* UIScrollView+StopScrolling.swift */; };
+		9340E22D1E27F5594CD8F3DB7A4E3E73 /* main.js in Resources */ = {isa = PBXBuildFile; fileRef = 31AF7DCCBF7E395A663BFF8CEC226A21 /* main.js */; };
+		A67611E5054B6BC2BDFDBFC7085CE28D /* Pods-Gitea-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 775BE2E716A35188138502157A4BF136 /* Pods-Gitea-dummy.m */; };
+		A97D56BFF3F18D6B870A8A7BA0CE6E5F /* UIButton+BottomHeightOffset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5084B3909C47064B837ABC74E703F1 /* UIButton+BottomHeightOffset.swift */; };
+		AA9D1E03DDF47A3B99D26790B8CBBE55 /* MessageViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AE5A7110E0338DFFF8942B568D8AF35 /* MessageViewDelegate.swift */; };
+		C180F222D5764FFD2C79A22E1F7FE302 /* MessageViewController+MessageViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C7C8BC7406AACA714753E33C42AEC45 /* MessageViewController+MessageViewDelegate.swift */; };
+		C4E943B32E72C3B42AC4BF536546A0D2 /* MessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5E128939D9EE273224F3D42BA6EE5B /* MessageView.swift */; };
+		D350846D727D773726E2A9842D285AF0 /* main.css in Resources */ = {isa = PBXBuildFile; fileRef = 6DD661276C6CF05E3C063B606A418F7B /* main.css */; };
+		D53E98B49E5A24702F20890707E9EF55 /* MarkdownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318C6BBE672807CE2357CC49963EB532 /* MarkdownView.swift */; };
+		D895B16FF52C39A835E73DB9A2276D66 /* UITextView+Prefixes.swift in Sources */ = {isa = PBXBuildFile; fileRef = A778AF14F403AD8807AB484DE3F77F79 /* UITextView+Prefixes.swift */; };
+		D8CDA1EAC659A3170B989363659BC106 /* MarkdownView-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = D6A7548144255CA9A7481D30B6B1F44B /* MarkdownView-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DC4A39E2EE14F121A86DF2DE1F6E6359 /* MessageViewController-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 86E9B864427B9994DFF04336BED294FB /* MessageViewController-dummy.m */; };
+		DFC49C2A06DB1427687419244F4CD62F /* MarkdownView.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C2A87A2697C7AC48ADD63F79FF130577 /* MarkdownView.bundle */; };
+		E536FC3ADC9D8596C7D48EDCA4D0A45B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB4607EFCA7C5F75397649E792E2AFCB /* Foundation.framework */; };
+		E868F0B08D6DE029BED3B16642DDE3AF /* MessageTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFFBF5714B8B031D962E72CEB8C120A7 /* MessageTextView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		1EFAC89556E220C4E0EFE9EB17A38749 /* PBXContainerItemProxy */ = {
+		17AE96E6D86C12C817B018B05AEF4316 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
@@ -35,37 +50,71 @@
 			remoteGlobalIDString = 4B6ED79656070B5089BC752E55B0C5FC;
 			remoteInfo = "MarkdownView-MarkdownView";
 		};
+		71BE9C80016AD2AFC4D464F62B6A0B15 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 57DB8DB8B15645FDA1D84CF56B77F7BA;
+			remoteInfo = MessageViewController;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		06F3B9BCA98BE15BF9E26482E6A54CCB /* MarkdownView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MarkdownView.swift; path = MarkdownView/MarkdownView.swift; sourceTree = "<group>"; };
 		0D9950A56D6ACE8FC9DA4071804B9180 /* Pods-Gitea-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Gitea-acknowledgements.plist"; sourceTree = "<group>"; };
+		0E5084B3909C47064B837ABC74E703F1 /* UIButton+BottomHeightOffset.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIButton+BottomHeightOffset.swift"; path = "MessageViewController/UIButton+BottomHeightOffset.swift"; sourceTree = "<group>"; };
 		1CFA2F9926E574713BEBC1CF10A7E930 /* Pods-Gitea.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Gitea.modulemap"; sourceTree = "<group>"; };
-		2CC082B985E7E1C0AFB8A07F6932D56C /* MarkdownView.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = MarkdownView.bundle; path = "MarkdownView-MarkdownView.bundle"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1FE65B60F4E9D6C488F3BE8B4838F21E /* String+WordAtRange.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "String+WordAtRange.swift"; path = "MessageViewController/String+WordAtRange.swift"; sourceTree = "<group>"; };
+		318C6BBE672807CE2357CC49963EB532 /* MarkdownView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MarkdownView.swift; path = MarkdownView/MarkdownView.swift; sourceTree = "<group>"; };
+		31AF7DCCBF7E395A663BFF8CEC226A21 /* main.js */ = {isa = PBXFileReference; includeInIndex = 1; name = main.js; path = webassets/dist/main.js; sourceTree = "<group>"; };
+		37E8C0AD67D3DB49E75304DB0A3B389E /* ResourceBundle-MarkdownView-MarkdownView-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ResourceBundle-MarkdownView-MarkdownView-Info.plist"; sourceTree = "<group>"; };
+		3B209DCF1BC0BAD13033386172AEB340 /* index.html */ = {isa = PBXFileReference; includeInIndex = 1; name = index.html; path = webassets/dist/index.html; sourceTree = "<group>"; };
+		3CA4FFBB1E91D6075004165650AB24AF /* MessageViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MessageViewController.swift; path = MessageViewController/MessageViewController.swift; sourceTree = "<group>"; };
 		3D0A9423D8247C6F8A39C7ADAC156881 /* Pods-Gitea-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Gitea-acknowledgements.markdown"; sourceTree = "<group>"; };
 		3DB367E1115DB4E1ABE2F2917F55A455 /* Pods-Gitea-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Gitea-Info.plist"; sourceTree = "<group>"; };
-		43C49F9F7CCA5A6EDEC616E1DE50BFF0 /* main.css */ = {isa = PBXFileReference; includeInIndex = 1; name = main.css; path = webassets/dist/main.css; sourceTree = "<group>"; };
-		46BDBE7973EB3097D6A7337B59CD9265 /* Pods_Gitea.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Gitea.framework; path = "Pods-Gitea.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		456F1CAC613433DD9FD22196D5E1B1AA /* UIScrollView+StopScrolling.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIScrollView+StopScrolling.swift"; path = "MessageViewController/UIScrollView+StopScrolling.swift"; sourceTree = "<group>"; };
+		46807925BFD6728BC1742AA4BF8CC222 /* MessageViewController.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = MessageViewController.modulemap; sourceTree = "<group>"; };
+		4FE658826A472ACCBD0A68235A2E5E84 /* MarkdownView-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "MarkdownView-Info.plist"; sourceTree = "<group>"; };
 		5836DA17C68E7BD6FA94D18532EC483A /* Pods-Gitea-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Gitea-frameworks.sh"; sourceTree = "<group>"; };
-		7470C89F999E994247BCDA40A8B75913 /* ResourceBundle-MarkdownView-MarkdownView-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ResourceBundle-MarkdownView-MarkdownView-Info.plist"; sourceTree = "<group>"; };
+		6AE5A7110E0338DFFF8942B568D8AF35 /* MessageViewDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MessageViewDelegate.swift; path = MessageViewController/MessageViewDelegate.swift; sourceTree = "<group>"; };
+		6C7C8BC7406AACA714753E33C42AEC45 /* MessageViewController+MessageViewDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "MessageViewController+MessageViewDelegate.swift"; path = "MessageViewController/MessageViewController+MessageViewDelegate.swift"; sourceTree = "<group>"; };
+		6DD661276C6CF05E3C063B606A418F7B /* main.css */ = {isa = PBXFileReference; includeInIndex = 1; name = main.css; path = webassets/dist/main.css; sourceTree = "<group>"; };
+		6DE29BC33DD72AE8C6BAC63AD6A5E24F /* MarkdownView.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = MarkdownView.modulemap; sourceTree = "<group>"; };
 		775BE2E716A35188138502157A4BF136 /* Pods-Gitea-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Gitea-dummy.m"; sourceTree = "<group>"; };
-		7A39447CF9997E41989A64CE7ADA8908 /* MarkdownView-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "MarkdownView-dummy.m"; sourceTree = "<group>"; };
+		78C220940EBB22034459D90928A71BF9 /* NSAttributedString+ReplaceRange.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "NSAttributedString+ReplaceRange.swift"; path = "MessageViewController/NSAttributedString+ReplaceRange.swift"; sourceTree = "<group>"; };
 		7AF50CFBD2468785BA69931104C7C7FC /* Pods-Gitea-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Gitea-umbrella.h"; sourceTree = "<group>"; };
-		82038BA49EAA3D33319422BEDFD85E61 /* index.html */ = {isa = PBXFileReference; includeInIndex = 1; name = index.html; path = webassets/dist/index.html; sourceTree = "<group>"; };
+		86E9B864427B9994DFF04336BED294FB /* MessageViewController-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "MessageViewController-dummy.m"; sourceTree = "<group>"; };
+		8C03C64B5D1CAD13558ECB68DE2534BE /* MarkdownView-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "MarkdownView-dummy.m"; sourceTree = "<group>"; };
+		8C451126719289B931DB47B19C83C7D0 /* MessageViewController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = MessageViewController.framework; path = MessageViewController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8D32E9FBBE064A5891030ACF12130E52 /* MessageViewController.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MessageViewController.xcconfig; sourceTree = "<group>"; };
+		9015F6B935D6D1F9E744C57E25D913A9 /* MarkdownView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = MarkdownView.framework; path = MarkdownView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		929F79D86088F0011FB2E906D8896088 /* MessageViewController-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MessageViewController-umbrella.h"; sourceTree = "<group>"; };
+		95A46A65BC5F55ED9E40B878BA846368 /* MarkdownView.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MarkdownView.xcconfig; sourceTree = "<group>"; };
 		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		C9BD06198D6DD45BD216B9EF97C291F3 /* main.js */ = {isa = PBXFileReference; includeInIndex = 1; name = main.js; path = webassets/dist/main.js; sourceTree = "<group>"; };
+		9E1316466BD7E224905E17245C190761 /* MessageViewController-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MessageViewController-prefix.pch"; sourceTree = "<group>"; };
+		A778AF14F403AD8807AB484DE3F77F79 /* UITextView+Prefixes.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UITextView+Prefixes.swift"; path = "MessageViewController/UITextView+Prefixes.swift"; sourceTree = "<group>"; };
+		AE016A3640F4C98FB1698A2C03322F07 /* UIView+iOS11.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIView+iOS11.swift"; path = "MessageViewController/UIView+iOS11.swift"; sourceTree = "<group>"; };
+		BBA7EB9A0DE220D2CFC519E1077809CE /* Pods_Gitea.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Gitea.framework; path = "Pods-Gitea.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BE5E128939D9EE273224F3D42BA6EE5B /* MessageView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MessageView.swift; path = MessageViewController/MessageView.swift; sourceTree = "<group>"; };
+		C082F3592977850D20FD80C548EEBA2B /* MessageAutocompleteController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MessageAutocompleteController.swift; path = MessageViewController/MessageAutocompleteController.swift; sourceTree = "<group>"; };
+		C2A87A2697C7AC48ADD63F79FF130577 /* MarkdownView.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = MarkdownView.bundle; path = "MarkdownView-MarkdownView.bundle"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB4607EFCA7C5F75397649E792E2AFCB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		D5F610BE8A724964507F9A03BCBB3D18 /* Pods-Gitea.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Gitea.release.xcconfig"; sourceTree = "<group>"; };
+		D6A7548144255CA9A7481D30B6B1F44B /* MarkdownView-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MarkdownView-umbrella.h"; sourceTree = "<group>"; };
 		D9C7E510E29E453C2D8628A9659AA9A9 /* Pods-Gitea.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Gitea.debug.xcconfig"; sourceTree = "<group>"; };
-		DD0A7FF09111EDD12A5FC2B337BAE50D /* MarkdownView-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "MarkdownView-Info.plist"; sourceTree = "<group>"; };
-		DFE4F8E7CFE14F2CF98C0E0356BB8702 /* MarkdownView-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MarkdownView-prefix.pch"; sourceTree = "<group>"; };
-		F0A869FD3D2826CB777EF19057F5B44D /* MarkdownView.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = MarkdownView.modulemap; sourceTree = "<group>"; };
-		F6067FDBFDD2786D90E1E122AB349EAA /* MarkdownView-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MarkdownView-umbrella.h"; sourceTree = "<group>"; };
-		FCA9E6C4EC1AE4F9BB011118B6D04EAB /* MarkdownView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = MarkdownView.framework; path = MarkdownView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		FD0F1730B95288F3D40F353E7A341231 /* MarkdownView.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MarkdownView.xcconfig; sourceTree = "<group>"; };
+		E197CEB891B4ADFC5CDD4DD1F7BCC466 /* MessageViewController-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "MessageViewController-Info.plist"; sourceTree = "<group>"; };
+		F98FB584D36F2D604B59ADEC3E531CB7 /* MarkdownView-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MarkdownView-prefix.pch"; sourceTree = "<group>"; };
+		FFFBF5714B8B031D962E72CEB8C120A7 /* MessageTextView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MessageTextView.swift; path = MessageViewController/MessageTextView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		2BD3A8C9CEA0A272DC076AC8C19255EF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E536FC3ADC9D8596C7D48EDCA4D0A45B /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		6008AF66D201024B8184DA098D75A0FD /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -81,11 +130,11 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		99A863C0D97C57BAD9DC4299E7311335 /* Frameworks */ = {
+		7A35529AEB0421CE7158EA27603C3FE8 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E4148B73A97CF15BFB1DD214FF241D0D /* Foundation.framework in Frameworks */,
+				450BDA1D7776AE01C27B28D45498ECFB /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -109,23 +158,26 @@
 			path = "Target Support Files/Pods-Gitea";
 			sourceTree = "<group>";
 		};
-		5FF5A45ABA679A614AE641CF34B9163B /* Pods */ = {
+		6FC7ECE6D3B2609E08BD22DD135027ED /* MarkdownView */ = {
 			isa = PBXGroup;
 			children = (
-				72AB400EA59296679AC3775B8D2AAB61 /* MarkdownView */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
-		72AB400EA59296679AC3775B8D2AAB61 /* MarkdownView */ = {
-			isa = PBXGroup;
-			children = (
-				06F3B9BCA98BE15BF9E26482E6A54CCB /* MarkdownView.swift */,
-				B1FA9042F18F16041934392724CB62F8 /* Resources */,
-				B4A0A48868213BEA964C19756AA8C90E /* Support Files */,
+				318C6BBE672807CE2357CC49963EB532 /* MarkdownView.swift */,
+				ED33DAA96308704B267D8A75904C79A2 /* Resources */,
+				B6AACF2A5AA10AFCD2131D60D474395A /* Support Files */,
 			);
 			name = MarkdownView;
 			path = MarkdownView;
+			sourceTree = "<group>";
+		};
+		7159732BA964E1D59C645AF5FC7A8C3C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C2A87A2697C7AC48ADD63F79FF130577 /* MarkdownView.bundle */,
+				9015F6B935D6D1F9E744C57E25D913A9 /* MarkdownView.framework */,
+				8C451126719289B931DB47B19C83C7D0 /* MessageViewController.framework */,
+				BBA7EB9A0DE220D2CFC519E1077809CE /* Pods_Gitea.framework */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		7B45B3FC3BA14900754F64C19F698819 /* Targets Support Files */ = {
@@ -144,29 +196,42 @@
 			name = iOS;
 			sourceTree = "<group>";
 		};
-		B1FA9042F18F16041934392724CB62F8 /* Resources */ = {
+		B6AACF2A5AA10AFCD2131D60D474395A /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				82038BA49EAA3D33319422BEDFD85E61 /* index.html */,
-				43C49F9F7CCA5A6EDEC616E1DE50BFF0 /* main.css */,
-				C9BD06198D6DD45BD216B9EF97C291F3 /* main.js */,
-			);
-			name = Resources;
-			sourceTree = "<group>";
-		};
-		B4A0A48868213BEA964C19756AA8C90E /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				F0A869FD3D2826CB777EF19057F5B44D /* MarkdownView.modulemap */,
-				FD0F1730B95288F3D40F353E7A341231 /* MarkdownView.xcconfig */,
-				7A39447CF9997E41989A64CE7ADA8908 /* MarkdownView-dummy.m */,
-				DD0A7FF09111EDD12A5FC2B337BAE50D /* MarkdownView-Info.plist */,
-				DFE4F8E7CFE14F2CF98C0E0356BB8702 /* MarkdownView-prefix.pch */,
-				F6067FDBFDD2786D90E1E122AB349EAA /* MarkdownView-umbrella.h */,
-				7470C89F999E994247BCDA40A8B75913 /* ResourceBundle-MarkdownView-MarkdownView-Info.plist */,
+				6DE29BC33DD72AE8C6BAC63AD6A5E24F /* MarkdownView.modulemap */,
+				95A46A65BC5F55ED9E40B878BA846368 /* MarkdownView.xcconfig */,
+				8C03C64B5D1CAD13558ECB68DE2534BE /* MarkdownView-dummy.m */,
+				4FE658826A472ACCBD0A68235A2E5E84 /* MarkdownView-Info.plist */,
+				F98FB584D36F2D604B59ADEC3E531CB7 /* MarkdownView-prefix.pch */,
+				D6A7548144255CA9A7481D30B6B1F44B /* MarkdownView-umbrella.h */,
+				37E8C0AD67D3DB49E75304DB0A3B389E /* ResourceBundle-MarkdownView-MarkdownView-Info.plist */,
 			);
 			name = "Support Files";
 			path = "../Target Support Files/MarkdownView";
+			sourceTree = "<group>";
+		};
+		C1B5CA0951BCEEE0CBD88ECB6519956C /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				46807925BFD6728BC1742AA4BF8CC222 /* MessageViewController.modulemap */,
+				8D32E9FBBE064A5891030ACF12130E52 /* MessageViewController.xcconfig */,
+				86E9B864427B9994DFF04336BED294FB /* MessageViewController-dummy.m */,
+				E197CEB891B4ADFC5CDD4DD1F7BCC466 /* MessageViewController-Info.plist */,
+				9E1316466BD7E224905E17245C190761 /* MessageViewController-prefix.pch */,
+				929F79D86088F0011FB2E906D8896088 /* MessageViewController-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/MessageViewController";
+			sourceTree = "<group>";
+		};
+		C42F01D3CCDBB2E27A850F5B6E6C5A52 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6FC7ECE6D3B2609E08BD22DD135027ED /* MarkdownView */,
+				E3FD852D361DEBB300897B1381C36294 /* MessageViewController */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 		CF1408CF629C7361332E53B88F7BD30C = {
@@ -174,8 +239,8 @@
 			children = (
 				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
 				D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */,
-				5FF5A45ABA679A614AE641CF34B9163B /* Pods */,
-				DE41B90C37D9EFF6F9204BD52CB2634F /* Products */,
+				C42F01D3CCDBB2E27A850F5B6E6C5A52 /* Pods */,
+				7159732BA964E1D59C645AF5FC7A8C3C /* Products */,
 				7B45B3FC3BA14900754F64C19F698819 /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
@@ -188,14 +253,35 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		DE41B90C37D9EFF6F9204BD52CB2634F /* Products */ = {
+		E3FD852D361DEBB300897B1381C36294 /* MessageViewController */ = {
 			isa = PBXGroup;
 			children = (
-				2CC082B985E7E1C0AFB8A07F6932D56C /* MarkdownView.bundle */,
-				FCA9E6C4EC1AE4F9BB011118B6D04EAB /* MarkdownView.framework */,
-				46BDBE7973EB3097D6A7337B59CD9265 /* Pods_Gitea.framework */,
+				C082F3592977850D20FD80C548EEBA2B /* MessageAutocompleteController.swift */,
+				FFFBF5714B8B031D962E72CEB8C120A7 /* MessageTextView.swift */,
+				BE5E128939D9EE273224F3D42BA6EE5B /* MessageView.swift */,
+				3CA4FFBB1E91D6075004165650AB24AF /* MessageViewController.swift */,
+				6C7C8BC7406AACA714753E33C42AEC45 /* MessageViewController+MessageViewDelegate.swift */,
+				6AE5A7110E0338DFFF8942B568D8AF35 /* MessageViewDelegate.swift */,
+				78C220940EBB22034459D90928A71BF9 /* NSAttributedString+ReplaceRange.swift */,
+				1FE65B60F4E9D6C488F3BE8B4838F21E /* String+WordAtRange.swift */,
+				0E5084B3909C47064B837ABC74E703F1 /* UIButton+BottomHeightOffset.swift */,
+				456F1CAC613433DD9FD22196D5E1B1AA /* UIScrollView+StopScrolling.swift */,
+				A778AF14F403AD8807AB484DE3F77F79 /* UITextView+Prefixes.swift */,
+				AE016A3640F4C98FB1698A2C03322F07 /* UIView+iOS11.swift */,
+				C1B5CA0951BCEEE0CBD88ECB6519956C /* Support Files */,
 			);
-			name = Products;
+			name = MessageViewController;
+			path = MessageViewController;
+			sourceTree = "<group>";
+		};
+		ED33DAA96308704B267D8A75904C79A2 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				3B209DCF1BC0BAD13033386172AEB340 /* index.html */,
+				6DD661276C6CF05E3C063B606A418F7B /* main.css */,
+				31AF7DCCBF7E395A663BFF8CEC226A21 /* main.js */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -209,11 +295,19 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		8E1376E9C450A3FA628B59FB35EFD436 /* Headers */ = {
+		589BD982D6454A6B4DB9BBF8C6AFEF08 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E3E17612D998471BCBD8CBE4E96A2BCD /* Pods-Gitea-umbrella.h in Headers */,
+				3BDCDDF940E2E6FFE84AB8F6CEDABFBE /* Pods-Gitea-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8D2BB08CDA49D76B7376A89A93CEF1D9 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				29F4EC0196D4D9C80E12E442DCE45E87 /* MessageViewController-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -234,26 +328,45 @@
 			);
 			name = "MarkdownView-MarkdownView";
 			productName = "MarkdownView-MarkdownView";
-			productReference = 2CC082B985E7E1C0AFB8A07F6932D56C /* MarkdownView.bundle */;
+			productReference = C2A87A2697C7AC48ADD63F79FF130577 /* MarkdownView.bundle */;
 			productType = "com.apple.product-type.bundle";
 		};
-		53F3BFBBEA35A5480BA0CF76C501D0DE /* Pods-Gitea */ = {
+		57DB8DB8B15645FDA1D84CF56B77F7BA /* MessageViewController */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 11EB76813D6E5CCC4AC165237C917397 /* Build configuration list for PBXNativeTarget "Pods-Gitea" */;
+			buildConfigurationList = 08E88A0217DE4D51505BE0B1277775A6 /* Build configuration list for PBXNativeTarget "MessageViewController" */;
 			buildPhases = (
-				8E1376E9C450A3FA628B59FB35EFD436 /* Headers */,
-				460A9812117A7583E6D03914215D0643 /* Sources */,
-				99A863C0D97C57BAD9DC4299E7311335 /* Frameworks */,
-				0B36F9490CD22C15307A6690C109E8C5 /* Resources */,
+				8D2BB08CDA49D76B7376A89A93CEF1D9 /* Headers */,
+				8426A4081E957CEAE2858DA1B72FB269 /* Sources */,
+				2BD3A8C9CEA0A272DC076AC8C19255EF /* Frameworks */,
+				94396D76F15F358AC4ECEBEC9A310B7E /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				11B035D534980D104033E4E1EB8CC0B1 /* PBXTargetDependency */,
+			);
+			name = MessageViewController;
+			productName = MessageViewController;
+			productReference = 8C451126719289B931DB47B19C83C7D0 /* MessageViewController.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		98A00508E1479D97BA4A1F370E0CE09B /* Pods-Gitea */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6D86948100A2FBED57211F86DA284F42 /* Build configuration list for PBXNativeTarget "Pods-Gitea" */;
+			buildPhases = (
+				589BD982D6454A6B4DB9BBF8C6AFEF08 /* Headers */,
+				CBAF8C40F641A7058EAF1282B46F849B /* Sources */,
+				7A35529AEB0421CE7158EA27603C3FE8 /* Frameworks */,
+				D3F7B728DF78A7A8F7E4CEF03B33C7FE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9140C13A40EA494ABE988E522C4A5CC7 /* PBXTargetDependency */,
+				6894F999B72BFD0B91C23DA6BE878A3B /* PBXTargetDependency */,
 			);
 			name = "Pods-Gitea";
 			productName = "Pods-Gitea";
-			productReference = 46BDBE7973EB3097D6A7337B59CD9265 /* Pods_Gitea.framework */;
+			productReference = BBA7EB9A0DE220D2CFC519E1077809CE /* Pods_Gitea.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		BEB29B20E00E6E580E3A78C9C944752F /* MarkdownView */ = {
@@ -272,7 +385,7 @@
 			);
 			name = MarkdownView;
 			productName = MarkdownView;
-			productReference = FCA9E6C4EC1AE4F9BB011118B6D04EAB /* MarkdownView.framework */;
+			productReference = 9015F6B935D6D1F9E744C57E25D913A9 /* MarkdownView.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -292,25 +405,19 @@
 				en,
 			);
 			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
-			productRefGroup = DE41B90C37D9EFF6F9204BD52CB2634F /* Products */;
+			productRefGroup = 7159732BA964E1D59C645AF5FC7A8C3C /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				BEB29B20E00E6E580E3A78C9C944752F /* MarkdownView */,
 				4B6ED79656070B5089BC752E55B0C5FC /* MarkdownView-MarkdownView */,
-				53F3BFBBEA35A5480BA0CF76C501D0DE /* Pods-Gitea */,
+				57DB8DB8B15645FDA1D84CF56B77F7BA /* MessageViewController */,
+				98A00508E1479D97BA4A1F370E0CE09B /* Pods-Gitea */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		0B36F9490CD22C15307A6690C109E8C5 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		7B635EC6EE35E074C0C085077D2E4C4D /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -318,6 +425,20 @@
 				744B6A4FD0E70B582B3F1D3E2497ED2B /* index.html in Resources */,
 				D350846D727D773726E2A9842D285AF0 /* main.css in Resources */,
 				9340E22D1E27F5594CD8F3DB7A4E3E73 /* main.js in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		94396D76F15F358AC4ECEBEC9A310B7E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D3F7B728DF78A7A8F7E4CEF03B33C7FE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -332,11 +453,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		460A9812117A7583E6D03914215D0643 /* Sources */ = {
+		8426A4081E957CEAE2858DA1B72FB269 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BF1ABFE98ADB7378875981D608BF411D /* Pods-Gitea-dummy.m in Sources */,
+				31AAF5ECE038FB911597ED47B5A18FF9 /* MessageAutocompleteController.swift in Sources */,
+				E868F0B08D6DE029BED3B16642DDE3AF /* MessageTextView.swift in Sources */,
+				C4E943B32E72C3B42AC4BF536546A0D2 /* MessageView.swift in Sources */,
+				C180F222D5764FFD2C79A22E1F7FE302 /* MessageViewController+MessageViewDelegate.swift in Sources */,
+				DC4A39E2EE14F121A86DF2DE1F6E6359 /* MessageViewController-dummy.m in Sources */,
+				27B5EF20E0F1CFA2E06BCF45C8D76327 /* MessageViewController.swift in Sources */,
+				AA9D1E03DDF47A3B99D26790B8CBBE55 /* MessageViewDelegate.swift in Sources */,
+				65715CA90F4EBBCC7D76EE97EE4869F9 /* NSAttributedString+ReplaceRange.swift in Sources */,
+				30814FBA6A53D600AF32ACDB3ACC88B9 /* String+WordAtRange.swift in Sources */,
+				A97D56BFF3F18D6B870A8A7BA0CE6E5F /* UIButton+BottomHeightOffset.swift in Sources */,
+				884EC21A8AE5DB16556A46CE2961BBBA /* UIScrollView+StopScrolling.swift in Sources */,
+				D895B16FF52C39A835E73DB9A2276D66 /* UITextView+Prefixes.swift in Sources */,
+				397682EEACA70DF61A9E7EB6D28ACAC7 /* UIView+iOS11.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -344,6 +477,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CBAF8C40F641A7058EAF1282B46F849B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A67611E5054B6BC2BDFDBFC7085CE28D /* Pods-Gitea-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -359,17 +500,23 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		11B035D534980D104033E4E1EB8CC0B1 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = MarkdownView;
-			target = BEB29B20E00E6E580E3A78C9C944752F /* MarkdownView */;
-			targetProxy = 1EFAC89556E220C4E0EFE9EB17A38749 /* PBXContainerItemProxy */;
-		};
 		57404D77D7BF250B85116C39FDD8048E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "MarkdownView-MarkdownView";
 			target = 4B6ED79656070B5089BC752E55B0C5FC /* MarkdownView-MarkdownView */;
 			targetProxy = 4095149DD63B19F7FFAA4F204FC7D362 /* PBXContainerItemProxy */;
+		};
+		6894F999B72BFD0B91C23DA6BE878A3B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = MessageViewController;
+			target = 57DB8DB8B15645FDA1D84CF56B77F7BA /* MessageViewController */;
+			targetProxy = 71BE9C80016AD2AFC4D464F62B6A0B15 /* PBXContainerItemProxy */;
+		};
+		9140C13A40EA494ABE988E522C4A5CC7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = MarkdownView;
+			target = BEB29B20E00E6E580E3A78C9C944752F /* MarkdownView */;
+			targetProxy = 17AE96E6D86C12C817B018B05AEF4316 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -440,7 +587,7 @@
 		};
 		147B313E594C0D3227720AD0FD4D3757 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FD0F1730B95288F3D40F353E7A341231 /* MarkdownView.xcconfig */;
+			baseConfigurationReference = 95A46A65BC5F55ED9E40B878BA846368 /* MarkdownView.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -473,9 +620,81 @@
 			};
 			name = Debug;
 		};
-		4B47F31C457AC1D668F3679665A9C956 /* Debug */ = {
+		57D245D80FC7D86C32B9A8BF643886DF /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D9C7E510E29E453C2D8628A9659AA9A9 /* Pods-Gitea.debug.xcconfig */;
+			baseConfigurationReference = 8D32E9FBBE064A5891030ACF12130E52 /* MessageViewController.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/MessageViewController/MessageViewController-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/MessageViewController/MessageViewController-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/MessageViewController/MessageViewController.modulemap";
+				PRODUCT_MODULE_NAME = MessageViewController;
+				PRODUCT_NAME = MessageViewController;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		7B0237D114AA0E15C93C26B24EFB883C /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 95A46A65BC5F55ED9E40B878BA846368 /* MarkdownView.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/MarkdownView/MarkdownView-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/MarkdownView/MarkdownView-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/MarkdownView/MarkdownView.modulemap";
+				PRODUCT_MODULE_NAME = MarkdownView;
+				PRODUCT_NAME = MarkdownView;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		85A67D726CE43E2694BEA3695BBE57E1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D5F610BE8A724964507F9A03BCBB3D18 /* Pods-Gitea.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CODE_SIGN_IDENTITY = "";
@@ -504,41 +723,6 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		7B0237D114AA0E15C93C26B24EFB883C /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = FD0F1730B95288F3D40F353E7A341231 /* MarkdownView.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/MarkdownView/MarkdownView-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/MarkdownView/MarkdownView-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MODULEMAP_FILE = "Target Support Files/MarkdownView/MarkdownView.modulemap";
-				PRODUCT_MODULE_NAME = MarkdownView;
-				PRODUCT_NAME = MarkdownView;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -606,25 +790,9 @@
 			};
 			name = Release;
 		};
-		BCAF6CB89E0012B03BF04F669057289B /* Release */ = {
+		AE8E0ADB97C4804E5D6FD09092F9741A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FD0F1730B95288F3D40F353E7A341231 /* MarkdownView.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/MarkdownView";
-				INFOPLIST_FILE = "Target Support Files/MarkdownView/ResourceBundle-MarkdownView-MarkdownView-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				PRODUCT_NAME = MarkdownView;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				WRAPPER_EXTENSION = bundle;
-			};
-			name = Release;
-		};
-		CA086D520FE6FD7220E33A55292CA68E /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = D5F610BE8A724964507F9A03BCBB3D18 /* Pods-Gitea.release.xcconfig */;
+			baseConfigurationReference = D9C7E510E29E453C2D8628A9659AA9A9 /* Pods-Gitea.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CODE_SIGN_IDENTITY = "";
@@ -654,15 +822,30 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		BCAF6CB89E0012B03BF04F669057289B /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 95A46A65BC5F55ED9E40B878BA846368 /* MarkdownView.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/MarkdownView";
+				INFOPLIST_FILE = "Target Support Files/MarkdownView/ResourceBundle-MarkdownView-MarkdownView-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				PRODUCT_NAME = MarkdownView;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = bundle;
 			};
 			name = Release;
 		};
 		D19C42E99879F7504C1A02BBBB6523BF /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FD0F1730B95288F3D40F353E7A341231 /* MarkdownView.xcconfig */;
+			baseConfigurationReference = 95A46A65BC5F55ED9E40B878BA846368 /* MarkdownView.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/MarkdownView";
@@ -676,14 +859,49 @@
 			};
 			name = Debug;
 		};
+		DB6080D9FAC7EA5F04E4BA44FBE0DD4D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8D32E9FBBE064A5891030ACF12130E52 /* MessageViewController.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/MessageViewController/MessageViewController-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/MessageViewController/MessageViewController-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/MessageViewController/MessageViewController.modulemap";
+				PRODUCT_MODULE_NAME = MessageViewController;
+				PRODUCT_NAME = MessageViewController;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		11EB76813D6E5CCC4AC165237C917397 /* Build configuration list for PBXNativeTarget "Pods-Gitea" */ = {
+		08E88A0217DE4D51505BE0B1277775A6 /* Build configuration list for PBXNativeTarget "MessageViewController" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				4B47F31C457AC1D668F3679665A9C956 /* Debug */,
-				CA086D520FE6FD7220E33A55292CA68E /* Release */,
+				DB6080D9FAC7EA5F04E4BA44FBE0DD4D /* Debug */,
+				57D245D80FC7D86C32B9A8BF643886DF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -702,6 +920,15 @@
 			buildConfigurations = (
 				07488D4657FB0A78086563621D425F8A /* Debug */,
 				A1962E6FF39BBAC201A2E5DDF99557DF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6D86948100A2FBED57211F86DA284F42 /* Build configuration list for PBXNativeTarget "Pods-Gitea" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AE8E0ADB97C4804E5D6FD09092F9741A /* Debug */,
+				85A67D726CE43E2694BEA3695BBE57E1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

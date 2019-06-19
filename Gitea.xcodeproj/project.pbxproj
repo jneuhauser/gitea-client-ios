@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1E0C0A33229D72A0001453B5 /* IssuePullRequestTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1E0C0A32229D72A0001453B5 /* IssuePullRequestTableViewCell.xib */; };
+		1E1E7F6622BADB97008AD290 /* IssuePullRequestDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E1E7F6522BADB97008AD290 /* IssuePullRequestDetailViewController.swift */; };
 		1E3B45D9229711250051A448 /* IssuePullRequestTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E3B45D8229711250051A448 /* IssuePullRequestTableViewCell.swift */; };
 		1E3B45DD229738E60051A448 /* DateTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E3B45DC229738E60051A448 /* DateTools.swift */; };
 		1E3E78DC22930DD000B0FAA7 /* CreateRepoOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E3E788E22930DCA00B0FAA7 /* CreateRepoOption.swift */; };
@@ -104,7 +105,6 @@
 		1E6EB278228B03B7005BA94E /* Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E6EB277228B03B7005BA94E /* Authentication.swift */; };
 		1E816D3B22933157000F4CD8 /* SortTypeOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E816D3A22933157000F4CD8 /* SortTypeOption.swift */; };
 		1E816D3D22933216000F4CD8 /* StateTypeOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E816D3C22933216000F4CD8 /* StateTypeOption.swift */; };
-		1EA21006229DDB4400BF666F /* IssuePullRequestDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA21005229DDB4400BF666F /* IssuePullRequestDetailTableViewController.swift */; };
 		1EB31AFF22AE9BAC00056111 /* GitBlobResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EB31AFE22AE9BAC00056111 /* GitBlobResponse.swift */; };
 		1EB31B0322AEA8EF00056111 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EB31B0222AEA8EF00056111 /* StringExtensions.swift */; };
 		1EB31B0422AEC66200056111 /* QuickLook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EB31B0022AEA0F600056111 /* QuickLook.framework */; };
@@ -122,6 +122,7 @@
 
 /* Begin PBXFileReference section */
 		1E0C0A32229D72A0001453B5 /* IssuePullRequestTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IssuePullRequestTableViewCell.xib; sourceTree = "<group>"; };
+		1E1E7F6522BADB97008AD290 /* IssuePullRequestDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssuePullRequestDetailViewController.swift; sourceTree = "<group>"; };
 		1E3B45D8229711250051A448 /* IssuePullRequestTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssuePullRequestTableViewCell.swift; sourceTree = "<group>"; };
 		1E3B45DC229738E60051A448 /* DateTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateTools.swift; sourceTree = "<group>"; };
 		1E3E788E22930DCA00B0FAA7 /* CreateRepoOption.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateRepoOption.swift; sourceTree = "<group>"; };
@@ -220,7 +221,6 @@
 		1E6EB277228B03B7005BA94E /* Authentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authentication.swift; sourceTree = "<group>"; };
 		1E816D3A22933157000F4CD8 /* SortTypeOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortTypeOption.swift; sourceTree = "<group>"; };
 		1E816D3C22933216000F4CD8 /* StateTypeOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateTypeOption.swift; sourceTree = "<group>"; };
-		1EA21005229DDB4400BF666F /* IssuePullRequestDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssuePullRequestDetailTableViewController.swift; sourceTree = "<group>"; };
 		1EB31AFE22AE9BAC00056111 /* GitBlobResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitBlobResponse.swift; sourceTree = "<group>"; };
 		1EB31B0022AEA0F600056111 /* QuickLook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuickLook.framework; path = System/Library/Frameworks/QuickLook.framework; sourceTree = SDKROOT; };
 		1EB31B0222AEA8EF00056111 /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
@@ -328,7 +328,7 @@
 			children = (
 				1E6EB271228A886F005BA94E /* CodeTableViewController.swift */,
 				1EB31B0522AEC8E800056111 /* FileQLPreviewController.swift */,
-				1EA21005229DDB4400BF666F /* IssuePullRequestDetailTableViewController.swift */,
+				1E1E7F6522BADB97008AD290 /* IssuePullRequestDetailViewController.swift */,
 				1E6EB26A228A04B3005BA94E /* IssuesPullRequestsTableViewController.swift */,
 				1E6EB273228AE837005BA94E /* LoginViewController.swift */,
 				1E6EB26E228A04E4005BA94E /* ReleasesTableViewController.swift */,
@@ -536,12 +536,14 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Gitea/Pods-Gitea-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/MarkdownView/MarkdownView.framework",
+				"${BUILT_PRODUCTS_DIR}/MessageViewController/MessageViewController.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MarkdownView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MessageViewController.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -585,6 +587,7 @@
 				1E3E792822930DD000B0FAA7 /* CreateHookOption.swift in Sources */,
 				1E3E790C22930DD000B0FAA7 /* EditHookOption.swift in Sources */,
 				1E3E78EC22930DD000B0FAA7 /* CreatePullRequestOption.swift in Sources */,
+				1E1E7F6622BADB97008AD290 /* IssuePullRequestDetailViewController.swift in Sources */,
 				1EC24B1822A9779F000209B2 /* IssuePullRequestDelegate.swift in Sources */,
 				1E3E78F922930DD000B0FAA7 /* CreateReleaseOption.swift in Sources */,
 				1E3E790D22930DD000B0FAA7 /* EditUserOption.swift in Sources */,
@@ -665,7 +668,6 @@
 				1E3E78F222930DD000B0FAA7 /* EditLabelOption.swift in Sources */,
 				1E3E78DC22930DD000B0FAA7 /* CreateRepoOption.swift in Sources */,
 				1E6EB269228A048F005BA94E /* ReposTableViewController.swift in Sources */,
-				1EA21006229DDB4400BF666F /* IssuePullRequestDetailTableViewController.swift in Sources */,
 				1EC24B1B22A99CE5000209B2 /* AppState.swift in Sources */,
 				1E3E792722930DD000B0FAA7 /* EditAttachmentOptions.swift in Sources */,
 				1E3E790122930DD000B0FAA7 /* Comment.swift in Sources */,

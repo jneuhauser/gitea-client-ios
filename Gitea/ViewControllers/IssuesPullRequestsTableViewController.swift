@@ -242,7 +242,7 @@ class IssuesPullRequestsTableViewController: UITableViewController {
                 return
             }
             
-            guard let destination = segue.destination as? IssuePullRequestDetailTableViewController else {
+            guard let destination = segue.destination as? IssuePullRequestDetailViewController else {
                 print("Error getting destination view controller")
                 return
             }

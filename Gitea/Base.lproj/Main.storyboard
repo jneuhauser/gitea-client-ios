@@ -152,38 +152,27 @@
                         </connections>
                     </refreshControl>
                     <connections>
-                        <segue destination="Gpx-e5-ahY" kind="show" identifier="ShowIssuePullRequestDetail" id="mzp-3b-ovJ"/>
+                        <segue destination="V47-Q4-5fB" kind="show" identifier="ShowIssuePullRequestDetail" id="d42-29-ht0"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1bm-fL-nIn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="776.81159420289862" y="568.52678571428567"/>
         </scene>
-        <!--Issue Pull Request Detail Table View Controller-->
-        <scene sceneID="JOL-yh-aEg">
+        <!--Issue Pull Request Detail View Controller-->
+        <scene sceneID="Z6O-8a-8BP">
             <objects>
-                <tableViewController id="Gpx-e5-ahY" customClass="IssuePullRequestDetailTableViewController" customModule="Gitea" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Evb-cc-DV1">
+                <viewController id="V47-Q4-5fB" customClass="IssuePullRequestDetailViewController" customModule="Gitea" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="mp7-4l-JjL">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <connections>
-                            <outlet property="dataSource" destination="Gpx-e5-ahY" id="3zZ-Rh-4fl"/>
-                            <outlet property="delegate" destination="Gpx-e5-ahY" id="zhH-OQ-wPs"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" id="9eF-hu-uh1"/>
-                    <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="jib-qu-D42">
-                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <connections>
-                            <action selector="refreshAction:" destination="Gpx-e5-ahY" eventType="valueChanged" id="CCy-Y5-9Vv"/>
-                        </connections>
-                    </refreshControl>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="NhK-73-JCW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                        <viewLayoutGuide key="safeArea" id="MeD-0X-vPN"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jqI-5l-rZq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1861" y="890"/>
+            <point key="canvasLocation" x="2029" y="916"/>
         </scene>
         <!--Issues Pull Requests Table View Controller-->
         <scene sceneID="sXQ-UF-cP7">
@@ -207,7 +196,7 @@
                         </connections>
                     </refreshControl>
                     <connections>
-                        <segue destination="Gpx-e5-ahY" kind="show" identifier="ShowIssuePullRequestDetail" id="tB8-og-f1V"/>
+                        <segue destination="V47-Q4-5fB" kind="show" identifier="ShowIssuePullRequestDetail" id="ani-20-Ohq"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IIJ-Bj-hNV" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -486,6 +475,6 @@
         <image name="tag" width="14" height="16"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="tB8-og-f1V"/>
+        <segue reference="ani-20-Ohq"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -7,4 +7,5 @@ target 'Gitea' do
 
   # Pods for Gitea
   pod "MarkdownView"
+  pod "MessageViewController"
 end
