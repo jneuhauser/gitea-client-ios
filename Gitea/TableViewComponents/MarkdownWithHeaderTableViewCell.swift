@@ -12,6 +12,9 @@ import SafariServices
 
 class MarkdownWithHeaderTableViewCell: UITableViewCell {
     
+    public static let reuseIdentifier: String = String(describing: self)
+    public static let uiNib: UINib = UINib(nibName: "MarkdownWithHeaderTableViewCell", bundle: nil)
+    
     @IBOutlet weak var headerLabel: UILabel!
     @IBOutlet weak var markdownView: MarkdownView!
     @IBOutlet weak var hStackViewHeight: NSLayoutConstraint!

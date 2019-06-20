@@ -10,6 +10,9 @@ import UIKit
 
 class IssuePullRequestTableViewCell: UITableViewCell {
     
+    public static let reuseIdentifier: String = String(describing: self)
+    public static let uiNib: UINib = UINib(nibName: "IssuePullRequestTableViewCell", bundle: nil)
+    
     @IBOutlet weak var typeImage: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var footerLabel: UILabel!

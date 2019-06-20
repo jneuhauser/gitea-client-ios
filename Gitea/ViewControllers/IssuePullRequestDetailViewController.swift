@@ -30,9 +30,10 @@ class IssuePullRequestDetailViewController: MessageViewController, UITableViewDe
         
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.register(UINib(nibName: "MarkdownWithHeaderTableViewCell", bundle: nil), forCellReuseIdentifier: "MarkdownWithHeaderCellFromNib")
-//        tableView.register(UINib(nibName: "IssueDetailSimpleTableViewCell", bundle: nil), forCellReuseIdentifier: "IssueDetailSimpleCellFromNib")
-//        tableView.register(UINib(nibName: "WebViewTableViewCell", bundle: nil), forCellReuseIdentifier: "WebViewCellFromNib")
+        tableView.register(MarkdownWithHeaderTableViewCell.uiNib, forCellReuseIdentifier: MarkdownWithHeaderTableViewCell.reuseIdentifier)
+        // altetnate markdown rendering solutions
+//        tableView.register(IssueDetailSimpleTableViewCell.uiNib, forCellReuseIdentifier: IssueDetailSimpleTableViewCell.reuseIdentifier)
+//        tableView.register(WebViewTableViewCell.uiNib, forCellReuseIdentifier: WebViewTableViewCell.reuseIdentifier)
         view.addSubview(tableView)
         
         borderColor = .lightGray
@@ -120,7 +121,10 @@ class IssuePullRequestDetailViewController: MessageViewController, UITableViewDe
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "MarkdownWithHeaderCellFromNib", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: MarkdownWithHeaderTableViewCell.reuseIdentifier, for: indexPath)
+        // altetnate markdown rendering solutions
+//        let cell = tableView.dequeueReusableCell(withIdentifier: IssueDetailSimpleTableViewCell.reuseIdentifier, for: indexPath)
+//        let cell = tableView.dequeueReusableCell(withIdentifier: WebViewTableViewCell.reuseIdentifier, for: indexPath)
         
         var loginO: String?
         var createdSinceO: String?
@@ -164,6 +168,7 @@ class IssuePullRequestDetailViewController: MessageViewController, UITableViewDe
                 }
             }
             tvc.markdownView.load(markdown: body)
+        // altetnate markdown rendering solutions
 //        case is IssueDetailSimpleTableViewCell:
 //            let tvc = cell as! IssueDetailSimpleTableViewCell
 //            tvc.headerLabel.text = header

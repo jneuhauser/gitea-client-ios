@@ -9,6 +9,10 @@
 import UIKit
 
 class IssueDetailSimpleTableViewCell: UITableViewCell {
+    
+    public static let reuseIdentifier: String = String(describing: self)
+    public static let uiNib: UINib = UINib(nibName: "IssueDetailSimpleTableViewCell", bundle: nil)
+    
     @IBOutlet weak var headerLabel: UILabel!
     @IBOutlet weak var contentAttributedLabel: UILabel!
     

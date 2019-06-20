@@ -11,6 +11,9 @@ import WebKit
 
 class WebViewTableViewCell: UITableViewCell {
     
+    public static let reuseIdentifier: String = String(describing: self)
+    public static let uiNib: UINib = UINib(nibName: "WebViewTableViewCell", bundle: nil)
+    
     @IBOutlet weak var webView: WKWebView!
     @IBOutlet weak var webViewHeightConstraint: NSLayoutConstraint!
     

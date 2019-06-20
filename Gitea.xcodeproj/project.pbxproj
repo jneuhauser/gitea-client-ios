@@ -110,7 +110,6 @@
 		1EB31B0422AEC66200056111 /* QuickLook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EB31B0022AEA0F600056111 /* QuickLook.framework */; };
 		1EB31B0622AEC8E800056111 /* FileQLPreviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EB31B0522AEC8E800056111 /* FileQLPreviewController.swift */; };
 		1EB31B0822AFA84900056111 /* IntExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EB31B0722AFA84900056111 /* IntExtensions.swift */; };
-		1EC24B0D22A8E8D5000209B2 /* WriteCommentTableViewFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC24B0C22A8E8D5000209B2 /* WriteCommentTableViewFooter.swift */; };
 		1EC24B1822A9779F000209B2 /* IssuePullRequestDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC24B1722A9779F000209B2 /* IssuePullRequestDelegate.swift */; };
 		1EC24B1B22A99CE5000209B2 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC24B1A22A99CE5000209B2 /* AppState.swift */; };
 		1ECA4754228DACAB00887A03 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ECA4753228DACAB00887A03 /* Networking.swift */; };
@@ -226,7 +225,6 @@
 		1EB31B0222AEA8EF00056111 /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
 		1EB31B0522AEC8E800056111 /* FileQLPreviewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileQLPreviewController.swift; sourceTree = "<group>"; };
 		1EB31B0722AFA84900056111 /* IntExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntExtensions.swift; sourceTree = "<group>"; };
-		1EC24B0C22A8E8D5000209B2 /* WriteCommentTableViewFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteCommentTableViewFooter.swift; sourceTree = "<group>"; };
 		1EC24B1722A9779F000209B2 /* IssuePullRequestDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssuePullRequestDelegate.swift; sourceTree = "<group>"; };
 		1EC24B1A22A99CE5000209B2 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		1ECA4753228DACAB00887A03 /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
@@ -263,7 +261,6 @@
 				1ECB26EA22A45EF600A22B49 /* MarkdownWithHeaderTableViewCell.xib */,
 				1E4643B822A0F60A00A399A8 /* WebViewTableViewCell.swift */,
 				1E4643B922A0F60A00A399A8 /* WebViewTableViewCell.xib */,
-				1EC24B0C22A8E8D5000209B2 /* WriteCommentTableViewFooter.swift */,
 			);
 			path = TableViewComponents;
 			sourceTree = "<group>";
@@ -600,7 +597,6 @@
 				1E3E790F22930DD000B0FAA7 /* AddTimeOption.swift in Sources */,
 				1E3E791E22930DD000B0FAA7 /* Tag.swift in Sources */,
 				1E3E792D229327BC00B0FAA7 /* StatusState.swift in Sources */,
-				1EC24B0D22A8E8D5000209B2 /* WriteCommentTableViewFooter.swift in Sources */,
 				1E3E78DF22930DD000B0FAA7 /* Commit.swift in Sources */,
 				1E3E790422930DD000B0FAA7 /* CreateTeamOption.swift in Sources */,
 				1E3E78DE22930DD000B0FAA7 /* Team.swift in Sources */,
