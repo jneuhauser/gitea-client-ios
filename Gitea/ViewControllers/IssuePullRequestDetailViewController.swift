@@ -89,9 +89,6 @@ class IssuePullRequestDetailViewController: MessageViewController, UITableViewDe
     
     @objc func refreshAction(_ sender: UIRefreshControl) {
         loadCommentsAsync()
-        // force also a recalc of the cell heights because of probably edited comments
-        // TODO: it should be better to check for changed size
-        rowHeights.removeAll(keepingCapacity: true)
     }
     
     @objc func onLeftButton() {
@@ -150,17 +147,19 @@ class IssuePullRequestDetailViewController: MessageViewController, UITableViewDe
             let tvc = cell as! MarkdownWithHeaderTableViewCell
             tvc.headerLabel.text = header
             if let rowHeight = rowHeights[indexPath.row] {
-                debugPrint("Set height to: \(rowHeight)")
+                debugPrint("saved calculated row(\(indexPath.row)) height: \(rowHeight)")
                 tvc.hStackViewHeight.constant = rowHeight
-                // TODO: it should be better to check for changed size
-                tvc.markdownView.onRendered = nil
-            } else {
-                tvc.markdownView.onRendered = { height in
-                    debugPrint("markdownView.onRendered(height = \(height)")
-                    tvc.hStackViewHeight.constant = height + tvc.headerLabel.frame.height
+            }
+            tvc.markdownView.onRendered = { height in
+                let newCalculatedHeight = height + tvc.headerLabel.frame.height
+                debugPrint("new calculated row(\(indexPath.row)) height: \(newCalculatedHeight)")
+                // Update saved value if not existent or if it has changed
+                if self.rowHeights[indexPath.row] == nil ||
+                    self.rowHeights[indexPath.row] != newCalculatedHeight {
+                    self.rowHeights[indexPath.row] = newCalculatedHeight
+                    tvc.hStackViewHeight.constant = newCalculatedHeight
                     tableView.beginUpdates()
                     tableView.endUpdates()
-                    self.rowHeights[indexPath.row] = height + tvc.headerLabel.frame.height
                 }
             }
             tvc.markdownView.load(markdown: body)
