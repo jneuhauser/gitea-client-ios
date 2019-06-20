@@ -16,6 +16,7 @@ class CodeTableViewController: UITableViewController, UIPickerViewDataSource, UI
     private var references: [Reference]?
     private var gitTree: GitTreeResponse?
     private var branches: [Branch]?
+    private var readmeGitEntry: GitEntry?
     
     private var selectedRepoHash = AppState.selectedRepo.hashValue
     private var selectedBranch = AppState.selectedRepo?.defaultBranch {
@@ -44,6 +45,7 @@ class CodeTableViewController: UITableViewController, UIPickerViewDataSource, UI
         
         tableView.sectionHeaderHeight = UITableView.automaticDimension
         tableView.estimatedSectionHeaderHeight = 2
+        tableView.register(MarkdownWithHeaderTableViewCell.uiNib, forCellReuseIdentifier: MarkdownWithHeaderTableViewCell.reuseIdentifier)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -100,6 +102,8 @@ class CodeTableViewController: UITableViewController, UIPickerViewDataSource, UI
                         self.gitTree?.tree?.sort(by: { return $0.path! < $1.path! })
                         // Sort by type (tree = folder above blob = file)
                         self.gitTree?.tree?.sort(by: { return $0.type! > $1.type! })
+                        // Search for for a git entry of readme in md format and attach object
+                        self.readmeGitEntry = self.gitTree?.tree?.filter({ return $0.path?.lowercased().contains("readme.md") ?? false }).first
                         DispatchQueue.main.async {
                             self.tableView.reloadData()
                             self.refreshControl?.endRefreshing()
@@ -262,34 +266,73 @@ class CodeTableViewController: UITableViewController, UIPickerViewDataSource, UI
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return gitTree?.tree?.count ?? 0
+        return (gitTree?.tree?.count ?? 0) + (readmeGitEntry != nil ? 1 : 0)
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CodeCell", for: indexPath)
+        let cell = gitTree?.tree?.count != indexPath.row ? tableView.dequeueReusableCell(withIdentifier: "CodeCell", for: indexPath) : tableView.dequeueReusableCell(withIdentifier: MarkdownWithHeaderTableViewCell.reuseIdentifier, for: indexPath)
         
-        guard let element = gitTree?.tree?[indexPath.row] else {
-            return cell
-        }
-        
-        if let path = element.path, let type = element.type, let size = element.size {
-            switch type {
-            case "blob":
-                cell.imageView?.image = UIImage(named: "file")
-            case "tree":
-                cell.imageView?.image = UIImage(named: "file-directory")
-            default:
-                cell.imageView?.image = UIImage(named: "file-binary")
+        switch cell {
+        case is MarkdownWithHeaderTableViewCell:
+            let tvc = cell as! MarkdownWithHeaderTableViewCell
+            
+            if let fileName = readmeGitEntry?.path,
+                let fileSha = readmeGitEntry?.sha,
+                let repoOwner = AppState.selectedRepo?.owner?.login,
+                let repoName = AppState.selectedRepo?.name {
+                
+                tvc.backgroundColor = .lightGray
+                
+                tvc.headerLabel.text = fileName
+            
+                tvc.markdownView.onRendered = { height in
+                    let calculatedHeight = height + tvc.headerLabel.frame.height
+                    
+                    // force update of table view layout
+                    tvc.hStackViewHeight.constant = calculatedHeight
+                    tableView.beginUpdates()
+                    tableView.endUpdates()
+                }
+            
+                Networking.shared.getRepositoryGitBlob(fromOwner: repoOwner, andRepo: repoName, forSha: fileSha) { result in
+                    switch result {
+                    case .success(let blob):
+                        switch blob.encoding {
+                        case "base64":
+                            if let content = blob.content,
+                                let decodedData = Data(base64Encoded: content),
+                                let contentString = String(data: decodedData, encoding: .utf8) {
+                                DispatchQueue.main.async {
+                                    tvc.markdownView.load(markdown: contentString)
+                                }
+                            }
+                        default:
+                            debugPrint("tableView(cellForRowAt ...): unhandled encoding type")
+                        }
+                    case .failure(let error):
+                        debugPrint("getRepositoryGitBlob() failed with \(error)")
+                    }
+                }
+            }
+        default:
+            guard let element = gitTree?.tree?[indexPath.row] else {
+                return cell
             }
             
-//            let filePathEndIndex = path.lastIndex(of: "/") ?? path.startIndex
-//            // Cut of "/" for the file name if there was a file path
-//            let fileNameStartIndex = filePathEndIndex == path.startIndex ? filePathEndIndex : path.index(after: filePathEndIndex)
-//            cell.textLabel?.text = String(path[fileNameStartIndex...])
-            cell.textLabel?.text = path
-            
-            cell.detailTextLabel?.text = type == "tree" ? "" : size.getByteRepresentaion()
+            if let path = element.path, let type = element.type, let size = element.size {
+                switch type {
+                case "blob":
+                    cell.imageView?.image = UIImage(named: "file")
+                case "tree":
+                    cell.imageView?.image = UIImage(named: "file-directory")
+                default:
+                    cell.imageView?.image = UIImage(named: "file-binary")
+                }
+                
+                cell.textLabel?.text = path
+                
+                cell.detailTextLabel?.text = type == "tree" ? "" : size.getByteRepresentaion()
+            }
         }
 
         return cell
