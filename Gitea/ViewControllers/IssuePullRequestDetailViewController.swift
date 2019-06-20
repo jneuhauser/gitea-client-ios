@@ -13,7 +13,10 @@ class IssuePullRequestDetailViewController: MessageViewController, UITableViewDe
     
     public var mainEntry: IssuePullRequestDelegate?
     private var comments: [Comment]?
-    private var rowHeights = [Int : CGFloat]()
+    
+    // Improve performance of cell height determination
+    typealias RowHeightForContent = (rowHeight: CGFloat, contentHashValue: Int)
+    private var rowHeights = [Int : RowHeightForContent]()
     
     let tableView = UITableView()
     let refreshControl: UIRefreshControl? = UIRefreshControl()
@@ -132,7 +135,7 @@ class IssuePullRequestDetailViewController: MessageViewController, UITableViewDe
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return rowHeights[indexPath.row] ?? tableView.rowHeight
+        return rowHeights[indexPath.row]?.rowHeight ?? tableView.rowHeight
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -166,22 +169,29 @@ class IssuePullRequestDetailViewController: MessageViewController, UITableViewDe
         case is MarkdownWithHeaderTableViewCell:
             let tvc = cell as! MarkdownWithHeaderTableViewCell
             tvc.headerLabel.text = header
-            if let rowHeight = rowHeights[indexPath.row] {
-                debugPrint("saved calculated row(\(indexPath.row)) height: \(rowHeight)")
-                tvc.hStackViewHeight.constant = rowHeight
-            }
-            tvc.markdownView.onRendered = { height in
-                let newCalculatedHeight = height + tvc.headerLabel.frame.height
-                debugPrint("new calculated row(\(indexPath.row)) height: \(newCalculatedHeight)")
-                // Update saved value if not existent or if it has changed
-                if self.rowHeights[indexPath.row] == nil ||
-                    self.rowHeights[indexPath.row] != newCalculatedHeight {
-                    self.rowHeights[indexPath.row] = newCalculatedHeight
-                    tvc.hStackViewHeight.constant = newCalculatedHeight
+            
+            let bodyHashValue = body.hashValue
+            if let rowHeight = rowHeights[indexPath.row],
+                rowHeight.contentHashValue == bodyHashValue {
+                // use saved row height
+                tvc.hStackViewHeight.constant = rowHeight.rowHeight
+            } else {
+                tvc.markdownView.onRendered = { height in
+                    let calculatedHeight = height + tvc.headerLabel.frame.height
+                    
+                    // save row height and content hash value
+                    var rowHeight: RowHeightForContent
+                    rowHeight.rowHeight = calculatedHeight
+                    rowHeight.contentHashValue = bodyHashValue
+                    self.rowHeights[indexPath.row] = rowHeight
+                    
+                    // force update of table view layout
+                    tvc.hStackViewHeight.constant = calculatedHeight
                     tableView.beginUpdates()
                     tableView.endUpdates()
                 }
             }
+
             tvc.markdownView.load(markdown: body)
         // altetnate markdown rendering solutions
 //        case is IssueDetailSimpleTableViewCell:
