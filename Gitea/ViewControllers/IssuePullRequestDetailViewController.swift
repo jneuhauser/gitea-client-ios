@@ -38,23 +38,21 @@ class IssuePullRequestDetailViewController: MessageViewController, UITableViewDe
         
         borderColor = .lightGray
         
-        messageView.inset = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 16)
-        messageView.font = UIFont.systemFont(ofSize: 18)
-        
-        messageView.setButton(title: "Add", for: .normal, position: .left)
-        messageView.addButton(target: self, action: #selector(onLeftButton), position: .left)
+        messageView.setButton(title: "MD", for: .normal, position: .left)
+        messageView.addButton(target: self, action: #selector(onPreviewButton), position: .left)
         messageView.leftButtonTint = .blue
+        messageView.setButton(inset: 0, position: .left)
         messageView.showLeftButton = true
         
-        messageView.setButton(inset: 10, position: .left)
-        messageView.setButton(inset: 15, position: .right)
+        messageView.setButton(title: "Send", for: .normal, position: .right)
+        messageView.addButton(target: self, action: #selector(onSendButton), position: .right)
+        messageView.rightButtonTint = .blue
+        messageView.setButton(inset: 0, position: .right)
         
+        messageView.inset = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
+        messageView.font = UIFont.systemFont(ofSize: 18)
         messageView.textView.placeholderText = "New message..."
         messageView.textView.placeholderTextColor = .lightGray
-        
-        messageView.setButton(title: "Send", for: .normal, position: .right)
-        messageView.addButton(target: self, action: #selector(onRightButton), position: .right)
-        messageView.rightButtonTint = .blue
         
         setup(scrollView: tableView)
     }
@@ -92,21 +90,38 @@ class IssuePullRequestDetailViewController: MessageViewController, UITableViewDe
         loadCommentsAsync()
     }
     
-    @objc func onLeftButton() {
-        debugPrint("Did press left button")
-        // TODO: Implement comment post preview
+    @objc func onPreviewButton() {
+        debugPrint("Did press preview button")
     }
     
-    @objc func onRightButton() {
-        debugPrint("Did press right button")
+    @objc func onSendButton() {
+        debugPrint("Did press send button")
         debugPrint(messageView.text)
-        // TODO: Implement comment post call
-        if let commentCount = comments?.count {
-            tableView.scrollToRow(
-                at: IndexPath(row: commentCount - 1, section: 0),
-                at: .bottom,
-                animated: true
-            )
+        
+        if let repoOwner = AppState.selectedRepo?.owner?.login,
+            let repoName = AppState.selectedRepo?.name,
+            let issueNumber = mainEntry?.number {
+            Networking.shared.addCommentToIssue(withIndex: issueNumber, ofRepo: repoName, andOwner: repoOwner, forComment: CreateIssueCommentOption(body: messageView.text)) { result in
+                switch(result) {
+                case .success(let comment):
+                    self.comments?.append(comment)
+                    DispatchQueue.main.async {
+                        if let commentsCount = self.comments?.count {
+                            let lastIndexPath = IndexPath(row: commentsCount - 1, section: 0)
+                            self.tableView.reloadData()
+                            self.tableView.scrollToRow(
+                                at: lastIndexPath,
+                                at: .bottom,
+                                animated: true
+                            )
+                        }
+                        self.messageView.text = ""
+                    }
+                case .failure(let error):
+                    // TODO: Pop up of failure
+                    debugPrint("addCommentToIssue() failed with \(error)")
+                }
+            }
         }
     }
     

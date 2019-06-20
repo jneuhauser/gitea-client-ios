@@ -260,4 +260,21 @@ class Networking {
         let task = URLSession.jsonRequest(forResponseType: Data.self, withRequest: request, withMethod: .get, completionHandler: completionHandler)
         task.resume()
     }
+    
+    public func addCommentToIssue(
+        withIndex index: Int64,
+        ofRepo repo: String,
+        andOwner owner: String,
+        forComment comment: CreateIssueCommentOption,
+        completionHandler: @escaping (Result<Comment,Error>) -> Void)
+    {
+        let apiPath = "/api/v1/repos/\(owner)/\(repo)/issues/\(index)/comments"
+        guard let request = Authentication.shared.constructURLRequest(withPath: apiPath) else {
+            completionHandler(Result.failure(NetworkingError.requestConstructError(apiPath)))
+            return
+        }
+        
+        let task = URLSession.jsonRequest(forResponseType: Comment.self, withRequest: request, withMethod: .post, withBody: comment, completionHandler: completionHandler)
+        task.resume()
+    }
 }
