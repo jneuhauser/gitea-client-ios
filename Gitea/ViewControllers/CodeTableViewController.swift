@@ -230,6 +230,10 @@ class CodeTableViewController: UITableViewController, UIPickerViewDataSource, UI
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard indexPath.row < (gitTree?.tree?.count ?? 0) else {
+            return
+        }
+        
         guard let selectedElement = gitTree?.tree?[indexPath.row] else {
             return
         }
