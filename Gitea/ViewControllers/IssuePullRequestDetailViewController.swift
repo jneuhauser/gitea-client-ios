@@ -93,6 +93,7 @@ class IssuePullRequestDetailViewController: MessageViewController, UITableViewDe
     
     @objc func onLeftButton() {
         debugPrint("Did press left button")
+        // TODO: Implement comment post preview
     }
     
     @objc func onRightButton() {
@@ -195,9 +196,7 @@ class IssuePullRequestDetailViewController: MessageViewController, UITableViewDe
 //                }
 //            }
         default:
-            // This properties does have all table view cells
-            cell.textLabel?.text = header
-            cell.detailTextLabel?.text = body
+            debugPrint("tableView(cellForRowAt: ...):  unhandled cell type")
         }
 
         
