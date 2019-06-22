@@ -250,6 +250,129 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1E1960FD22BECE9C0051F42B /* AddOptions */ = {
+			isa = PBXGroup;
+			children = (
+				1E3E78D322930DCF00B0FAA7 /* AddCollaboratorOption.swift */,
+				1E3E78C122930DCD00B0FAA7 /* AddTimeOption.swift */,
+			);
+			path = AddOptions;
+			sourceTree = "<group>";
+		};
+		1E1960FE22BECECD0051F42B /* CreateOptions */ = {
+			isa = PBXGroup;
+			children = (
+				1E3E78A622930DCB00B0FAA7 /* CreateEmailOption.swift */,
+				1E3E78A222930DCB00B0FAA7 /* CreateForkOption.swift */,
+				1E3E789322930DCA00B0FAA7 /* CreateGPGKeyOption.swift */,
+				1E3E78DA22930DD000B0FAA7 /* CreateHookOption.swift */,
+				1E3E78A322930DCB00B0FAA7 /* CreateIssueCommentOption.swift */,
+				1E3E789722930DCA00B0FAA7 /* CreateIssueOption.swift */,
+				1E3E78B722930DCC00B0FAA7 /* CreateKeyOption.swift */,
+				1E3E78B222930DCC00B0FAA7 /* CreateLabelOption.swift */,
+				1E3E789622930DCA00B0FAA7 /* CreateMilestoneOption.swift */,
+				1E3E78C722930DCD00B0FAA7 /* CreateOrgOption.swift */,
+				1E3E789E22930DCA00B0FAA7 /* CreatePullRequestOption.swift */,
+				1E3E78AB22930DCB00B0FAA7 /* CreateReleaseOption.swift */,
+				1E3E788E22930DCA00B0FAA7 /* CreateRepoOption.swift */,
+				1E3E788F22930DCA00B0FAA7 /* CreateStatusOption.swift */,
+				1E3E78B622930DCC00B0FAA7 /* CreateTeamOption.swift */,
+				1E3E78CB22930DCE00B0FAA7 /* CreateUserOption.swift */,
+				1E3E78B022930DCC00B0FAA7 /* DeleteEmailOption.swift */,
+			);
+			path = CreateOptions;
+			sourceTree = "<group>";
+		};
+		1E1960FF22BECEEC0051F42B /* EditOptions */ = {
+			isa = PBXGroup;
+			children = (
+				1E3E78D922930DD000B0FAA7 /* EditAttachmentOptions.swift */,
+				1E3E78A122930DCA00B0FAA7 /* EditDeadlineOption.swift */,
+				1E3E78BE22930DCD00B0FAA7 /* EditHookOption.swift */,
+				1E3E78D522930DCF00B0FAA7 /* EditIssueCommentOption.swift */,
+				1E3E78D822930DCF00B0FAA7 /* EditIssueOption.swift */,
+				1E3E78A422930DCB00B0FAA7 /* EditLabelOption.swift */,
+				1E3E78D422930DCF00B0FAA7 /* EditMilestoneOption.swift */,
+				1E3E78C222930DCD00B0FAA7 /* EditOrgOption.swift */,
+				1E3E789522930DCA00B0FAA7 /* EditPullRequestOption.swift */,
+				1E3E78D722930DCF00B0FAA7 /* EditReleaseOption.swift */,
+				1E3E78CF22930DCF00B0FAA7 /* EditTeamOption.swift */,
+				1E3E78BF22930DCD00B0FAA7 /* EditUserOption.swift */,
+			);
+			path = EditOptions;
+			sourceTree = "<group>";
+		};
+		1E19610122BECF740051F42B /* UserModels */ = {
+			isa = PBXGroup;
+			children = (
+				1E3E78D222930DCF00B0FAA7 /* CommitUser.swift */,
+				1E3E789422930DCA00B0FAA7 /* Email.swift */,
+				1E3E78C322930DCD00B0FAA7 /* GPGKey.swift */,
+				1E3E78D622930DCF00B0FAA7 /* GPGKeyEmail.swift */,
+				1E3E78C022930DCD00B0FAA7 /* Organization.swift */,
+				1E3E789F22930DCA00B0FAA7 /* PayloadUser.swift */,
+				1E3E78C422930DCD00B0FAA7 /* Permission.swift */,
+				1E3E789022930DCA00B0FAA7 /* Team.swift */,
+				1E3E78DB22930DD000B0FAA7 /* TrackedTime.swift */,
+				1E3E78CE22930DCF00B0FAA7 /* User.swift */,
+				1E3E78AE22930DCB00B0FAA7 /* UserHeatmapData.swift */,
+				1E3E78B422930DCC00B0FAA7 /* WatchInfo.swift */,
+			);
+			path = UserModels;
+			sourceTree = "<group>";
+		};
+		1E19610222BECFD10051F42B /* GitModels */ = {
+			isa = PBXGroup;
+			children = (
+				1E3E789822930DCA00B0FAA7 /* Branch.swift */,
+				1E3E789122930DCA00B0FAA7 /* Commit.swift */,
+				1EB31AFE22AE9BAC00056111 /* GitBlobResponse.swift */,
+				1E3E789C22930DCA00B0FAA7 /* GitEntry.swift */,
+				1E3E78D122930DCF00B0FAA7 /* GitObject.swift */,
+				1E3E789D22930DCA00B0FAA7 /* GitTreeResponse.swift */,
+				1E3E78A822930DCB00B0FAA7 /* Reference.swift */,
+				1E3E789222930DCA00B0FAA7 /* Release.swift */,
+				1E3E78CC22930DCE00B0FAA7 /* RepoCommit.swift */,
+				1E3E78AD22930DCB00B0FAA7 /* Repository.swift */,
+				1E3E78D022930DCF00B0FAA7 /* Tag.swift */,
+			);
+			path = GitModels;
+			sourceTree = "<group>";
+		};
+		1E19610322BED0460051F42B /* GiteaSpecificModel */ = {
+			isa = PBXGroup;
+			children = (
+				1E3E78C922930DCE00B0FAA7 /* Attachment.swift */,
+				1E3E78B322930DCC00B0FAA7 /* Comment.swift */,
+				1E3E78B922930DCC00B0FAA7 /* CommitMeta.swift */,
+				1E3E78CA22930DCE00B0FAA7 /* DeployKey.swift */,
+				1E3E78BC22930DCC00B0FAA7 /* Hook.swift */,
+				1E3E78AA22930DCB00B0FAA7 /* Issue.swift */,
+				1E3E78B122930DCC00B0FAA7 /* IssueDeadline.swift */,
+				1E3E78A722930DCB00B0FAA7 /* IssueLabelsOption.swift */,
+				1EC24B1722A9779F000209B2 /* IssuePullRequest.swift */,
+				1E3E789B22930DCA00B0FAA7 /* Label.swift */,
+				1E3E78C522930DCD00B0FAA7 /* MarkdownOption.swift */,
+				1E3E78AC22930DCB00B0FAA7 /* MergePullRequestOption.swift */,
+				1E3E78C622930DCD00B0FAA7 /* MigrateRepoForm.swift */,
+				1E3E78BD22930DCC00B0FAA7 /* Milestone.swift */,
+				1E3E78BA22930DCC00B0FAA7 /* PayloadCommit.swift */,
+				1E3E789922930DCA00B0FAA7 /* PayloadCommitVerification.swift */,
+				1E3E78CD22930DCF00B0FAA7 /* PRBranchInfo.swift */,
+				1E3E78AF22930DCB00B0FAA7 /* PublicKey.swift */,
+				1E3E78A922930DCB00B0FAA7 /* PullRequest.swift */,
+				1E3E789A22930DCA00B0FAA7 /* PullRequestMeta.swift */,
+				1E3E78B822930DCC00B0FAA7 /* SearchResults.swift */,
+				1E3E78A522930DCB00B0FAA7 /* ServerVersion.swift */,
+				1E816D3A22933157000F4CD8 /* SortTypeOption.swift */,
+				1E3E792E2293288700B0FAA7 /* StateType.swift */,
+				1E816D3C22933216000F4CD8 /* StateTypeOption.swift */,
+				1E3E78B522930DCC00B0FAA7 /* Status.swift */,
+				1E3E792C229327BC00B0FAA7 /* StatusState.swift */,
+			);
+			path = GiteaSpecificModel;
+			sourceTree = "<group>";
+		};
 		1E3B45DA2297112B0051A448 /* TableViewComponents */ = {
 			isa = PBXGroup;
 			children = (
@@ -267,9 +390,9 @@
 			isa = PBXGroup;
 			children = (
 				1E3B45DC229738E60051A448 /* DateTools.swift */,
-				1EB31B0222AEA8EF00056111 /* StringExtensions.swift */,
 				1EB31B0722AFA84900056111 /* IntExtensions.swift */,
 				1E1960F922BD4D940051F42B /* PopUpControllerGenerator.swift */,
+				1EB31B0222AEA8EF00056111 /* StringExtensions.swift */,
 				1E1960FB22BD6C270051F42B /* ViewControllerExtensions.swift */,
 			);
 			path = Utils;
@@ -348,87 +471,12 @@
 		1E6EB276228B038F005BA94E /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				1E3E78D322930DCF00B0FAA7 /* AddCollaboratorOption.swift */,
-				1E3E78C122930DCD00B0FAA7 /* AddTimeOption.swift */,
-				1E3E78C922930DCE00B0FAA7 /* Attachment.swift */,
-				1E3E789822930DCA00B0FAA7 /* Branch.swift */,
-				1E3E78B322930DCC00B0FAA7 /* Comment.swift */,
-				1E3E789122930DCA00B0FAA7 /* Commit.swift */,
-				1E3E78B922930DCC00B0FAA7 /* CommitMeta.swift */,
-				1E3E78D222930DCF00B0FAA7 /* CommitUser.swift */,
-				1E3E78A622930DCB00B0FAA7 /* CreateEmailOption.swift */,
-				1E3E78A222930DCB00B0FAA7 /* CreateForkOption.swift */,
-				1E3E789322930DCA00B0FAA7 /* CreateGPGKeyOption.swift */,
-				1E3E78DA22930DD000B0FAA7 /* CreateHookOption.swift */,
-				1E3E78A322930DCB00B0FAA7 /* CreateIssueCommentOption.swift */,
-				1E3E789722930DCA00B0FAA7 /* CreateIssueOption.swift */,
-				1E3E78B722930DCC00B0FAA7 /* CreateKeyOption.swift */,
-				1E3E78B222930DCC00B0FAA7 /* CreateLabelOption.swift */,
-				1E3E789622930DCA00B0FAA7 /* CreateMilestoneOption.swift */,
-				1E3E78C722930DCD00B0FAA7 /* CreateOrgOption.swift */,
-				1E3E789E22930DCA00B0FAA7 /* CreatePullRequestOption.swift */,
-				1E3E78AB22930DCB00B0FAA7 /* CreateReleaseOption.swift */,
-				1E3E788E22930DCA00B0FAA7 /* CreateRepoOption.swift */,
-				1E3E788F22930DCA00B0FAA7 /* CreateStatusOption.swift */,
-				1E3E78B622930DCC00B0FAA7 /* CreateTeamOption.swift */,
-				1E3E78CB22930DCE00B0FAA7 /* CreateUserOption.swift */,
-				1E3E78B022930DCC00B0FAA7 /* DeleteEmailOption.swift */,
-				1E3E78CA22930DCE00B0FAA7 /* DeployKey.swift */,
-				1E3E78D922930DD000B0FAA7 /* EditAttachmentOptions.swift */,
-				1E3E78A122930DCA00B0FAA7 /* EditDeadlineOption.swift */,
-				1E3E78BE22930DCD00B0FAA7 /* EditHookOption.swift */,
-				1E3E78D522930DCF00B0FAA7 /* EditIssueCommentOption.swift */,
-				1E3E78D822930DCF00B0FAA7 /* EditIssueOption.swift */,
-				1E3E78A422930DCB00B0FAA7 /* EditLabelOption.swift */,
-				1E3E78D422930DCF00B0FAA7 /* EditMilestoneOption.swift */,
-				1E3E78C222930DCD00B0FAA7 /* EditOrgOption.swift */,
-				1E3E789522930DCA00B0FAA7 /* EditPullRequestOption.swift */,
-				1E3E78D722930DCF00B0FAA7 /* EditReleaseOption.swift */,
-				1E3E78CF22930DCF00B0FAA7 /* EditTeamOption.swift */,
-				1E3E78BF22930DCD00B0FAA7 /* EditUserOption.swift */,
-				1E3E789422930DCA00B0FAA7 /* Email.swift */,
-				1EB31AFE22AE9BAC00056111 /* GitBlobResponse.swift */,
-				1E3E789C22930DCA00B0FAA7 /* GitEntry.swift */,
-				1E3E78D122930DCF00B0FAA7 /* GitObject.swift */,
-				1E3E789D22930DCA00B0FAA7 /* GitTreeResponse.swift */,
-				1E3E78C322930DCD00B0FAA7 /* GPGKey.swift */,
-				1E3E78D622930DCF00B0FAA7 /* GPGKeyEmail.swift */,
-				1E3E78BC22930DCC00B0FAA7 /* Hook.swift */,
-				1E3E78AA22930DCB00B0FAA7 /* Issue.swift */,
-				1E3E78B122930DCC00B0FAA7 /* IssueDeadline.swift */,
-				1E3E78A722930DCB00B0FAA7 /* IssueLabelsOption.swift */,
-				1EC24B1722A9779F000209B2 /* IssuePullRequest.swift */,
-				1E3E789B22930DCA00B0FAA7 /* Label.swift */,
-				1E3E78C522930DCD00B0FAA7 /* MarkdownOption.swift */,
-				1E3E78AC22930DCB00B0FAA7 /* MergePullRequestOption.swift */,
-				1E3E78C622930DCD00B0FAA7 /* MigrateRepoForm.swift */,
-				1E3E78BD22930DCC00B0FAA7 /* Milestone.swift */,
-				1E3E78C022930DCD00B0FAA7 /* Organization.swift */,
-				1E3E78BA22930DCC00B0FAA7 /* PayloadCommit.swift */,
-				1E3E789922930DCA00B0FAA7 /* PayloadCommitVerification.swift */,
-				1E3E789F22930DCA00B0FAA7 /* PayloadUser.swift */,
-				1E3E78C422930DCD00B0FAA7 /* Permission.swift */,
-				1E3E78CD22930DCF00B0FAA7 /* PRBranchInfo.swift */,
-				1E3E78AF22930DCB00B0FAA7 /* PublicKey.swift */,
-				1E3E78A922930DCB00B0FAA7 /* PullRequest.swift */,
-				1E3E789A22930DCA00B0FAA7 /* PullRequestMeta.swift */,
-				1E3E78A822930DCB00B0FAA7 /* Reference.swift */,
-				1E3E789222930DCA00B0FAA7 /* Release.swift */,
-				1E3E78CC22930DCE00B0FAA7 /* RepoCommit.swift */,
-				1E3E78AD22930DCB00B0FAA7 /* Repository.swift */,
-				1E3E78B822930DCC00B0FAA7 /* SearchResults.swift */,
-				1E3E78A522930DCB00B0FAA7 /* ServerVersion.swift */,
-				1E816D3A22933157000F4CD8 /* SortTypeOption.swift */,
-				1E3E792E2293288700B0FAA7 /* StateType.swift */,
-				1E816D3C22933216000F4CD8 /* StateTypeOption.swift */,
-				1E3E78B522930DCC00B0FAA7 /* Status.swift */,
-				1E3E792C229327BC00B0FAA7 /* StatusState.swift */,
-				1E3E78D022930DCF00B0FAA7 /* Tag.swift */,
-				1E3E789022930DCA00B0FAA7 /* Team.swift */,
-				1E3E78DB22930DD000B0FAA7 /* TrackedTime.swift */,
-				1E3E78CE22930DCF00B0FAA7 /* User.swift */,
-				1E3E78AE22930DCB00B0FAA7 /* UserHeatmapData.swift */,
-				1E3E78B422930DCC00B0FAA7 /* WatchInfo.swift */,
+				1E1960FD22BECE9C0051F42B /* AddOptions */,
+				1E1960FE22BECECD0051F42B /* CreateOptions */,
+				1E1960FF22BECEEC0051F42B /* EditOptions */,
+				1E19610322BED0460051F42B /* GiteaSpecificModel */,
+				1E19610222BECFD10051F42B /* GitModels */,
+				1E19610122BECF740051F42B /* UserModels */,
 			);
 			path = Model;
 			sourceTree = "<group>";
