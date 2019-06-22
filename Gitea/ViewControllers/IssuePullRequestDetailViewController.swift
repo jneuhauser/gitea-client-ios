@@ -74,7 +74,6 @@ class IssuePullRequestDetailViewController: MessageViewController, UITableViewDe
             Networking.shared.getIssueComments(fromOwner: repoOwner, andRepo: repoName, withIndex: issueIndex) { result in
                 switch result {
                 case .success(let comments):
-                    debugPrint(comments)
                     self.comments = comments
                     DispatchQueue.main.async {
                         self.tableView.reloadData()
@@ -99,10 +98,7 @@ class IssuePullRequestDetailViewController: MessageViewController, UITableViewDe
         debugPrint("Did press preview button")
     }
     
-    @objc func onSendButton() {
-        debugPrint("Did press send button")
-        debugPrint(messageView.text)
-        
+    @objc func onSendButton() {        
         if let repoOwner = AppState.selectedRepo?.owner?.login,
             let repoName = AppState.selectedRepo?.name,
             let issueNumber = mainEntry?.number {

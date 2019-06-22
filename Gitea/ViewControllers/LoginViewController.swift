@@ -90,8 +90,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func loginButtonPressed(_ sender: UIButton) {
-        print("login button pressed")
-        
         if let server = serverTextField.text, let user = userTextField.text, let password = passwordTextField.text {
             let auth = Authentication.shared
             _ = auth.setServer(fromString: server)

@@ -48,7 +48,6 @@ class IssuesPullRequestsTableViewController: UITableViewController {
             Networking.shared.getIssues(fromOwner: repoOwner, andRepo: repoName) { result in
                 switch result {
                 case .success(let issues):
-                    debugPrint(issues)
                     self.issues = issues.filter() { issue in
                         // Filter out all pull requests
                         return issue.pullRequest == nil
@@ -74,7 +73,6 @@ class IssuesPullRequestsTableViewController: UITableViewController {
             Networking.shared.getPullRequests(fromOwner: repoOwner, andRepo: repoName) { result in
                 switch result {
                 case .success(let pullRequests):
-                    debugPrint(pullRequests)
                     self.issues = pullRequests
                     DispatchQueue.main.async {
                         self.tableView.reloadData()
@@ -115,6 +113,7 @@ class IssuesPullRequestsTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: IssuePullRequestTableViewCell.reuseIdentifier, for: indexPath)
         
         guard let issue = issues?[indexPath.row] else {
+            debugPrint("tableView(cellForRowAt: ...): failed to get model data")
             return cell
         }
         
@@ -146,7 +145,6 @@ class IssuesPullRequestsTableViewController: UITableViewController {
                 let user = issue.user?.login,
                 let createdSince = issue.createdAt?.getDifferenceToNow(withUnitCount: 1) {
                 let state = state == .closed ? "closed" : "opened"
-                debugPrint(createdSince)
                 issueTVC.footerLabel?.text = "#\(number) \(state) \(createdSince) ago by \(user)"
             } else {
                 issueTVC.footerLabel?.text = nil
@@ -184,19 +182,18 @@ class IssuesPullRequestsTableViewController: UITableViewController {
         
         switch identifier {
         case "ShowIssuePullRequestDetail":
-            debugPrint("Segue: ShowIssuePullRequestDetail")
             guard let row = tableView.indexPathForSelectedRow?.row else {
-                print("Error getting selected row")
+                debugPrint("Error getting selected row")
                 return
             }
             
             guard let issue = issues?[row] else {
-                print("Error getting selected issue")
+                debugPrint("Error getting selected issue")
                 return
             }
             
             guard let destination = segue.destination as? IssuePullRequestDetailViewController else {
-                print("Error getting destination view controller")
+                debugPrint("Error getting destination view controller")
                 return
             }
             

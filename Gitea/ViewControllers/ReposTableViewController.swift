@@ -49,7 +49,6 @@ class ReposTableViewController: UITableViewController {
         Networking.shared.getRepositories() { result in
             switch result {
             case .success(let repos):
-                debugPrint(repos)
                 self.repos = repos
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
