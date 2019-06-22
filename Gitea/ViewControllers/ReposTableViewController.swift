@@ -55,6 +55,10 @@ class ReposTableViewController: UITableViewController {
                 }
             case .failure(let error):
                 debugPrint("getRepositories() failed with \(error)")
+                DispatchQueue.main.async {
+                    self.refreshControl?.endRefreshing()
+                    self.showToast(message: Networking.generateUserErrorMessage(error))
+                }
             }
         }
     }

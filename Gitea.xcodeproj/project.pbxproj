@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		1E0C0A33229D72A0001453B5 /* IssuePullRequestTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1E0C0A32229D72A0001453B5 /* IssuePullRequestTableViewCell.xib */; };
+		1E1960FA22BD4D940051F42B /* PopUpControllerGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E1960F922BD4D940051F42B /* PopUpControllerGenerator.swift */; };
+		1E1960FC22BD6C270051F42B /* ViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E1960FB22BD6C270051F42B /* ViewControllerExtensions.swift */; };
 		1E1E7F6622BADB97008AD290 /* IssuePullRequestDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E1E7F6522BADB97008AD290 /* IssuePullRequestDetailViewController.swift */; };
 		1E3B45D9229711250051A448 /* IssuePullRequestTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E3B45D8229711250051A448 /* IssuePullRequestTableViewCell.swift */; };
 		1E3B45DD229738E60051A448 /* DateTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E3B45DC229738E60051A448 /* DateTools.swift */; };
@@ -121,6 +123,8 @@
 
 /* Begin PBXFileReference section */
 		1E0C0A32229D72A0001453B5 /* IssuePullRequestTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IssuePullRequestTableViewCell.xib; sourceTree = "<group>"; };
+		1E1960F922BD4D940051F42B /* PopUpControllerGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpControllerGenerator.swift; sourceTree = "<group>"; };
+		1E1960FB22BD6C270051F42B /* ViewControllerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerExtensions.swift; sourceTree = "<group>"; };
 		1E1E7F6522BADB97008AD290 /* IssuePullRequestDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssuePullRequestDetailViewController.swift; sourceTree = "<group>"; };
 		1E3B45D8229711250051A448 /* IssuePullRequestTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssuePullRequestTableViewCell.swift; sourceTree = "<group>"; };
 		1E3B45DC229738E60051A448 /* DateTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateTools.swift; sourceTree = "<group>"; };
@@ -271,6 +275,8 @@
 				1E3B45DC229738E60051A448 /* DateTools.swift */,
 				1EB31B0222AEA8EF00056111 /* StringExtensions.swift */,
 				1EB31B0722AFA84900056111 /* IntExtensions.swift */,
+				1E1960F922BD4D940051F42B /* PopUpControllerGenerator.swift */,
+				1E1960FB22BD6C270051F42B /* ViewControllerExtensions.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -595,6 +601,7 @@
 				1E3E78EF22930DD000B0FAA7 /* EditDeadlineOption.swift in Sources */,
 				1E3E790E22930DD000B0FAA7 /* Organization.swift in Sources */,
 				1E3E790F22930DD000B0FAA7 /* AddTimeOption.swift in Sources */,
+				1E1960FC22BD6C270051F42B /* ViewControllerExtensions.swift in Sources */,
 				1E3E791E22930DD000B0FAA7 /* Tag.swift in Sources */,
 				1E3E792D229327BC00B0FAA7 /* StatusState.swift in Sources */,
 				1E3E78DF22930DD000B0FAA7 /* Commit.swift in Sources */,
@@ -660,6 +667,7 @@
 				1E3E78F822930DD000B0FAA7 /* Issue.swift in Sources */,
 				1E6EB272228A886F005BA94E /* CodeTableViewController.swift in Sources */,
 				1E3E78E222930DD000B0FAA7 /* Email.swift in Sources */,
+				1E1960FA22BD4D940051F42B /* PopUpControllerGenerator.swift in Sources */,
 				1E3E78FB22930DD000B0FAA7 /* Repository.swift in Sources */,
 				1E3E78F222930DD000B0FAA7 /* EditLabelOption.swift in Sources */,
 				1E3E78DC22930DD000B0FAA7 /* CreateRepoOption.swift in Sources */,

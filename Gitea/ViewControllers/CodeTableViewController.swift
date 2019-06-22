@@ -75,11 +75,13 @@ class CodeTableViewController: UITableViewController, UIPickerViewDataSource, UI
             Networking.shared.getRepositoryReferences(fromOwner: repoOwner, andRepo: repoName, filteredBy: "heads") { result in
                 switch result {
                 case .success(let references):
-                    debugPrint(references)
                     self.references = references
                     self.loadGitTreeAsync()
                 case .failure(let error):
                     debugPrint("getRepositoryReferences() failed with \(error)")
+                    DispatchQueue.main.async {
+                        self.showToast(message: Networking.generateUserErrorMessage(error))
+                    }
                 }
             }
         }
@@ -96,7 +98,6 @@ class CodeTableViewController: UITableViewController, UIPickerViewDataSource, UI
                 Networking.shared.getRepositoryGitTree(fromOwner: repoOwner, andRepo: repoName, forSha: treeSha) { result in
                     switch result {
                     case .success(let gitTree):
-                        debugPrint(gitTree)
                         self.gitTree = gitTree
                         // Sort by name
                         self.gitTree?.tree?.sort(by: { return $0.path! < $1.path! })
@@ -110,6 +111,10 @@ class CodeTableViewController: UITableViewController, UIPickerViewDataSource, UI
                         }
                     case .failure(let error):
                         debugPrint("getRepositoryGitTree() failed with \(error)")
+                        DispatchQueue.main.async {
+                            self.refreshControl?.endRefreshing()
+                            self.showToast(message: Networking.generateUserErrorMessage(error))
+                        }
                     }
                 }
             }
@@ -122,12 +127,14 @@ class CodeTableViewController: UITableViewController, UIPickerViewDataSource, UI
             Networking.shared.getRepositoryBranches(fromOwner: repoOwner, andRepo: repoName) { result in
                 switch result {
                 case .success(let branches):
-                    debugPrint(branches)
                     self.branches = branches
                     // Sort to have current selected branch as first element
                     self.branches?.sort(by: { first, _ in return first.name == self.selectedBranch })
                 case .failure(let error):
                     debugPrint("getRepositoryReferences() failed with \(error)")
+                    DispatchQueue.main.async {
+                        self.showToast(message: Networking.generateUserErrorMessage(error))
+                    }
                 }
             }
         }
@@ -145,10 +152,6 @@ class CodeTableViewController: UITableViewController, UIPickerViewDataSource, UI
 
     @IBAction func refreshAction(_ sender: UIRefreshControl) {
         loadDataModel()
-    }
-    
-    @objc func selectBranchAction(_ sender: Any?) {
-        debugPrint("selectBranchAction(...): called")
     }
     
     // MARK: - Picker view delegates
@@ -312,9 +315,15 @@ class CodeTableViewController: UITableViewController, UIPickerViewDataSource, UI
                             }
                         default:
                             debugPrint("tableView(cellForRowAt ...): unhandled encoding type")
+                            DispatchQueue.main.async {
+                                self.showToast(message: "Unhandled encoding type")
+                            }
                         }
                     case .failure(let error):
                         debugPrint("getRepositoryGitBlob() failed with \(error)")
+                        DispatchQueue.main.async {
+                            self.showToast(message: Networking.generateUserErrorMessage(error))
+                        }
                     }
                 }
             }

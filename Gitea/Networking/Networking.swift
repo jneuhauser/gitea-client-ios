@@ -17,6 +17,10 @@ class Networking {
         case requestConstructError(String)
     }
     
+    public static func generateUserErrorMessage(_ error: Error) -> String {
+        return "Network error: \(error)"
+    }
+    
     private func constructQueryParamString(fromParams params: [String]) -> String {
         var string = String()
         for param in params {

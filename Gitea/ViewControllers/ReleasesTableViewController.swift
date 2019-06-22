@@ -55,6 +55,10 @@ class ReleasesTableViewController: UITableViewController {
                     }
                 case .failure(let error):
                     debugPrint("getReleases() failed with \(error)")
+                    DispatchQueue.main.async {
+                        self.refreshControl?.endRefreshing()
+                        self.showToast(message: Networking.generateUserErrorMessage(error))
+                    }
                 }
             }
         }

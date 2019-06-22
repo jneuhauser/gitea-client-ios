@@ -71,6 +71,10 @@ class IssuesPullRequestsTableViewController: UITableViewController {
                     }
                 case .failure(let error):
                     debugPrint("getIssues() failed with \(error)")
+                    DispatchQueue.main.async {
+                        self.refreshControl?.endRefreshing()
+                        self.showToast(message: Networking.generateUserErrorMessage(error))
+                    }
                 }
             }
         }
@@ -90,6 +94,10 @@ class IssuesPullRequestsTableViewController: UITableViewController {
                     }
                 case .failure(let error):
                     debugPrint("getPullRequests() failed with \(error)")
+                    DispatchQueue.main.async {
+                        self.refreshControl?.endRefreshing()
+                        self.showToast(message: Networking.generateUserErrorMessage(error))
+                    }
                 }
             }
         }

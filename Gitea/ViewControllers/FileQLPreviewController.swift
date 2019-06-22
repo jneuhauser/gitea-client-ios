@@ -33,8 +33,6 @@ class FileQLPreviewController: QLPreviewController, QLPreviewControllerDataSourc
             Networking.shared.getRepositoryGitBlob(fromOwner: repoOwner, andRepo: repoName, forSha: fileSha) { result in
                 switch result {
                 case .success(let blob):
-                    debugPrint(blob)
-                    
                     var decodedData: Data?
                     
                     switch blob.encoding {
@@ -54,11 +52,15 @@ class FileQLPreviewController: QLPreviewController, QLPreviewControllerDataSourc
                             self.reloadData()
                         }
                     } else {
-                        // TODO: Popup message of failure
-                        self.navigationController?.popViewController(animated: true)
+                        DispatchQueue.main.async {
+                            self.showToast(message: "Unknown error")
+                        }
                     }
                 case .failure(let error):
                     debugPrint("getRepositoryGitBlob() failed with \(error)")
+                    DispatchQueue.main.async {
+                        self.showToast(message: Networking.generateUserErrorMessage(error))
+                    }
                 }
             }
         }

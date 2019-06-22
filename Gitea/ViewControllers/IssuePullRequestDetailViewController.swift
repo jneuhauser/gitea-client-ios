@@ -84,6 +84,10 @@ class IssuePullRequestDetailViewController: MessageViewController, UITableViewDe
                     }
                 case .failure(let error):
                     debugPrint("getIssueComments() failed with \(error)")
+                    DispatchQueue.main.async {
+                        self.refreshControl?.endRefreshing()
+                        self.showToast(message: Networking.generateUserErrorMessage(error))
+                    }
                 }
             }
         }
@@ -121,8 +125,11 @@ class IssuePullRequestDetailViewController: MessageViewController, UITableViewDe
                         self.messageView.text = ""
                     }
                 case .failure(let error):
-                    // TODO: Pop up of failure
                     debugPrint("addCommentToIssue() failed with \(error)")
+                    DispatchQueue.main.async {
+                        self.refreshControl?.endRefreshing()
+                        self.showToast(message: Networking.generateUserErrorMessage(error))
+                    }
                 }
             }
         }
