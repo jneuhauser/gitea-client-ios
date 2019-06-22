@@ -11,7 +11,7 @@ import MessageViewController
 
 class IssuePullRequestDetailViewController: MessageViewController, UITableViewDelegate, UITableViewDataSource {
     
-    public var mainEntry: IssuePullRequestDelegate?
+    public var mainEntry: IssuePullRequestData?
     private var comments: [Comment]?
     
     // Improve performance of cell height determination

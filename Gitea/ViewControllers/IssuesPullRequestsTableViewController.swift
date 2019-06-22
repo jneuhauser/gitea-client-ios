@@ -10,7 +10,7 @@ import UIKit
 
 class IssuesPullRequestsTableViewController: UITableViewController {
     
-    private var issues: [IssuePullRequestDelegate]?
+    private var issues: [IssuePullRequestData]?
     
     private var selectedRepoHash = AppState.selectedRepo.hashValue
     

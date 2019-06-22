@@ -112,7 +112,7 @@
 		1EB31B0422AEC66200056111 /* QuickLook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EB31B0022AEA0F600056111 /* QuickLook.framework */; };
 		1EB31B0622AEC8E800056111 /* FileQLPreviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EB31B0522AEC8E800056111 /* FileQLPreviewController.swift */; };
 		1EB31B0822AFA84900056111 /* IntExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EB31B0722AFA84900056111 /* IntExtensions.swift */; };
-		1EC24B1822A9779F000209B2 /* IssuePullRequestDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC24B1722A9779F000209B2 /* IssuePullRequestDelegate.swift */; };
+		1EC24B1822A9779F000209B2 /* IssuePullRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC24B1722A9779F000209B2 /* IssuePullRequest.swift */; };
 		1EC24B1B22A99CE5000209B2 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC24B1A22A99CE5000209B2 /* AppState.swift */; };
 		1ECA4754228DACAB00887A03 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ECA4753228DACAB00887A03 /* Networking.swift */; };
 		1ECA475E228DF2EC00887A03 /* MyNetworkExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ECA475D228DF2EC00887A03 /* MyNetworkExtensions.swift */; };
@@ -229,7 +229,7 @@
 		1EB31B0222AEA8EF00056111 /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
 		1EB31B0522AEC8E800056111 /* FileQLPreviewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileQLPreviewController.swift; sourceTree = "<group>"; };
 		1EB31B0722AFA84900056111 /* IntExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntExtensions.swift; sourceTree = "<group>"; };
-		1EC24B1722A9779F000209B2 /* IssuePullRequestDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssuePullRequestDelegate.swift; sourceTree = "<group>"; };
+		1EC24B1722A9779F000209B2 /* IssuePullRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssuePullRequest.swift; sourceTree = "<group>"; };
 		1EC24B1A22A99CE5000209B2 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		1ECA4753228DACAB00887A03 /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
 		1ECA475D228DF2EC00887A03 /* MyNetworkExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyNetworkExtensions.swift; sourceTree = "<group>"; };
@@ -354,7 +354,6 @@
 		1E6EB276228B038F005BA94E /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				1EC24B1622A97774000209B2 /* Delegate */,
 				1E3E78D322930DCF00B0FAA7 /* AddCollaboratorOption.swift */,
 				1E3E78C122930DCD00B0FAA7 /* AddTimeOption.swift */,
 				1E3E78C922930DCE00B0FAA7 /* Attachment.swift */,
@@ -394,16 +393,17 @@
 				1E3E78CF22930DCF00B0FAA7 /* EditTeamOption.swift */,
 				1E3E78BF22930DCD00B0FAA7 /* EditUserOption.swift */,
 				1E3E789422930DCA00B0FAA7 /* Email.swift */,
+				1EB31AFE22AE9BAC00056111 /* GitBlobResponse.swift */,
 				1E3E789C22930DCA00B0FAA7 /* GitEntry.swift */,
 				1E3E78D122930DCF00B0FAA7 /* GitObject.swift */,
 				1E3E789D22930DCA00B0FAA7 /* GitTreeResponse.swift */,
-				1EB31AFE22AE9BAC00056111 /* GitBlobResponse.swift */,
 				1E3E78C322930DCD00B0FAA7 /* GPGKey.swift */,
 				1E3E78D622930DCF00B0FAA7 /* GPGKeyEmail.swift */,
 				1E3E78BC22930DCC00B0FAA7 /* Hook.swift */,
 				1E3E78AA22930DCB00B0FAA7 /* Issue.swift */,
 				1E3E78B122930DCC00B0FAA7 /* IssueDeadline.swift */,
 				1E3E78A722930DCB00B0FAA7 /* IssueLabelsOption.swift */,
+				1EC24B1722A9779F000209B2 /* IssuePullRequest.swift */,
 				1E3E789B22930DCA00B0FAA7 /* Label.swift */,
 				1E3E78C522930DCD00B0FAA7 /* MarkdownOption.swift */,
 				1E3E78AC22930DCB00B0FAA7 /* MergePullRequestOption.swift */,
@@ -437,14 +437,6 @@
 				1E3E78B422930DCC00B0FAA7 /* WatchInfo.swift */,
 			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		1EC24B1622A97774000209B2 /* Delegate */ = {
-			isa = PBXGroup;
-			children = (
-				1EC24B1722A9779F000209B2 /* IssuePullRequestDelegate.swift */,
-			);
-			path = Delegate;
 			sourceTree = "<group>";
 		};
 		CC6CD36C5EEDCA53059D1D25 /* Pods */ = {
@@ -591,7 +583,7 @@
 				1E3E790C22930DD000B0FAA7 /* EditHookOption.swift in Sources */,
 				1E3E78EC22930DD000B0FAA7 /* CreatePullRequestOption.swift in Sources */,
 				1E1E7F6622BADB97008AD290 /* IssuePullRequestDetailViewController.swift in Sources */,
-				1EC24B1822A9779F000209B2 /* IssuePullRequestDelegate.swift in Sources */,
+				1EC24B1822A9779F000209B2 /* IssuePullRequest.swift in Sources */,
 				1E3E78F922930DD000B0FAA7 /* CreateReleaseOption.swift in Sources */,
 				1E3E790D22930DD000B0FAA7 /* EditUserOption.swift in Sources */,
 				1E3E78F122930DD000B0FAA7 /* CreateIssueCommentOption.swift in Sources */,

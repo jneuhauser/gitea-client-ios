@@ -1,14 +1,11 @@
 //
-//  IssuePullRequestDelegate.swift
-//  Gitea
-//
 //  Created by Johann Neuhauser on 06.06.19.
 //  Copyright © 2019 Johann Neuhauser. All rights reserved.
 //
 
 import Foundation
 
-protocol IssuePullRequestDelegate {
+protocol IssuePullRequestData {
     var body: String? { get }
     var comments: Int64? { get }
     var createdAt: Date? { get }
