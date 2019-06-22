@@ -14,7 +14,6 @@ class IssuePullRequestDetailViewController: MessageViewController, UITableViewDe
     public var mainEntry: IssuePullRequestData?
     private var comments: [Comment]?
     
-    // Improve performance of cell height determination
     typealias RowHeightForContent = (rowHeight: CGFloat, contentHashValue: Int)
     private var rowHeights = [Int : RowHeightForContent]()
     
@@ -34,9 +33,8 @@ class IssuePullRequestDetailViewController: MessageViewController, UITableViewDe
         tableView.dataSource = self
         tableView.delegate = self
         tableView.register(MarkdownWithHeaderTableViewCell.uiNib, forCellReuseIdentifier: MarkdownWithHeaderTableViewCell.reuseIdentifier)
-        // altetnate markdown rendering solutions
+        // simple markdown rendering solution
 //        tableView.register(IssueDetailSimpleTableViewCell.uiNib, forCellReuseIdentifier: IssueDetailSimpleTableViewCell.reuseIdentifier)
-//        tableView.register(WebViewTableViewCell.uiNib, forCellReuseIdentifier: WebViewTableViewCell.reuseIdentifier)
         view.addSubview(tableView)
         
         borderColor = .lightGray
@@ -147,9 +145,8 @@ class IssuePullRequestDetailViewController: MessageViewController, UITableViewDe
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: MarkdownWithHeaderTableViewCell.reuseIdentifier, for: indexPath)
-        // altetnate markdown rendering solutions
+        // simple markdown rendering solution
 //        let cell = tableView.dequeueReusableCell(withIdentifier: IssueDetailSimpleTableViewCell.reuseIdentifier, for: indexPath)
-//        let cell = tableView.dequeueReusableCell(withIdentifier: WebViewTableViewCell.reuseIdentifier, for: indexPath)
         
         var loginO: String?
         var createdSinceO: String?
@@ -200,38 +197,11 @@ class IssuePullRequestDetailViewController: MessageViewController, UITableViewDe
             }
 
             tvc.markdownView.load(markdown: body)
-        // altetnate markdown rendering solutions
+        // simple markdown rendering solution
 //        case is IssueDetailSimpleTableViewCell:
 //            let tvc = cell as! IssueDetailSimpleTableViewCell
 //            tvc.headerLabel.text = header
 //            tvc.contentAttributedLabel.text = body
-//        case is WebViewTableViewCell:
-//            let tvc = cell as! WebViewTableViewCell
-//            if var request = Authentication.shared.constructURLRequest(withPath: "/api/v1/markdown/raw") {
-//                request.httpMethod = "POST"
-//                request.httpBody = body.data(using: .utf8)
-//                
-//                tvc.webView.tag = indexPath.row
-//                tvc.webView.load(request)
-//                
-//                // use already calculated height
-//                if let webViewHeight = rowHeights[indexPath.row] {
-//                    tvc.webViewHeightConstraint.constant = webViewHeight
-//                }
-//                
-//                // we have a generic callback, so set it only if it´s not set
-//                if tvc.webViewResizeCallback == nil {
-//                    tvc.webViewResizeCallback = { tag, height in
-//                        debugPrint("webViewResizeCallback(tag = \(tag), height): \(height)): called")
-//                        // update cell layouts without cell reload
-//                        // TODO: do this only once for all cells???
-//                        tableView.beginUpdates()
-//                        tableView.endUpdates()
-//                        // save hight for later use
-//                        self.rowHeights[tag] = height
-//                    }
-//                }
-//            }
         default:
             debugPrint("tableView(cellForRowAt: ...):  unhandled cell type")
         }
@@ -240,12 +210,4 @@ class IssuePullRequestDetailViewController: MessageViewController, UITableViewDe
         return cell
     }
     
-    // Use table view header for issue / pr title
-//    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-//        if let title = mainEntry?.title,
-//            let number = mainEntry?.number {
-//            return "#\(number) - \(title)"
-//        }
-//        return nil
-//    }
 }

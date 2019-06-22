@@ -10,7 +10,6 @@ import UIKit
 
 class CodeTableViewController: UITableViewController, UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate {
     
-    // Set this var to load this specific tree
     public var gitTreeShaToLoad: String?
     
     private var references: [Reference]?
@@ -32,12 +31,6 @@ class CodeTableViewController: UITableViewController, UIPickerViewDataSource, UI
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
         
         if title == nil {
             title = "Code"
@@ -191,7 +184,6 @@ class CodeTableViewController: UITableViewController, UIPickerViewDataSource, UI
             descriptionLabel.numberOfLines = 0
             descriptionLabel.textColor = UIColor.black
             descriptionLabel.sizeToFit()
-            // property translatesAutoresizingMaskIntoConstraints should be false to use auto layout for dynamic size
             descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
             headerView.addSubview(descriptionLabel)
             
@@ -240,7 +232,6 @@ class CodeTableViewController: UITableViewController, UIPickerViewDataSource, UI
             debugPrint("tableView(didSelectRowAt): blob type selected")
             let fileQLPreviewController = FileQLPreviewController()
             fileQLPreviewController.gitEntry = selectedElement
-            // TODO: setup vc to not overlap with tabbar ???
             navigationController?.pushViewController(fileQLPreviewController, animated: true)
         case "tree":
             debugPrint("tableView(didSelectRowAt): tree type selected")
@@ -262,7 +253,6 @@ class CodeTableViewController: UITableViewController, UIPickerViewDataSource, UI
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
