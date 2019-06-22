@@ -41,8 +41,34 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             auth.setAuthentication(withUser: user, andPassword: password)
         }
         
-        // TODO: Do this only if login was successful
-        showMainViewController()
+        Networking.shared.getAuhtenticatedUser() { result in
+            switch result {
+            case .success(_):
+                DispatchQueue.main.async {
+                    self.showMainViewController()
+                }
+            case .failure(let error):
+                debugPrint("getAuhtenticatedUser(): failed with \(error)")
+                DispatchQueue.main.async {
+                    if let httpError = error as? URLSession.HTTPError {
+                        switch httpError {
+                        case .serverSideError(401):
+                            self.showToast(message: "User or password wrong")
+                        case .serverSideError(404):
+                            self.showToast(message: "Server address wrong")
+                        case .serverSideError(500...599):
+                            self.showToast(message: "Server error")
+                        case .transportError(_):
+                            self.showToast(message: "Transport error")
+                        default:
+                            self.showToast(message: "Unknown http error: \(httpError)")
+                        }
+                    } else {
+                        self.showToast(message: "Unknown error: \(error)")
+                    }
+                }
+            }
+        }
     }
     
     // MARK: - UITextFieldDelegate

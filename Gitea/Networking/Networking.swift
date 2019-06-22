@@ -281,4 +281,17 @@ class Networking {
         let task = URLSession.jsonRequest(forResponseType: Comment.self, withRequest: request, withMethod: .post, withBody: comment, completionHandler: completionHandler)
         task.resume()
     }
+    
+    public func getAuhtenticatedUser(
+        completionHandler: @escaping (Result<User,Error>) -> Void)
+    {
+        let apiPath = "/api/v1/user"
+        guard let request = Authentication.shared.constructURLRequest(withPath: apiPath) else {
+            completionHandler(Result.failure(NetworkingError.requestConstructError(apiPath)))
+            return
+        }
+        
+        let task = URLSession.jsonRequest(forResponseType: User.self, withRequest: request, withMethod: .get, completionHandler: completionHandler)
+        task.resume()
+    }
 }
