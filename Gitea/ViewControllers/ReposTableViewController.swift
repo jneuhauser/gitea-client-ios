@@ -31,16 +31,20 @@ class ReposTableViewController: UITableViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        if let loginViewController = presentingViewController as? LoginViewController {
-            // TODO: Setup logout button
-            //loginViewController.dismiss(animated: true)
-            debugPrint("My presenting view controller is: \(loginViewController)")
+        if let _ = presentingViewController as? LoginViewController {
+            self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(askForLogout(_:)))
         }
         
         // Load repos data only if not loaded before
         if repos == nil {
             loadReposAsync()
         }
+    }
+    
+    @objc func askForLogout(_ sender: UIBarButtonItem) {
+        let logout: ActionHandler = { _ in self.presentingViewController?.dismiss(animated: true) }
+        let test = PopUpControllerGenerator.createYesNoPopUp(withTitle: "Logout", andMessage: "Are you sure you want to log out?", yesHandler: logout, noHandler: nil)
+        navigationController?.present(test, animated: true, completion: nil)
     }
     
     private func loadReposAsync() {

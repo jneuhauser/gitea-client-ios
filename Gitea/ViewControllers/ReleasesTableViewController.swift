@@ -29,12 +29,6 @@ class ReleasesTableViewController: UITableViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        if let loginViewController = presentingViewController as? LoginViewController {
-            // TODO: Setup logout button
-            //loginViewController.dismiss(animated: true)
-            debugPrint("My presenting view controller is: \(loginViewController)")
-        }
-        
         if selectedRepoHash != AppState.selectedRepo.hashValue {
             selectedRepoHash = AppState.selectedRepo.hashValue
             loadReleasesAsync()

@@ -51,12 +51,6 @@ class CodeTableViewController: UITableViewController, UIPickerViewDataSource, UI
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        if let loginViewController = presentingViewController as? LoginViewController {
-            // TODO: Setup logout button
-            //loginViewController.dismiss(animated: true)
-            debugPrint("My presenting view controller is: \(loginViewController)")
-        }
-        
         if gitTreeShaToLoad != nil {
             loadGitTreeAsync()
         } else
