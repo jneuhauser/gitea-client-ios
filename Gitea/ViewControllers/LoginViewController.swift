@@ -34,30 +34,18 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         passwordTextField.text = "DasIstEinTestUser"
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-    
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        switch textField {
-//        case serverTextField:
-//            // If we have the server text field and the result is nil the regex didn´t match and the input is not allowed
-//            if string.range(of: "^(https:\\/\\/)[a-z0-9]+([\\-\\.]{1}[a-z0-9]+)*\\.[a-z]{2,5}(:[0-9]{1,5})?(\\/.*)?$", options: .regularExpression) == nil {
-//                return false
-//            }
-        default:
-            debugPrint("LoginViewController.textField(): Triggered by unhandled UITextField")
+    @IBAction func loginButtonPressed(_ sender: UIButton) {
+        if let server = serverTextField.text, let user = userTextField.text, let password = passwordTextField.text {
+            let auth = Authentication.shared
+            _ = auth.setServer(fromString: server)
+            auth.setAuthentication(withUser: user, andPassword: password)
         }
         
-        return true
+        // TODO: Do this only if login was successful
+        showMainViewController()
     }
+    
+    // MARK: - UITextFieldDelegate
     
     func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
         guard let text = textField.text else {
@@ -70,34 +58,23 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         switch textField {
         case serverTextField:
             if text.range(of: "^(https:\\/\\/)[a-z0-9]+([\\-\\.]{1}[a-z0-9]+)*\\.[a-z]{2,5}(:[0-9]{1,5})?(\\/.*)?$", options: .regularExpression) == nil {
-                // TODO: Raise a notification that input is not sufficient
+                self.showToast(message: "Not a valid server address")
                 return false
             }
         case userTextField:
-            if text.count <= 2 {
-                // TODO: Raise a notification that input is not sufficient
+            if text.count < 2 {
+                self.showToast(message: "Not a valid user name")
                 return false
             }
         case passwordTextField:
-            if text.count <= 6 {
-                // TODO: Raise a notification that input is not sufficient
+            if text.count < 6 {
+                self.showToast(message: "Not a valid password")
                 return false
             }
         default:
             debugPrint("LoginViewController.textFieldShouldEndEditing(): Triggered by unhandled UITextField")
         }
         return true
-    }
-    
-    @IBAction func loginButtonPressed(_ sender: UIButton) {
-        if let server = serverTextField.text, let user = userTextField.text, let password = passwordTextField.text {
-            let auth = Authentication.shared
-            _ = auth.setServer(fromString: server)
-            auth.setAuthentication(withUser: user, andPassword: password)
-        }
-        
-        // TODO: Do this only if login was successful
-        showMainViewController()
     }
     
 }

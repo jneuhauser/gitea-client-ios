@@ -35,7 +35,6 @@ class ReleasesTableViewController: UITableViewController {
             Networking.shared.getReleases(fromOwner: repoOwner, andRepo: repoName) { result in
                 switch result {
                 case .success(let releases):
-                    debugPrint(releases)
                     self.releases = releases
                     DispatchQueue.main.async {
                         self.tableView.reloadData()
