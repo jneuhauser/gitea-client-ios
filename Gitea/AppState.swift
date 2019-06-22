@@ -67,6 +67,8 @@ class AppState {
     
     public static var selectedRepo: Repository?
     
+    // MARK: Global
+    
     public static func reset() {
         selectedRepo = nil
     }
