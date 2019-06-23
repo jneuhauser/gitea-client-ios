@@ -6,10 +6,9 @@
 import Foundation
 
 public struct AddCollaboratorOption: Codable, Equatable, Hashable {
-    
     public var permission: String?
-    
-    public init(permission: String?) { 
+
+    public init(permission: String?) {
         self.permission = permission
     }
 }

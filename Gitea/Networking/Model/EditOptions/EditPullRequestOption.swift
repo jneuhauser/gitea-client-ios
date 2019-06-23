@@ -6,7 +6,6 @@
 import Foundation
 
 public struct EditPullRequestOption: Codable, Equatable, Hashable {
-    
     public var assignee: String?
     public var assignees: [String]?
     public var body: String?
@@ -15,8 +14,8 @@ public struct EditPullRequestOption: Codable, Equatable, Hashable {
     public var milestone: Int64?
     public var state: String?
     public var title: String?
-    
-    public init(assignee: String?, assignees: [String]?, body: String?, dueDate: Date?, labels: [Int64]?, milestone: Int64?, state: String?, title: String?) { 
+
+    public init(assignee: String?, assignees: [String]?, body: String?, dueDate: Date?, labels: [Int64]?, milestone: Int64?, state: String?, title: String?) {
         self.assignee = assignee
         self.assignees = assignees
         self.body = body
@@ -26,8 +25,8 @@ public struct EditPullRequestOption: Codable, Equatable, Hashable {
         self.state = state
         self.title = title
     }
-    
-    public enum CodingKeys: String, CodingKey { 
+
+    public enum CodingKeys: String, CodingKey {
         case assignee
         case assignees
         case body

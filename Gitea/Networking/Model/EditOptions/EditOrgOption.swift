@@ -6,20 +6,19 @@
 import Foundation
 
 public struct EditOrgOption: Codable, Equatable, Hashable {
-    
     public var _description: String?
     public var fullName: String?
     public var location: String?
     public var website: String?
-    
-    public init(_description: String?, fullName: String?, location: String?, website: String?) { 
+
+    public init(_description: String?, fullName: String?, location: String?, website: String?) {
         self._description = _description
         self.fullName = fullName
         self.location = location
         self.website = website
     }
-    
-    public enum CodingKeys: String, CodingKey { 
+
+    public enum CodingKeys: String, CodingKey {
         case _description = "description"
         case fullName = "full_name"
         case location

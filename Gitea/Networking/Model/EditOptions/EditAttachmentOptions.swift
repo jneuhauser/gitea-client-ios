@@ -6,10 +6,9 @@
 import Foundation
 
 public struct EditAttachmentOptions: Codable, Equatable, Hashable {
-    
     public var name: String?
-    
-    public init(name: String?) { 
+
+    public init(name: String?) {
         self.name = name
     }
 }

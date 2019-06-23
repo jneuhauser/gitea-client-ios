@@ -6,7 +6,6 @@
 import Foundation
 
 public struct Issue: Codable, Equatable, Hashable, IssuePullRequestData {
-    
     public var assignee: User?
     public var assignees: [User]?
     public var body: String?
@@ -24,8 +23,8 @@ public struct Issue: Codable, Equatable, Hashable, IssuePullRequestData {
     public var updatedAt: Date?
     public var url: String?
     public var user: User?
-    
-    public init(assignee: User?, assignees: [User]?, body: String?, closedAt: Date?, comments: Int64?, createdAt: Date?, dueDate: Date?, _id: Int64?, labels: [Label]?, milestone: Milestone?, number: Int64?, pullRequest: PullRequestMeta?, state: StateType?, title: String?, updatedAt: Date?, url: String?, user: User?) { 
+
+    public init(assignee: User?, assignees: [User]?, body: String?, closedAt: Date?, comments: Int64?, createdAt: Date?, dueDate: Date?, _id: Int64?, labels: [Label]?, milestone: Milestone?, number: Int64?, pullRequest: PullRequestMeta?, state: StateType?, title: String?, updatedAt: Date?, url: String?, user: User?) {
         self.assignee = assignee
         self.assignees = assignees
         self.body = body
@@ -44,8 +43,8 @@ public struct Issue: Codable, Equatable, Hashable, IssuePullRequestData {
         self.url = url
         self.user = user
     }
-    
-    public enum CodingKeys: String, CodingKey { 
+
+    public enum CodingKeys: String, CodingKey {
         case assignee
         case assignees
         case body

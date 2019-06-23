@@ -6,11 +6,10 @@
 import Foundation
 
 public struct SearchResults: Codable, Equatable, Hashable {
-    
     public var data: [Repository]?
     public var ok: Bool?
-    
-    public init(data: [Repository]?, ok: Bool?) { 
+
+    public init(data: [Repository]?, ok: Bool?) {
         self.data = data
         self.ok = ok
     }

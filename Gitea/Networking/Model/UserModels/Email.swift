@@ -6,12 +6,11 @@
 import Foundation
 
 public struct Email: Codable, Equatable, Hashable {
-    
     public var email: String?
     public var primary: Bool?
     public var verified: Bool?
-    
-    public init(email: String?, primary: Bool?, verified: Bool?) { 
+
+    public init(email: String?, primary: Bool?, verified: Bool?) {
         self.email = email
         self.primary = primary
         self.verified = verified

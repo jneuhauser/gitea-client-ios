@@ -6,13 +6,12 @@
 import Foundation
 
 public struct PayloadCommitVerification: Codable, Equatable, Hashable {
-    
     public var payload: String?
     public var reason: String?
     public var signature: String?
     public var verified: Bool?
-    
-    public init(payload: String?, reason: String?, signature: String?, verified: Bool?) { 
+
+    public init(payload: String?, reason: String?, signature: String?, verified: Bool?) {
         self.payload = payload
         self.reason = reason
         self.signature = signature

@@ -6,11 +6,10 @@
 import Foundation
 
 public struct GPGKeyEmail: Codable, Equatable, Hashable {
-    
     public var email: String?
     public var verified: Bool?
-    
-    public init(email: String?, verified: Bool?) { 
+
+    public init(email: String?, verified: Bool?) {
         self.email = email
         self.verified = verified
     }

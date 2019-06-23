@@ -6,12 +6,11 @@
 import Foundation
 
 public struct CommitUser: Codable, Equatable, Hashable {
-    
     public var date: String?
     public var email: String?
     public var name: String?
-    
-    public init(date: String?, email: String?, name: String?) { 
+
+    public init(date: String?, email: String?, name: String?) {
         self.date = date
         self.email = email
         self.name = name

@@ -6,15 +6,14 @@
 import Foundation
 
 public struct GitTreeResponse: Codable, Equatable, Hashable {
-    
     public var page: Int64?
     public var sha: String?
     public var totalCount: Int64?
     public var tree: [GitEntry]?
     public var truncated: Bool?
     public var url: String?
-    
-    public init(page: Int64?, sha: String?, totalCount: Int64?, tree: [GitEntry]?, truncated: Bool?, url: String?) { 
+
+    public init(page: Int64?, sha: String?, totalCount: Int64?, tree: [GitEntry]?, truncated: Bool?, url: String?) {
         self.page = page
         self.sha = sha
         self.totalCount = totalCount
@@ -22,8 +21,8 @@ public struct GitTreeResponse: Codable, Equatable, Hashable {
         self.truncated = truncated
         self.url = url
     }
-    
-    public enum CodingKeys: String, CodingKey { 
+
+    public enum CodingKeys: String, CodingKey {
         case page
         case sha
         case totalCount = "total_count"

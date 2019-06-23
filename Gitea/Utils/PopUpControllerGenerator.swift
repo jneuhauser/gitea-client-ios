@@ -14,9 +14,9 @@ typealias ActionHandler = (_: UIAlertAction) -> Void
 class PopUpControllerGenerator {
     static func createPopUp(withTitle title: String, andMessage message: String, noHandler: ActionHandler? = nil, yesHandler: ActionHandler? = nil) -> UIAlertController {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        
+
         // Assume a dimissable pop up if no handlers are set
-        if noHandler == nil && yesHandler == nil {
+        if noHandler == nil, yesHandler == nil {
             let dismissAction = UIAlertAction(title: "Dismiss", style: .cancel, handler: nil)
             alertController.addAction(dismissAction)
         } else {
@@ -25,7 +25,7 @@ class PopUpControllerGenerator {
             let yesAction = UIAlertAction(title: "Yes", style: .default, handler: yesHandler)
             alertController.addAction(yesAction)
         }
-        
+
         return alertController
     }
 }

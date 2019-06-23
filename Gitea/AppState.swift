@@ -6,13 +6,12 @@
 //  Copyright © 2019 Johann Neuhauser. All rights reserved.
 //
 
-import UIKit
 import Foundation
+import UIKit
 
 class AppState {
-    
     // MARK: TabBarItem
-    
+
     public enum TabBarItem: Int {
         case Repos = 0
         case Code
@@ -21,14 +20,14 @@ class AppState {
         case Releases
         case Invalid = 99
     }
-    
+
     public static func getSelectedTabBarItem(fromIndex index: Int?) -> TabBarItem {
         if let index = index {
             return TabBarItem(rawValue: index) ?? .Invalid
         }
         return .Invalid
     }
-    
+
     public static func disableOtherTabBarItems(ofTabBarController controller: UITabBarController?) {
         guard let controller = controller else {
             return
@@ -41,14 +40,14 @@ class AppState {
             }
         }
     }
-    
+
     public static func enableAllTabBarItems(ofTabBarController controller: UITabBarController?) {
         var it = controller?.tabBar.items?.makeIterator()
         while let item = it?.next() {
             item.isEnabled = true
         }
     }
-    
+
     public static func popToRootOtherNavigationControllers(ofTabBarController controller: UITabBarController?) {
         guard let controller = controller else {
             return
@@ -62,13 +61,13 @@ class AppState {
             }
         }
     }
-    
+
     // MARK: Selected Repo
-    
+
     public static var selectedRepo: Repository?
-    
+
     // MARK: Global
-    
+
     public static func reset() {
         selectedRepo = nil
     }

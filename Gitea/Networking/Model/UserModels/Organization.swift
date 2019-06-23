@@ -6,7 +6,6 @@
 import Foundation
 
 public struct Organization: Codable, Equatable, Hashable {
-    
     public var avatarUrl: String?
     public var _description: String?
     public var fullName: String?
@@ -14,8 +13,8 @@ public struct Organization: Codable, Equatable, Hashable {
     public var location: String?
     public var username: String?
     public var website: String?
-    
-    public init(avatarUrl: String?, _description: String?, fullName: String?, _id: Int64?, location: String?, username: String?, website: String?) { 
+
+    public init(avatarUrl: String?, _description: String?, fullName: String?, _id: Int64?, location: String?, username: String?, website: String?) {
         self.avatarUrl = avatarUrl
         self._description = _description
         self.fullName = fullName
@@ -24,8 +23,8 @@ public struct Organization: Codable, Equatable, Hashable {
         self.username = username
         self.website = website
     }
-    
-    public enum CodingKeys: String, CodingKey { 
+
+    public enum CodingKeys: String, CodingKey {
         case avatarUrl = "avatar_url"
         case _description = "description"
         case fullName = "full_name"

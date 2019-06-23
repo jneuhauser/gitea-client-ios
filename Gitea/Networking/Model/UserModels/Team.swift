@@ -6,15 +6,14 @@
 import Foundation
 
 public struct Team: Codable, Equatable, Hashable {
-    
-    public enum Permission: String, Codable { 
+    public enum Permission: String, Codable {
         case _none = "none"
-        case read = "read"
-        case write = "write"
-        case admin = "admin"
-        case owner = "owner"
+        case read
+        case write
+        case admin
+        case owner
     }
-    
+
     public enum Units: String, Codable {
         case repoCode = "repo.code"
         case repoIssues = "repo.issues"
@@ -24,15 +23,15 @@ public struct Team: Codable, Equatable, Hashable {
         case repoReleases = "repo.releases"
         case repoExtWiki = "repo.ext_wiki"
     }
-    
+
     public var _description: String?
     public var _id: Int64?
     public var name: String?
     public var organization: Organization?
     public var permission: Permission?
     public var units: [Units]?
-    
-    public init(_description: String?, _id: Int64?, name: String?, organization: Organization?, permission: Permission?, units: [Units]?) { 
+
+    public init(_description: String?, _id: Int64?, name: String?, organization: Organization?, permission: Permission?, units: [Units]?) {
         self._description = _description
         self._id = _id
         self.name = name
@@ -40,8 +39,8 @@ public struct Team: Codable, Equatable, Hashable {
         self.permission = permission
         self.units = units
     }
-    
-    public enum CodingKeys: String, CodingKey { 
+
+    public enum CodingKeys: String, CodingKey {
         case _description = "description"
         case _id = "id"
         case name

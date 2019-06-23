@@ -6,7 +6,6 @@
 import Foundation
 
 public struct PayloadCommit: Codable, Equatable, Hashable {
-    
     public var added: [String]?
     public var author: PayloadUser?
     public var committer: PayloadUser?
@@ -17,8 +16,8 @@ public struct PayloadCommit: Codable, Equatable, Hashable {
     public var timestamp: Date?
     public var url: String?
     public var verification: PayloadCommitVerification?
-    
-    public init(added: [String]?, author: PayloadUser?, committer: PayloadUser?, _id: String?, message: String?, modified: [String]?, removed: [String]?, timestamp: Date?, url: String?, verification: PayloadCommitVerification?) { 
+
+    public init(added: [String]?, author: PayloadUser?, committer: PayloadUser?, _id: String?, message: String?, modified: [String]?, removed: [String]?, timestamp: Date?, url: String?, verification: PayloadCommitVerification?) {
         self.added = added
         self.author = author
         self.committer = committer
@@ -30,8 +29,8 @@ public struct PayloadCommit: Codable, Equatable, Hashable {
         self.url = url
         self.verification = verification
     }
-    
-    public enum CodingKeys: String, CodingKey { 
+
+    public enum CodingKeys: String, CodingKey {
         case added
         case author
         case committer

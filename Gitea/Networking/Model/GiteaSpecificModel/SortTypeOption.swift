@@ -6,10 +6,10 @@
 import Foundation
 
 public enum SortTypeOption: String, Codable, Equatable, Hashable {
-    case oldest = "oldest"
-    case recentupdate = "recentupdate"
-    case leastupdate = "leastupdate"
-    case mostcomment = "mostcomment"
-    case leastcomment = "leastcomment"
-    case priority = "priority"
+    case oldest
+    case recentupdate
+    case leastupdate
+    case mostcomment
+    case leastcomment
+    case priority
 }

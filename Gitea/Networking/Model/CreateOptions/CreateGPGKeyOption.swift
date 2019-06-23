@@ -6,14 +6,13 @@
 import Foundation
 
 public struct CreateGPGKeyOption: Codable, Equatable, Hashable {
-    
     public var armoredPublicKey: String
-    
-    public init(armoredPublicKey: String) { 
+
+    public init(armoredPublicKey: String) {
         self.armoredPublicKey = armoredPublicKey
     }
-    
-    public enum CodingKeys: String, CodingKey { 
+
+    public enum CodingKeys: String, CodingKey {
         case armoredPublicKey = "armored_public_key"
     }
 }

@@ -6,7 +6,6 @@
 import Foundation
 
 public struct CreateUserOption: Codable, Equatable, Hashable {
-    
     public var email: String
     public var fullName: String?
     public var loginName: String?
@@ -15,8 +14,8 @@ public struct CreateUserOption: Codable, Equatable, Hashable {
     public var sendNotify: Bool?
     public var sourceId: Int64?
     public var username: String
-    
-    public init(email: String, fullName: String?, loginName: String?, mustChangePassword: Bool?, password: String, sendNotify: Bool?, sourceId: Int64?, username: String) { 
+
+    public init(email: String, fullName: String?, loginName: String?, mustChangePassword: Bool?, password: String, sendNotify: Bool?, sourceId: Int64?, username: String) {
         self.email = email
         self.fullName = fullName
         self.loginName = loginName
@@ -26,8 +25,8 @@ public struct CreateUserOption: Codable, Equatable, Hashable {
         self.sourceId = sourceId
         self.username = username
     }
-    
-    public enum CodingKeys: String, CodingKey { 
+
+    public enum CodingKeys: String, CodingKey {
         case email
         case fullName = "full_name"
         case loginName = "login_name"

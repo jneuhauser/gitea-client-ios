@@ -6,7 +6,6 @@
 import Foundation
 
 public struct CreatePullRequestOption: Codable, Equatable, Hashable {
-    
     public var assignee: String?
     public var assignees: [String]?
     public var base: String?
@@ -16,8 +15,8 @@ public struct CreatePullRequestOption: Codable, Equatable, Hashable {
     public var labels: [Int64]?
     public var milestone: Int64?
     public var title: String?
-    
-    public init(assignee: String?, assignees: [String]?, base: String?, body: String?, dueDate: Date?, head: String?, labels: [Int64]?, milestone: Int64?, title: String?) { 
+
+    public init(assignee: String?, assignees: [String]?, base: String?, body: String?, dueDate: Date?, head: String?, labels: [Int64]?, milestone: Int64?, title: String?) {
         self.assignee = assignee
         self.assignees = assignees
         self.base = base
@@ -28,8 +27,8 @@ public struct CreatePullRequestOption: Codable, Equatable, Hashable {
         self.milestone = milestone
         self.title = title
     }
-    
-    public enum CodingKeys: String, CodingKey { 
+
+    public enum CodingKeys: String, CodingKey {
         case assignee
         case assignees
         case base

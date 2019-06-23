@@ -6,14 +6,13 @@
 import Foundation
 
 public struct RepoCommit: Codable, Equatable, Hashable {
-    
     public var author: CommitUser?
     public var committer: CommitUser?
     public var message: String?
     public var tree: CommitMeta?
     public var url: String?
-    
-    public init(author: CommitUser?, committer: CommitUser?, message: String?, tree: CommitMeta?, url: String?) { 
+
+    public init(author: CommitUser?, committer: CommitUser?, message: String?, tree: CommitMeta?, url: String?) {
         self.author = author
         self.committer = committer
         self.message = message
