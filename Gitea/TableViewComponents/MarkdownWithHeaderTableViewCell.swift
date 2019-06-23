@@ -32,4 +32,22 @@ class MarkdownWithHeaderTableViewCell: UITableViewCell {
     override func prepareForReuse() {
         markdownView.onRendered = nil
     }
+    
+    public func setupOnTouchLink(forViewController vc: UIViewController) {
+        markdownView.onTouchLink = { request in
+            guard let url = request.url else { return false }
+            
+            if url.scheme == "https" || url.scheme == "http" {
+                let safari = SFSafariViewController(url: url)
+                vc.present(safari, animated: true)
+                return false
+            } else if url.scheme == "file" {
+                debugPrint("Local file preview not implemented for now")
+                return false
+            } else {
+                debugPrint("Unhandled url scheme: \(url.scheme ?? "not set")")
+                return false
+            }
+        }
+    }
 }

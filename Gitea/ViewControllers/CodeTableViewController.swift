@@ -286,6 +286,8 @@ class CodeTableViewController: UITableViewController, UIPickerViewDataSource, UI
                     tableView.beginUpdates()
                     tableView.endUpdates()
                 }
+                
+                tvc.setupOnTouchLink(forViewController: self)
             
                 Networking.shared.getRepositoryGitBlob(fromOwner: repoOwner, andRepo: repoName, forSha: fileSha) { result in
                     switch result {

@@ -191,6 +191,8 @@ class IssuePullRequestDetailViewController: MessageViewController, UITableViewDe
                     tableView.endUpdates()
                 }
             }
+            
+            tvc.setupOnTouchLink(forViewController: self)
 
             tvc.markdownView.load(markdown: body)
         // simple markdown rendering solution
