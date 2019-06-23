@@ -94,7 +94,8 @@ class IssuePullRequestDetailViewController: MessageViewController, UITableViewDe
     }
 
     @objc func onPreviewButton() {
-        debugPrint("Did press preview button")
+        debugPrint("Preview button not implemented yet")
+        showToast(message: "Markdown preview not implemented yet")
     }
 
     @objc func onSendButton() {
