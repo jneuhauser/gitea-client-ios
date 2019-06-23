@@ -39,6 +39,8 @@ class CodeTableViewController: UITableViewController, UIPickerViewDataSource, UI
         tableView.sectionHeaderHeight = UITableView.automaticDimension
         tableView.estimatedSectionHeaderHeight = 2
         tableView.register(MarkdownWithHeaderTableViewCell.uiNib, forCellReuseIdentifier: MarkdownWithHeaderTableViewCell.reuseIdentifier)
+        
+        navigationController?.navigationBar.isTranslucent = false
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -179,6 +181,8 @@ class CodeTableViewController: UITableViewController, UIPickerViewDataSource, UI
         let headerView = UIView()
         
         if gitTreeShaToLoad == nil {
+            headerView.backgroundColor = .white
+            
             let descriptionLabel = UILabel()
             descriptionLabel.text = AppState.selectedRepo?._description
             descriptionLabel.numberOfLines = 0
