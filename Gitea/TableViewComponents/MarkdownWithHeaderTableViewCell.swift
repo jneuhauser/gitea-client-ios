@@ -42,6 +42,14 @@ class MarkdownWithHeaderTableViewCell: UITableViewCell {
                 webViewController.load(url)
                 vc.navigationController?.pushViewController(webViewController, animated: true)
                 return false
+            } else if url.scheme == "mailto" {
+                if #available(iOS 10.0, *) {
+                    UIApplication.shared.open(url)
+                } else {
+                    // Fallback on earlier versions
+                    UIApplication.shared.openURL(url)
+                }
+                return false
             } else if url.scheme == "file" {
                 debugPrint("Local file preview not implemented for now")
                 return false
