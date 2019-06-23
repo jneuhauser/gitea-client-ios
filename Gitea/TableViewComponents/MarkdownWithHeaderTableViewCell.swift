@@ -30,6 +30,7 @@ class MarkdownWithHeaderTableViewCell: UITableViewCell {
 
     override func prepareForReuse() {
         markdownView.onRendered = nil
+        hStackViewHeight.constant = headerLabel.frame.height
     }
 
     public func setupOnTouchLink(forViewController vc: UIViewController) {
