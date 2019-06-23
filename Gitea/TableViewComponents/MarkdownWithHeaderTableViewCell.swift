@@ -38,8 +38,9 @@ class MarkdownWithHeaderTableViewCell: UITableViewCell {
             guard let url = request.url else { return false }
             
             if url.scheme == "https" || url.scheme == "http" {
-                let safari = SFSafariViewController(url: url)
-                vc.present(safari, animated: true)
+                let webViewController = WKWebViewViewController()
+                webViewController.load(url)
+                vc.navigationController?.pushViewController(webViewController, animated: true)
                 return false
             } else if url.scheme == "file" {
                 debugPrint("Local file preview not implemented for now")

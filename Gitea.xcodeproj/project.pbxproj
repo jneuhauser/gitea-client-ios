@@ -93,6 +93,7 @@
 		1E4643B322A06EE200A399A8 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E4643B222A06EE200A399A8 /* WebKit.framework */; };
 		1E4643B622A0EEA000A399A8 /* IssueDetailSimpleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4643B422A0EEA000A399A8 /* IssueDetailSimpleTableViewCell.swift */; };
 		1E4643B722A0EEA000A399A8 /* IssueDetailSimpleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1E4643B522A0EEA000A399A8 /* IssueDetailSimpleTableViewCell.xib */; };
+		1E69ACFE22BF869F004F16D6 /* WKWebViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E69ACFD22BF869F004F16D6 /* WKWebViewViewController.swift */; };
 		1E6EB2512289FDC3005BA94E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E6EB2502289FDC3005BA94E /* AppDelegate.swift */; };
 		1E6EB2582289FDC3005BA94E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1E6EB2562289FDC3005BA94E /* Main.storyboard */; };
 		1E6EB25A2289FDC4005BA94E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1E6EB2592289FDC4005BA94E /* Assets.xcassets */; };
@@ -206,6 +207,7 @@
 		1E4643B222A06EE200A399A8 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		1E4643B422A0EEA000A399A8 /* IssueDetailSimpleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueDetailSimpleTableViewCell.swift; sourceTree = "<group>"; };
 		1E4643B522A0EEA000A399A8 /* IssueDetailSimpleTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IssueDetailSimpleTableViewCell.xib; sourceTree = "<group>"; };
+		1E69ACFD22BF869F004F16D6 /* WKWebViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WKWebViewViewController.swift; sourceTree = "<group>"; };
 		1E6EB24D2289FDC3005BA94E /* Gitea.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gitea.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1E6EB2502289FDC3005BA94E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1E6EB2572289FDC3005BA94E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -453,6 +455,7 @@
 				1E6EB273228AE837005BA94E /* LoginViewController.swift */,
 				1E6EB26E228A04E4005BA94E /* ReleasesTableViewController.swift */,
 				1E6EB268228A048F005BA94E /* ReposTableViewController.swift */,
+				1E69ACFD22BF869F004F16D6 /* WKWebViewViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -621,6 +624,7 @@
 				1E3E790322930DD000B0FAA7 /* Status.swift in Sources */,
 				1E3E791022930DD000B0FAA7 /* EditOrgOption.swift in Sources */,
 				1E3E792822930DD000B0FAA7 /* CreateHookOption.swift in Sources */,
+				1E69ACFE22BF869F004F16D6 /* WKWebViewViewController.swift in Sources */,
 				1E3E790C22930DD000B0FAA7 /* EditHookOption.swift in Sources */,
 				1E3E78EC22930DD000B0FAA7 /* CreatePullRequestOption.swift in Sources */,
 				1E1E7F6622BADB97008AD290 /* IssuePullRequestDetailViewController.swift in Sources */,
