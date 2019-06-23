@@ -9,9 +9,22 @@
 import Foundation
 import UIKit
 
-var vSpinner: UIView?
-
 extension UIView {
+    
+    struct AssociatedKeys {
+        static var vSpinner: UIView?
+    }
+    
+    // Stored properties are not allowed, so work with object associated objects
+    private var vSpinner: UIView? {
+        get {
+            return objc_getAssociatedObject(self, &AssociatedKeys.vSpinner) as? UIView
+        }
+        set(newValue) {
+            objc_setAssociatedObject(self, &AssociatedKeys.vSpinner, newValue, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+        }
+    }
+    
     func showSpinner() {
         let spinnerView = UIView(frame: bounds)
         spinnerView.backgroundColor = UIColor(red: 0.5, green: 0.5, blue: 0.5, alpha: 0.5)
@@ -29,8 +42,8 @@ extension UIView {
 
     func removeSpinner() {
         DispatchQueue.main.async {
-            vSpinner?.removeFromSuperview()
-            vSpinner = nil
+            self.vSpinner?.removeFromSuperview()
+            self.vSpinner = nil
         }
     }
 }
