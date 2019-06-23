@@ -2,6 +2,8 @@
 
 This is a study project in the module Smartphone Programming (SPP) at the University of Applied Sciences Rosenheim.
 
+Checkout http://gitea.io/ if you don´t know what Gitea is.
+
 # Requirement / Compatibility
 
 ## For running the app
