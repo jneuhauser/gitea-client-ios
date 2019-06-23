@@ -43,16 +43,15 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         view.showSpinner()
 
         Networking.shared.getAuhtenticatedUser() { result in
+            self.view.removeSpinner()
             switch result {
             case .success:
                 DispatchQueue.main.async {
-                    self.view.removeSpinner()
                     self.showMainViewController()
                 }
             case let .failure(error):
                 debugPrint("getAuhtenticatedUser(): failed with \(error)")
                 DispatchQueue.main.async {
-                    self.view.removeSpinner()
                     if let httpError = error as? URLSession.HTTPError {
                         switch httpError {
                         case .serverSideError(401):
