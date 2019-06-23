@@ -37,11 +37,10 @@ class ReposTableViewController: UITableViewController {
     }
     
     @objc func askForLogout(_ sender: UIBarButtonItem) {
-        let logout: ActionHandler = { _ in
+        let test = PopUpControllerGenerator.createPopUp(withTitle: "Logout", andMessage: "Are you sure you want to log out?") { _ in
             self.presentingViewController?.dismiss(animated: true)
             AppState.reset()
         }
-        let test = PopUpControllerGenerator.createYesNoPopUp(withTitle: "Logout", andMessage: "Are you sure you want to log out?", yesHandler: logout, noHandler: nil)
         navigationController?.present(test, animated: true, completion: nil)
     }
     

@@ -29,15 +29,14 @@ class WKWebViewViewController: UIViewController {
     
     @objc private func openInExtenalBrowser(_ sender: UIBarButtonItem) {
         if let url = webView.url {
-            let yes: ActionHandler = { _ in
+            let question = "Open \(url.absoluteString) in external browser?"
+            let popUp = PopUpControllerGenerator.createPopUp(withTitle: "External Browser", andMessage: question) { _ in
                 if #available(iOS 10.0, *) {
                     UIApplication.shared.open(url)
                 } else {
                     UIApplication.shared.openURL(url)
                 }
             }
-            let question = "Open \(url.absoluteString) in external browser?"
-            let popUp = PopUpControllerGenerator.createYesNoPopUp(withTitle: "External Browser", andMessage: question, yesHandler: yes, noHandler: nil)
             navigationController?.present(popUp, animated: true, completion: nil)
         }
     }
