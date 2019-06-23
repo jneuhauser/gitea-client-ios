@@ -6,10 +6,9 @@
 import Foundation
 
 public struct CreateForkOption: Codable, Equatable, Hashable {
-    
     public var organization: String?
-    
-    public init(organization: String?) { 
+
+    public init(organization: String?) {
         self.organization = organization
     }
 }

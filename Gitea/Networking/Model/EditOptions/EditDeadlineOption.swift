@@ -6,14 +6,13 @@
 import Foundation
 
 public struct EditDeadlineOption: Codable, Equatable, Hashable {
-    
     public var dueDate: Date
-    
-    public init(dueDate: Date) { 
+
+    public init(dueDate: Date) {
         self.dueDate = dueDate
     }
-    
-    public enum CodingKeys: String, CodingKey { 
+
+    public enum CodingKeys: String, CodingKey {
         case dueDate = "due_date"
     }
 }

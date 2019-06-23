@@ -6,7 +6,6 @@
 import Foundation
 
 public struct Release: Codable, Equatable, Hashable {
-    
     public var assets: [Attachment]?
     public var author: User?
     public var body: String?
@@ -21,8 +20,8 @@ public struct Release: Codable, Equatable, Hashable {
     public var targetCommitish: String?
     public var url: String?
     public var zipballUrl: String?
-    
-    public init(assets: [Attachment]?, author: User?, body: String?, createdAt: Date?, draft: Bool?, _id: Int64?, name: String?, prerelease: Bool?, publishedAt: Date?, tagName: String?, tarballUrl: String?, targetCommitish: String?, url: String?, zipballUrl: String?) { 
+
+    public init(assets: [Attachment]?, author: User?, body: String?, createdAt: Date?, draft: Bool?, _id: Int64?, name: String?, prerelease: Bool?, publishedAt: Date?, tagName: String?, tarballUrl: String?, targetCommitish: String?, url: String?, zipballUrl: String?) {
         self.assets = assets
         self.author = author
         self.body = body
@@ -38,8 +37,8 @@ public struct Release: Codable, Equatable, Hashable {
         self.url = url
         self.zipballUrl = zipballUrl
     }
-    
-    public enum CodingKeys: String, CodingKey { 
+
+    public enum CodingKeys: String, CodingKey {
         case assets
         case author
         case body

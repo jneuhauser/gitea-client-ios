@@ -6,20 +6,19 @@
 import Foundation
 
 public struct Tag: Codable, Equatable, Hashable {
-    
     public var commit: Commit?
     public var name: String?
     public var tarballUrl: String?
     public var zipballUrl: String?
-    
+
     public init(commit: Commit?, name: String?, tarballUrl: String?, zipballUrl: String?) {
         self.commit = commit
         self.name = name
         self.tarballUrl = tarballUrl
         self.zipballUrl = zipballUrl
     }
-    
-    public enum CodingKeys: String, CodingKey { 
+
+    public enum CodingKeys: String, CodingKey {
         case commit
         case name
         case tarballUrl = "tarball_url"

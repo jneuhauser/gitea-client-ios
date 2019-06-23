@@ -6,10 +6,9 @@
 import Foundation
 
 public struct EditIssueCommentOption: Codable, Equatable, Hashable {
-    
     public var body: String
-    
-    public init(body: String) { 
+
+    public init(body: String) {
         self.body = body
     }
 }

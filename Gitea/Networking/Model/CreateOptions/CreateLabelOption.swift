@@ -6,11 +6,10 @@
 import Foundation
 
 public struct CreateLabelOption: Codable, Equatable, Hashable {
-    
     public var color: String
     public var name: String
-    
-    public init(color: String, name: String) { 
+
+    public init(color: String, name: String) {
         self.color = color
         self.name = name
     }

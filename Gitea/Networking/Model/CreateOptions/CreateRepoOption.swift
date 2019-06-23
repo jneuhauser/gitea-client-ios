@@ -6,7 +6,6 @@
 import Foundation
 
 public struct CreateRepoOption: Codable, Equatable, Hashable {
-    
     public var autoInit: Bool?
     public var _description: String?
     public var gitignores: String?
@@ -14,8 +13,8 @@ public struct CreateRepoOption: Codable, Equatable, Hashable {
     public var name: String
     public var _private: Bool?
     public var readme: String?
-    
-    public init(autoInit: Bool?, _description: String?, gitignores: String?, license: String?, name: String, _private: Bool?, readme: String?) { 
+
+    public init(autoInit: Bool?, _description: String?, gitignores: String?, license: String?, name: String, _private: Bool?, readme: String?) {
         self.autoInit = autoInit
         self._description = _description
         self.gitignores = gitignores
@@ -24,8 +23,8 @@ public struct CreateRepoOption: Codable, Equatable, Hashable {
         self._private = _private
         self.readme = readme
     }
-    
-    public enum CodingKeys: String, CodingKey { 
+
+    public enum CodingKeys: String, CodingKey {
         case autoInit = "auto_init"
         case _description = "description"
         case gitignores

@@ -6,7 +6,6 @@
 import Foundation
 
 public struct GPGKey: Codable, Equatable, Hashable {
-    
     public var canCertify: Bool?
     public var canEncryptComms: Bool?
     public var canEncryptStorage: Bool?
@@ -19,8 +18,8 @@ public struct GPGKey: Codable, Equatable, Hashable {
     public var primaryKeyId: String?
     public var publicKey: String?
     public var subkeys: [GPGKey]?
-    
-    public init(canCertify: Bool?, canEncryptComms: Bool?, canEncryptStorage: Bool?, canSign: Bool?, createdAt: Date?, emails: [GPGKeyEmail]?, expiresAt: Date?, _id: Int64?, keyId: String?, primaryKeyId: String?, publicKey: String?, subkeys: [GPGKey]?) { 
+
+    public init(canCertify: Bool?, canEncryptComms: Bool?, canEncryptStorage: Bool?, canSign: Bool?, createdAt: Date?, emails: [GPGKeyEmail]?, expiresAt: Date?, _id: Int64?, keyId: String?, primaryKeyId: String?, publicKey: String?, subkeys: [GPGKey]?) {
         self.canCertify = canCertify
         self.canEncryptComms = canEncryptComms
         self.canEncryptStorage = canEncryptStorage
@@ -34,8 +33,8 @@ public struct GPGKey: Codable, Equatable, Hashable {
         self.publicKey = publicKey
         self.subkeys = subkeys
     }
-    
-    public enum CodingKeys: String, CodingKey { 
+
+    public enum CodingKeys: String, CodingKey {
         case canCertify = "can_certify"
         case canEncryptComms = "can_encrypt_comms"
         case canEncryptStorage = "can_encrypt_storage"

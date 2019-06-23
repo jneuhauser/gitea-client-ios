@@ -6,11 +6,10 @@
 import Foundation
 
 public struct CommitMeta: Codable, Equatable, Hashable {
-    
     public var sha: String?
     public var url: String?
-    
-    public init(sha: String?, url: String?) { 
+
+    public init(sha: String?, url: String?) {
         self.sha = sha
         self.url = url
     }

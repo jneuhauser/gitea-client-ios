@@ -6,10 +6,9 @@
 import Foundation
 
 public struct CreateEmailOption: Codable, Equatable, Hashable {
-    
     public var emails: [String]?
-    
-    public init(emails: [String]?) { 
+
+    public init(emails: [String]?) {
         self.emails = emails
     }
 }

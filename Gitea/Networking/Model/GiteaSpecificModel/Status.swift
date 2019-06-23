@@ -6,7 +6,6 @@
 import Foundation
 
 public struct Status: Codable, Equatable, Hashable {
-    
     public var context: String?
     public var createdAt: Date?
     public var creator: User?
@@ -16,8 +15,8 @@ public struct Status: Codable, Equatable, Hashable {
     public var targetUrl: String?
     public var updatedAt: Date?
     public var url: String?
-    
-    public init(context: String?, createdAt: Date?, creator: User?, _description: String?, _id: Int64?, status: StatusState?, targetUrl: String?, updatedAt: Date?, url: String?) { 
+
+    public init(context: String?, createdAt: Date?, creator: User?, _description: String?, _id: Int64?, status: StatusState?, targetUrl: String?, updatedAt: Date?, url: String?) {
         self.context = context
         self.createdAt = createdAt
         self.creator = creator
@@ -28,8 +27,8 @@ public struct Status: Codable, Equatable, Hashable {
         self.updatedAt = updatedAt
         self.url = url
     }
-    
-    public enum CodingKeys: String, CodingKey { 
+
+    public enum CodingKeys: String, CodingKey {
         case context
         case createdAt = "created_at"
         case creator

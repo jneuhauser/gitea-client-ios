@@ -6,10 +6,9 @@
 import Foundation
 
 public struct ServerVersion: Codable, Equatable, Hashable {
-    
     public var version: String?
-    
-    public init(version: String?) { 
+
+    public init(version: String?) {
         self.version = version
     }
 }

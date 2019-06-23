@@ -6,9 +6,9 @@
 import Foundation
 
 public enum StatusState: String, Codable, Equatable, Hashable {
-    case pending = "pending"
-    case success = "success"
-    case error = "error"
-    case failure = "failure"
-    case warning = "warning"
+    case pending
+    case success
+    case error
+    case failure
+    case warning
 }

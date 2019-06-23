@@ -6,15 +6,14 @@
 import Foundation
 
 public struct EditReleaseOption: Codable, Equatable, Hashable {
-    
     public var body: String?
     public var draft: Bool?
     public var name: String?
     public var prerelease: Bool?
     public var tagName: String?
     public var targetCommitish: String?
-    
-    public init(body: String?, draft: Bool?, name: String?, prerelease: Bool?, tagName: String?, targetCommitish: String?) { 
+
+    public init(body: String?, draft: Bool?, name: String?, prerelease: Bool?, tagName: String?, targetCommitish: String?) {
         self.body = body
         self.draft = draft
         self.name = name
@@ -22,8 +21,8 @@ public struct EditReleaseOption: Codable, Equatable, Hashable {
         self.tagName = tagName
         self.targetCommitish = targetCommitish
     }
-    
-    public enum CodingKeys: String, CodingKey { 
+
+    public enum CodingKeys: String, CodingKey {
         case body
         case draft
         case name

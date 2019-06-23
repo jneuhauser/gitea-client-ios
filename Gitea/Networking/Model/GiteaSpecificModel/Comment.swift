@@ -6,7 +6,6 @@
 import Foundation
 
 public struct Comment: Codable, Equatable, Hashable {
-    
     public var body: String?
     public var createdAt: Date?
     public var htmlUrl: String?
@@ -15,8 +14,8 @@ public struct Comment: Codable, Equatable, Hashable {
     public var pullRequestUrl: String?
     public var updatedAt: Date?
     public var user: User?
-    
-    public init(body: String?, createdAt: Date?, htmlUrl: String?, _id: Int64?, issueUrl: String?, pullRequestUrl: String?, updatedAt: Date?, user: User?) { 
+
+    public init(body: String?, createdAt: Date?, htmlUrl: String?, _id: Int64?, issueUrl: String?, pullRequestUrl: String?, updatedAt: Date?, user: User?) {
         self.body = body
         self.createdAt = createdAt
         self.htmlUrl = htmlUrl
@@ -26,8 +25,8 @@ public struct Comment: Codable, Equatable, Hashable {
         self.updatedAt = updatedAt
         self.user = user
     }
-    
-    public enum CodingKeys: String, CodingKey { 
+
+    public enum CodingKeys: String, CodingKey {
         case body
         case createdAt = "created_at"
         case htmlUrl = "html_url"

@@ -6,7 +6,6 @@
 import Foundation
 
 public struct User: Codable, Equatable, Hashable {
-    
     public var avatarUrl: String?
     public var email: String?
     public var fullName: String?
@@ -14,8 +13,8 @@ public struct User: Codable, Equatable, Hashable {
     public var isAdmin: Bool?
     public var language: String?
     public var login: String?
-    
-    public init(avatarUrl: String?, email: String?, fullName: String?, _id: Int64?, isAdmin: Bool?, language: String?, login: String?) { 
+
+    public init(avatarUrl: String?, email: String?, fullName: String?, _id: Int64?, isAdmin: Bool?, language: String?, login: String?) {
         self.avatarUrl = avatarUrl
         self.email = email
         self.fullName = fullName
@@ -24,8 +23,8 @@ public struct User: Codable, Equatable, Hashable {
         self.language = language
         self.login = login
     }
-    
-    public enum CodingKeys: String, CodingKey { 
+
+    public enum CodingKeys: String, CodingKey {
         case avatarUrl = "avatar_url"
         case email
         case fullName = "full_name"

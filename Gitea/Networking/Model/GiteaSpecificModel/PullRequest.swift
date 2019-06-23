@@ -6,7 +6,6 @@
 import Foundation
 
 public struct PullRequest: Codable, Equatable, Hashable, IssuePullRequestData {
-    
     public var assignee: User?
     public var assignees: [User]?
     public var base: PRBranchInfo?
@@ -34,8 +33,8 @@ public struct PullRequest: Codable, Equatable, Hashable, IssuePullRequestData {
     public var updatedAt: Date?
     public var url: String?
     public var user: User?
-    
-    public init(assignee: User?, assignees: [User]?, base: PRBranchInfo?, body: String?, closedAt: Date?, comments: Int64?, createdAt: Date?, diffUrl: String?, dueDate: Date?, head: PRBranchInfo?, htmlUrl: String?, _id: Int64?, labels: [Label]?, mergeBase: String?, mergeCommitSha: String?, mergeable: Bool?, merged: Bool?, mergedAt: Date?, mergedBy: User?, milestone: Milestone?, number: Int64?, patchUrl: String?, state: StateType?, title: String?, updatedAt: Date?, url: String?, user: User?) { 
+
+    public init(assignee: User?, assignees: [User]?, base: PRBranchInfo?, body: String?, closedAt: Date?, comments: Int64?, createdAt: Date?, diffUrl: String?, dueDate: Date?, head: PRBranchInfo?, htmlUrl: String?, _id: Int64?, labels: [Label]?, mergeBase: String?, mergeCommitSha: String?, mergeable: Bool?, merged: Bool?, mergedAt: Date?, mergedBy: User?, milestone: Milestone?, number: Int64?, patchUrl: String?, state: StateType?, title: String?, updatedAt: Date?, url: String?, user: User?) {
         self.assignee = assignee
         self.assignees = assignees
         self.base = base
@@ -64,8 +63,8 @@ public struct PullRequest: Codable, Equatable, Hashable, IssuePullRequestData {
         self.url = url
         self.user = user
     }
-    
-    public enum CodingKeys: String, CodingKey { 
+
+    public enum CodingKeys: String, CodingKey {
         case assignee
         case assignees
         case base

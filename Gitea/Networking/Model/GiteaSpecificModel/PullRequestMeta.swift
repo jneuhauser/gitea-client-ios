@@ -6,16 +6,15 @@
 import Foundation
 
 public struct PullRequestMeta: Codable, Equatable, Hashable {
-    
     public var merged: Bool?
     public var mergedAt: Date?
-    
-    public init(merged: Bool?, mergedAt: Date?) { 
+
+    public init(merged: Bool?, mergedAt: Date?) {
         self.merged = merged
         self.mergedAt = mergedAt
     }
-    
-    public enum CodingKeys: String, CodingKey { 
+
+    public enum CodingKeys: String, CodingKey {
         case merged
         case mergedAt = "merged_at"
     }

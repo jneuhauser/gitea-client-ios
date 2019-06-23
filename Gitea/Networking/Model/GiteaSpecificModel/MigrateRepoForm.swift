@@ -6,7 +6,6 @@
 import Foundation
 
 public struct MigrateRepoForm: Codable, Equatable, Hashable {
-    
     public var authPassword: String?
     public var authUsername: String?
     public var cloneAddr: String
@@ -15,8 +14,8 @@ public struct MigrateRepoForm: Codable, Equatable, Hashable {
     public var _private: Bool?
     public var repoName: String
     public var uid: Int64
-    
-    public init(authPassword: String?, authUsername: String?, cloneAddr: String, _description: String?, mirror: Bool?, _private: Bool?, repoName: String, uid: Int64) { 
+
+    public init(authPassword: String?, authUsername: String?, cloneAddr: String, _description: String?, mirror: Bool?, _private: Bool?, repoName: String, uid: Int64) {
         self.authPassword = authPassword
         self.authUsername = authUsername
         self.cloneAddr = cloneAddr
@@ -26,8 +25,8 @@ public struct MigrateRepoForm: Codable, Equatable, Hashable {
         self.repoName = repoName
         self.uid = uid
     }
-    
-    public enum CodingKeys: String, CodingKey { 
+
+    public enum CodingKeys: String, CodingKey {
         case authPassword = "auth_password"
         case authUsername = "auth_username"
         case cloneAddr = "clone_addr"

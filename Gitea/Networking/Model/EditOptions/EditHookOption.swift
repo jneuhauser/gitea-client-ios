@@ -6,12 +6,11 @@
 import Foundation
 
 public struct EditHookOption: Codable, Equatable, Hashable {
-    
     public var active: Bool?
-    public var config: [String:String]?
+    public var config: [String: String]?
     public var events: [String]?
-    
-    public init(active: Bool?, config: [String:String]?, events: [String]?) { 
+
+    public init(active: Bool?, config: [String: String]?, events: [String]?) {
         self.active = active
         self.config = config
         self.events = events

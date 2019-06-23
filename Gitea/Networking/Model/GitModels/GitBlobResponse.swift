@@ -6,13 +6,12 @@
 import Foundation
 
 public struct GitBlobResponse: Codable, Equatable, Hashable {
-    
     let content: String?
     let encoding: String?
     let sha: String?
     let size: Int64?
     let url: String?
-    
+
     public init(content: String?, encoding: String?, sha: String?, size: Int64?, url: String) {
         self.content = content
         self.encoding = encoding

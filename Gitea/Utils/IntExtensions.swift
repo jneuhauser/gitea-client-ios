@@ -16,11 +16,11 @@ extension Int64 {
         } else if bytes < (1024 * 1024) {
             return "\(bytes / 1024) KB"
         } else if bytes < (1024 * 1024 * 1024) {
-            return "\(bytes / ( 1024 * 1024)) MB"
+            return "\(bytes / (1024 * 1024)) MB"
         } else if bytes < (1024 * 1024 * 1024 * 1024) {
-            return "\(bytes / ( 1024 * 1024 * 1024)) GB"
+            return "\(bytes / (1024 * 1024 * 1024)) GB"
         } else {
-            return "\(bytes / ( 1024 * 1024 * 1024 * 1024)) TB"
+            return "\(bytes / (1024 * 1024 * 1024 * 1024)) TB"
         }
     }
 }

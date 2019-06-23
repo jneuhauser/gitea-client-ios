@@ -10,24 +10,23 @@ import UIKit
 import WebKit
 
 class WKWebViewViewController: UIViewController {
-
     private let webView = WKWebView()
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(openInExtenalBrowser(_:)))
-        
-        self.view = webView
+
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(openInExtenalBrowser(_:)))
+
+        view = webView
     }
-    
+
     public func load(_ url: URL) {
         let request = URLRequest(url: url)
-        self.title = url.absoluteString
+        title = url.absoluteString
         webView.load(request)
     }
-    
-    @objc private func openInExtenalBrowser(_ sender: UIBarButtonItem) {
+
+    @objc private func openInExtenalBrowser(_: UIBarButtonItem) {
         if let url = webView.url {
             let question = "Open \(url.absoluteString) in external browser?"
             let popUp = PopUpControllerGenerator.createPopUp(withTitle: "External Browser", andMessage: question) { _ in

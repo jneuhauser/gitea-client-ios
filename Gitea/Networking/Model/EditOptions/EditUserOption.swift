@@ -6,7 +6,6 @@
 import Foundation
 
 public struct EditUserOption: Codable, Equatable, Hashable {
-    
     public var active: Bool?
     public var admin: Bool?
     public var allowCreateOrganization: Bool?
@@ -22,8 +21,8 @@ public struct EditUserOption: Codable, Equatable, Hashable {
     public var prohibitLogin: Bool?
     public var sourceId: Int64?
     public var website: String?
-    
-    public init(active: Bool?, admin: Bool?, allowCreateOrganization: Bool?, allowGitHook: Bool?, allowImportLocal: Bool?, email: String, fullName: String?, location: String?, loginName: String?, maxRepoCreation: Int64?, mustChangePassword: Bool?, password: String?, prohibitLogin: Bool?, sourceId: Int64?, website: String?) { 
+
+    public init(active: Bool?, admin: Bool?, allowCreateOrganization: Bool?, allowGitHook: Bool?, allowImportLocal: Bool?, email: String, fullName: String?, location: String?, loginName: String?, maxRepoCreation: Int64?, mustChangePassword: Bool?, password: String?, prohibitLogin: Bool?, sourceId: Int64?, website: String?) {
         self.active = active
         self.admin = admin
         self.allowCreateOrganization = allowCreateOrganization
@@ -40,8 +39,8 @@ public struct EditUserOption: Codable, Equatable, Hashable {
         self.sourceId = sourceId
         self.website = website
     }
-    
-    public enum CodingKeys: String, CodingKey { 
+
+    public enum CodingKeys: String, CodingKey {
         case active
         case admin
         case allowCreateOrganization = "allow_create_organization"

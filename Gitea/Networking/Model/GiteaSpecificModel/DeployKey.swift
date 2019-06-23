@@ -6,7 +6,6 @@
 import Foundation
 
 public struct DeployKey: Codable, Equatable, Hashable {
-    
     public var createdAt: Date?
     public var fingerprint: String?
     public var _id: Int64?
@@ -16,8 +15,8 @@ public struct DeployKey: Codable, Equatable, Hashable {
     public var repository: Repository?
     public var title: String?
     public var url: String?
-    
-    public init(createdAt: Date?, fingerprint: String?, _id: Int64?, key: String?, keyId: Int64?, readOnly: Bool?, repository: Repository?, title: String?, url: String?) { 
+
+    public init(createdAt: Date?, fingerprint: String?, _id: Int64?, key: String?, keyId: Int64?, readOnly: Bool?, repository: Repository?, title: String?, url: String?) {
         self.createdAt = createdAt
         self.fingerprint = fingerprint
         self._id = _id
@@ -28,8 +27,8 @@ public struct DeployKey: Codable, Equatable, Hashable {
         self.title = title
         self.url = url
     }
-    
-    public enum CodingKeys: String, CodingKey { 
+
+    public enum CodingKeys: String, CodingKey {
         case createdAt = "created_at"
         case fingerprint
         case _id = "id"

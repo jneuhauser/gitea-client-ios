@@ -6,25 +6,24 @@
 import Foundation
 
 public struct MergePullRequestOption: Codable, Equatable, Hashable {
-    
-    public enum Do: String, Codable { 
-        case merge = "merge"
-        case rebase = "rebase"
+    public enum Do: String, Codable {
+        case merge
+        case rebase
         case rebaseMerge = "rebase-merge"
-        case squash = "squash"
+        case squash
     }
-    
+
     public var _do: Do
     public var mergeMessageField: String?
     public var mergeTitleField: String?
-    
-    public init(_do: Do, mergeMessageField: String?, mergeTitleField: String?) { 
+
+    public init(_do: Do, mergeMessageField: String?, mergeTitleField: String?) {
         self._do = _do
         self.mergeMessageField = mergeMessageField
         self.mergeTitleField = mergeTitleField
     }
-    
-    public enum CodingKeys: String, CodingKey { 
+
+    public enum CodingKeys: String, CodingKey {
         case _do = "Do"
         case mergeMessageField = "MergeMessageField"
         case mergeTitleField = "MergeTitleField"

@@ -6,20 +6,19 @@
 import Foundation
 
 public struct CreateHookOption: Codable, Equatable, Hashable {
-    
-    public enum ModelType: String, Codable { 
-        case gitea = "gitea"
-        case gogs = "gogs"
-        case slack = "slack"
-        case discord = "discord"
+    public enum ModelType: String, Codable {
+        case gitea
+        case gogs
+        case slack
+        case discord
     }
-    
+
     public var active: Bool?
-    public var config: [String:String]
+    public var config: [String: String]
     public var events: [String]?
     public var type: ModelType
-    
-    public init(active: Bool?, config: [String:String], events: [String]?, type: ModelType) { 
+
+    public init(active: Bool?, config: [String: String], events: [String]?, type: ModelType) {
         self.active = active
         self.config = config
         self.events = events

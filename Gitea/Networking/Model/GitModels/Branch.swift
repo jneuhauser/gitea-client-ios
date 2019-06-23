@@ -6,11 +6,10 @@
 import Foundation
 
 public struct Branch: Codable, Equatable, Hashable {
-    
     public var commit: PayloadCommit?
     public var name: String?
-    
-    public init(commit: PayloadCommit?, name: String?) { 
+
+    public init(commit: PayloadCommit?, name: String?) {
         self.commit = commit
         self.name = name
     }

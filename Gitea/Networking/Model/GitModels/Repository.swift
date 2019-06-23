@@ -6,7 +6,6 @@
 import Foundation
 
 public struct Repository: Codable, Equatable, Hashable {
-    
     public var archived: Bool?
     public var cloneUrl: String?
     public var createdAt: Date?
@@ -30,8 +29,8 @@ public struct Repository: Codable, Equatable, Hashable {
     public var updatedAt: Date?
     public var watchersCount: Int64?
     public var website: String?
-    
-    public init(archived: Bool?, cloneUrl: String?, createdAt: Date?, defaultBranch: String?, _description: String?, empty: Bool?, fork: Bool?, forksCount: Int64?, fullName: String?, htmlUrl: String?, _id: Int64?, mirror: Bool?, name: String?, openIssuesCount: Int64?, owner: User?, permissions: Permission?, _private: Bool?, size: Int64?, sshUrl: String?, starsCount: Int64?, updatedAt: Date?, watchersCount: Int64?, website: String?) { 
+
+    public init(archived: Bool?, cloneUrl: String?, createdAt: Date?, defaultBranch: String?, _description: String?, empty: Bool?, fork: Bool?, forksCount: Int64?, fullName: String?, htmlUrl: String?, _id: Int64?, mirror: Bool?, name: String?, openIssuesCount: Int64?, owner: User?, permissions: Permission?, _private: Bool?, size: Int64?, sshUrl: String?, starsCount: Int64?, updatedAt: Date?, watchersCount: Int64?, website: String?) {
         self.archived = archived
         self.cloneUrl = cloneUrl
         self.createdAt = createdAt
@@ -56,8 +55,8 @@ public struct Repository: Codable, Equatable, Hashable {
         self.watchersCount = watchersCount
         self.website = website
     }
-    
-    public enum CodingKeys: String, CodingKey { 
+
+    public enum CodingKeys: String, CodingKey {
         case archived
         case cloneUrl = "clone_url"
         case createdAt = "created_at"

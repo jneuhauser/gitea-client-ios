@@ -6,7 +6,6 @@
 import Foundation
 
 public struct Commit: Codable, Equatable, Hashable {
-    
     public var author: User?
     public var commit: RepoCommit?
     public var committer: User?
@@ -14,8 +13,8 @@ public struct Commit: Codable, Equatable, Hashable {
     public var parents: [CommitMeta]?
     public var sha: String?
     public var url: String?
-    
-    public init(author: User?, commit: RepoCommit?, committer: User?, htmlUrl: String?, parents: [CommitMeta]?, sha: String?, url: String?) { 
+
+    public init(author: User?, commit: RepoCommit?, committer: User?, htmlUrl: String?, parents: [CommitMeta]?, sha: String?, url: String?) {
         self.author = author
         self.commit = commit
         self.committer = committer
@@ -24,8 +23,8 @@ public struct Commit: Codable, Equatable, Hashable {
         self.sha = sha
         self.url = url
     }
-    
-    public enum CodingKeys: String, CodingKey { 
+
+    public enum CodingKeys: String, CodingKey {
         case author
         case commit
         case committer

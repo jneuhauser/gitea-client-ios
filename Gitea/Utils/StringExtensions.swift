@@ -10,6 +10,6 @@ import Foundation
 
 extension String {
     func getBase64() -> String {
-        return self.data(using: .utf8)!.base64EncodedString()
+        return data(using: .utf8)!.base64EncodedString()
     }
 }
