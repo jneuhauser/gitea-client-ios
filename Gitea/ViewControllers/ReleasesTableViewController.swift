@@ -68,6 +68,7 @@ class ReleasesTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ReleaseCell", for: indexPath)
 
         guard let release = releases?[indexPath.row] else {
+            debugPrint("tableView(cellForRowAt: ...): failed to get model data")
             return cell
         }
 

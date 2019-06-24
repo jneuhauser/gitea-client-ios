@@ -16,8 +16,8 @@ class IssuePullRequestDetailViewController: MessageViewController, UITableViewDe
     typealias RowHeightForContent = (rowHeight: CGFloat, contentHashValue: Int)
     private var rowHeights = [Int: RowHeightForContent]()
 
-    let tableView = UITableView()
-    let refreshControl: UIRefreshControl? = UIRefreshControl()
+    private let tableView = UITableView()
+    private let refreshControl: UIRefreshControl? = UIRefreshControl()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -89,16 +89,16 @@ class IssuePullRequestDetailViewController: MessageViewController, UITableViewDe
         }
     }
 
-    @objc func refreshAction(_: UIRefreshControl) {
+    @objc private func refreshAction(_: UIRefreshControl) {
         loadCommentsAsync()
     }
 
-    @objc func onPreviewButton() {
+    @objc private func onPreviewButton() {
         debugPrint("Preview button not implemented yet")
         showToast(message: "Markdown preview not implemented yet")
     }
 
-    @objc func onSendButton() {
+    @objc private func onSendButton() {
         if let repoOwner = AppState.selectedRepo?.owner?.login,
             let repoName = AppState.selectedRepo?.name,
             let issueNumber = mainEntry?.number {

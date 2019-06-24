@@ -26,6 +26,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         userTextField.delegate = self
         passwordTextField.delegate = self
 
+        // TODO: Remove credentials for release
         serverTextField.text = "https://try.gitea.io"
         userTextField.text = "devel"
         passwordTextField.text = "DasIstEinTestUser"
