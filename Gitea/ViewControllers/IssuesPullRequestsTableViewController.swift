@@ -116,7 +116,10 @@ class IssuesPullRequestsTableViewController: UITableViewController {
             return cell
         }
 
-        if let issueTVC = cell as? IssuePullRequestTableViewCell {
+        switch cell {
+        case is IssuePullRequestTableViewCell:
+            let issueTVC = cell as! IssuePullRequestTableViewCell
+
             switch issue {
             case is PullRequest:
                 if let state = issue.state, state == .closed,
@@ -153,19 +156,8 @@ class IssuesPullRequestsTableViewController: UITableViewController {
             } else {
                 issueTVC.commentsLabel?.text = nil
             }
-        } else {
-            cell.textLabel?.text = issue.title
-
-            if let state = issue.state {
-                switch state {
-                case .open:
-                    cell.imageView?.image = UIImage(named: "issue-opened")
-                case .closed:
-                    cell.imageView?.image = UIImage(named: "issue-closed")
-                }
-            } else {
-                cell.imageView?.image = UIImage(named: "issue-opened")
-            }
+        default:
+            debugPrint("tableView(cellForRowAt: ...):  unhandled cell type")
         }
 
         return cell

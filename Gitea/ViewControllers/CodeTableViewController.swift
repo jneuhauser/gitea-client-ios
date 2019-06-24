@@ -168,7 +168,7 @@ class CodeTableViewController: UITableViewController, UIPickerViewDataSource, UI
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(pickerDone))
     }
 
-    @objc func pickerDone() {
+    @objc private func pickerDone() {
         view.endEditing(true)
         navigationItem.rightBarButtonItem = nil
         loadDataModel()
@@ -227,6 +227,7 @@ class CodeTableViewController: UITableViewController, UIPickerViewDataSource, UI
         }
 
         guard let selectedElement = gitTree?.tree?[indexPath.row] else {
+            debugPrint("tableView(cellForRowAt: ...): failed to get model data")
             return
         }
 
@@ -266,55 +267,59 @@ class CodeTableViewController: UITableViewController, UIPickerViewDataSource, UI
 
         switch cell {
         case is MarkdownWithHeaderTableViewCell:
-            let tvc = cell as! MarkdownWithHeaderTableViewCell
-
-            if let fileName = readmeGitEntry?.path,
+            guard let fileName = readmeGitEntry?.path,
                 let fileSha = readmeGitEntry?.sha,
                 let repoOwner = AppState.selectedRepo?.owner?.login,
-                let repoName = AppState.selectedRepo?.name {
-                tvc.backgroundColor = .lightGray
+                let repoName = AppState.selectedRepo?.name else {
+                debugPrint("tableView(cellForRowAt: ...): failed to get model data")
+                return cell
+            }
 
-                tvc.headerLabel.text = fileName
+            let tvc = cell as! MarkdownWithHeaderTableViewCell
 
-                tvc.markdownView.onRendered = { height in
-                    let calculatedHeight = height + tvc.headerLabel.frame.height
+            tvc.backgroundColor = .lightGray
 
-                    // force update of table view layout
-                    tvc.hStackViewHeight.constant = calculatedHeight
-                    tableView.beginUpdates()
-                    tableView.endUpdates()
-                }
+            tvc.headerLabel.text = fileName
 
-                tvc.setupOnTouchLink(forViewController: self)
+            tvc.markdownView.onRendered = { height in
+                let calculatedHeight = height + tvc.headerLabel.frame.height
 
-                Networking.shared.getRepositoryGitBlob(fromOwner: repoOwner, andRepo: repoName, forSha: fileSha) { result in
-                    switch result {
-                    case let .success(blob):
-                        switch blob.encoding {
-                        case "base64":
-                            if let content = blob.content,
-                                let decodedData = Data(base64Encoded: content),
-                                let contentString = String(data: decodedData, encoding: .utf8) {
-                                DispatchQueue.main.async {
-                                    tvc.markdownView.load(markdown: contentString)
-                                }
-                            }
-                        default:
-                            debugPrint("tableView(cellForRowAt ...): unhandled encoding type")
+                // force update of table view layout
+                tvc.hStackViewHeight.constant = calculatedHeight
+                tableView.beginUpdates()
+                tableView.endUpdates()
+            }
+
+            tvc.setupOnTouchLink(forViewController: self)
+
+            Networking.shared.getRepositoryGitBlob(fromOwner: repoOwner, andRepo: repoName, forSha: fileSha) { result in
+                switch result {
+                case let .success(blob):
+                    switch blob.encoding {
+                    case "base64":
+                        if let content = blob.content,
+                            let decodedData = Data(base64Encoded: content),
+                            let contentString = String(data: decodedData, encoding: .utf8) {
                             DispatchQueue.main.async {
-                                self.showToast(message: "Unhandled encoding type")
+                                tvc.markdownView.load(markdown: contentString)
                             }
                         }
-                    case let .failure(error):
-                        debugPrint("getRepositoryGitBlob() failed with \(error)")
+                    default:
+                        debugPrint("tableView(cellForRowAt ...): unhandled encoding type")
                         DispatchQueue.main.async {
-                            self.showToast(message: Networking.generateUserErrorMessage(error))
+                            self.showToast(message: "Unhandled encoding type")
                         }
+                    }
+                case let .failure(error):
+                    debugPrint("getRepositoryGitBlob() failed with \(error)")
+                    DispatchQueue.main.async {
+                        self.showToast(message: Networking.generateUserErrorMessage(error))
                     }
                 }
             }
         default:
             guard let element = gitTree?.tree?[indexPath.row] else {
+                debugPrint("tableView(cellForRowAt: ...): failed to get model data")
                 return cell
             }
 

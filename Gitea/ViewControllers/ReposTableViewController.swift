@@ -28,7 +28,7 @@ class ReposTableViewController: UITableViewController {
         let searchButton = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(openSearchBar(_:)))
         navigationItem.rightBarButtonItems?.append(searchButton)
 
-        if let _ = presentingViewController as? LoginViewController {
+        if presentingViewController is LoginViewController {
             let logoutButton = UIBarButtonItem(image: UIImage(named: "sign-out"), style: .plain, target: self, action: #selector(askForLogout(_:)))
             navigationItem.rightBarButtonItems?.append(logoutButton)
         }
@@ -63,7 +63,7 @@ class ReposTableViewController: UITableViewController {
         Networking.shared.getRepositories { result in
             switch result {
             case let .success(repos):
-                self.repos = repos.sorted() {
+                self.repos = repos.sorted {
                     // Sort by repo owner and if same than by repo name
                     if $0.owner?.login ?? "" < $1.owner?.login ?? "" {
                         return true
@@ -90,7 +90,7 @@ class ReposTableViewController: UITableViewController {
         loadReposAsync()
     }
 
-    @objc func filterButtonActions(_ sender: UIButton?) {
+    @objc private func filterButtonActions(_ sender: UIButton?) {
         switch sender {
         case filterAllButton:
             reposFilter = nil
@@ -104,6 +104,14 @@ class ReposTableViewController: UITableViewController {
             debugPrint("filterButtonActions(...): Unhandled button")
         }
         tableView.reloadData()
+    }
+
+    private func getFilteredRepositories() -> [Repository]? {
+        if let reposFilter = reposFilter {
+            return repos?.filter(reposFilter)
+        } else {
+            return repos
+        }
     }
 
     // MARK: - Table view delegates
@@ -159,13 +167,7 @@ class ReposTableViewController: UITableViewController {
     }
 
     override func tableView(_: UITableView, didSelectRowAt indexPath: IndexPath) {
-        var filteredRepos: [Repository]?
-        if let reposFilter = reposFilter {
-            filteredRepos = repos?.filter(reposFilter)
-        } else {
-            filteredRepos = repos
-        }
-        if let repo = filteredRepos?[indexPath.row] {
+        if let repo = getFilteredRepositories()?[indexPath.row] {
             AppState.selectedRepo = repo
             AppState.enableAllTabBarItems(ofTabBarController: tabBarController)
             AppState.popToRootOtherNavigationControllers(ofTabBarController: tabBarController)
@@ -179,26 +181,14 @@ class ReposTableViewController: UITableViewController {
     }
 
     override func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
-        var filteredRepos: [Repository]?
-        if let reposFilter = reposFilter {
-            filteredRepos = repos?.filter(reposFilter)
-        } else {
-            filteredRepos = repos
-        }
-        return filteredRepos?.count ?? 0
+        return getFilteredRepositories()?.count ?? 0
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "RepoCell", for: indexPath)
 
-        var filteredRepos: [Repository]?
-        if let reposFilter = reposFilter {
-            filteredRepos = repos?.filter(reposFilter)
-        } else {
-            filteredRepos = repos
-        }
-
-        guard let repo = filteredRepos?[indexPath.row] else {
+        guard let repo = getFilteredRepositories()?[indexPath.row] else {
+            debugPrint("tableView(cellForRowAt: ...): failed to get model data")
             return cell
         }
 
