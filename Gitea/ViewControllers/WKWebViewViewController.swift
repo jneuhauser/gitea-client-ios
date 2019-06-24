@@ -22,7 +22,13 @@ class WKWebViewViewController: UIViewController {
 
     public func load(_ url: URL) {
         let request = URLRequest(url: url)
-        title = url.absoluteString
+        load(request)
+    }
+
+    public func load(_ request: URLRequest) {
+        if title == nil {
+            title = request.url?.absoluteString
+        }
         webView.load(request)
     }
 
