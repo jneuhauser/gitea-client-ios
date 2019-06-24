@@ -120,7 +120,7 @@ class ReposTableViewController: UITableViewController {
         let stackView = UIStackView()
         stackView.axis = .horizontal
         stackView.distribution = .fillEqually
-        stackView.alignment = .center
+        stackView.alignment = .fill
         stackView.spacing = 16
         stackView.translatesAutoresizingMaskIntoConstraints = false
 
@@ -129,35 +129,39 @@ class ReposTableViewController: UITableViewController {
         headerView.addSubview(stackView)
 
         var constraints = [NSLayoutConstraint]()
-        constraints.append(NSLayoutConstraint(item: stackView, attribute: .leading, relatedBy: .equal, toItem: headerView, attribute: .leading, multiplier: 1.0, constant: 0.0))
-        constraints.append(NSLayoutConstraint(item: stackView, attribute: .trailing, relatedBy: .equal, toItem: headerView, attribute: .trailing, multiplier: 1.0, constant: 0.0))
-        constraints.append(NSLayoutConstraint(item: stackView, attribute: .top, relatedBy: .equal, toItem: headerView, attribute: .top, multiplier: 1.0, constant: 0.0))
+        constraints.append(NSLayoutConstraint(item: stackView, attribute: .leading, relatedBy: .equal, toItem: headerView, attribute: .leading, multiplier: 1.0, constant: 8.0))
+        constraints.append(NSLayoutConstraint(item: stackView, attribute: .trailing, relatedBy: .equal, toItem: headerView, attribute: .trailing, multiplier: 1.0, constant: -8.0))
+        constraints.append(NSLayoutConstraint(item: stackView, attribute: .top, relatedBy: .equal, toItem: headerView, attribute: .top, multiplier: 1.0, constant: 12.0))
         constraints.append(NSLayoutConstraint(item: stackView, attribute: .bottom, relatedBy: .equal, toItem: headerView, attribute: .bottom, multiplier: 1.0, constant: 0.0))
         headerView.addConstraints(constraints)
 
         let allButton = UIButton(type: .roundedRect)
-        allButton.setTitle("All", for: .normal)
+        allButton.setTitle(" All", for: .normal)
+        allButton.setImage(UIImage(named: "globe"), for: .normal)
         allButton.translatesAutoresizingMaskIntoConstraints = false
         allButton.addTarget(self, action: #selector(filterButtonActions(_:)), for: .touchUpInside)
         stackView.addArrangedSubview(allButton)
         filterAllButton = allButton
 
         let sourceButton = UIButton(type: .roundedRect)
-        sourceButton.setTitle("Source", for: .normal)
+        sourceButton.setTitle(" Source", for: .normal)
+        sourceButton.setImage(UIImage(named: "repo"), for: .normal)
         sourceButton.translatesAutoresizingMaskIntoConstraints = false
         sourceButton.addTarget(self, action: #selector(filterButtonActions(_:)), for: .touchUpInside)
         stackView.addArrangedSubview(sourceButton)
         filterSourceButton = sourceButton
 
         let forkButton = UIButton(type: .roundedRect)
-        forkButton.setTitle("Fork", for: .normal)
+        forkButton.setTitle(" Fork", for: .normal)
+        forkButton.setImage(UIImage(named: "repo-forked"), for: .normal)
         forkButton.translatesAutoresizingMaskIntoConstraints = false
         forkButton.addTarget(self, action: #selector(filterButtonActions(_:)), for: .touchUpInside)
         stackView.addArrangedSubview(forkButton)
         filterForkButton = forkButton
 
         let mirrorButton = UIButton(type: .roundedRect)
-        mirrorButton.setTitle("Mirror", for: .normal)
+        mirrorButton.setTitle(" Mirror", for: .normal)
+        mirrorButton.setImage(UIImage(named: "repo-clone"), for: .normal)
         mirrorButton.translatesAutoresizingMaskIntoConstraints = false
         mirrorButton.addTarget(self, action: #selector(filterButtonActions(_:)), for: .touchUpInside)
         stackView.addArrangedSubview(mirrorButton)
