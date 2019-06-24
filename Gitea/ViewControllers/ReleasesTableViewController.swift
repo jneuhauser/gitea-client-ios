@@ -73,6 +73,8 @@ class ReleasesTableViewController: UITableViewController {
 
         cell.textLabel?.text = "\(release.tagName ?? "") - \(release.name ?? "")"
         cell.imageView?.image = UIImage(named: "tag")
+        cell.detailTextLabel?.numberOfLines = 0
+        cell.detailTextLabel?.text = release.body
 
         return cell
     }
