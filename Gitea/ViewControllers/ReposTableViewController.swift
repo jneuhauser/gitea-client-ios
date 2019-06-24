@@ -63,7 +63,15 @@ class ReposTableViewController: UITableViewController {
         Networking.shared.getRepositories { result in
             switch result {
             case let .success(repos):
-                self.repos = repos
+                self.repos = repos.sorted() {
+                    // Sort by repo owner and if same than by repo name
+                    if $0.owner?.login ?? "" < $1.owner?.login ?? "" {
+                        return true
+                    } else if $0.owner?.login ?? "" == $1.owner?.login ?? "" {
+                        return $0.name ?? "" < $1.name ?? ""
+                    }
+                    return false
+                }
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
                     self.refreshControl?.endRefreshing()
