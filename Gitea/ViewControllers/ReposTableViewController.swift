@@ -18,6 +18,15 @@ class ReposTableViewController: UITableViewController {
 
         title = "Repositories"
 
+        navigationItem.rightBarButtonItems = [UIBarButtonItem]()
+        let searchButton = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(openSearchBar(_:)))
+        navigationItem.rightBarButtonItems?.append(searchButton)
+
+        if let _ = presentingViewController as? LoginViewController {
+            let logoutButton = UIBarButtonItem(image: UIImage(named: "sign-out"), style: .plain, target: self, action: #selector(askForLogout(_:)))
+            navigationItem.rightBarButtonItems?.append(logoutButton)
+        }
+
         if AppState.selectedRepo == nil {
             AppState.disableOtherTabBarItems(ofTabBarController: tabBarController)
         }
@@ -26,15 +35,16 @@ class ReposTableViewController: UITableViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
-        if let _ = presentingViewController as? LoginViewController {
-            navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(askForLogout(_:)))
-        }
-
         if repos == nil {
             loadReposAsync()
         }
     }
 
+    @objc func openSearchBar(_: UIBarButtonItem) {
+        debugPrint("Search is not implemented yet")
+        showToast(message: "Search is not implemented yet")
+    }
+    
     @objc func askForLogout(_: UIBarButtonItem) {
         let test = PopUpControllerGenerator.createPopUp(withTitle: "Logout", andMessage: "Are you sure you want to log out?") { _ in
             self.presentingViewController?.dismiss(animated: true)
