@@ -10,6 +10,12 @@ import UIKit
 
 class ReposTableViewController: UITableViewController {
     private var repos: [Repository]?
+    private var reposFilter: ((Repository) -> Bool)?
+
+    private var filterAllButton: UIButton?
+    private var filterSourceButton: UIButton?
+    private var filterForkButton: UIButton?
+    private var filterMirrorButton: UIButton?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,7 +50,7 @@ class ReposTableViewController: UITableViewController {
         debugPrint("Search is not implemented yet")
         showToast(message: "Search is not implemented yet")
     }
-    
+
     @objc func askForLogout(_: UIBarButtonItem) {
         let test = PopUpControllerGenerator.createPopUp(withTitle: "Logout", andMessage: "Are you sure you want to log out?") { _ in
             self.presentingViewController?.dismiss(animated: true)
@@ -76,10 +82,82 @@ class ReposTableViewController: UITableViewController {
         loadReposAsync()
     }
 
+    @objc func filterButtonActions(_ sender: UIButton?) {
+        switch sender {
+        case filterAllButton:
+            reposFilter = nil
+        case filterSourceButton:
+            reposFilter = { !($0.fork ?? false) && !($0.mirror ?? false) }
+        case filterForkButton:
+            reposFilter = { $0.fork ?? false }
+        case filterMirrorButton:
+            reposFilter = { $0.mirror ?? false }
+        default:
+            debugPrint("filterButtonActions(...): Unhandled button")
+        }
+        tableView.reloadData()
+    }
+
     // MARK: - Table view delegates
 
+    override func tableView(_: UITableView, viewForHeaderInSection _: Int) -> UIView? {
+        let stackView = UIStackView()
+        stackView.axis = .horizontal
+        stackView.distribution = .fillEqually
+        stackView.alignment = .center
+        stackView.spacing = 16
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+
+        let headerView = UIView()
+        headerView.backgroundColor = .white
+        headerView.addSubview(stackView)
+
+        var constraints = [NSLayoutConstraint]()
+        constraints.append(NSLayoutConstraint(item: stackView, attribute: .leading, relatedBy: .equal, toItem: headerView, attribute: .leading, multiplier: 1.0, constant: 0.0))
+        constraints.append(NSLayoutConstraint(item: stackView, attribute: .trailing, relatedBy: .equal, toItem: headerView, attribute: .trailing, multiplier: 1.0, constant: 0.0))
+        constraints.append(NSLayoutConstraint(item: stackView, attribute: .top, relatedBy: .equal, toItem: headerView, attribute: .top, multiplier: 1.0, constant: 0.0))
+        constraints.append(NSLayoutConstraint(item: stackView, attribute: .bottom, relatedBy: .equal, toItem: headerView, attribute: .bottom, multiplier: 1.0, constant: 0.0))
+        headerView.addConstraints(constraints)
+
+        let allButton = UIButton(type: .roundedRect)
+        allButton.setTitle("All", for: .normal)
+        allButton.translatesAutoresizingMaskIntoConstraints = false
+        allButton.addTarget(self, action: #selector(filterButtonActions(_:)), for: .touchUpInside)
+        stackView.addArrangedSubview(allButton)
+        filterAllButton = allButton
+
+        let sourceButton = UIButton(type: .roundedRect)
+        sourceButton.setTitle("Source", for: .normal)
+        sourceButton.translatesAutoresizingMaskIntoConstraints = false
+        sourceButton.addTarget(self, action: #selector(filterButtonActions(_:)), for: .touchUpInside)
+        stackView.addArrangedSubview(sourceButton)
+        filterSourceButton = sourceButton
+
+        let forkButton = UIButton(type: .roundedRect)
+        forkButton.setTitle("Fork", for: .normal)
+        forkButton.translatesAutoresizingMaskIntoConstraints = false
+        forkButton.addTarget(self, action: #selector(filterButtonActions(_:)), for: .touchUpInside)
+        stackView.addArrangedSubview(forkButton)
+        filterForkButton = forkButton
+
+        let mirrorButton = UIButton(type: .roundedRect)
+        mirrorButton.setTitle("Mirror", for: .normal)
+        mirrorButton.translatesAutoresizingMaskIntoConstraints = false
+        mirrorButton.addTarget(self, action: #selector(filterButtonActions(_:)), for: .touchUpInside)
+        stackView.addArrangedSubview(mirrorButton)
+        filterMirrorButton = mirrorButton
+
+        return headerView
+    }
+
     override func tableView(_: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let repo = repos?[indexPath.row] {
+        var filteredRepos: [Repository]?
+        if let reposFilter = reposFilter {
+            filteredRepos = repos?.filter(reposFilter)
+        } else {
+            filteredRepos = repos
+        }
+        if let repo = filteredRepos?[indexPath.row] {
             AppState.selectedRepo = repo
             AppState.enableAllTabBarItems(ofTabBarController: tabBarController)
             AppState.popToRootOtherNavigationControllers(ofTabBarController: tabBarController)
@@ -93,13 +171,26 @@ class ReposTableViewController: UITableViewController {
     }
 
     override func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
-        return repos?.count ?? 0
+        var filteredRepos: [Repository]?
+        if let reposFilter = reposFilter {
+            filteredRepos = repos?.filter(reposFilter)
+        } else {
+            filteredRepos = repos
+        }
+        return filteredRepos?.count ?? 0
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "RepoCell", for: indexPath)
 
-        guard let repo = repos?[indexPath.row] else {
+        var filteredRepos: [Repository]?
+        if let reposFilter = reposFilter {
+            filteredRepos = repos?.filter(reposFilter)
+        } else {
+            filteredRepos = repos
+        }
+
+        guard let repo = filteredRepos?[indexPath.row] else {
             return cell
         }
 
