@@ -8,9 +8,14 @@
 
 import UIKit
 
-class ReposTableViewController: UITableViewController {
+class ReposTableViewController: UITableViewController, UISearchBarDelegate {
     private var repos: [Repository]?
     private var reposFilter: ((Repository) -> Bool)?
+    private var reposSearchText: String? {
+        didSet {
+            tableView.reloadData()
+        }
+    }
 
     private var filterAllButton: UIButton?
     private var filterSourceButton: UIButton?
@@ -25,7 +30,7 @@ class ReposTableViewController: UITableViewController {
         title = "Repositories"
 
         navigationItem.rightBarButtonItems = [UIBarButtonItem]()
-        let searchButton = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(openSearchBar(_:)))
+        let searchButton = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(toggleSearchBar))
         navigationItem.rightBarButtonItems?.append(searchButton)
 
         if presentingViewController is LoginViewController {
@@ -46,12 +51,25 @@ class ReposTableViewController: UITableViewController {
         }
     }
 
-    @objc func openSearchBar(_: UIBarButtonItem) {
-        debugPrint("Search is not implemented yet")
-        showToast(message: "Search is not implemented yet")
+    @objc private func toggleSearchBar() {
+        guard #available(iOS 11.0, *) else {
+            showToast(message: "Search only available on iOS 11 and above")
+            return
+        }
+
+        if navigationItem.searchController == nil {
+            let sc = UISearchController(searchResultsController: nil)
+            sc.searchBar.delegate = self
+            definesPresentationContext = true
+            navigationItem.searchController = sc
+            navigationItem.hidesSearchBarWhenScrolling = false
+        } else {
+            reposSearchText = nil
+            navigationItem.searchController = nil
+        }
     }
 
-    @objc func askForLogout(_: UIBarButtonItem) {
+    @objc private func askForLogout(_: UIBarButtonItem) {
         let test = PopUpControllerGenerator.createPopUp(withTitle: "Logout", andMessage: "Are you sure you want to log out?") { _ in
             self.presentingViewController?.dismiss(animated: true)
             AppState.reset()
@@ -107,11 +125,35 @@ class ReposTableViewController: UITableViewController {
     }
 
     private func getFilteredRepositories() -> [Repository]? {
+        var reposFiltered: [Repository]?
+
         if let reposFilter = reposFilter {
-            return repos?.filter(reposFilter)
+            reposFiltered = repos?.filter(reposFilter)
         } else {
-            return repos
+            reposFiltered = repos
         }
+
+        if let reposSearchText = reposSearchText {
+            reposFiltered = reposFiltered?.filter {
+                $0.name?.lowercased().contains(reposSearchText.lowercased()) ?? false
+            }
+        }
+
+        return reposFiltered
+    }
+
+    // MARK: UISearchBarDelegate
+
+    func searchBar(_: UISearchBar, textDidChange searchText: String) {
+        reposSearchText = searchText != "" ? searchText : nil
+    }
+
+    func searchBarCancelButtonClicked(_: UISearchBar) {
+        toggleSearchBar()
+    }
+
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        searchBar.text = reposSearchText
     }
 
     // MARK: - Table view delegates
