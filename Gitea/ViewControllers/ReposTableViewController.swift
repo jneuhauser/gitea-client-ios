@@ -12,31 +12,33 @@ class ReposTableViewController: UITableViewController, UISearchBarDelegate {
     private var repos: [Repository]? {
         get {
             var reposFiltered: [Repository]?
-            
+
             if let reposFilter = reposFilter {
                 reposFiltered = reposData?.filter(reposFilter)
             } else {
                 reposFiltered = reposData
             }
-            
+
             if let reposSearchText = reposSearchText {
                 reposFiltered = reposFiltered?.filter {
                     $0.name?.lowercased().contains(reposSearchText.lowercased()) ?? false
                 }
             }
-            
+
             return reposFiltered
         }
         set(newValue) {
             reposData = newValue
         }
     }
+
     private var reposData: [Repository]?
     private var reposFilter: ((Repository) -> Bool)? {
         didSet {
             tableView.reloadData()
         }
     }
+
     private var reposSearchText: String? {
         didSet {
             tableView.reloadData()
@@ -89,6 +91,7 @@ class ReposTableViewController: UITableViewController, UISearchBarDelegate {
             definesPresentationContext = true
             navigationItem.searchController = sc
             navigationItem.hidesSearchBarWhenScrolling = false
+            sc.searchBar.becomeFirstResponder()
         } else {
             reposSearchText = nil
             navigationItem.searchController = nil
@@ -156,7 +159,7 @@ class ReposTableViewController: UITableViewController, UISearchBarDelegate {
     }
 
     func searchBarCancelButtonClicked(_: UISearchBar) {
-        toggleSearchBar()
+        reposSearchText = nil
     }
 
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
