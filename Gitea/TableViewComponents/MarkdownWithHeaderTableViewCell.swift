@@ -11,7 +11,7 @@ import SafariServices
 import UIKit
 
 class MarkdownWithHeaderTableViewCell: UITableViewCell {
-    public static let reuseIdentifier: String = String(describing: self)
+    public static let reuseIdentifier: String = String(describing: MarkdownWithHeaderTableViewCell.self)
     public static let uiNib: UINib = UINib(nibName: "MarkdownWithHeaderTableViewCell", bundle: nil)
 
     @IBOutlet var headerLabel: UILabel!

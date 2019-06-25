@@ -9,7 +9,7 @@
 import UIKit
 
 class IssuePullRequestTableViewCell: UITableViewCell {
-    public static let reuseIdentifier: String = String(describing: self)
+    public static let reuseIdentifier: String = String(describing: IssuePullRequestTableViewCell.self)
     public static let uiNib: UINib = UINib(nibName: "IssuePullRequestTableViewCell", bundle: nil)
 
     @IBOutlet var typeImage: UIImageView!
