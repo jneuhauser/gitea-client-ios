@@ -9,8 +9,34 @@
 import UIKit
 
 class ReposTableViewController: UITableViewController, UISearchBarDelegate {
-    private var repos: [Repository]?
-    private var reposFilter: ((Repository) -> Bool)?
+    private var repos: [Repository]? {
+        get {
+            var reposFiltered: [Repository]?
+            
+            if let reposFilter = reposFilter {
+                reposFiltered = reposData?.filter(reposFilter)
+            } else {
+                reposFiltered = reposData
+            }
+            
+            if let reposSearchText = reposSearchText {
+                reposFiltered = reposFiltered?.filter {
+                    $0.name?.lowercased().contains(reposSearchText.lowercased()) ?? false
+                }
+            }
+            
+            return reposFiltered
+        }
+        set(newValue) {
+            reposData = newValue
+        }
+    }
+    private var reposData: [Repository]?
+    private var reposFilter: ((Repository) -> Bool)? {
+        didSet {
+            tableView.reloadData()
+        }
+    }
     private var reposSearchText: String? {
         didSet {
             tableView.reloadData()
@@ -121,25 +147,6 @@ class ReposTableViewController: UITableViewController, UISearchBarDelegate {
         default:
             debugPrint("filterButtonActions(...): Unhandled button")
         }
-        tableView.reloadData()
-    }
-
-    private func getFilteredRepositories() -> [Repository]? {
-        var reposFiltered: [Repository]?
-
-        if let reposFilter = reposFilter {
-            reposFiltered = repos?.filter(reposFilter)
-        } else {
-            reposFiltered = repos
-        }
-
-        if let reposSearchText = reposSearchText {
-            reposFiltered = reposFiltered?.filter {
-                $0.name?.lowercased().contains(reposSearchText.lowercased()) ?? false
-            }
-        }
-
-        return reposFiltered
     }
 
     // MARK: UISearchBarDelegate
@@ -213,7 +220,7 @@ class ReposTableViewController: UITableViewController, UISearchBarDelegate {
     }
 
     override func tableView(_: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let repo = getFilteredRepositories()?[indexPath.row] {
+        if let repo = repos?[indexPath.row] {
             AppState.selectedRepo = repo
             AppState.enableAllTabBarItems(ofTabBarController: tabBarController)
             AppState.popToRootOtherNavigationControllers(ofTabBarController: tabBarController)
@@ -227,13 +234,13 @@ class ReposTableViewController: UITableViewController, UISearchBarDelegate {
     }
 
     override func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
-        return getFilteredRepositories()?.count ?? 0
+        return repos?.count ?? 0
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "RepoCell", for: indexPath)
 
-        guard let repo = getFilteredRepositories()?[indexPath.row] else {
+        guard let repo = repos?[indexPath.row] else {
             debugPrint("tableView(cellForRowAt: ...): failed to get model data")
             return cell
         }
