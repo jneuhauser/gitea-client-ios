@@ -53,6 +53,8 @@ class IssuePullRequestDetailViewController: MessageViewController, UITableViewDe
         messageView.font = UIFont.systemFont(ofSize: 18)
         messageView.textView.placeholderText = "New message..."
         messageView.textView.placeholderTextColor = .lightGray
+        messageView.textView.autocapitalizationType = .none
+        messageView.textView.autocorrectionType = .no
 
         setup(scrollView: tableView)
     }

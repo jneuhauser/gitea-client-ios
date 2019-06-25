@@ -23,8 +23,14 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
 
         serverTextField.delegate = self
+        serverTextField.autocapitalizationType = .none
+        serverTextField.autocorrectionType = .no
         userTextField.delegate = self
+        userTextField.autocapitalizationType = .none
+        userTextField.autocorrectionType = .no
         passwordTextField.delegate = self
+        passwordTextField.autocapitalizationType = .none
+        passwordTextField.autocorrectionType = .no
 
         // TODO: Remove credentials for release
         serverTextField.text = "https://try.gitea.io"

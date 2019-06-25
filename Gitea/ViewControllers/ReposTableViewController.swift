@@ -88,6 +88,8 @@ class ReposTableViewController: UITableViewController, UISearchBarDelegate {
         if navigationItem.searchController == nil {
             let sc = UISearchController(searchResultsController: nil)
             sc.searchBar.delegate = self
+            sc.searchBar.autocapitalizationType = .none
+            sc.searchBar.autocorrectionType = .no
             definesPresentationContext = true
             navigationItem.searchController = sc
             navigationItem.hidesSearchBarWhenScrolling = false
