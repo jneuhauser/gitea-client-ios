@@ -25,6 +25,10 @@ extension UIView {
     }
 
     func showSpinner() {
+        guard vSpinner == nil else {
+            return
+        }
+
         let spinnerView = UIView(frame: bounds)
         spinnerView.backgroundColor = UIColor(red: 0.5, green: 0.5, blue: 0.5, alpha: 0.5)
         let ai = UIActivityIndicatorView(style: .whiteLarge)
