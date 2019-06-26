@@ -17,6 +17,7 @@ class CodeTableViewController: UITableViewController, UIPickerViewDataSource, UI
     private var readmeGitEntry: GitEntry?
 
     private var selectedRepoHash = AppState.selectedRepo.hashValue
+    private let titleImage = UIImage(named: "code")
     private var selectedBranch = AppState.selectedRepo?.defaultBranch {
         didSet {
             if let selectedBranch = selectedBranch {
@@ -52,6 +53,10 @@ class CodeTableViewController: UITableViewController, UIPickerViewDataSource, UI
         if selectedRepoHash != AppState.selectedRepo.hashValue {
             selectedRepoHash = AppState.selectedRepo.hashValue
             selectedBranch = AppState.selectedRepo?.defaultBranch
+            if let repoOwner = AppState.selectedRepo?.owner?.login,
+                let repoName = AppState.selectedRepo?.name {
+                navigationItem.setTilte("\(repoOwner)/\(repoName)", withImage: titleImage)
+            }
             loadReferencesAsync()
             loadBranchesAsync()
         }

@@ -56,6 +56,7 @@ class ReposTableViewController: UITableViewController, UISearchBarDelegate {
         clearsSelectionOnViewWillAppear = false
 
         title = "Repositories"
+        navigationItem.setTilte("Repositories", withImage: UIImage(named: "repo"))
 
         navigationItem.rightBarButtonItems = [UIBarButtonItem]()
         let searchButton = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(toggleSearchBar))

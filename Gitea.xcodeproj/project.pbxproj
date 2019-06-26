@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1E0C0A33229D72A0001453B5 /* IssuePullRequestTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1E0C0A32229D72A0001453B5 /* IssuePullRequestTableViewCell.xib */; };
+		1E14796422C34D9400E16491 /* NavigationItemExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E14796322C34D9400E16491 /* NavigationItemExtensions.swift */; };
 		1E1960FA22BD4D940051F42B /* PopUpControllerGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E1960F922BD4D940051F42B /* PopUpControllerGenerator.swift */; };
 		1E1960FC22BD6C270051F42B /* ViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E1960FB22BD6C270051F42B /* ViewControllerExtensions.swift */; };
 		1E1E7F6622BADB97008AD290 /* IssuePullRequestDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E1E7F6522BADB97008AD290 /* IssuePullRequestDetailViewController.swift */; };
@@ -123,6 +124,7 @@
 
 /* Begin PBXFileReference section */
 		1E0C0A32229D72A0001453B5 /* IssuePullRequestTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IssuePullRequestTableViewCell.xib; sourceTree = "<group>"; };
+		1E14796322C34D9400E16491 /* NavigationItemExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationItemExtensions.swift; sourceTree = "<group>"; };
 		1E1960F922BD4D940051F42B /* PopUpControllerGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpControllerGenerator.swift; sourceTree = "<group>"; };
 		1E1960FB22BD6C270051F42B /* ViewControllerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerExtensions.swift; sourceTree = "<group>"; };
 		1E1E7F6522BADB97008AD290 /* IssuePullRequestDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssuePullRequestDetailViewController.swift; sourceTree = "<group>"; };
@@ -395,6 +397,7 @@
 			children = (
 				1E3B45DC229738E60051A448 /* DateTools.swift */,
 				1EB31B0722AFA84900056111 /* IntExtensions.swift */,
+				1E14796322C34D9400E16491 /* NavigationItemExtensions.swift */,
 				1E1960F922BD4D940051F42B /* PopUpControllerGenerator.swift */,
 				1EB31B0222AEA8EF00056111 /* StringExtensions.swift */,
 				1E1960FB22BD6C270051F42B /* ViewControllerExtensions.swift */,
@@ -709,6 +712,7 @@
 				1E1960FA22BD4D940051F42B /* PopUpControllerGenerator.swift in Sources */,
 				1E3E78FB22930DD000B0FAA7 /* Repository.swift in Sources */,
 				1E3E78F222930DD000B0FAA7 /* EditLabelOption.swift in Sources */,
+				1E14796422C34D9400E16491 /* NavigationItemExtensions.swift in Sources */,
 				1E69AD0222BFA9FE004F16D6 /* ViewExtensions.swift in Sources */,
 				1E3E78DC22930DD000B0FAA7 /* CreateRepoOption.swift in Sources */,
 				1E6EB269228A048F005BA94E /* ReposTableViewController.swift in Sources */,

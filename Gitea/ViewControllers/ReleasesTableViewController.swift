@@ -12,6 +12,7 @@ class ReleasesTableViewController: UITableViewController {
     private var releases: [Release]?
 
     private var selectedRepoHash = AppState.selectedRepo.hashValue
+    private let titleImage = UIImage(named: "tag")
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +25,10 @@ class ReleasesTableViewController: UITableViewController {
 
         if selectedRepoHash != AppState.selectedRepo.hashValue {
             selectedRepoHash = AppState.selectedRepo.hashValue
+            if let repoOwner = AppState.selectedRepo?.owner?.login,
+                let repoName = AppState.selectedRepo?.name {
+                navigationItem.setTilte("\(repoOwner)/\(repoName)", withImage: titleImage)
+            }
             loadReleasesAsync()
         }
     }

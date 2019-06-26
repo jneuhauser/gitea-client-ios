@@ -12,6 +12,7 @@ class IssuesPullRequestsTableViewController: UITableViewController {
     private var issues: [IssuePullRequestData]?
 
     private var selectedRepoHash = AppState.selectedRepo.hashValue
+    private var titleImage: UIImage?
 
     private var loadDataAsync: (() -> Void)?
 
@@ -21,9 +22,11 @@ class IssuesPullRequestsTableViewController: UITableViewController {
         switch AppState.getSelectedTabBarItem(fromIndex: tabBarController?.selectedIndex) {
         case .Issues:
             title = "Issues"
+            titleImage = UIImage(named: "issue-opened")
             loadDataAsync = loadIssuesAsync
         case .PullRequests:
             title = "Pull Requests"
+            titleImage = UIImage(named: "git-pull-request")
             loadDataAsync = loadPullRequestsAsync
         default:
             break
@@ -37,6 +40,10 @@ class IssuesPullRequestsTableViewController: UITableViewController {
 
         if selectedRepoHash != AppState.selectedRepo.hashValue {
             selectedRepoHash = AppState.selectedRepo.hashValue
+            if let repoOwner = AppState.selectedRepo?.owner?.login,
+                let repoName = AppState.selectedRepo?.name {
+                navigationItem.setTilte("\(repoOwner)/\(repoName)", withImage: titleImage)
+            }
             loadDataAsync?()
         }
     }
