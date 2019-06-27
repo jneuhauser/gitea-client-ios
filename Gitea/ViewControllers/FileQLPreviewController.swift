@@ -19,6 +19,10 @@ class FileQLPreviewController: QLPreviewController, QLPreviewControllerDataSourc
         // fix possibly hidden content under tab bar
         tabBarController?.tabBar.isTranslucent = false
 
+        if let fileName = gitEntry?.path {
+            navigationItem.setTilte(fileName, withImage: UIImage(named: "file"))
+        }
+
         dataSource = self
         loadFileAsync()
     }
