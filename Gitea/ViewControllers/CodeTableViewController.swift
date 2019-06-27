@@ -17,7 +17,7 @@ class CodeTableViewController: UITableViewController, UIPickerViewDataSource, UI
     private var readmeGitEntry: GitEntry?
 
     private var selectedRepoHash = AppState.selectedRepo.hashValue
-    private let titleImage = UIImage(named: "code")
+    private var titleImage: UIImage?
     private var selectedBranch = AppState.selectedRepo?.defaultBranch {
         didSet {
             if let selectedBranch = selectedBranch {
@@ -41,18 +41,28 @@ class CodeTableViewController: UITableViewController, UIPickerViewDataSource, UI
         tableView.register(MarkdownWithHeaderTableViewCell.uiNib, forCellReuseIdentifier: MarkdownWithHeaderTableViewCell.reuseIdentifier)
 
         navigationController?.navigationBar.isTranslucent = false
+
+        if gitTreeShaToLoad != nil {
+            if titleImage == nil {
+                titleImage = UIImage(named: "file-directory")
+            }
+            if let navigationTitle = title {
+                navigationItem.setTilte(navigationTitle, withImage: titleImage)
+            }
+            loadGitTreeAsync()
+        }
     }
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
-        if gitTreeShaToLoad != nil {
-            loadGitTreeAsync()
-        } else
-
-        if selectedRepoHash != AppState.selectedRepo.hashValue {
+        if gitTreeShaToLoad == nil,
+            selectedRepoHash != AppState.selectedRepo.hashValue {
             selectedRepoHash = AppState.selectedRepo.hashValue
             selectedBranch = AppState.selectedRepo?.defaultBranch
+            if titleImage == nil {
+                titleImage = UIImage(named: "code")
+            }
             if let repoOwner = AppState.selectedRepo?.owner?.login,
                 let repoName = AppState.selectedRepo?.name {
                 navigationItem.setTilte("\(repoOwner)/\(repoName)", withImage: titleImage)
