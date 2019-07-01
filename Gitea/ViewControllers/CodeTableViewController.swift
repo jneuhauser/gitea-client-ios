@@ -14,7 +14,14 @@ class CodeTableViewController: UITableViewController, UIPickerViewDataSource, UI
     private var references: [Reference]?
     private var gitTree: GitTreeResponse?
     private var branches: [Branch]?
-    private var readmeGitEntry: GitEntry?
+    private var readmeCell: MarkdownWithHeaderTableViewCell?
+    private var readmeGitEntry: GitEntry? {
+        didSet {
+            DispatchQueue.main.async {
+                self.readmeCell = self.tableView.dequeueReusableCell(withIdentifier: MarkdownWithHeaderTableViewCell.reuseIdentifier) as? MarkdownWithHeaderTableViewCell
+            }
+        }
+    }
 
     private var selectedRepoHash = AppState.selectedRepo.hashValue
     private var titleImage: UIImage?
@@ -278,7 +285,7 @@ class CodeTableViewController: UITableViewController, UIPickerViewDataSource, UI
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = gitTree?.tree?.count != indexPath.row ? tableView.dequeueReusableCell(withIdentifier: "CodeCell", for: indexPath) : tableView.dequeueReusableCell(withIdentifier: MarkdownWithHeaderTableViewCell.reuseIdentifier, for: indexPath)
+        let cell = gitTree?.tree?.count != indexPath.row ? tableView.dequeueReusableCell(withIdentifier: "CodeCell", for: indexPath) : readmeCell ?? tableView.dequeueReusableCell(withIdentifier: MarkdownWithHeaderTableViewCell.reuseIdentifier, for: indexPath)
 
         switch cell {
         case is MarkdownWithHeaderTableViewCell:
