@@ -1,7 +1,0 @@
-import Foundation
-public struct ServerVersion: Codable {
-    public var version: String?
-    public init(version: String?) { 
-        self.version = version
-    }
-}

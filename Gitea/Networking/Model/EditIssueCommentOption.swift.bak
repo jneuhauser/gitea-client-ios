@@ -1,7 +1,0 @@
-import Foundation
-public struct EditIssueCommentOption: Codable {
-    public var body: String
-    public init(body: String) { 
-        self.body = body
-    }
-}
